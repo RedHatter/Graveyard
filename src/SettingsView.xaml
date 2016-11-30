@@ -1,0 +1,36 @@
+<StackPanel x:Class="HDT.Plugins.Graveyard.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
+             mc:Ignorable="d" Width="350">
+    <TextBlock FontSize="18" FontWeight="bold" Text="Full" Margin="10,5" />
+    <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+      Text="All frendly minions that have died." />
+    <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
+                      IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}"
+                      ToolTip="Enable/Disable full graveyard display." />
+    <TextBlock FontSize="18" FontWeight="bold" Text="Resurrect" Margin="10,5" />
+    <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+      Text="When the selected deck contains 'Resurrect' or 'Onix Biship' shows
+resurrect chance as well as frendly minions that have died." />
+    <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
+                      IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}"
+                      ToolTip="Enable/Disable display for resurrect chances." />
+    <TextBlock FontSize="18" FontWeight="bold" Text="N'Zoth" Margin="10,5" />
+    <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+      Text="When the selected deck contains 'N'Zoth, the Corruptor' shows
+deathrattle mintions that have died." />
+    <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
+                      IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}"
+                      ToolTip="Enable/Disable display for deathrattle minionshe." />
+    <TextBlock FontSize="18" FontWeight="bold" Text="Anyfin" Margin="10,5" />
+    <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+      Text="When the selected deck contains 'Anyfin Can Happen' shows
+Murlocs that have died as well as a display showing minimum and maximum possible damage." />
+    <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
+                      IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}"
+                      ToolTip="Enable/Disable display for Murlocs." />
+</StackPanel>
