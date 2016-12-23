@@ -12,5 +12,11 @@ Displays deathrattle minions.
 * **Resurect** or **Onix Bishop**  
 Displays resurect chance next to each minion that has died.
 
+
 ## Installing
-Extract `graveyard.dll` from the archive and move it to `%AppData%\HearthstoneDeckTracker\Plugins`. You will need to enable Graveyard in the Hearthstone Deck Tracker client under `Options > Tracker > Plugins > Graveyard`.
+1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
+2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
+![Unblock](images/unblock.png?raw=true)
+3. Extract the containing file *Graveyard.dll* into `%AppData%\HearthstoneDeckTracker\Plugins`.
+4. (Re-)start HDT.
+5. Enable the plugin in `Options -> Tracker -> Plugins`.
