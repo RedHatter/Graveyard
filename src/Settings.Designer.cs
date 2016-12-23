@@ -28,6 +28,18 @@ namespace HDT.Plugins.Graveyard {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnemyEnabled {
+            get {
+                return ((bool)(this["EnemyEnabled"]));
+            }
+            set {
+                this["EnemyEnabled"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ResurrectEnabled {
             get {
                 return ((bool)(this["ResurrectEnabled"]));

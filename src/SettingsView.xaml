@@ -6,6 +6,12 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
              mc:Ignorable="d" Width="350">
+     <TextBlock FontSize="18" FontWeight="bold" Text="Opponent" Margin="10,5" />
+     <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+       Text="All enemy minions that have died." />
+     <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
+                       IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}"
+                       ToolTip="Enable/Disable enemy graveyard display." />
     <TextBlock FontSize="18" FontWeight="bold" Text="Full" Margin="10,5" />
     <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
       Text="All frendly minions that have died." />
