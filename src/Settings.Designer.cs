@@ -40,6 +40,18 @@ namespace HDT.Plugins.Graveyard {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ResurrectKazakus {
+            get {
+                return ((bool)(this["ResurrectKazakus"]));
+            }
+            set {
+                this["ResurrectKazakus"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AnyfinEnabled {
             get {
                 return ((bool)(this["AnyfinEnabled"]));

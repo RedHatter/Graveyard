@@ -19,6 +19,11 @@ resurrect chance as well as frendly minions that have died." />
     <mah:ToggleSwitch OnLabel="Enabled" OffLabel="Disabled" Margin="10,0"
                       IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}"
                       ToolTip="Enable/Disable display for resurrect chances." />
+    <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
+      Text="Also show when the selected deck contains 'Kazakus'." />
+    <mah:ToggleSwitch OnLabel="Yes" OffLabel="No" Margin="10,0"
+                      IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}"
+                      ToolTip="Enable/Disable display for resurrect chances with Kazakus." />
     <TextBlock FontSize="18" FontWeight="bold" Text="N'Zoth" Margin="10,5" />
     <TextBlock FontSize="12" TextWrapping="Wrap" Margin="10,0"
       Text="When the selected deck contains 'N'Zoth, the Corruptor' shows

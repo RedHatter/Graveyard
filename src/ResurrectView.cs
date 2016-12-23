@@ -15,7 +15,8 @@ namespace HDT.Plugins.Graveyard
 
     public static bool isValid () {
       return Core.Game.Player.PlayerCardList.FindIndex(card =>
-				card.Id == "BRM_017" || card.Id == "KAR_204") > -1;
+				card.Id == "BRM_017" || card.Id == "KAR_204" ||
+					(Settings.Default.ResurrectKazakus && card.Id == "CFM_621")) > -1;
     }
 
     public ResurrectView () {
