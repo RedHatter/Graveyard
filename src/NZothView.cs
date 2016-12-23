@@ -18,7 +18,7 @@ namespace HDT.Plugins.Graveyard
     }
 
 		new public bool Update (Card card) {
-			return card.Mechanics.Contains("Deathrattle") && base.Update(card);
+			return card.Mechanics.Contains("Deathrattle") && card.Id != "LOE_019" && base.Update(card);
 		}
 	}
 }

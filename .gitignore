@@ -1,1 +1,3 @@
 .atom-build.yml
+bin
+obj
