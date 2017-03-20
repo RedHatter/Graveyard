@@ -59,6 +59,7 @@ namespace HDT.Plugins.Graveyard
 
 			// Connect events
 			GameEvents.OnGameStart.Add(Reset);
+			GameEvents.OnGameEnd.Add(Reset);
 			DeckManagerEvents.OnDeckSelected.Add(d => Reset());
 			GameEvents.OnPlayerPlayToGraveyard.Add(Update);
 
@@ -105,6 +106,7 @@ namespace HDT.Plugins.Graveyard
 		 */
 		public void Reset () {
 			_vertical.Children.Clear();
+			_verticalEnemy.Children.Clear();
 
 			if (Settings.Default.EnemyEnabled) {
 				Enemy = new NormalView();
