@@ -18,6 +18,7 @@ namespace HDT.Plugins.Graveyard
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
 		public NZothView NZoth;
+		public DiscardView Discard;
 
 		private StackPanel _vertical;
 		private StackPanel _verticalEnemy;
@@ -64,6 +65,8 @@ namespace HDT.Plugins.Graveyard
 
 			GameEvents.OnPlayerPlay.Add(c => Anyfin?.UpdateDamage());
 			GameEvents.OnOpponentPlay.Add(c => Anyfin?.UpdateDamage());
+
+			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
 		}
 
 		public void Dispose()
@@ -153,6 +156,16 @@ namespace HDT.Plugins.Graveyard
 			{
 				NZoth = null;
 			}
+
+			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
+			{
+				Discard = new DiscardView();
+				_vertical.Children.Add(Discard);
+			}
+			else
+			{
+				Discard = null;
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -170,6 +183,11 @@ namespace HDT.Plugins.Graveyard
 		{
 			Anyfin?.Update(card);
 			Enemy?.Update(card);
+		}
+
+		public void PlayerDiscardUpdate(Card card)
+		{
+			Discard?.Update(card);
 		}
 	}
 }

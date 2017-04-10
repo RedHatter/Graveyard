@@ -37,6 +37,9 @@
 	<TextBlock Text="N'Zoth" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for deathrattle minions." Style="{StaticResource ToggleStyle}"/>
+	<TextBlock Text="Discard" Style="{StaticResource TitleStyle}"/>
+	<TextBlock Text="When the deck contains 'Cruel Dinomancer', show resurrect chance of frendly minions that have been discarded." Style="{StaticResource DescStyle}"/>
+	<mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for discarded minions." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Anyfin" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for Murlocs." Style="{StaticResource ToggleStyle}"/>
