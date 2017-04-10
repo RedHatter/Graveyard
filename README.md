@@ -3,6 +3,10 @@ Graveyard is a plugin for the [Hearthstone Deck Tracker](https://github.com/Hear
 
 Graveyard displays minions that have died this game, both friendly and enemy. In addition Graveyard will display specialized views for decks containing certain cards.
 
+![Resurrect and N'Zoth](images/resurrect.png?raw=true)
+
+![Discarded](images/discarded.png?raw=true)
+
 * **Anyfin Can Happen**
 Displays Murlocs killed by both the player and opponent as well as a damage calculator (thanks to [AnyfinCalculator](https://github.com/ericBG/AnyfinCalculator)).
 
