@@ -11,7 +11,6 @@
     <Setting Name="ResurrectEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    </Setting>
     <Setting Name="ResurrectKazakus" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -19,6 +18,9 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="NZothEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DiscardEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

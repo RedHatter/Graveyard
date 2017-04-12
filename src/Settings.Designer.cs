@@ -1,4 +1,4 @@
-namespace HDT.Plugins.Graveyard {
+﻿namespace HDT.Plugins.Graveyard {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -84,6 +84,17 @@ namespace HDT.Plugins.Graveyard {
                 this["NZothEnabled"] = value;
             }
         }
-
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DiscardEnabled {
+            get {
+                return ((bool)(this["DiscardEnabled"]));
+            }
+            set {
+                this["DiscardEnabled"] = value;
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
 
 		public string Description
 		{
-			get { return "Displays minions that have died this game. Includes specialized displays: deathrattle minions for N'Zoth decks, resurect chance for Resurect Priest, and Murloc minions with a damage calculator for Anyfin Can Happen."; }
+			get { return "Displays minions that have died this game. Includes specialized displays: deathrattle minions for N'Zoth decks, resurrect chance for Resurrect Priest, and Murloc minions with a damage calculator for Anyfin Can Happen."; }
 		}
 
 		public MenuItem MenuItem
@@ -40,7 +40,7 @@ namespace HDT.Plugins.Graveyard
 
 		public void OnLoad()
 		{
-			GraveyardInstance = new Graveyard ();
+			GraveyardInstance = new Graveyard();
 		}
 
 		public void OnUnload()
@@ -53,7 +53,7 @@ namespace HDT.Plugins.Graveyard
 
 		public Version Version
 		{
-			get { return new Version(1, 0, 0); }
+			get { return new Version(1, 2, 0); }
 		}
 	}
 }

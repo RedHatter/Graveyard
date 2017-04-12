@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{59c8cca4-7f9b-4592-87a8-a23aded7759e}</ProjectGuid>
+    <ProjectGuid>{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Graveyard</RootNamespace>
     <AssemblyName>Graveyard</AssemblyName>
@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Properties\AssemblyInfo.cs" />
+    <Compile Include="src\DiscardView.cs" />
     <Compile Include="src\GraveyardPlugin.cs" />
     <Compile Include="src\AnyfinCalculator.cs" />
     <Compile Include="src\AnyfinView.cs" />
@@ -79,7 +81,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
-    <Copy SourceFiles="bin/Debug/Graveyard.dll"
-      DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins"/>
+    <Copy SourceFiles="bin/Debug/Graveyard.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins" />
   </Target>
 </Project>

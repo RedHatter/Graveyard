@@ -13,25 +13,32 @@ namespace HDT.Plugins.Graveyard
 	{
 		private Dictionary<Card, HearthstoneTextBlock> _chances;
 
-    public static bool isValid () {
-      return Core.Game.Player.PlayerCardList.FindIndex(card =>
-				card.Id == "BRM_017" || card.Id == "KAR_204" ||
-					(Settings.Default.ResurrectKazakus && card.Id == "CFM_621")) > -1;
-    }
+		public static bool isValid()
+		{
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Priest.Resurrect || card.Id == HearthDb.CardIds.Collectible.Priest.OnyxBishop
+			|| (Settings.Default.ResurrectKazakus && card.Id == HearthDb.CardIds.Collectible.Neutral.Kazakus)) > -1;
+		}
 
-    public ResurrectView () {
-      // Section Label
-      Label.Text = "Resurrect";
+		public ResurrectView()
+		{
+			// Section Label
+			Label.Text = "Resurrect";
 
 			_chances = new Dictionary<Card, HearthstoneTextBlock>();
-    }
+		}
 
-		new public bool Update (Card card) {
-			if (!base.Update(card)) return false;
+		new public bool Update(Card card)
+		{
+			if (!base.Update(card))
+			{
+				return false;
+			}
 
-			var count = (double) Cards.Aggregate(0, (total, c) => total + c.Count);
-			for (var i = 0; i < Cards.Count(); i++) {
-				if (!_chances.ContainsKey(Cards[i])) {
+			var count = (double)Cards.Aggregate(0, (total, c) => total + c.Count);
+			for (var i = 0; i < Cards.Count(); i++)
+			{
+				if (!_chances.ContainsKey(Cards[i]))
+				{
 					var chance = new HearthstoneTextBlock();
 					chance.FontSize = 18;
 					chance.TextAlignment = TextAlignment.Left;
@@ -46,7 +53,7 @@ namespace HDT.Plugins.Graveyard
 				_chances[Cards[i]].Text = $"{Math.Round(Cards[i].Count / count * 100)}%";
 			}
 
-      return true;
+			return true;
 		}
 	}
 }
