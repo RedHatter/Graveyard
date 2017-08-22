@@ -43,4 +43,7 @@
 	<TextBlock Text="Anyfin" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for Murlocs." Style="{StaticResource ToggleStyle}"/>
+	<TextBlock Text="Bloodreaver Gul'dan" Style="{StaticResource TitleStyle}"/>
+	<TextBlock Text="When the deck contains 'Bloodreaver Gul'dan', show demons that have died." Style="{StaticResource DescStyle}"/>
+	<mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for demons." Style="{StaticResource ToggleStyle}"/>
 </StackPanel>

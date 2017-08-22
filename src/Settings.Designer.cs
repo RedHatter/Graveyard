@@ -96,5 +96,18 @@
                 this["DiscardEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GuldanEnabled {
+            get {
+                return ((bool)(this["GuldanEnabled"]));
+            }
+            set {
+                this["GuldanEnabled"] = value;
+            }
+        }
+
     }
 }
