@@ -19,6 +19,7 @@ namespace HDT.Plugins.Graveyard
 		public AnyfinView Anyfin;
 		public NZothView NZoth;
 		public DiscardView Discard;
+		public GuldanView Guldan;
 
 		private StackPanel _vertical;
 		private StackPanel _verticalEnemy;
@@ -166,6 +167,16 @@ namespace HDT.Plugins.Graveyard
 			{
 				Discard = null;
 			}
+			
+			if (Settings.Default.GuldanEnabled && GuldanView.isValid())
+			{
+				Guldan = new GuldanView();
+				_vertical.Children.Add(Guldan);
+			}
+			else
+			{
+				Guldan= null;
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -173,7 +184,8 @@ namespace HDT.Plugins.Graveyard
 			var any = Anyfin?.Update(card) ?? false;
 			var nzoth = NZoth?.Update(card) ?? false;
 			var rez = Resurrect?.Update(card) ?? false;
-			if (!(any || nzoth || rez))
+			var guldan = Guldan?.Update(card) ?? false;
+			if (!(any || nzoth || rez || guldan))
 			{
 				Normal?.Update(card);
 			}
