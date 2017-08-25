@@ -18,7 +18,7 @@ namespace HDT.Plugins.Graveyard
 
 		new public bool Update(Card card)
 		{
-			return card.Race.Contains("Demon") && base.Update(card);
+			return (card.Race != null && card.Race.Contains("Demon")) && base.Update(card);
 		}
 	}
 }
