@@ -20,7 +20,13 @@ namespace HDT.Plugins.Graveyard
 
 		public string Description
 		{
-			get { return "Displays minions that have died this game. Includes specialized displays: deathrattle minions for N'Zoth decks, resurrect chance for Resurrect Priest, and Murloc minions with a damage calculator for Anyfin Can Happen."; }
+			get { return @"Displays minions that have died this game. Includes specialized displays:
+deathrattle minions for N'Zoth,
+taunt minions for Hadronox,
+demons for Bloodreaver Gul'dan,
+resurrect chance for priest resurrect cards,
+Murloc minions with a damage calculator for Anyfin Can Happen,
+and resurrect chance for Cruel Dinomancer."; }
 		}
 
 		public MenuItem MenuItem

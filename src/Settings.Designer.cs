@@ -84,7 +84,7 @@
                 this["NZothEnabled"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -94,6 +94,30 @@
             }
             set {
                 this["DiscardEnabled"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HadronoxEnabled {
+            get {
+                return ((bool)(this["HadronoxEnabled"]));
+            }
+            set {
+                this["HadronoxEnabled"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DKGuldanEnabled {
+            get {
+                return ((bool)(this["DKGuldanEnabled"]));
+            }
+            set {
+                this["DKGuldanEnabled"] = value;
             }
         }
     }

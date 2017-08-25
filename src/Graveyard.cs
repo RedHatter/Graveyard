@@ -6,6 +6,7 @@ using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
+using System.Reflection;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -18,6 +19,8 @@ namespace HDT.Plugins.Graveyard
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
 		public NZothView NZoth;
+		public HadronoxView Hadronox;
+		public DKGuldanView DKGuldan;
 		public DiscardView Discard;
 
 		private StackPanel _vertical;
@@ -157,6 +160,26 @@ namespace HDT.Plugins.Graveyard
 				NZoth = null;
 			}
 
+			if (Settings.Default.HadronoxEnabled && HadronoxView.isValid())
+			{
+				Hadronox = new HadronoxView();
+				_vertical.Children.Add(Hadronox);
+			}
+			else
+			{
+				Hadronox = null;
+			}
+
+			if (Settings.Default.DKGuldanEnabled && DKGuldanView.isValid())
+			{
+				DKGuldan = new DKGuldanView();
+				_vertical.Children.Add(DKGuldan);
+			}
+			else
+			{
+				DKGuldan = null;
+			}
+
 			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
 			{
 				Discard = new DiscardView();
@@ -172,8 +195,10 @@ namespace HDT.Plugins.Graveyard
 		{
 			var any = Anyfin?.Update(card) ?? false;
 			var nzoth = NZoth?.Update(card) ?? false;
+			var hadr = Hadronox?.Update(card) ?? false;
+			var dkgul = DKGuldan?.Update(card) ?? false;
 			var rez = Resurrect?.Update(card) ?? false;
-			if (!(any || nzoth || rez))
+			if (!(any || nzoth || hadr || dkgul || rez))
 			{
 				Normal?.Update(card);
 			}

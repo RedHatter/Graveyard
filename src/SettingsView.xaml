@@ -24,21 +24,27 @@
 		</Style>
 	</StackPanel.Resources>
 	<TextBlock Text="Friendly" Style="{StaticResource TitleStyle}"/>
-	<TextBlock Text="All frendly minions that have died." Style="{StaticResource DescStyle}"/>
+	<TextBlock Text="All friendly minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable friendly graveyard display." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Opponent" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="All enemy minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable enemy graveyard display." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Resurrect" Style="{StaticResource TitleStyle}"/>
-	<TextBlock Text="When the deck contains 'Resurrect' or 'Onyx Bishop', show the resurrect chance of frendly minions that have died." Style="{StaticResource DescStyle}"/>
+	<TextBlock Text="When the deck contains 'Resurrect', 'Onyx Bishop', or 'Eternal Servitude', show the resurrect chance of friendly minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for resurrect chances." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Also show when the deck contains 'Kazakus'." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for resurrect chances with Kazakus." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="N'Zoth" Style="{StaticResource TitleStyle}"/>
-	<TextBlock Text="When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died." Style="{StaticResource DescStyle}"/>
+	<TextBlock Text="When the deck contains 'N'Zoth, the Corruptor', show the friendly deathrattle minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for deathrattle minions." Style="{StaticResource ToggleStyle}"/>
+	<TextBlock Text="Hadronox" Style="{StaticResource TitleStyle}"/>
+	<TextBlock Text="When the deck contains 'Hadronox', show the friendly taunt minions that have died." Style="{StaticResource DescStyle}"/>
+	<mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for taunt minions." Style="{StaticResource ToggleStyle}"/>
+	<TextBlock Text="Bloodreaver Gul'dan" Style="{StaticResource TitleStyle}"/>
+	<TextBlock Text="When the deck contains 'Bloodreaver Gul'dan', show the friendly demons that have died." Style="{StaticResource DescStyle}"/>
+	<mah:ToggleSwitch IsChecked="{Binding DKGuldanEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for demons." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Discard" Style="{StaticResource TitleStyle}"/>
-	<TextBlock Text="When the deck contains 'Cruel Dinomancer', show resurrect chance of frendly minions that have been discarded." Style="{StaticResource DescStyle}"/>
+	<TextBlock Text="When the deck contains 'Cruel Dinomancer', show resurrect chance of friendly minions that have been discarded." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for discarded minions." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Anyfin" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage." Style="{StaticResource DescStyle}"/>

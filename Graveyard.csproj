@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\DKGuldanView.cs" />
+    <Compile Include="src\HadronoxView.cs" />
     <Compile Include="src\Properties\AssemblyInfo.cs" />
     <Compile Include="src\DiscardView.cs" />
     <Compile Include="src\GraveyardPlugin.cs" />
