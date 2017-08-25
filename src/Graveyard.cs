@@ -6,7 +6,6 @@ using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
-using System.Reflection;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -34,7 +33,7 @@ namespace HDT.Plugins.Graveyard
 			_verticalEnemy.RenderTransform = new ScaleTransform(Config.Instance.OverlayOpponentScaling / 100, Config.Instance.OverlayOpponentScaling / 100);
 			Core.OverlayCanvas.Children.Add(_verticalEnemy);
 
-			// Stick to the Right of the player panel
+			// Stick to the right of the enemy player panel
 			var border = Core.OverlayCanvas.FindName("BorderStackPanelOpponent") as Border;
 			DependencyPropertyDescriptor.FromProperty(Canvas.LeftProperty, typeof(Border))
 				.AddValueChanged(border, Layout);
@@ -90,7 +89,7 @@ namespace HDT.Plugins.Graveyard
 			DependencyPropertyDescriptor.FromProperty(Canvas.TopProperty, typeof(Border))
 				.RemoveValueChanged(border, Layout);
 			DependencyPropertyDescriptor.FromProperty(StackPanel.ActualWidthProperty, typeof(StackPanel))
-				.RemoveValueChanged(_vertical, Layout);
+				.RemoveValueChanged(_verticalEnemy, Layout);
 		}
 
 		private void Layout(object obj, EventArgs e)
