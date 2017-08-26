@@ -112,13 +112,14 @@
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool DKGuldanEnabled {
+        public bool GuldanEnabled {
             get {
-                return ((bool)(this["DKGuldanEnabled"]));
+                return ((bool)(this["GuldanEnabled"]));
             }
             set {
-                this["DKGuldanEnabled"] = value;
+                this["GuldanEnabled"] = value;
             }
         }
+
     }
 }

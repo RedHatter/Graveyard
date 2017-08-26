@@ -26,7 +26,7 @@ Displays resurrect chance next to each minion that has died.
 Displays resurrect chance next to each minion that has been discarded.
 
 ## Installing
-1. Download *Graveyard.zip* from [here](https://github.com/Arakys7/Graveyard/releases). Forked from [here](https://github.com/RedHatter/Graveyard/releases).
+1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
 2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
 ![Unblock](images/unblock.png?raw=true)
 3. Extract the containing file *Graveyard.dll* into `%AppData%\HearthstoneDeckTracker\Plugins`.
