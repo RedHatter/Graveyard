@@ -40,9 +40,6 @@
 	<TextBlock Text="Hadronox" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Hadronox', show the friendly taunt minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for taunt minions." Style="{StaticResource ToggleStyle}"/>
-	<TextBlock Text="Bloodreaver Gul'dan" Style="{StaticResource TitleStyle}"/>
-	<TextBlock Text="When the deck contains 'Bloodreaver Gul'dan', show the friendly demons that have died." Style="{StaticResource DescStyle}"/>
-	<mah:ToggleSwitch IsChecked="{Binding DKGuldanEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for demons." Style="{StaticResource ToggleStyle}"/>
 	<TextBlock Text="Discard" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Cruel Dinomancer', show resurrect chance of friendly minions that have been discarded." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for discarded minions." Style="{StaticResource ToggleStyle}"/>

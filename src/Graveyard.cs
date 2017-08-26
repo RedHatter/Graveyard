@@ -19,7 +19,6 @@ namespace HDT.Plugins.Graveyard
 		public AnyfinView Anyfin;
 		public NZothView NZoth;
 		public HadronoxView Hadronox;
-		public DKGuldanView DKGuldan;
 		public DiscardView Discard;
 		public GuldanView Guldan;
 
@@ -170,16 +169,6 @@ namespace HDT.Plugins.Graveyard
 				Hadronox = null;
 			}
 
-			if (Settings.Default.DKGuldanEnabled && DKGuldanView.isValid())
-			{
-				DKGuldan = new DKGuldanView();
-				_vertical.Children.Add(DKGuldan);
-			}
-			else
-			{
-				DKGuldan = null;
-			}
-
 			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
 			{
 				Discard = new DiscardView();
@@ -188,6 +177,16 @@ namespace HDT.Plugins.Graveyard
 			else
 			{
 				Discard = null;
+			}
+			
+			if (Settings.Default.GuldanEnabled && GuldanView.isValid())
+			{
+				Guldan = new GuldanView();
+				_vertical.Children.Add(Guldan);
+			}
+			else
+			{
+				Guldan= null;
 			}
 			
 			if (Settings.Default.GuldanEnabled && GuldanView.isValid())

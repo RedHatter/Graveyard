@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\DKGuldanView.cs" />
     <Compile Include="src\ChancesTracker.cs" />
     <Compile Include="src\HadronoxView.cs" />
     <Compile Include="src\GuldanView.cs" />
