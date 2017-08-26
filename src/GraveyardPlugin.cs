@@ -59,7 +59,7 @@ and resurrect chance for Cruel Dinomancer."; }
 
 		public Version Version
 		{
-			get { return new Version(1, 2, 0); }
+			get { return new Version(1, 3, 0); }
 		}
 	}
 }
