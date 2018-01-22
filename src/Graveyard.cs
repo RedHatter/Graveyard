@@ -23,8 +23,8 @@ namespace HDT.Plugins.Graveyard
 		public DiscardView Discard;
 		public GuldanView Guldan;
 
-		private StackPanel _vertical;
-		private StackPanel _verticalEnemy;
+		private StackPanel _friendlyPanel;
+		private StackPanel _enemyPanel;
 
 		public static InputManager Input;
 
@@ -32,21 +32,20 @@ namespace HDT.Plugins.Graveyard
 		{
 
 			// Create container
-			_verticalEnemy = new StackPanel();
-			_verticalEnemy.Orientation = Orientation.Vertical;
-			// _verticalEnemy.RenderTransform = new ScaleTransform(Config.Instance.OverlayOpponentScaling / 100, Config.Instance.OverlayOpponentScaling / 100);
-			Core.OverlayCanvas.Children.Add(_verticalEnemy);
-			Canvas.SetTop(_verticalEnemy, Settings.Default.EnemyTop);
-			Canvas.SetLeft(_verticalEnemy, Settings.Default.EnemyLeft);
+			_enemyPanel = new StackPanel();
+			_enemyPanel.Orientation = Orientation.Vertical;
+			Core.OverlayCanvas.Children.Add(_enemyPanel);
+			Canvas.SetTop(_enemyPanel, Settings.Default.EnemyTop);
+			Canvas.SetLeft(_enemyPanel, Settings.Default.EnemyLeft);
 
 			// Create container
-			_vertical = new StackPanel();
-			_vertical.Orientation = Orientation.Vertical;
-			Core.OverlayCanvas.Children.Add(_vertical);
-			Canvas.SetTop(_vertical, Settings.Default.PlayerTop);
-			Canvas.SetLeft(_vertical, Settings.Default.PlayerLeft);
+			_friendlyPanel = new StackPanel();
+			_friendlyPanel.Orientation = Orientation.Vertical;
+			Core.OverlayCanvas.Children.Add(_friendlyPanel);
+			Canvas.SetTop(_friendlyPanel, Settings.Default.PlayerTop);
+			Canvas.SetLeft(_friendlyPanel, Settings.Default.PlayerLeft);
 
-			Input = new InputManager(_vertical, _verticalEnemy);
+			Input = new InputManager(_friendlyPanel, _enemyPanel);
 
 			Settings.Default.PropertyChanged += SettingsChanged;
 			SettingsChanged(null, null);
@@ -68,16 +67,16 @@ namespace HDT.Plugins.Graveyard
 		//on year change clear out the grid and update the data
 		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
-			_vertical.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
-			_vertical.Opacity = Settings.Default.FriendlyOpacity / 100;
-			_verticalEnemy.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
-			_verticalEnemy.Opacity = Settings.Default.EnemyOpacity / 100;
+			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
+			_friendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
+			_enemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
+			_enemyPanel.Opacity = Settings.Default.EnemyOpacity / 100;
 		}
 
 		public void Dispose()
 		{
-			Core.OverlayCanvas.Children.Remove(_vertical);
-			Core.OverlayCanvas.Children.Remove(_verticalEnemy);
+			Core.OverlayCanvas.Children.Remove(_friendlyPanel);
+			Core.OverlayCanvas.Children.Remove(_enemyPanel);
 			Input.Dispose();
 		}
 
@@ -86,13 +85,13 @@ namespace HDT.Plugins.Graveyard
 		*/
 		public void Reset()
 		{
-			_vertical.Children.Clear();
-			_verticalEnemy.Children.Clear();
+			_friendlyPanel.Children.Clear();
+			_enemyPanel.Children.Clear();
 
 			if (Settings.Default.EnemyEnabled)
 			{
 				Enemy = new NormalView();
-				_verticalEnemy.Children.Add(Enemy);
+				_enemyPanel.Children.Add(Enemy);
 			}
 			else
 			{
@@ -102,13 +101,13 @@ namespace HDT.Plugins.Graveyard
 			if (Settings.Default.ResurrectEnabled && ResurrectView.isValid())
 			{
 				Resurrect = new ResurrectView();
-				_vertical.Children.Add(Resurrect);
+				_friendlyPanel.Children.Add(Resurrect);
 				Normal = null;
 			}
 			else if (Settings.Default.NormalEnabled)
 			{
 				Normal = new NormalView();
-				_vertical.Children.Add(Normal);
+				_friendlyPanel.Children.Add(Normal);
 				Resurrect = null;
 			}
 			else
@@ -120,7 +119,7 @@ namespace HDT.Plugins.Graveyard
 			if (Settings.Default.AnyfinEnabled && AnyfinView.isValid())
 			{
 				Anyfin = new AnyfinView();
-				_vertical.Children.Add(Anyfin);
+				_friendlyPanel.Children.Add(Anyfin);
 			}
 			else
 			{
@@ -130,7 +129,7 @@ namespace HDT.Plugins.Graveyard
 			if (Settings.Default.NZothEnabled && NZothView.isValid())
 			{
 				NZoth = new NZothView();
-				_vertical.Children.Add(NZoth);
+				_friendlyPanel.Children.Add(NZoth);
 			}
 			else
 			{
@@ -140,7 +139,7 @@ namespace HDT.Plugins.Graveyard
 			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
 			{
 				Discard = new DiscardView();
-				_vertical.Children.Add(Discard);
+				_friendlyPanel.Children.Add(Discard);
 			}
 			else
 			{
@@ -150,7 +149,7 @@ namespace HDT.Plugins.Graveyard
 			if (Settings.Default.GuldanEnabled && GuldanView.isValid())
 			{
 				Guldan = new GuldanView();
-				_vertical.Children.Add(Guldan);
+				_friendlyPanel.Children.Add(Guldan);
 			}
 			else
 			{
