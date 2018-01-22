@@ -1,4 +1,3 @@
-using System.Linq;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
