@@ -5,7 +5,7 @@ using Hearthstone_Deck_Tracker;
 
 namespace HDT.Plugins.Graveyard
 {
-	public partial class SettingsView : StackPanel
+	public partial class SettingsView : ScrollViewer
 	{
 		private static Flyout _flyout;
 
