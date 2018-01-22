@@ -10,7 +10,7 @@
 		<Style x:Key="TitleStyle" TargetType="TextBlock">
 			<Setter Property="FontSize" Value="18"/>
 			<Setter Property="FontWeight" Value="bold"/>
-			<Setter Property="Margin" Value="10,5"/>
+			<Setter Property="Margin" Value="10,20,10,5"/>
 		</Style>
 		<Style x:Key="DescStyle" TargetType="TextBlock">
 			<Setter Property="FontSize" Value="12"/>
@@ -22,14 +22,37 @@
 			<Setter Property="OffLabel" Value="Disabled"/>
 			<Setter Property="Margin" Value="10,0"/>
 		</Style>
+		<Style x:Key="SliderStyle" TargetType="DockPanel">
+			<Setter Property="Margin" Value="10,0"/>
+		</Style>
 	</StackPanel.Resources>
 	<Button Name="BtnUnlock" Width="150" Content="Unlock Graveyards" Click="BtnUnlock_Click" />
 	<TextBlock Text="Friendly" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="All frendly minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable friendly graveyard display." Style="{StaticResource ToggleStyle}"/>
+	<DockPanel Style="{StaticResource SliderStyle}">
+		<Slider x:Name="SliderFriendlyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+			Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
+		<Label Content="Opacity" VerticalAlignment="Center" DockPanel.Dock="Left" />
+	</DockPanel>
+	<DockPanel Style="{StaticResource SliderStyle}">
+		<Slider x:Name="SliderFriendlyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+			Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
+		<Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
+	</DockPanel>
 	<TextBlock Text="Opponent" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="All enemy minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable enemy graveyard display." Style="{StaticResource ToggleStyle}"/>
+	<DockPanel Style="{StaticResource SliderStyle}">
+		<Slider x:Name="SliderEnemyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+			Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
+			<Label Content="Opacity" VerticalAlignment="Center" DockPanel.Dock="Left" />
+		</DockPanel>
+		<DockPanel Style="{StaticResource SliderStyle}">
+			<Slider x:Name="SliderEnemyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
+				<Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
+			</DockPanel>
 	<TextBlock Text="Resurrect" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="When the deck contains 'Resurrect' or 'Onyx Bishop', show the resurrect chance of frendly minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for resurrect chances." Style="{StaticResource ToggleStyle}"/>

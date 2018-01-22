@@ -30,6 +30,7 @@ namespace HDT.Plugins.Graveyard
 
 		public Graveyard()
 		{
+
 			// Create container
 			_verticalEnemy = new StackPanel();
 			_verticalEnemy.Orientation = Orientation.Vertical;
@@ -41,12 +42,14 @@ namespace HDT.Plugins.Graveyard
 			// Create container
 			_vertical = new StackPanel();
 			_vertical.Orientation = Orientation.Vertical;
-			// _vertical.RenderTransform = new ScaleTransform(Config.Instance.OverlayPlayerScaling / 100, Config.Instance.OverlayPlayerScaling / 100);
 			Core.OverlayCanvas.Children.Add(_vertical);
 			Canvas.SetTop(_vertical, Settings.Default.PlayerTop);
 			Canvas.SetLeft(_vertical, Settings.Default.PlayerLeft);
 
 			Input = new InputManager(_vertical, _verticalEnemy);
+
+			Settings.Default.PropertyChanged += SettingsChanged;
+			SettingsChanged(null, null);
 
 			// Connect events
 			GameEvents.OnGameStart.Add(Reset);
@@ -60,6 +63,15 @@ namespace HDT.Plugins.Graveyard
 			GameEvents.OnOpponentPlay.Add(c => Anyfin?.UpdateDamage());
 
 			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
+		}
+
+		//on year change clear out the grid and update the data
+		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			_vertical.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
+			_vertical.Opacity = Settings.Default.FriendlyOpacity / 100;
+			_verticalEnemy.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
+			_verticalEnemy.Opacity = Settings.Default.EnemyOpacity / 100;
 		}
 
 		public void Dispose()
@@ -142,7 +154,7 @@ namespace HDT.Plugins.Graveyard
 			}
 			else
 			{
-				Guldan= null;
+				Guldan = null;
 			}
 		}
 

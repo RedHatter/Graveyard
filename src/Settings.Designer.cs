@@ -15,6 +15,54 @@
 
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double EnemyScale {
+            get {
+                return ((double)(this["EnemyScale"]));
+            }
+            set {
+                this["EnemyScale"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double EnemyOpacity {
+            get {
+                return ((double)(this["EnemyOpacity"]));
+            }
+            set {
+                this["EnemyOpacity"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double FriendlyScale {
+            get {
+                return ((double)(this["FriendlyScale"]));
+            }
+            set {
+                this["FriendlyScale"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double FriendlyOpacity {
+            get {
+                return ((double)(this["FriendlyOpacity"]));
+            }
+            set {
+                this["FriendlyOpacity"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double PlayerTop {
             get {

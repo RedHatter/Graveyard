@@ -2,6 +2,18 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HDT.Plugins.Graveyard" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
+    <Setting Name="EnemyScale" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="EnemyOpacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="FriendlyScale" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="FriendlyOpacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
     <Setting Name="PlayerTop" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
