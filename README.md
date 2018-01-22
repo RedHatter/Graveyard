@@ -13,7 +13,13 @@ Displays Murlocs killed by both the player and opponent as well as a damage calc
 * **N'Zoth the Corruptor**
 Displays deathrattle minions that have died.
 
-* **Resurrect** or **Onyx Bishop** or **Kazakus**
+* **Hadronox**
+Displays taunt minions that have died.
+
+* **Bloodraver Gul'dan**
+Displays friendly demons that have died.
+
+* **Resurrect** or **Onyx Bishop** or **Eternal Servitude** or **Kazakus**
 Displays resurrect chance next to each minion that has died.
 
 * **Cruel Dinomancer**

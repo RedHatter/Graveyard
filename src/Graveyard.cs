@@ -20,6 +20,7 @@ namespace HDT.Plugins.Graveyard
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
 		public NZothView NZoth;
+		public HadronoxView Hadronox;
 		public DiscardView Discard;
 		public GuldanView Guldan;
 
@@ -136,6 +137,16 @@ namespace HDT.Plugins.Graveyard
 				NZoth = null;
 			}
 
+			if (Settings.Default.HadronoxEnabled && HadronoxView.isValid())
+			{
+				Hadronox = new HadronoxView();
+				_friendlyPanel.Children.Add(Hadronox);
+			}
+			else
+			{
+				Hadronox = null;
+			}
+
 			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
 			{
 				Discard = new DiscardView();
@@ -161,9 +172,10 @@ namespace HDT.Plugins.Graveyard
 		{
 			var any = Anyfin?.Update(card) ?? false;
 			var nzoth = NZoth?.Update(card) ?? false;
-			var rez = Resurrect?.Update(card) ?? false;
+			var hadr = Hadronox?.Update(card) ?? false;
 			var guldan = Guldan?.Update(card) ?? false;
-			if (!(any || nzoth || rez || guldan))
+			var rez = Resurrect?.Update(card) ?? false;
+			if (!(any || nzoth || hadr || guldan || rez))
 			{
 				Normal?.Update(card);
 			}
