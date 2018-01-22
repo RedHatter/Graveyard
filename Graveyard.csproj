@@ -62,6 +62,7 @@
     <Compile Include="src\NormalView.cs" />
     <Compile Include="src\ResurrectView.cs" />
     <Compile Include="src\NZothView.cs" />
+    <Compile Include="src\InputManager.cs" />
     <Compile Include="src\Graveyard.cs" />
     <Compile Include="src\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>

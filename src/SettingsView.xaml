@@ -23,6 +23,7 @@
 			<Setter Property="Margin" Value="10,0"/>
 		</Style>
 	</StackPanel.Resources>
+	<Button Name="BtnUnlock" Width="150" Content="Unlock Graveyards" Click="BtnUnlock_Click" />
 	<TextBlock Text="Friendly" Style="{StaticResource TitleStyle}"/>
 	<TextBlock Text="All frendly minions that have died." Style="{StaticResource DescStyle}"/>
 	<mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable friendly graveyard display." Style="{StaticResource ToggleStyle}"/>

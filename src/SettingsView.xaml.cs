@@ -1,3 +1,4 @@
+using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Hearthstone_Deck_Tracker;
@@ -35,6 +36,10 @@ namespace HDT.Plugins.Graveyard
 		{
 			InitializeComponent();
 			Settings.Default.PropertyChanged += (sender, e) => Settings.Default.Save();
+		}
+
+		private void BtnUnlock_Click (object sender, RoutedEventArgs e) {
+			BtnUnlock.Content = Graveyard.Input.Toggle() ? "Lock Graveyards" : "Unlock Graveyards";
 		}
 	}
 }
