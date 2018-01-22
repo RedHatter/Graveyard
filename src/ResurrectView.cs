@@ -15,8 +15,12 @@ namespace HDT.Plugins.Graveyard
 
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Priest.Resurrect || card.Id == HearthDb.CardIds.Collectible.Priest.OnyxBishop
-			|| (Settings.Default.ResurrectKazakus && card.Id == HearthDb.CardIds.Collectible.Neutral.Kazakus)) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card =>
+				card.Id == HearthDb.CardIds.Collectible.Priest.Resurrect ||
+				card.Id == HearthDb.CardIds.Collectible.Priest.OnyxBishop ||
+				card.Id == HearthDb.CardIds.Collectible.Priest.EternalServitude ||
+				card.Id == HearthDb.CardIds.Collectible.Priest.LesserDiamondSpellstone ||
+				(Settings.Default.ResurrectKazakus && card.Id == HearthDb.CardIds.Collectible.Neutral.Kazakus)) > -1;
 		}
 
 		public ResurrectView()
