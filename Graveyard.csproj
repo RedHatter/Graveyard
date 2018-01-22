@@ -47,7 +47,7 @@
     <Reference Include="HearthstoneDeckTracker">
       <HintPath>lib\HearthstoneDeckTracker.exe</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.1.2.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+    <Reference Include="MahApps.Metro">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\MahApps.Metro.dll</HintPath>
     </Reference>
