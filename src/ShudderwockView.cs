@@ -8,22 +8,22 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class ShudderwockView : NormalView
-    {
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Shaman.Shudderwock) > -1;
-        }
+	public class ShudderwockView : NormalView
+	{
+		public static bool isValid()
+		{
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Shaman.Shudderwock) > -1;
+		}
 
-        public ShudderwockView()
-        {
-            Label.Text = "Shudderwock";
-        }
+		public ShudderwockView()
+		{
+			Label.Text = "Shudderwock";
+		}
 
-        new public bool Update(Card card)
-        {
-            return card.Mechanics.Contains("Battlecry") && base.Update(card);
-        }
-        
-    }
+		new public bool Update(Card card)
+		{
+			return card.Mechanics.Contains("Battlecry") && base.Update(card);
+		}
+
+	}
 }
