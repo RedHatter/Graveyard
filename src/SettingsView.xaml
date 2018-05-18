@@ -74,5 +74,8 @@
 		<TextBlock Text="Bloodreaver Gul'dan" Style="{StaticResource TitleStyle}"/>
 		<TextBlock Text="When the deck contains 'Bloodreaver Gul'dan', show demons that have died." Style="{StaticResource DescStyle}"/>
 		<mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for demons." Style="{StaticResource ToggleStyle}"/>
-	</StackPanel>
+        <TextBlock Text="Shudderwock" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Shudderwock', show battlecry minions that have been played." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for battlecry minions." Style="{StaticResource ToggleStyle}"/>
+    </StackPanel>
 </ScrollViewer>
