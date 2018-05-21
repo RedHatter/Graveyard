@@ -23,6 +23,7 @@ namespace HDT.Plugins.Graveyard
 		public HadronoxView Hadronox;
 		public DiscardView Discard;
 		public GuldanView Guldan;
+		public ShudderwockView Shudderwock;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -63,6 +64,7 @@ namespace HDT.Plugins.Graveyard
 			GameEvents.OnOpponentPlay.Add(c => Anyfin?.UpdateDamage());
 
 			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
+			GameEvents.OnPlayerPlay.Add(PlayerPlayUpdate);
 		}
 
 		//on year change clear out the grid and update the data
@@ -157,6 +159,16 @@ namespace HDT.Plugins.Graveyard
 				Discard = null;
 			}
 
+			if (Settings.Default.ShudderwockEnabled && ShudderwockView.isValid())
+			{
+				Shudderwock = new ShudderwockView();
+				_friendlyPanel.Children.Add(Shudderwock);
+			}
+			else
+			{
+				Shudderwock = null;
+			}
+
 			if (Settings.Default.GuldanEnabled && GuldanView.isValid())
 			{
 				Guldan = new GuldanView();
@@ -190,6 +202,11 @@ namespace HDT.Plugins.Graveyard
 		public void PlayerDiscardUpdate(Card card)
 		{
 			Discard?.Update(card);
+		}
+
+		public void PlayerPlayUpdate(Card card)
+		{
+			Shudderwock?.Update(card);
 		}
 	}
 }

@@ -66,6 +66,7 @@
     <Compile Include="src\NZothView.cs" />
     <Compile Include="src\InputManager.cs" />
     <Compile Include="src\Graveyard.cs" />
+    <Compile Include="src\ShudderwockView.cs" />
     <Compile Include="src\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
