@@ -1,3 +1,5 @@
+**This project is unmantained** I don't play hearthstone anymore and unfortunately don't have the time to fully maintain this project.
+
 # Graveyard
 Graveyard is a plugin for the [Hearthstone Deck Tracker](https://github.com/HearthSim/Hearthstone-Deck-Tracker).
 
