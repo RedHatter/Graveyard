@@ -108,7 +108,7 @@
                 this["EnemyLeft"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -132,7 +132,7 @@
                 this["EnemyEnabled"] = value;
             }
         }
-                
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -226,6 +226,18 @@
             }
             set {
                 this["ShudderwockEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DragoncallerAlannaEnabled {
+            get {
+                return ((bool)(this["DragoncallerAlannaEnabled"]));
+            }
+            set {
+                this["DragoncallerAlannaEnabled"] = value;
             }
         }
     }

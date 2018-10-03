@@ -24,6 +24,7 @@ namespace HDT.Plugins.Graveyard
 		public DiscardView Discard;
 		public GuldanView Guldan;
 		public ShudderwockView Shudderwock;
+		public DragoncallerAlannaView DragoncallerAlanna;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -178,6 +179,15 @@ namespace HDT.Plugins.Graveyard
 			{
 				Guldan = null;
 			}
+			if (Settings.Default.DragoncallerAlannaEnabled && DragoncallerAlannaView.isValid())
+			{
+				DragoncallerAlanna = new DragoncallerAlannaView();
+				_friendlyPanel.Children.Add(DragoncallerAlanna);
+			}
+			else
+			{
+				DragoncallerAlanna = null;
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -207,6 +217,7 @@ namespace HDT.Plugins.Graveyard
 		public void PlayerPlayUpdate(Card card)
 		{
 			Shudderwock?.Update(card);
+			DragoncallerAlanna?.Update(card);
 		}
 	}
 }
