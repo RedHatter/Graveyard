@@ -35,9 +35,9 @@ namespace HDT.Plugins.Graveyard
 			Cards = new List<Card>();
 		}
 
-		public bool Update(Card card)
+		public bool Update(Card card, bool isSpell = false)
 		{
-			if (card.Type != "Minion")
+			if (card.Type != "Minion" && !isSpell)
 			{
 				return false;
 			}

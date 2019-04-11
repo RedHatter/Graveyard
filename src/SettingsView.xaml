@@ -77,5 +77,8 @@
         <TextBlock Text="Shudderwock" Style="{StaticResource TitleStyle}"/>
         <TextBlock Text="When the deck contains 'Shudderwock', show battlecry minions that have been played." Style="{StaticResource DescStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for battlecry minions." Style="{StaticResource ToggleStyle}"/>
+        <TextBlock Text="Dragoncaller Alanna" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for 5+ mana spells." Style="{StaticResource ToggleStyle}"/>
     </StackPanel>
 </ScrollViewer>
