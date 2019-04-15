@@ -18,3 +18,4 @@ assembly_info:
 artifacts:
   - path: %APPVEYOR_BUILD_FOLDER%\Graveyard\bin\x86\Release\Graveyard.dll
     name: Graveyard
+#
