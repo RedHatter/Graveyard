@@ -16,6 +16,5 @@ assembly_info:
   file: AssemblyInfo.cs
   assembly_version: '$(appveyor_build_version)'
 artifacts:
-  - path: %APPVEYOR_BUILD_FOLDER%\Graveyard\bin\x86\Release\Graveyard.dll
+  - path: Graveyard\bin\x86\Release\Graveyard.dll
     name: Graveyard
-#
