@@ -6,7 +6,7 @@ platform: x86
 clone_depth: 50
 image: Visual Studio 2017
 before_build:
-- ps: git clone "https://github.com/HearthSim/HearthDb" "HearthDb"
+- cmd: git clone "https://github.com/HearthSim/HearthDb" "HearthDb"
 build:
   project: Hearthstone Collection Tracker.sln
   verbosity: minimal
