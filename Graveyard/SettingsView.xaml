@@ -1,0 +1,84 @@
+<ScrollViewer  x:Class="HDT.Plugins.Graveyard.SettingsView"
+			xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+			xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
+			mc:Ignorable="d" VerticalScrollBarVisibility="Auto">
+	<StackPanel Width="400">
+		<StackPanel.Resources>
+			<Style x:Key="TitleStyle" TargetType="TextBlock">
+				<Setter Property="FontSize" Value="18"/>
+				<Setter Property="FontWeight" Value="bold"/>
+				<Setter Property="Margin" Value="10,20,10,5"/>
+			</Style>
+			<Style x:Key="DescStyle" TargetType="TextBlock">
+				<Setter Property="FontSize" Value="12"/>
+				<Setter Property="TextWrapping" Value="Wrap"/>
+				<Setter Property="Margin" Value="10,0"/>
+			</Style>
+			<Style x:Key="ToggleStyle" TargetType="mah:ToggleSwitch">
+				<Setter Property="OnLabel" Value="Enabled"/>
+				<Setter Property="OffLabel" Value="Disabled"/>
+				<Setter Property="Margin" Value="10,0"/>
+			</Style>
+			<Style x:Key="SliderStyle" TargetType="DockPanel">
+				<Setter Property="Margin" Value="10,0"/>
+			</Style>
+		</StackPanel.Resources>
+		<Button Name="BtnUnlock" Width="150" Content="Unlock Graveyards" Click="BtnUnlock_Click" />
+		<TextBlock Text="Friendly" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="All friendly  minions that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable friendly graveyard display." Style="{StaticResource ToggleStyle}"/>
+		<DockPanel Style="{StaticResource SliderStyle}">
+			<Slider x:Name="SliderFriendlyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
+			<Label Content="Opacity" VerticalAlignment="Center" DockPanel.Dock="Left" />
+		</DockPanel>
+		<DockPanel Style="{StaticResource SliderStyle}">
+			<Slider x:Name="SliderFriendlyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
+			<Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
+		</DockPanel>
+		<TextBlock Text="Opponent" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="All enemy minions that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable enemy graveyard display." Style="{StaticResource ToggleStyle}"/>
+		<DockPanel Style="{StaticResource SliderStyle}">
+			<Slider x:Name="SliderEnemyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
+				<Label Content="Opacity" VerticalAlignment="Center" DockPanel.Dock="Left" />
+			</DockPanel>
+			<DockPanel Style="{StaticResource SliderStyle}">
+				<Slider x:Name="SliderEnemyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+					Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
+					<Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
+				</DockPanel>
+		<TextBlock Text="Resurrect" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'Resurrect', 'Onyx Bishop', 'Eternal Servitude', or 'Lesser Diamond Spellstone', show the resurrect chance of friendly  minions that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for resurrect chances." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="Also show when the deck contains 'Kazakus'." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for resurrect chances with Kazakus." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="N'Zoth" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for deathrattle minions." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="Hadronox" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'Hadronox', show the friendly taunt minions that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for taunt minions." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="Discard" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'Cruel Dinomancer', show resurrect chance of friendly  minions that have been discarded." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for discarded minions." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="Anyfin" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for Murlocs." Style="{StaticResource ToggleStyle}"/>
+		<TextBlock Text="Bloodreaver Gul'dan" Style="{StaticResource TitleStyle}"/>
+		<TextBlock Text="When the deck contains 'Bloodreaver Gul'dan', show demons that have died." Style="{StaticResource DescStyle}"/>
+		<mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for demons." Style="{StaticResource ToggleStyle}"/>
+        <TextBlock Text="Shudderwock" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Shudderwock', show battlecry minions that have been played." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for battlecry minions." Style="{StaticResource ToggleStyle}"/>
+        <TextBlock Text="Dragoncaller Alanna" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for 5+ mana spells." Style="{StaticResource ToggleStyle}"/>
+    </StackPanel>
+</ScrollViewer>
