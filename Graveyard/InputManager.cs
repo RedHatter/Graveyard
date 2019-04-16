@@ -39,8 +39,9 @@ namespace HDT.Plugins.Graveyard
 		}
 
 		public void Dispose () {
-			_mouseInput.Dispose();
-		}
+			_mouseInput?.Dispose();
+            _mouseInput = null;
+        }
 
 		private void MouseInputOnLmbDown(object sender, EventArgs eventArgs)
 		{
