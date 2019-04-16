@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Graveyard</RootNamespace>
+    <RootNamespace>HDT.Plugins.Graveyard</RootNamespace>
     <AssemblyName>Graveyard</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -78,6 +78,7 @@
     <Compile Include="NZothView.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Graveyard.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ShudderwockView.cs" />
     <Compile Include="SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -109,6 +110,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
-    <Copy SourceFiles="bin/Debug/Graveyard.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins" />
+    <Copy SourceFiles="bin/x86/Debug/Graveyard.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins" />
   </Target>
 </Project>
