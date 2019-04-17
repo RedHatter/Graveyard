@@ -37,7 +37,7 @@ namespace HDT.Plugins.Graveyard
 			_secondDmg.Visibility = Visibility.Hidden;
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			if (card.Race != "Murloc" || !base.Update(card))
 			{

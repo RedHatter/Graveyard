@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Dragoncaller Alanna";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			return card.Type == "Spell" && card.Cost >= 5 && base.Update(card, true);
 		}

@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Hadronox";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			return card.Mechanics.Contains("Taunt") && base.Update(card);
 		}

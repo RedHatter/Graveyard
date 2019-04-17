@@ -15,6 +15,8 @@ assembly_info:
   patch: true
   file: AssemblyInfo.cs
   assembly_version: '$(appveyor_build_version)'
+after_build:
+  7z a Graveyard.zip "%APPVEYOR_BUILD_FOLDER%\Graveyard\bin\x86\Release\Graveyard.dll"
 artifacts:
-  - path: Graveyard\bin\x86\Release\Graveyard.dll
+  - path: Graveyard.zip
     name: Graveyard

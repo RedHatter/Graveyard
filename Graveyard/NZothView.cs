@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "N'Zoth";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			return card.Mechanics.Contains("Deathrattle") && card.Id != HearthDb.CardIds.Collectible.Rogue.UnearthedRaptor && base.Update(card);
 		}

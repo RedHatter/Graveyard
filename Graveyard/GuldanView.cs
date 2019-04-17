@@ -16,7 +16,7 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Bloodreaver Gul'dan";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			return card.Race == "Demon" && base.Update(card);
 		}

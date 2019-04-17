@@ -19,12 +19,18 @@ namespace HDT.Plugins.Graveyard
 
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
-		public NZothView NZoth;
+        public DeathrattleView Deathrattle;
+        public NZothView NZoth;
 		public HadronoxView Hadronox;
 		public DiscardView Discard;
 		public GuldanView Guldan;
 		public ShudderwockView Shudderwock;
 		public DragoncallerAlannaView DragoncallerAlanna;
+        public CavernsView Caverns;
+        public MulchmuncherView Mulchmuncher;
+        public KangorView Kangor;
+        public WitchingHourView WitchingHour;
+        public SoulwardenView Soulwarden;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -130,7 +136,17 @@ namespace HDT.Plugins.Graveyard
 				Anyfin = null;
 			}
 
-			if (Settings.Default.NZothEnabled && NZothView.isValid())
+            if (Settings.Default.DeathrattleEnabled && DeathrattleView.isValid())
+            {
+                Deathrattle = new DeathrattleView();
+                _friendlyPanel.Children.Add(Deathrattle);
+            }
+            else
+            {
+                Deathrattle = null;
+            }
+
+            if (Settings.Default.NZothEnabled && NZothView.isValid())
 			{
 				NZoth = new NZothView();
 				_friendlyPanel.Children.Add(NZoth);
@@ -188,16 +204,62 @@ namespace HDT.Plugins.Graveyard
 			{
 				DragoncallerAlanna = null;
 			}
-		}
+            if (Settings.Default.MulchmuncherEnabled && MulchmuncherView.isValid())
+            {
+                Mulchmuncher = new MulchmuncherView();
+                _friendlyPanel.Children.Add(Mulchmuncher);
+            }
+            else
+            {
+                Mulchmuncher = null;
+            }
+
+            if (Settings.Default.CavernsEnabled && CavernsView.isValid())
+            {
+                Caverns = new CavernsView();
+                _friendlyPanel.Children.Add(Caverns);
+            }
+            else
+            {
+                Caverns = null;
+            }
+            if (Settings.Default.KangorEnabled && KangorView.isValid())
+            {
+                Kangor = new KangorView();
+                _friendlyPanel.Children.Add(Kangor);
+            }
+            else
+            {
+                Kangor = null;
+            }
+            if (Settings.Default.WitchingHourEnabled && WitchingHourView.isValid())
+            {
+                WitchingHour = new WitchingHourView();
+                _friendlyPanel.Children.Add(WitchingHour);
+            }
+            else
+            {
+                WitchingHour = null;
+            }
+            if (Settings.Default.SoulwardenEnabled && SoulwardenView.isValid())
+            {
+                Soulwarden = new SoulwardenView();
+                _friendlyPanel.Children.Add(Soulwarden);
+            }
+        }
 
 		public void PlayerGraveyardUpdate(Card card)
 		{
 			var any = Anyfin?.Update(card) ?? false;
-			var nzoth = NZoth?.Update(card) ?? false;
+            var deathrattle = Deathrattle?.Update(card) ?? false;
+            var nzoth = NZoth?.Update(card) ?? false;
 			var hadr = Hadronox?.Update(card) ?? false;
 			var guldan = Guldan?.Update(card) ?? false;
 			var rez = Resurrect?.Update(card) ?? false;
-			if (!(any || nzoth || hadr || guldan || rez))
+            var mulch = Mulchmuncher?.Update(card) ?? false;
+            var kangor = Kangor?.Update(card) ?? false;
+            var witching = WitchingHour?.Update(card) ?? false;
+            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching))
 			{
 				Normal?.Update(card);
 			}
@@ -212,12 +274,15 @@ namespace HDT.Plugins.Graveyard
 		public void PlayerDiscardUpdate(Card card)
 		{
 			Discard?.Update(card);
-		}
+            Soulwarden?.Update(card);
+
+        }
 
 		public void PlayerPlayUpdate(Card card)
 		{
 			Shudderwock?.Update(card);
 			DragoncallerAlanna?.Update(card);
-		}
+            Caverns?.Update(card);
+        }
 	}
 }

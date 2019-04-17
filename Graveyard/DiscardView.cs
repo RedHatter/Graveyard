@@ -18,7 +18,7 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Discarded";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			if (!base.Update(card))
 			{

@@ -20,10 +20,9 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Shudderwock";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
 			return card.Mechanics.Contains("Battlecry") && base.Update(card);
 		}
-
 	}
 }
