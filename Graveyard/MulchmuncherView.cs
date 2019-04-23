@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Resources;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace HDT.Plugins.Graveyard
         public MulchmuncherView()
         {
             // Section Label
-            Label.Text = "Mulchmuncher";
+            Label.Text = Strings.Mulchmuncher;
         }
 
         public bool Update(Card card)

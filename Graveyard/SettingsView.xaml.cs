@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Hearthstone_Deck_Tracker;
+using HDT.Plugins.Graveyard.Resources;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -26,7 +27,7 @@ namespace HDT.Plugins.Graveyard
 			var settings = new Flyout();
 			settings.Position = Position.Left;
 			Panel.SetZIndex(settings, 100);
-			settings.Header = "Graveyard Settings";
+			settings.Header = Strings.SettingsTitle;
 			settings.Content = new SettingsView();
 			Core.MainWindow.Flyouts.Items.Add(settings);
 			return settings;
@@ -39,7 +40,7 @@ namespace HDT.Plugins.Graveyard
 		}
 
 		private void BtnUnlock_Click (object sender, RoutedEventArgs e) {
-			BtnUnlock.Content = Graveyard.Input.Toggle() ? "Lock Graveyards" : "Unlock Graveyards";
+			BtnUnlock.Content = Graveyard.Input.Toggle() ? Strings.Lock : Strings.Unlock;
 		}
 	}
 }

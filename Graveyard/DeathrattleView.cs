@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Resources;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace HDT.Plugins.Graveyard
         public DeathrattleView()
         {
             // Section Label
-            Label.Text = "Deathrattle";
+            Label.Text = Strings.Deathrattle;
         }
 
         public bool Update(Card card)

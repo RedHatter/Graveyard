@@ -1,4 +1,5 @@
 using System.Linq;
+using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -14,7 +15,7 @@ namespace HDT.Plugins.Graveyard
 		public NZothView()
 		{
 			// Section Label
-			Label.Text = "N'Zoth";
+			Label.Text = Strings.NZoth;
 		}
 
 		public bool Update(Card card)

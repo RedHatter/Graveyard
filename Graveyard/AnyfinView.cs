@@ -3,6 +3,7 @@ using System.Windows;
 using System.Collections.Generic;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using HDT.Plugins.Graveyard.Resources;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -19,7 +20,7 @@ namespace HDT.Plugins.Graveyard
 		public AnyfinView()
 		{
 			// Section Label
-			Label.Text = "Anyfin Can Happen";
+			Label.Text = Strings.Anyfin;
 
 			// Damage Label
 			_dmg = new HearthstoneTextBlock();

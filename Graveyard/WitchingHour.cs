@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Resources;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace HDT.Plugins.Graveyard
         public WitchingHourView()
         {
             // Section Label
-            Label.Text = "Witching Hour";
+            Label.Text = Strings.WitchingHour;
         }
 
         public bool Update(Card card)

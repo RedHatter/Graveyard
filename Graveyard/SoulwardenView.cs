@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Resources;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace HDT.Plugins.Graveyard
     {
         private ChancesTracker _chances = new ChancesTracker();
 
+        public string Literal { get; }
+
         public static bool isValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card =>
@@ -23,7 +26,7 @@ namespace HDT.Plugins.Graveyard
         public SoulwardenView()
         {
             // Section Label
-            Label.Text = "Soulwarden";
+            Label.Text = Strings.Soulwarden;
         }
 
         public bool Update(Card card)

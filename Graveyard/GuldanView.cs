@@ -1,3 +1,4 @@
+using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -13,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 		public GuldanView()
 		{
 			// Section Label
-			Label.Text = "Bloodreaver Gul'dan";
+			Label.Text = Strings.Guldan;
 		}
 
 		public bool Update(Card card)

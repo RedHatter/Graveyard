@@ -78,6 +78,11 @@
     <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
+    <Compile Include="Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResurrectView.cs" />
     <Compile Include="NZothView.cs" />
     <Compile Include="InputManager.cs" />
@@ -113,6 +118,12 @@
       <Project>{7ed14243-e02b-4b94-af00-a67a62c282f0}</Project>
       <Name>HearthDb</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">

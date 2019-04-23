@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Controls;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
+using HDT.Plugins.Graveyard.Resources;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -22,7 +23,7 @@ namespace HDT.Plugins.Graveyard
 			Label = new HearthstoneTextBlock();
 			Label.FontSize = 16;
 			Label.TextAlignment = TextAlignment.Center;
-			Label.Text = "Graveyard";
+			Label.Text = Strings.Graveyard;
 			var margin = Label.Margin;
 			margin.Top = 20;
 			Label.Margin = margin;

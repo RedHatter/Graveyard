@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Resources;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace HDT.Plugins.Graveyard
         public CavernsView()
         {
             // Section Label
-            Label.Text = "The Caverns Below";
+            Label.Text = Strings.Caverns;
         }
 
         public bool Update(Card card)

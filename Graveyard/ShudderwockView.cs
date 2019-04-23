@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -17,7 +18,7 @@ namespace HDT.Plugins.Graveyard
 
 		public ShudderwockView()
 		{
-			Label.Text = "Shudderwock";
+			Label.Text = Strings.Shudderwock;
 		}
 
 		public bool Update(Card card)

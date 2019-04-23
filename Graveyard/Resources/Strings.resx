@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Alanna" xml:space="preserve">
+    <value>Dragoncaller Alanna</value>
+  </data>
+  <data name="AlannaDescription" xml:space="preserve">
+    <value>When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played.</value>
+  </data>
+  <data name="Anyfin" xml:space="preserve">
+    <value>Anyfin</value>
+  </data>
+  <data name="AnyfinDescription" xml:space="preserve">
+    <value>When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage</value>
+  </data>
+  <data name="Caverns" xml:space="preserve">
+    <value>The Caverns Below</value>
+  </data>
+  <data name="CavernsDescription" xml:space="preserve">
+    <value>When the deck contains 'The Caverns Below', count all minions played</value>
+  </data>
+  <data name="Deathrattle" xml:space="preserve">
+    <value>Deathrattle</value>
+  </data>
+  <data name="DeathrattleDescription" xml:space="preserve">
+    <value>When the deck contains 'Twilight's Call', show the deathrattle minions that have died</value>
+  </data>
+  <data name="Discard" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="DiscardDescription" xml:space="preserve">
+    <value>When the deck contains 'Cruel Dinomancer', show summon chance of friendly minions that have been discarded</value>
+  </data>
+  <data name="DiscardTitle" xml:space="preserve">
+    <value>Discarded Minions</value>
+  </data>
+  <data name="Friendly" xml:space="preserve">
+    <value>Friendly</value>
+  </data>
+  <data name="FriendlyDescription" xml:space="preserve">
+    <value>All friendly minions that have died.</value>
+  </data>
+  <data name="Graveyard" xml:space="preserve">
+    <value>Graveyard</value>
+  </data>
+  <data name="GraveyardDescription" xml:space="preserve">
+    <value>Displays minions that have died this game. Includes specialized displays:
+- Deathrattle minions (Nine Lives/Da Undatakah/Twilight's Call/N'Zoth)
+- Taunt minions (Hadronox)
+- Demons (Bloodreaver Gul'dan)
+- Resurrection chance (Catrina Muerte/Mass Resurrection/Wild Priest cards)
+- Murloc minions with a damage calculator for Anyfin Can Happen
+- Discard retrieve chance (Soulwarden/Cruel Dinomancer) 
+- Treant deaths (Mulchmuncher)
+- Mech deaths (Kangor's Endless Army)
+- 5-cost spells (Dragoncaller Alanna)
+- Beast minions resummon chance (Witching Hour)
+- Minions played count (The Caverns Below)
+
+This version built from https://github.com/batstyx/Graveyard</value>
+  </data>
+  <data name="Guldan" xml:space="preserve">
+    <value>Bloodreaver Gul'dan</value>
+  </data>
+  <data name="GuldanDescription" xml:space="preserve">
+    <value>When the deck contains 'Bloodreaver Gul'dan', show demons that have died</value>
+  </data>
+  <data name="Hadronox" xml:space="preserve">
+    <value>Hadronox</value>
+  </data>
+  <data name="HadronoxDescription" xml:space="preserve">
+    <value>When the deck contains 'Hadronox', show the friendly taunt minions that have died</value>
+  </data>
+  <data name="Kangor" xml:space="preserve">
+    <value>Kangor's Endless Army</value>
+  </data>
+  <data name="KangorDescription" xml:space="preserve">
+    <value>When the deck contains 'Kangor's Endless Army', show summon chance of friendly (base) Mechs that have died</value>
+  </data>
+  <data name="Kazakus" xml:space="preserve">
+    <value>Kazakus</value>
+  </data>
+  <data name="KazakusDescription" xml:space="preserve">
+    <value>Also display for resurrect chances with Kazakus.</value>
+  </data>
+  <data name="Lock" xml:space="preserve">
+    <value>Lock Graveyards</value>
+  </data>
+  <data name="Mulchmuncher" xml:space="preserve">
+    <value>Mulchmuncher</value>
+  </data>
+  <data name="MulchmuncherDescription" xml:space="preserve">
+    <value>When the deck contains at least one 'Mulchmuncher', count Treants that have died</value>
+  </data>
+  <data name="NZoth" xml:space="preserve">
+    <value>N'Zoth</value>
+  </data>
+  <data name="NZothDescription" xml:space="preserve">
+    <value>When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="Opponent" xml:space="preserve">
+    <value>Opponent</value>
+  </data>
+  <data name="OpponentDescription" xml:space="preserve">
+    <value>All enemy minions that have died</value>
+  </data>
+  <data name="Resurrect" xml:space="preserve">
+    <value>Resurrect</value>
+  </data>
+  <data name="ResurrectDescription" xml:space="preserve">
+    <value>When the deck contains 'Resurrect', 'Onyx Bishop', 'Eternal Servitude', or 'Lesser Diamond Spellstone', show the resurrect chance of friendly  minions that have died</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Graveyard Settings</value>
+  </data>
+  <data name="Shudderwock" xml:space="preserve">
+    <value>Shudderwock</value>
+  </data>
+  <data name="ShudderwockDescription" xml:space="preserve">
+    <value>When the deck contains 'Shudderwock', show battlecry minions that have been played</value>
+  </data>
+  <data name="Soulwarden" xml:space="preserve">
+    <value>Soulwarden</value>
+  </data>
+  <data name="SoulwardenDescription" xml:space="preserve">
+    <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
+  </data>
+  <data name="Unlock" xml:space="preserve">
+    <value>Unlock Graveyards</value>
+  </data>
+  <data name="WitchingHour" xml:space="preserve">
+    <value>Witching Hour</value>
+  </data>
+  <data name="WitchingHourDescription" xml:space="preserve">
+    <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
+  </data>
+</root>
