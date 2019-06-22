@@ -25,6 +25,7 @@ namespace HDT.Plugins.Graveyard
 		public GuldanView Guldan;
 		public ShudderwockView Shudderwock;
 		public DragoncallerAlannaView DragoncallerAlanna;
+        public NineLivesView NineLives;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -188,7 +189,16 @@ namespace HDT.Plugins.Graveyard
 			{
 				DragoncallerAlanna = null;
 			}
-		}
+            if (Settings.Default.NineLivesEnabled && NineLivesView.isValid())
+            {
+                NineLives = new NineLivesView();
+                _friendlyPanel.Children.Add(NineLives);
+            }
+            else
+            {
+                NineLives = null;
+            }
+        }
 
 		public void PlayerGraveyardUpdate(Card card)
 		{
@@ -197,7 +207,8 @@ namespace HDT.Plugins.Graveyard
 			var hadr = Hadronox?.Update(card) ?? false;
 			var guldan = Guldan?.Update(card) ?? false;
 			var rez = Resurrect?.Update(card) ?? false;
-			if (!(any || nzoth || hadr || guldan || rez))
+            var ninel = NineLives?.Update(card) ?? false;
+			if (!(any || nzoth || hadr || guldan || rez || ninel))
 			{
 				Normal?.Update(card);
 			}

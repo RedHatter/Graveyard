@@ -26,7 +26,8 @@ taunt minions for Hadronox,
 demons for Bloodreaver Gul'dan,
 resurrect chance for priest resurrect cards,
 Murloc minions with a damage calculator for Anyfin Can Happen,
-and resurrect chance for Cruel Dinomancer."; }
+resurrect chance for Cruel Dinomancer
+and possible minions for Nine Lives."; }
 		}
 
 		public MenuItem MenuItem

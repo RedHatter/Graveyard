@@ -80,5 +80,8 @@
         <TextBlock Text="Dragoncaller Alanna" Style="{StaticResource TitleStyle}"/>
         <TextBlock Text="When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played." Style="{StaticResource DescStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for 5+ mana spells." Style="{StaticResource ToggleStyle}"/>
+        <TextBlock Text="Nine Lives" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Nine Lives', show friendly deathrattle minions that died this game." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding NineLivesEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for deathrattle minions." Style="{StaticResource ToggleStyle}"/>
     </StackPanel>
 </ScrollViewer>

@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 	{
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Shaman.Shudderwock) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == "GIL_820") > -1;
 		}
 
 		public ShudderwockView()
