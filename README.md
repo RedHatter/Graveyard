@@ -27,6 +27,12 @@ Displays resurrect chance next to each minion that has died.
 * **Cruel Dinomancer**
 Displays resurrect chance next to each minion that has been discarded.
 
+* **Nine Lives**
+Displays friendly deathrattle minions that have died.
+
+* **Witching Hour**
+Displays friendly beasts that have died.
+
 ## Installing
 1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
 2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
