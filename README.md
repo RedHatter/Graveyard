@@ -21,7 +21,7 @@ Displays taunt minions that have died.
 * **Bloodraver Gul'dan**
 Displays friendly demons that have died.
 
-* **Resurrect** or **Onyx Bishop** or **Eternal Servitude** or **Kazakus**
+* **Resurrect** or **Onyx Bishop** or **Eternal Servitude** or **Lesser Diamond Spellstone** or  **Mass Resurrection** or **Catrina Muerte** or **Kazakus**
 Displays resurrect chance next to each minion that has died.
 
 * **Cruel Dinomancer**
