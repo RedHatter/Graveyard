@@ -26,6 +26,7 @@ namespace HDT.Plugins.Graveyard
 		public ShudderwockView Shudderwock;
 		public DragoncallerAlannaView DragoncallerAlanna;
         public NineLivesView NineLives;
+        public WitchingHourView WitchingHour;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -198,6 +199,15 @@ namespace HDT.Plugins.Graveyard
             {
                 NineLives = null;
             }
+            if (Settings.Default.WitchingHourEnabled && WitchingHourView.isValid())
+            {
+                WitchingHour = new WitchingHourView();
+                _friendlyPanel.Children.Add(WitchingHour);
+            }
+            else
+            {
+                WitchingHour = null;
+            }
         }
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -208,7 +218,8 @@ namespace HDT.Plugins.Graveyard
 			var guldan = Guldan?.Update(card) ?? false;
 			var rez = Resurrect?.Update(card) ?? false;
             var ninel = NineLives?.Update(card) ?? false;
-			if (!(any || nzoth || hadr || guldan || rez || ninel))
+            var witch = WitchingHour?.Update(card) ?? false;
+			if (!(any || nzoth || hadr || guldan || rez || ninel || witch))
 			{
 				Normal?.Update(card);
 			}
