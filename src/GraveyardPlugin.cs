@@ -27,7 +27,7 @@ demons for Bloodreaver Gul'dan,
 resurrect chance for priest resurrect cards,
 Murloc minions with a damage calculator for Anyfin Can Happen,
 resurrect chance for Cruel Dinomancer
-and possible minions for Nine Lives."; }
+possible minions for Nine Lives and Witching Hour."; }
 		}
 
 		public MenuItem MenuItem

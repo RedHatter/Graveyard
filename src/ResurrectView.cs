@@ -14,6 +14,8 @@ namespace HDT.Plugins.Graveyard
 				card.Id == HearthDb.CardIds.Collectible.Priest.OnyxBishop ||
 				card.Id == HearthDb.CardIds.Collectible.Priest.EternalServitude ||
 				card.Id == HearthDb.CardIds.Collectible.Priest.LesserDiamondSpellstone ||
+                card.Id == HearthDb.CardIds.Collectible.Priest.MassResurrection ||
+                card.Id == HearthDb.CardIds.Collectible.Priest.CatrinaMuerte ||
 				(Settings.Default.ResurrectKazakus && card.Id == HearthDb.CardIds.Collectible.Neutral.Kazakus)) > -1;
 		}
 
