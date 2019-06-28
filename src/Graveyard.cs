@@ -27,6 +27,7 @@ namespace HDT.Plugins.Graveyard
 		public DragoncallerAlannaView DragoncallerAlanna;
         public NineLivesView NineLives;
         public WitchingHourView WitchingHour;
+        public TessGreymaneView TessGreymane;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -208,6 +209,15 @@ namespace HDT.Plugins.Graveyard
             {
                 WitchingHour = null;
             }
+            if (Settings.Default.TessGreymaneEnabled && WitchingHourView.isValid())
+            {
+                TessGreymane = new TessGreymaneView();
+                _friendlyPanel.Children.Add(TessGreymane);
+            }
+            else
+            {
+                TessGreymane = null;
+            }
         }
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -240,6 +250,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			Shudderwock?.Update(card);
 			DragoncallerAlanna?.Update(card);
+            TessGreymane?.Update(card);
 		}
 	}
 }

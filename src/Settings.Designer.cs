@@ -270,5 +270,20 @@
                 this["WitchingHourEnabled"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TessGreymaneEnabled
+        {
+            get
+            {
+                return ((bool)(this["TessGreymaneEnabled"]));
+            }
+            set
+            {
+                this["TessGreymaneEnabled"] = value;
+            }
+        }
     }
 }
