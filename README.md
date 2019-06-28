@@ -33,6 +33,9 @@ Displays friendly deathrattle minions that have died.
 * **Witching Hour**
 Displays friendly beasts that have died.
 
+* **Dragoncaller Alanna** or **Shudderwock** or **Tess Greymane**
+Displays respective cards that have been played (5+ mana spells for Alanna, battlecry cards for Shudderwock and cards of other classes for Tess).
+
 ## Installing
 1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
 2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
