@@ -209,7 +209,7 @@ namespace HDT.Plugins.Graveyard
             {
                 WitchingHour = null;
             }
-            if (Settings.Default.TessGreymaneEnabled && WitchingHourView.isValid())
+            if (Settings.Default.TessGreymaneEnabled && TessGreymaneView.isValid())
             {
                 TessGreymane = new TessGreymaneView();
                 _friendlyPanel.Children.Add(TessGreymane);
