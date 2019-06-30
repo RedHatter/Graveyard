@@ -22,7 +22,7 @@ namespace HDT.Plugins.Graveyard
 
 		new public bool Update(Card card)
 		{
-			return card.IsClassCard && !card.IsClass("Rogue") && base.Update(card);
+			return !card.IsClass("Rogue") && !card.IsClass("Neutral") && base.Update(card);
 		}
 
 	}
