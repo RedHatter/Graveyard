@@ -22,7 +22,7 @@ namespace HDT.Plugins.Graveyard
 
 		new public bool Update(Card card)
 		{
-			return card.Type == "Spell" && card.Cost >= 5 && base.Update(card, true);
+			return card.Type == "Spell" && card.Cost >= 5 && base.Update(card, true, true);
 		}
 	}
 }
