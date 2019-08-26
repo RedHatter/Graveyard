@@ -86,5 +86,8 @@
         <TextBlock Text="Witching Hour" Style="{StaticResource TitleStyle}"/>
         <TextBlock Text="When the deck contains 'Witching Hour', show friendly beasts that died this game." Style="{StaticResource DescStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding WitchingHourEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for beasts." Style="{StaticResource ToggleStyle}"/>
+        <TextBlock Text="Tess Greymane" Style="{StaticResource TitleStyle}"/>
+        <TextBlock Text="When the deck contains 'Tess Greymane', show cards from other classes that have been played." Style="{StaticResource DescStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding TessGreymaneEnabled, Source={x:Static local:Settings.Default}}" ToolTip="Enable/Disable display for cards of other classes." Style="{StaticResource ToggleStyle}"/>
     </StackPanel>
 </ScrollViewer>

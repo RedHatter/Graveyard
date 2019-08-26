@@ -35,12 +35,15 @@ namespace HDT.Plugins.Graveyard
 			Cards = new List<Card>();
 		}
 
-		public bool Update(Card card, bool isSpell = false)
+        public bool Update(Card card, bool isSpell = false, bool playCardView = false)
 		{
-			if (card.Type != "Minion" && !isSpell)
-			{
-				return false;
-			}
+            if (!playCardView)
+            {
+                if (card.Type != "Minion" && !isSpell)
+                {
+                    return false;
+                }
+            }
 
 			// Increment
 			var match = Cards.FirstOrDefault(c => c.Name == card.Name);

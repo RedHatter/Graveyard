@@ -8,21 +8,21 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ShudderwockView : NormalView
+	public class TessGreymaneView : NormalView
 	{
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Shaman.Shudderwock) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Rogue.TessGreymane) > -1;
 		}
 
-		public ShudderwockView()
+		public TessGreymaneView()
 		{
-			Label.Text = "Shudderwock";
+			Label.Text = "Tess Greymane";
 		}
 
 		new public bool Update(Card card)
 		{
-			return card.Mechanics.Contains("Battlecry") && base.Update(card, false, true);
+			return !card.IsClass("Rogue") && !card.IsClass("Neutral") && base.Update(card, false, true);
 		}
 
 	}
