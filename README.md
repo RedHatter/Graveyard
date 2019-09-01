@@ -2,8 +2,6 @@
 
 [![Latest Release](https://img.shields.io/github/release-pre/batstyx/Graveyard.svg)](https://github.com/batstyx/Graveyard/releases)
 
-Forked from [RedHatter/Graveyard](https://github.com/RedHatter/Graveyard) (no longer maintained)
-
 # Graveyard
 Graveyard is a plugin for the [Hearthstone Deck Tracker](https://github.com/HearthSim/Hearthstone-Deck-Tracker).
 
