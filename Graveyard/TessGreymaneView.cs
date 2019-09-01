@@ -20,9 +20,9 @@ namespace HDT.Plugins.Graveyard
 			Label.Text = "Tess Greymane";
 		}
 
-		new public bool Update(Card card)
+		public bool Update(Card card)
 		{
-			return !card.IsClass("Rogue") && !card.IsClass("Neutral") && base.Update(card, false, true);
+			return !card.IsClass("Rogue") && !card.IsClass("Neutral") && base.Update(card, true);
 		}
 
 	}

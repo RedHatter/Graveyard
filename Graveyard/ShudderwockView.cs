@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			return card.Mechanics.Contains("Battlecry") && base.Update(card, false, true);
+			return card.Mechanics.Contains("Battlecry") && base.Update(card, true);
 		}
 	}
 }
