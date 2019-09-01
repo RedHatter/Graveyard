@@ -1,4 +1,8 @@
-**This project is unmantained** I don't play hearthstone anymore and unfortunately don't have the time to fully maintain this project.
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/batstyx/Graveyard?svg=true)](https://ci.appveyor.com/project/batstyx/Graveyard)
+
+[![Latest Release](https://img.shields.io/github/release-pre/batstyx/Graveyard.svg)](https://github.com/batstyx/Graveyard/releases)
+
+Forked from [RedHatter/Graveyard](https://github.com/RedHatter/Graveyard) (no longer maintained)
 
 # Graveyard
 Graveyard is a plugin for the [Hearthstone Deck Tracker](https://github.com/HearthSim/Hearthstone-Deck-Tracker).
@@ -37,7 +41,7 @@ Displays friendly beasts that have died.
 Displays respective cards that have been played (5+ mana spells for Alanna, battlecry cards for Shudderwock and cards of other classes for Tess).
 
 ## Installing
-1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
+1. Download *Graveyard.zip* from [here](https://github.com/batstyx/Graveyard/releases).
 2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
 ![Unblock](images/unblock.png?raw=true)
 3. Extract the containing file *Graveyard.dll* into `%AppData%\HearthstoneDeckTracker\Plugins`.
