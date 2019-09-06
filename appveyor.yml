@@ -1,4 +1,4 @@
-version: 1.4.3.{build}
+version: 1.5.0.{build}
 skip_tags: true
 max_jobs: 1
 configuration: Release
