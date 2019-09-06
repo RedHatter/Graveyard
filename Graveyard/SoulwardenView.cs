@@ -17,10 +17,7 @@ namespace HDT.Plugins.Graveyard
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card =>
-                card.Id == HearthDb.CardIds.Collectible.Warlock.Soulwarden ||
-                card.Id == HearthDb.CardIds.Collectible.Warlock.CruelDinomancer
-                ) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Warlock.Soulwarden) > -1;
         }
 
         public SoulwardenView()
