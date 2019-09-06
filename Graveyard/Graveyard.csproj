@@ -93,6 +93,7 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SoulwardenView.cs" />
+    <Compile Include="TessGreymaneView.cs" />
     <Compile Include="WitchingHour.cs" />
     <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>

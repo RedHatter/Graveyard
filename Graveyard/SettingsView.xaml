@@ -125,5 +125,9 @@
                           Content="{x:Static resources:Strings.WitchingHour}"
                           ToolTip="{x:Static resources:Strings.WitchingHourDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding TessGreymaneEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{x:Static resources:Strings.TessGreymane}"
+                          ToolTip="{x:Static resources:Strings.TessGreymaneDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

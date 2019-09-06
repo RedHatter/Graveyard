@@ -250,6 +250,12 @@ This version built from https://github.com/batstyx/Graveyard</value>
   <data name="SoulwardenDescription" xml:space="preserve">
     <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
   </data>
+  <data name="TessGreymane" xml:space="preserve">
+    <value>Tess Greymane</value>
+  </data>
+  <data name="TessGreymaneDescription" xml:space="preserve">
+    <value>When the deck contains 'Tess Greymane', show all cards from other classes played this game.</value>
+  </data>
   <data name="Unlock" xml:space="preserve">
     <value>Unlock Graveyards</value>
   </data>

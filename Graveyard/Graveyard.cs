@@ -30,6 +30,7 @@ namespace HDT.Plugins.Graveyard
         public MulchmuncherView Mulchmuncher;
         public KangorView Kangor;
         public WitchingHourView WitchingHour;
+        public TessGreymaneView TessGreymane;
         public SoulwardenView Soulwarden;
 
 		private StackPanel _friendlyPanel;
@@ -246,6 +247,19 @@ namespace HDT.Plugins.Graveyard
                 Soulwarden = new SoulwardenView();
                 _friendlyPanel.Children.Add(Soulwarden);
             }
+            else
+            {
+                Soulwarden = null;
+            }
+            if (Settings.Default.TessGreymaneEnabled && TessGreymaneView.isValid())
+            {
+                TessGreymane = new TessGreymaneView();
+                _friendlyPanel.Children.Add(TessGreymane);
+            }
+            else
+            {
+                TessGreymane = null;
+            }
         }
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -283,6 +297,7 @@ namespace HDT.Plugins.Graveyard
 			Shudderwock?.Update(card);
 			DragoncallerAlanna?.Update(card);
             Caverns?.Update(card);
+            TessGreymane?.Update(card);
         }
 	}
 }

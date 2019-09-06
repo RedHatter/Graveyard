@@ -430,6 +430,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tess Greymane.
+        /// </summary>
+        public static string TessGreymane {
+            get {
+                return ResourceManager.GetString("TessGreymane", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Tess Greymane&apos;, show all cards from other classes played this game..
+        /// </summary>
+        public static string TessGreymaneDescription {
+            get {
+                return ResourceManager.GetString("TessGreymaneDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unlock Graveyards.
         /// </summary>
         public static string Unlock {
