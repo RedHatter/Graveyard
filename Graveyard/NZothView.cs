@@ -9,8 +9,8 @@ namespace HDT.Plugins.Graveyard
 	{
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptorOG 
-            || card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptorWILD_EVENT) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptor 
+            || card.Id == HearthDb.CardIds.NonCollectible.Neutral.NzothTheCorruptor) > -1;
 		}
 
 		public NZothView()
