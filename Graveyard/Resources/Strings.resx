@@ -265,4 +265,10 @@ This version built from https://github.com/batstyx/Graveyard</value>
   <data name="WitchingHourDescription" xml:space="preserve">
     <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
   </data>
+  <data name="Zuljin" xml:space="preserve">
+    <value>Zul'jin</value>
+  </data>
+  <data name="ZuljinDescription" xml:space="preserve">
+    <value>When the deck contains 'Zul'jin', show all spells played this game.</value>
+  </data>
 </root>

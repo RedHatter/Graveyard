@@ -95,6 +95,7 @@
     <Compile Include="SoulwardenView.cs" />
     <Compile Include="TessGreymaneView.cs" />
     <Compile Include="WitchingHour.cs" />
+    <Compile Include="ZuljinView.cs" />
     <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

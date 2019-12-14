@@ -473,5 +473,23 @@ namespace HDT.Plugins.Graveyard.Resources {
                 return ResourceManager.GetString("WitchingHourDescription", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zul&apos;jin.
+        /// </summary>
+        public static string Zuljin {
+            get {
+                return ResourceManager.GetString("Zuljin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Zul&apos;jin&apos;, show all spells played this game..
+        /// </summary>
+        public static string ZuljinDescription {
+            get {
+                return ResourceManager.GetString("ZuljinDescription", resourceCulture);
+            }
+        }
     }
 }

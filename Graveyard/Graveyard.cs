@@ -32,6 +32,7 @@ namespace HDT.Plugins.Graveyard
         public WitchingHourView WitchingHour;
         public TessGreymaneView TessGreymane;
         public SoulwardenView Soulwarden;
+		public ZuljinView Zuljin;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -260,6 +261,15 @@ namespace HDT.Plugins.Graveyard
             {
                 TessGreymane = null;
             }
+			if (Settings.Default.ZuljinEnabled && ZuljinView.isValid())
+			{
+				Zuljin = new ZuljinView();
+				_friendlyPanel.Children.Add(Zuljin);
+			}
+			else
+			{
+				Zuljin = null;	
+			}
         }
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -289,8 +299,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			Discard?.Update(card);
             Soulwarden?.Update(card);
-
-        }
+		}
 
 		public void PlayerPlayUpdate(Card card)
 		{
@@ -298,6 +307,7 @@ namespace HDT.Plugins.Graveyard
 			DragoncallerAlanna?.Update(card);
             Caverns?.Update(card);
             TessGreymane?.Update(card);
+			Zuljin?.Update(card);
         }
 	}
 }

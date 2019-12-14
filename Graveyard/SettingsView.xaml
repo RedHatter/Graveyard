@@ -129,5 +129,9 @@
                           Content="{x:Static resources:Strings.TessGreymane}"
                           ToolTip="{x:Static resources:Strings.TessGreymaneDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding ZuljinEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{x:Static resources:Strings.Zuljin}"
+                          ToolTip="{x:Static resources:Strings.ZuljinDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>
