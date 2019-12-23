@@ -187,6 +187,12 @@ This version built from https://github.com/batstyx/Graveyard</value>
   <data name="HadronoxDescription" xml:space="preserve">
     <value>When the deck contains 'Hadronox', show the friendly taunt minions that have died</value>
   </data>
+  <data name="HoardPillager" xml:space="preserve">
+    <value>Hoard Pillager</value>
+  </data>
+  <data name="HoardPillagerDescription" xml:space="preserve">
+    <value>When the deck contains 'Hoard Pillager', show equip chance of weapons destroyed this game.</value>
+  </data>
   <data name="Kangor" xml:space="preserve">
     <value>Kangor's Endless Army</value>
   </data>

@@ -33,6 +33,7 @@ namespace HDT.Plugins.Graveyard
         public TessGreymaneView TessGreymane;
         public SoulwardenView Soulwarden;
 		public ZuljinView Zuljin;
+		public HoardPillagerView HoardPillager;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -270,7 +271,16 @@ namespace HDT.Plugins.Graveyard
 			{
 				Zuljin = null;	
 			}
-        }
+			if (Settings.Default.HoardPillagerEnabled && HoardPillagerView.isValid())
+			{
+				HoardPillager = new HoardPillagerView();
+				_friendlyPanel.Children.Add(HoardPillager);
+			}
+			else
+			{
+				HoardPillager = null;
+			}
+		}
 
 		public void PlayerGraveyardUpdate(Card card)
 		{
@@ -283,7 +293,8 @@ namespace HDT.Plugins.Graveyard
             var mulch = Mulchmuncher?.Update(card) ?? false;
             var kangor = Kangor?.Update(card) ?? false;
             var witching = WitchingHour?.Update(card) ?? false;
-            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching))
+			var hoardpillager = HoardPillager?.Update(card) ?? false;
+            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager))
 			{
 				Normal?.Update(card);
 			}

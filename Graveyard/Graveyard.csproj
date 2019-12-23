@@ -70,6 +70,7 @@
     <Compile Include="DragoncallerAlannaView.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
+    <Compile Include="HoardPillagerView.cs" />
     <Compile Include="KangorView.cs" />
     <Compile Include="MulchmuncherView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

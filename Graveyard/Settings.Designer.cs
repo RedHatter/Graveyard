@@ -346,5 +346,17 @@ namespace HDT.Plugins.Graveyard {
                 this["ZuljinEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HoardPillagerEnabled {
+            get {
+                return ((bool)(this["HoardPillagerEnabled"]));
+            }
+            set {
+                this["HoardPillagerEnabled"] = value;
+            }
+        }
     }
 }

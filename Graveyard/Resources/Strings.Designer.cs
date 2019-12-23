@@ -241,6 +241,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hoard Pillager.
+        /// </summary>
+        public static string HoardPillager {
+            get {
+                return ResourceManager.GetString("HoardPillager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Hoard Pillager&apos;, show equip chance of weapons destroyed this game..
+        /// </summary>
+        public static string HoardPillagerDescription {
+            get {
+                return ResourceManager.GetString("HoardPillagerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kangor&apos;s Endless Army.
         /// </summary>
         public static string Kangor {
