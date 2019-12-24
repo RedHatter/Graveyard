@@ -1,0 +1,3 @@
+[submodule "HearthDb"]
+	path = HearthDb
+	url = https://github.com/HearthSim/HearthDb.git
