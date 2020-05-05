@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -322,19 +322,40 @@ namespace HDT.Plugins.Graveyard {
                 this["SoulwardenEnabled"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool TessGreymaneEnabled
-        {
-            get
-            {
+        public bool TessGreymaneEnabled {
+            get {
                 return ((bool)(this["TessGreymaneEnabled"]));
             }
-            set
-            {
+            set {
                 this["TessGreymaneEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ZuljinEnabled {
+            get {
+                return ((bool)(this["ZuljinEnabled"]));
+            }
+            set {
+                this["ZuljinEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HoardPillagerEnabled {
+            get {
+                return ((bool)(this["HoardPillagerEnabled"]));
+            }
+            set {
+                this["HoardPillagerEnabled"] = value;
             }
         }
     }

@@ -241,6 +241,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hoard Pillager.
+        /// </summary>
+        public static string HoardPillager {
+            get {
+                return ResourceManager.GetString("HoardPillager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Hoard Pillager&apos;, show equip chance of weapons destroyed this game..
+        /// </summary>
+        public static string HoardPillagerDescription {
+            get {
+                return ResourceManager.GetString("HoardPillagerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kangor&apos;s Endless Army.
         /// </summary>
         public static string Kangor {
@@ -430,6 +448,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tess Greymane.
+        /// </summary>
+        public static string TessGreymane {
+            get {
+                return ResourceManager.GetString("TessGreymane", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Tess Greymane&apos;, show all cards from other classes played this game..
+        /// </summary>
+        public static string TessGreymaneDescription {
+            get {
+                return ResourceManager.GetString("TessGreymaneDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unlock Graveyards.
         /// </summary>
         public static string Unlock {
@@ -453,6 +489,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string WitchingHourDescription {
             get {
                 return ResourceManager.GetString("WitchingHourDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zul&apos;jin.
+        /// </summary>
+        public static string Zuljin {
+            get {
+                return ResourceManager.GetString("Zuljin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Zul&apos;jin&apos;, show all spells played this game..
+        /// </summary>
+        public static string ZuljinDescription {
+            get {
+                return ResourceManager.GetString("ZuljinDescription", resourceCulture);
             }
         }
     }

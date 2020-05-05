@@ -187,6 +187,12 @@ This version built from https://github.com/batstyx/Graveyard</value>
   <data name="HadronoxDescription" xml:space="preserve">
     <value>When the deck contains 'Hadronox', show the friendly taunt minions that have died</value>
   </data>
+  <data name="HoardPillager" xml:space="preserve">
+    <value>Hoard Pillager</value>
+  </data>
+  <data name="HoardPillagerDescription" xml:space="preserve">
+    <value>When the deck contains 'Hoard Pillager', show equip chance of weapons destroyed this game.</value>
+  </data>
   <data name="Kangor" xml:space="preserve">
     <value>Kangor's Endless Army</value>
   </data>
@@ -250,6 +256,12 @@ This version built from https://github.com/batstyx/Graveyard</value>
   <data name="SoulwardenDescription" xml:space="preserve">
     <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
   </data>
+  <data name="TessGreymane" xml:space="preserve">
+    <value>Tess Greymane</value>
+  </data>
+  <data name="TessGreymaneDescription" xml:space="preserve">
+    <value>When the deck contains 'Tess Greymane', show all cards from other classes played this game.</value>
+  </data>
   <data name="Unlock" xml:space="preserve">
     <value>Unlock Graveyards</value>
   </data>
@@ -258,5 +270,11 @@ This version built from https://github.com/batstyx/Graveyard</value>
   </data>
   <data name="WitchingHourDescription" xml:space="preserve">
     <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
+  </data>
+  <data name="Zuljin" xml:space="preserve">
+    <value>Zul'jin</value>
+  </data>
+  <data name="ZuljinDescription" xml:space="preserve">
+    <value>When the deck contains 'Zul'jin', show all spells played this game.</value>
   </data>
 </root>

@@ -23,19 +23,16 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Toggle ()
 		{
-			if (_mouseInput == null)
+			if (Hearthstone_Deck_Tracker.Core.Game.IsRunning && _mouseInput == null)
 			{
 				_mouseInput = new User32.MouseInput();
 				_mouseInput.LmbDown += MouseInputOnLmbDown;
 				_mouseInput.LmbUp += MouseInputOnLmbUp;
 				_mouseInput.MouseMoved += MouseInputOnMouseMoved;
 				return true;
-			} else
-			{
-				_mouseInput.Dispose();
-				_mouseInput = null;
-				return false;
 			}
+			Dispose();
+			return false;
 		}
 
 		public void Dispose () {
