@@ -344,3 +344,5 @@ healthchecksdb
 MigrationBackup/
 
 .atom-build.yml
+
+HearthDb*

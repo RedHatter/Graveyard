@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graveyard", "Graveyard\Graveyard.csproj", "{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HearthDb", "HearthDb\HearthDb\HearthDb.csproj", "{7ED14243-E02B-4B94-AF00-A67A62C282F0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53E4F774-8043-46B4-B786-BB32DEDA2CF1}"
 	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
+		update-libraries.ps1 = update-libraries.ps1
 	EndProjectSection
 EndProject
 Global
@@ -28,14 +26,6 @@ Global
 		{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}.Release|x86.ActiveCfg = Release|x86
 		{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}.Release|x86.Build.0 = Release|x86
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Debug|x86.ActiveCfg = Debug|x86
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Debug|x86.Build.0 = Debug|x86
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Release|x86.ActiveCfg = Release|x86
-		{7ED14243-E02B-4B94-AF00-A67A62C282F0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

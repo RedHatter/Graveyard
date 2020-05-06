@@ -46,7 +46,7 @@ Displays summon chance of friendly (base) mechs that have died.
 Displays friendly Treants that have died.
 
 ## Installing
-1. Download *Graveyard.zip* from [here](https://github.com/batstyx/Graveyard/releases).
+1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
 2. If needed, unblock the zip file before unzipping, by [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):
 ![Unblock](images/unblock.png?raw=true)
 3. Extract the containing file *Graveyard.dll* into `%AppData%\HearthstoneDeckTracker\Plugins`.
