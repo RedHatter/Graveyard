@@ -186,10 +186,10 @@
     <value>When the deck contains 'Hadronox', show the friendly taunt minions that have died</value>
   </data>
   <data name="HoardPillager" xml:space="preserve">
-    <value>Hoard Pillager</value>
+    <value>Weapons Used</value>
   </data>
   <data name="HoardPillagerDescription" xml:space="preserve">
-    <value>When the deck contains 'Hoard Pillager', show equip chance of weapons destroyed this game.</value>
+    <value>When the deck contains 'Hoard Pillager' or 'Rummaging Kobold', show equip/return chance of weapons used this game.</value>
   </data>
   <data name="Kangor" xml:space="preserve">
     <value>Kangor's Endless Army</value>

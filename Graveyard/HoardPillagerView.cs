@@ -15,7 +15,8 @@ namespace HDT.Plugins.Graveyard
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.HoardPillager) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.HoardPillager
+            || card.Id == HearthDb.CardIds.Collectible.Neutral.RummagingKobold) > -1;
         }
 
         public HoardPillagerView()

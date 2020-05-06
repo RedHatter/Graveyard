@@ -241,7 +241,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hoard Pillager.
+        ///   Looks up a localized string similar to Weapons Used.
         /// </summary>
         public static string HoardPillager {
             get {
@@ -250,7 +250,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the deck contains &apos;Hoard Pillager&apos;, show equip chance of weapons destroyed this game..
+        ///   Looks up a localized string similar to When the deck contains &apos;Hoard Pillager&apos; or &apos;Rummaging Kobold&apos;, show equip/return chance of weapons used this game..
         /// </summary>
         public static string HoardPillagerDescription {
             get {
