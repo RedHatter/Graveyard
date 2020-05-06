@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graveyard", "Graveyard\Grav
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53E4F774-8043-46B4-B786-BB32DEDA2CF1}"
 	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
 		update-libraries.ps1 = update-libraries.ps1
 	EndProjectSection
 EndProject
