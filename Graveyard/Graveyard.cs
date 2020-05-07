@@ -8,6 +8,8 @@ using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
+using GameMode = Hearthstone_Deck_Tracker.Enums.GameMode;
+
 
 namespace HDT.Plugins.Graveyard
 {
@@ -100,6 +102,12 @@ namespace HDT.Plugins.Graveyard
 		{
 			_friendlyPanel.Children.Clear();
 			_enemyPanel.Children.Clear();
+
+			if (Core.Game.CurrentGameMode == GameMode.Battlegrounds)
+			{
+				// don't show graveyard for Battlegrounds
+				return;
+			}
 
 			if (Settings.Default.EnemyEnabled)
 			{
