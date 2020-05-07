@@ -21,19 +21,19 @@ Displays taunt minions that have died.
 * **Bloodraver Gul'dan**
 Displays friendly demons that have died.
 
-* **Resurrect** or **Onyx Bishop** or **Eternal Servitude** or **Lesser Diamond Spellstone** or  **Mass Resurrection** or **Catrina Muerte** or **Kazakus**
+* **Resurrect**, **Onyx Bishop**, **Eternal Servitude**, **Lesser Diamond Spellstone**,  **Mass Resurrection**, **Catrina Muerte** and **Kazakus**
 Displays resurrect chance next to each minion that has died.
 
-* **Cruel Dinomancer** or **Soulwarden**
-Displays resurrect chance next to each minion/card that has been discarded.
+* **Soulwarden**
+Displays generation chance next to each card that has been discarded.
 
-* **Nine Lives** or **Da Undatakah** or **Twilight's Call**
+* **Nine Lives**, **Da Undatakah** and **Twilight's Call**
 Displays friendly deathrattle minions that have died.
 
 * **Witching Hour**
 Displays friendly beasts that have died.
 
-* **Dragoncaller Alanna** or **Shudderwock** or **Tess Greymane**
+* **Dragoncaller Alanna**, **Shudderwock** and **Tess Greymane**
 Displays respective cards that have been played (5+ mana spells for Alanna, battlecry cards for Shudderwock and cards of other classes for Tess).
 
 * **The Caverns Below**
@@ -44,6 +44,12 @@ Displays summon chance of friendly (base) mechs that have died.
 
 * **Mulchmuncher**
 Displays friendly Treants that have died.
+
+* **Zul'jin**
+Displays spells that have been cast.
+
+* **Hoard Pillager** and **Rummaging Kobold**
+Displays equip/return chance of weapons used this game.
 
 ## Installing
 1. Download *Graveyard.zip* from [here](https://github.com/RedHatter/Graveyard/releases).
