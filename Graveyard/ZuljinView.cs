@@ -1,11 +1,5 @@
-﻿using HDT.Plugins.Graveyard.Resources;
-using Hearthstone_Deck_Tracker;
+﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -18,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 
         public ZuljinView()
         {
-            Label.Text = Strings.Zuljin;
+            Label.Text = Strings.GetLocalized("Zuljin");
         }
 
         public bool Update(Card card)

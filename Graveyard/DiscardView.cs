@@ -1,4 +1,3 @@
-using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -16,7 +15,7 @@ namespace HDT.Plugins.Graveyard
 		public DiscardView()
 		{
 			// Section Label
-			Label.Text = Strings.DiscardTitle;
+			Label.Text = Strings.GetLocalized("DiscardTitle");
 		}
 
 		public bool Update(Card card)

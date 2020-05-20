@@ -1,4 +1,3 @@
-using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -26,7 +25,7 @@ namespace HDT.Plugins.Graveyard
 		public ResurrectView()
 		{
 			// Section Label
-			Label.Text = Strings.Resurrect;
+			Label.Text = Strings.GetLocalized("Resurrect");
 		}
 
 		public bool Update(Card card)

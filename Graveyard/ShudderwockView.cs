@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HDT.Plugins.Graveyard.Resources;
-using Hearthstone_Deck_Tracker;
+﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using System.Linq;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -18,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 
 		public ShudderwockView()
 		{
-			Label.Text = Strings.Shudderwock;
+			Label.Text = Strings.GetLocalized("Shudderwock");
 		}
 
 		public bool Update(Card card)

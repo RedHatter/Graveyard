@@ -1,7 +1,6 @@
-using System.Linq;
-using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using System.Linq;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -15,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 		public HadronoxView()
 		{
 			// Section Label
-			Label.Text = Strings.Hadronox;
+			Label.Text = Strings.GetLocalized("Hadronox");
 		}
 
 		public bool Update(Card card)

@@ -1,9 +1,8 @@
-using System.Linq;
-using System.Windows;
-using System.Collections.Generic;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using HDT.Plugins.Graveyard.Resources;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -20,7 +19,7 @@ namespace HDT.Plugins.Graveyard
 		public AnyfinView()
 		{
 			// Section Label
-			Label.Text = Strings.Anyfin;
+			Label.Text = Strings.GetLocalized("Anyfin");
 
 			// Damage Label
 			_dmg = new HearthstoneTextBlock();

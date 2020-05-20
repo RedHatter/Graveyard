@@ -5,7 +5,10 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
               xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
               xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
-              xmlns:resources="clr-namespace:HDT.Plugins.Graveyard.Resources"
+              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+              lex:LocalizeDictionary.DesignCulture="en"
+              lex:ResxLocalizationProvider.DefaultAssembly="Graveyard"
+              lex:ResxLocalizationProvider.DefaultDictionary="Strings"
               mc:Ignorable="d" VerticalScrollBarVisibility="Auto">
 	<StackPanel Width="400">
 		<StackPanel.Resources>
@@ -36,106 +39,106 @@
                 <Setter Property="Margin" Value="10,0"/>
             </Style>
         </StackPanel.Resources>
-        <Button Name="BtnUnlock" Width="150" Content="{x:Static resources:Strings.Unlock}" Click="BtnUnlock_Click" />
+        <Button Name="BtnUnlock" Width="150" Content="{lex:Loc Unlock}" Click="BtnUnlock_Click" />
         <mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Friendly}"
-                          ToolTip="{x:Static resources:Strings.FriendlyDescription}" 
+                          Content="{lex:Loc Friendly}"
+                          ToolTip="{lex:Loc FriendlyDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderFriendlyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
 				Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{x:Static resources:Strings.Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderFriendlyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
 				Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{x:Static resources:Strings.Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
         <mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Opponent}"
-                          ToolTip="{x:Static resources:Strings.OpponentDescription}" 
+                          Content="{lex:Loc Opponent}"
+                          ToolTip="{lex:Loc OpponentDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderEnemyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
 				Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{x:Static resources:Strings.Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderEnemyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
 					Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{x:Static resources:Strings.Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
         <mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Resurrect}"
-                          ToolTip="{x:Static resources:Strings.ResurrectDescription}" 
+                          Content="{lex:Loc Resurrect}"
+                          ToolTip="{lex:Loc ResurrectDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Kazakus}"
-                          ToolTip="{x:Static resources:Strings.KazakusDescription}" 
+                          Content="{lex:Loc Kazakus}"
+                          ToolTip="{lex:Loc KazakusDescription}" 
                           Style="{StaticResource SubToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding DeathrattleEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Deathrattle}"
-                          ToolTip="{x:Static resources:Strings.DeathrattleDescription}" 
+                          Content="{lex:Loc Deathrattle}"
+                          ToolTip="{lex:Loc DeathrattleDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.NZoth}"
-                          ToolTip="{x:Static resources:Strings.NZothDescription}" 
+                          Content="{lex:Loc NZoth}"
+                          ToolTip="{lex:Loc NZothDescription}" 
                           Style="{StaticResource SubToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Hadronox}"
-                          ToolTip="{x:Static resources:Strings.HadronoxDescription}" 
+                          Content="{lex:Loc Hadronox}"
+                          ToolTip="{lex:Loc HadronoxDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Discard}"
-                          ToolTip="{x:Static resources:Strings.DiscardDescription}" 
+                          Content="{lex:Loc Discard}"
+                          ToolTip="{lex:Loc DiscardDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding SoulwardenEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Soulwarden}"
-                          ToolTip="{x:Static resources:Strings.SoulwardenDescription}" 
+                          Content="{lex:Loc Soulwarden}"
+                          ToolTip="{lex:Loc SoulwardenDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Anyfin}"
-                          ToolTip="{x:Static resources:Strings.AnyfinDescription}" 
+                          Content="{lex:Loc Anyfin}"
+                          ToolTip="{lex:Loc AnyfinDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Guldan}"
-                          ToolTip="{x:Static resources:Strings.GuldanDescription}" 
+                          Content="{lex:Loc Guldan}"
+                          ToolTip="{lex:Loc GuldanDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Shudderwock}"
-                          ToolTip="{x:Static resources:Strings.ShudderwockDescription}" 
+                          Content="{lex:Loc Shudderwock}"
+                          ToolTip="{lex:Loc ShudderwockDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Alanna}"
-                          ToolTip="{x:Static resources:Strings.AlannaDescription}" 
+                          Content="{lex:Loc Alanna}"
+                          ToolTip="{lex:Loc AlannaDescription}" 
                           Style="{StaticResource ToggleStyle}"/>
         <mah:ToggleSwitch IsChecked="{Binding CavernsEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Caverns}"
-                          ToolTip="{x:Static resources:Strings.CavernsDescription}" 
+                          Content="{lex:Loc Caverns}"
+                          ToolTip="{lex:Loc CavernsDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding MulchmuncherEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Mulchmuncher}"
-                          ToolTip="{x:Static resources:Strings.MulchmuncherDescription}" 
+                          Content="{lex:Loc Mulchmuncher}"
+                          ToolTip="{lex:Loc MulchmuncherDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding KangorEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Kangor}"
-                          ToolTip="{x:Static resources:Strings.KangorDescription}" 
+                          Content="{lex:Loc Kangor}"
+                          ToolTip="{lex:Loc KangorDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding WitchingHourEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.WitchingHour}"
-                          ToolTip="{x:Static resources:Strings.WitchingHourDescription}" 
+                          Content="{lex:Loc WitchingHour}"
+                          ToolTip="{lex:Loc WitchingHourDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding TessGreymaneEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.TessGreymane}"
-                          ToolTip="{x:Static resources:Strings.TessGreymaneDescription}" 
+                          Content="{lex:Loc TessGreymane}"
+                          ToolTip="{lex:Loc TessGreymaneDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding ZuljinEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.Zuljin}"
-                          ToolTip="{x:Static resources:Strings.ZuljinDescription}" 
+                          Content="{lex:Loc Zuljin}"
+                          ToolTip="{lex:Loc ZuljinDescription}" 
                           Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding HoardPillagerEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{x:Static resources:Strings.HoardPillager}"
-                          ToolTip="{x:Static resources:Strings.HoardPillagerDescription}" 
+                          Content="{lex:Loc HoardPillager}"
+                          ToolTip="{lex:Loc HoardPillagerDescription}" 
                           Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

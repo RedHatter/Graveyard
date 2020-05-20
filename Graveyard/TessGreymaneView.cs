@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 
         public TessGreymaneView()
         {
-            Label.Text = "Tess Greymane";
+            Label.Text = Strings.GetLocalized("TessGreymane");
         }
 
         public bool Update(Card card)
