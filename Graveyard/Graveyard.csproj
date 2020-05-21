@@ -133,9 +133,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.zh-CN.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
     <Copy SourceFiles="bin/x86/Debug/Graveyard.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins" />
+    <Copy SourceFiles="bin/x86/Debug/zh-CN/Graveyard.resources.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins\zh-CN" />
   </Target>
 </Project>
