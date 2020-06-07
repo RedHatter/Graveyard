@@ -205,7 +205,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloodreaver Gul&apos;dan.
+        ///   Looks up a localized string similar to Demons.
         /// </summary>
         public static string Guldan {
             get {
@@ -214,7 +214,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the deck contains &apos;Bloodreaver Gul&apos;dan&apos;, show demons that have died.
+        ///   Looks up a localized string similar to When the deck contains &apos;Bloodreaver Gul&apos;dan&apos; or &apos;Kanrethad Ebonlocke&apos;, show demons that have died.
         /// </summary>
         public static string GuldanDescription {
             get {

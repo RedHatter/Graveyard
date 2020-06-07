@@ -174,10 +174,10 @@
 - Minions played count (The Caverns Below)</value>
   </data>
   <data name="Guldan" xml:space="preserve">
-    <value>Bloodreaver Gul'dan</value>
+    <value>Demons</value>
   </data>
   <data name="GuldanDescription" xml:space="preserve">
-    <value>When the deck contains 'Bloodreaver Gul'dan', show demons that have died</value>
+    <value>When the deck contains 'Bloodreaver Gul'dan' or 'Kanrethad Ebonlocke', show demons that have died</value>
   </data>
   <data name="Hadronox" xml:space="preserve">
     <value>Hadronox</value>
