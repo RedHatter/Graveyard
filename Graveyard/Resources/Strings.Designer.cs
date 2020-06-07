@@ -190,13 +190,13 @@ namespace HDT.Plugins.Graveyard.Resources {
         ///   Looks up a localized string similar to Displays minions that have died this game. Includes specialized displays:
         ///- Deathrattle minions (Nine Lives/Da Undatakah/Twilight&apos;s Call/N&apos;Zoth)
         ///- Taunt minions (Hadronox)
-        ///- Demons (Bloodreaver Gul&apos;dan)
+        ///- Demon deaths (Bloodreaver Gul&apos;dan/Kanrethad Ebonlocke)
         ///- Resurrection chance (Catrina Muerte/Mass Resurrection/Wild Priest cards)
         ///- Murloc minions with a damage calculator for Anyfin Can Happen
         ///- Discard retrieve chance (Soulwarden/Cruel Dinomancer) 
         ///- Treant deaths (Mulchmuncher)
         ///- Mech deaths (Kangor&apos;s Endless Army)
-        ///- 5-cost spells (Dragoncaller Alann [rest of string was truncated]&quot;;.
+        ///- Spells  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string GraveyardDescription {
             get {

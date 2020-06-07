@@ -163,15 +163,17 @@
     <value>Displays minions that have died this game. Includes specialized displays:
 - Deathrattle minions (Nine Lives/Da Undatakah/Twilight's Call/N'Zoth)
 - Taunt minions (Hadronox)
-- Demons (Bloodreaver Gul'dan)
+- Demon deaths (Bloodreaver Gul'dan/Kanrethad Ebonlocke)
 - Resurrection chance (Catrina Muerte/Mass Resurrection/Wild Priest cards)
 - Murloc minions with a damage calculator for Anyfin Can Happen
 - Discard retrieve chance (Soulwarden/Cruel Dinomancer) 
 - Treant deaths (Mulchmuncher)
 - Mech deaths (Kangor's Endless Army)
-- 5-cost spells (Dragoncaller Alanna)
+- Spells cast (Lady Lianna/Zul'jin/Dragoncaller Alanna)
 - Beast minions resummon chance (Witching Hour)
-- Minions played count (The Caverns Below)</value>
+- Minions played count (The Caverns Below)Below)
+- Other class cards played (Tess Greymane)
+- Battlecry cards played (Shudderwock)</value>
   </data>
   <data name="Guldan" xml:space="preserve">
     <value>Demons</value>
