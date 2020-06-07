@@ -36,6 +36,7 @@ namespace HDT.Plugins.Graveyard
         public SoulwardenView Soulwarden;
 		public ZuljinView Zuljin;
 		public HoardPillagerView HoardPillager;
+		public LadyLiadrinView LadyLiadrin;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -288,6 +289,15 @@ namespace HDT.Plugins.Graveyard
 			{
 				HoardPillager = null;
 			}
+			if (Settings.Default.LadyLiadrinEnabled && LadyLiadrinView.isValid())
+            {
+				LadyLiadrin = new LadyLiadrinView();
+				_friendlyPanel.Children.Add(LadyLiadrin);
+            }
+            else
+            {
+				LadyLiadrin = null;
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -327,6 +337,7 @@ namespace HDT.Plugins.Graveyard
             Caverns?.Update(card);
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
+			LadyLiadrin?.Update(card);
         }
 	}
 }

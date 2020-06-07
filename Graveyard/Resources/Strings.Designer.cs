@@ -295,6 +295,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lady Liadrin.
+        /// </summary>
+        public static string LadyLiadrin {
+            get {
+                return ResourceManager.GetString("LadyLiadrin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Lady Liadrin&apos;, show all spells cast on friendly characters this game..
+        /// </summary>
+        public static string LadyLiadrinDescription {
+            get {
+                return ResourceManager.GetString("LadyLiadrinDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lock Graveyards.
         /// </summary>
         public static string Lock {

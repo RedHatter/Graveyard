@@ -140,5 +140,9 @@
                           Content="{lex:Loc HoardPillager}"
                           ToolTip="{lex:Loc HoardPillagerDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding LadyLiadrinEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc LadyLiadrin}"
+                          ToolTip="{lex:Loc LadyLiadrinDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

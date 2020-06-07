@@ -203,6 +203,12 @@
   <data name="KazakusDescription" xml:space="preserve">
     <value>Also display for resurrect chances with Kazakus.</value>
   </data>
+  <data name="LadyLiadrin" xml:space="preserve">
+    <value>Lady Liadrin</value>
+  </data>
+  <data name="LadyLiadrinDescription" xml:space="preserve">
+    <value>When the deck contains 'Lady Liadrin', show all spells cast on friendly characters this game.</value>
+  </data>
   <data name="Lock" xml:space="preserve">
     <value>Lock Graveyards</value>
   </data>
