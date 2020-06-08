@@ -174,10 +174,10 @@
 - 随从打出数量（探索地下洞穴）</value>
   </data>
   <data name="Guldan" xml:space="preserve">
-    <value>鲜血掠夺者古尔丹</value>
+    <value>恶魔</value>
   </data>
   <data name="GuldanDescription" xml:space="preserve">
-    <value>如果卡组中包含鲜血掠夺者古尔丹，显示所有死亡的恶魔</value>
+    <value>如果卡组中包含鲜血掠夺者古尔丹或坎雷萨德·埃伯洛克，显示所有死亡的恶魔及其概率</value>
   </data>
   <data name="Hadronox" xml:space="preserve">
     <value>哈多诺克斯</value>
@@ -202,6 +202,12 @@
   </data>
   <data name="KazakusDescription" xml:space="preserve">
     <value>显示卡扎库斯药水的所有复活概率</value>
+  </data>
+  <data name="LadyLiadrin" xml:space="preserve">
+    <value>女伯爵莉亚德琳</value>
+  </data>
+  <data name="LadyLiadrinDescription" xml:space="preserve">
+    <value>如果卡座中有伯爵夫人莉亚德琳伯爵夫人,出示所有您用友善角色打过的咒语牌</value>
   </data>
   <data name="Lock" xml:space="preserve">
     <value>锁定位置</value>
