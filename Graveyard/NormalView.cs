@@ -46,13 +46,12 @@ namespace HDT.Plugins.Graveyard
 			var match = Cards.FirstOrDefault(c => c.Name == card.Name);
 			if (match != null)
 			{
-				Cards.Remove(match);
-				card = match.Clone() as Card;
-				card.Count++;
+				match.Count++;
 			}
-
-			// Update View
-			Cards.Add(card);
+			else
+			{
+				Cards.Add(card.Clone() as Card);
+			}
 			View.Update(Cards, false);
 
 			Label.Visibility = Visibility.Visible;
