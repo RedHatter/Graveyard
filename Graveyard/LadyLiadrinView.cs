@@ -19,6 +19,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.HandOfProtection,
             //Paladin.Humility
             Paladin.SandBreath,
+            Paladin.ShieldOfHonor,
             // 2
             Paladin.DarkConviction,
             Paladin.FlashOfLight,
@@ -31,6 +32,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.SoundTheBells,
             //Paladin.Subdue
             // 3
+            Paladin.GiftOfLuminance,
             Paladin.SealOfChampions,
             // 4
             Paladin.BlessingOfKings,
@@ -38,6 +40,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.SilvermoonPortal,
             // 5
             Paladin.BlessedChampion,
+            Paladin.BlessingOfAuthority,
             //Paladin.HolyWrath,
             // 6
             //?Paladin.Righteousness, all minions
