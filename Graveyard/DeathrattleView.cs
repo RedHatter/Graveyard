@@ -9,6 +9,7 @@ namespace HDT.Plugins.Graveyard
         public static bool isValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card =>
+                card.Id == HearthDb.CardIds.Collectible.Neutral.Vectus ||
                 card.Id == HearthDb.CardIds.Collectible.Hunter.NineLives ||
                 card.Id == HearthDb.CardIds.Collectible.Neutral.DaUndatakah ||
                 card.Id == HearthDb.CardIds.Collectible.Priest.TwilightsCall                
