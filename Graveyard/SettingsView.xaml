@@ -35,8 +35,31 @@
             <Style x:Key="SubToggleStyle" TargetType="mah:ToggleSwitch" BasedOn="{StaticResource ToggleStyle}">
                 <Setter Property="FontSize" Value="12"/>
             </Style>
-            <Style x:Key="SliderStyle" TargetType="DockPanel">
+            <Style x:Key="SliderPanelStyle" TargetType="DockPanel">
                 <Setter Property="Margin" Value="10,0"/>
+            </Style>
+            <Style x:Key="SliderStyle" TargetType="Slider">
+                <Setter Property="IsSnapToTickEnabled" Value="True"/>
+                <Setter Property="TickFrequency" Value="1"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="150"/>
+            </Style>
+            <Style x:Key="OpacitySliderStyle" TargetType="Slider" BasedOn="{StaticResource SliderStyle}">
+                <Setter Property="LargeChange" Value="10"/>
+                <Setter Property="Minimum" Value="20"/>
+                <Setter Property="Maximum" Value="100"/>
+            </Style>
+            <Style x:Key="ScaleSliderStyle" TargetType="Slider" BasedOn="{StaticResource SliderStyle}">
+                <Setter Property="LargeChange" Value="10"/>
+                <Setter Property="Minimum" Value="50"/>
+                <Setter Property="Maximum" Value="200"/>
+            </Style>
+            <Style x:Key="SliderTextStyle" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="TextAlignment" Value="Right"/>
+                <Setter Property="Width" Value="40"/>
+                <Setter Property="Margin" Value="0,0,10,0"/>
             </Style>
         </StackPanel.Resources>
         <Button Name="BtnUnlock" Width="150" Content="{lex:Loc Unlock}" Click="BtnUnlock_Click" />
@@ -44,29 +67,45 @@
                           Content="{lex:Loc Friendly}"
                           ToolTip="{lex:Loc FriendlyDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
-        <DockPanel Style="{StaticResource SliderStyle}">
-            <Slider x:Name="SliderFriendlyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-				Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
+        <DockPanel Style="{StaticResource SliderPanelStyle}">
+            <Slider x:Name="SliderFriendlyOpacity" DockPanel.Dock="Right"
+                    Style="{StaticResource OpacitySliderStyle}"
+                    Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
             <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <TextBlock Text="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
+                       Style="{StaticResource SliderTextStyle}"
+                       DockPanel.Dock="Right"  />
         </DockPanel>
-        <DockPanel Style="{StaticResource SliderStyle}">
-            <Slider x:Name="SliderFriendlyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-				Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
+        <DockPanel Style="{StaticResource SliderPanelStyle}">
+            <Slider x:Name="SliderFriendlyScale" DockPanel.Dock="Right"
+                    Style="{StaticResource ScaleSliderStyle}"
+                    Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
             <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <TextBlock Text="{Binding FriendlyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" 
+                       Style="{StaticResource SliderTextStyle}"
+                       DockPanel.Dock="Right" />
         </DockPanel>
         <mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Opponent}"
                           ToolTip="{lex:Loc OpponentDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
-        <DockPanel Style="{StaticResource SliderStyle}">
-            <Slider x:Name="SliderEnemyOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-				Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
+        <DockPanel Style="{StaticResource SliderPanelStyle}">
+            <Slider x:Name="SliderEnemyOpacity" DockPanel.Dock="Right"
+                    Style="{StaticResource OpacitySliderStyle}"
+                    Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
             <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <TextBlock Text="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
+                       Style="{StaticResource SliderTextStyle}"
+                       DockPanel.Dock="Right" />
         </DockPanel>
-        <DockPanel Style="{StaticResource SliderStyle}">
+        <DockPanel Style="{StaticResource SliderPanelStyle}">
             <Slider x:Name="SliderEnemyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-					Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
+                    Style="{StaticResource ScaleSliderStyle}"
+                    Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
             <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+            <TextBlock Text="{Binding EnemyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
+                   Style="{StaticResource SliderTextStyle}"
+                   DockPanel.Dock="Right" />
         </DockPanel>
         <mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Resurrect}"
