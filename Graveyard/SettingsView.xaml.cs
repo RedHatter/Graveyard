@@ -37,8 +37,6 @@ namespace HDT.Plugins.Graveyard
 		public SettingsView()
 		{
 			InitializeComponent();
-			Settings.Default.PropertyChanged += (sender, e) => Settings.Default.Save();
-			Debug.WriteLine(LocalizeDictionary.Instance.Culture.Name);
 		}
 
 		private void BtnUnlock_Click (object sender, RoutedEventArgs e) {
