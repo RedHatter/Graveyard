@@ -7,8 +7,8 @@ if(Test-Path $HDTPath)
     $HDTExe = Get-ChildItem "$Env:LOCALAPPDATA\HearthstoneDeckTracker" | Where-Object { $_.PSIsContainer -and $_.Name.StartsWith("app-")} | sort CreationTime -desc | select -f 1 | Get-ChildItem | Where-Object { $_.Name.Equals("HearthstoneDeckTracker.exe")}
     if($HDTExe.Exists)
     {
-        "Copying $HDTExe v$($HDTExe.VersionInfo.FileVersion)... "
-        Copy-Item $HDTExe.FullName "$PSScriptRoot\lib\$HDTExe" -Force
+        "Copying $($HDTExe.Name) v$($HDTExe.VersionInfo.FileVersion)... "
+        Copy-Item $HDTExe.FullName "$PSScriptRoot\lib\$($HDTExe.Name)" -Force
     }
 }
 
