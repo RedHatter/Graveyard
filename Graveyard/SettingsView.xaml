@@ -183,5 +183,9 @@
                           Content="{lex:Loc LadyLiadrin}"
                           ToolTip="{lex:Loc LadyLiadrinDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding NZothGotDEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc NZothGotD}"
+                          ToolTip="{lex:Loc NZothGotDDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

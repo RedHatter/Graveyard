@@ -221,10 +221,16 @@
     <value>When the deck contains at least one 'Mulchmuncher', count Treants that have died</value>
   </data>
   <data name="NZoth" xml:space="preserve">
-    <value>N'Zoth</value>
+    <value>N'Zoth, the Corruptor</value>
   </data>
   <data name="NZothDescription" xml:space="preserve">
     <value>When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died</value>
+  </data>
+  <data name="NZothGotD" xml:space="preserve">
+    <value>N'Zoth, God of the Deep</value>
+  </data>
+  <data name="NZothGotDDescription" xml:space="preserve">
+    <value>When the deck contains 'N'Zoth, God of the Deep', show all minions, with a specific type, that have died</value>
   </data>
   <data name="Opacity" xml:space="preserve">
     <value>Opacity</value>

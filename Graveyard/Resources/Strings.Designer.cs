@@ -340,7 +340,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N&apos;Zoth.
+        ///   Looks up a localized string similar to N&apos;Zoth, the Corruptor.
         /// </summary>
         public static string NZoth {
             get {
@@ -354,6 +354,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string NZothDescription {
             get {
                 return ResourceManager.GetString("NZothDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to N&apos;Zoth, God of the Deep.
+        /// </summary>
+        public static string NZothGotD {
+            get {
+                return ResourceManager.GetString("NZothGotD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;N&apos;Zoth, God of the Deep&apos;, show all minions, with a specific type, that have died.
+        /// </summary>
+        public static string NZothGotDDescription {
+            get {
+                return ResourceManager.GetString("NZothGotDDescription", resourceCulture);
             }
         }
         

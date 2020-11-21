@@ -81,6 +81,7 @@
     <Compile Include="KangorView.cs" />
     <Compile Include="LadyLiadrinView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="NZothGotDView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
     <Compile Include="GraveyardPlugin.cs" />

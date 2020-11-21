@@ -224,6 +224,9 @@
   <data name="NZothDescription" xml:space="preserve">
     <value>如果卡组中包含恩佐斯，显示所有死亡的亡语随从</value>
   </data>
+  <data name="NZothGotD" xml:space="preserve">
+    <value>恩佐斯，深渊之神</value>
+  </data>
   <data name="Opacity" xml:space="preserve">
     <value>不透明度</value>
   </data>
