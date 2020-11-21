@@ -18,7 +18,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool Update(Card card)
         {
-            return (card.Race == "Mech" || card.Id == HearthDb.CardIds.Collectible.Neutral.NightmareAmalgam) && base.Update(card);
+            return (card.Race == "Mech" || card.Race == "All") && base.Update(card);
         }
     }
 }

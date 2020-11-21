@@ -8,7 +8,7 @@ namespace HDT.Plugins.Graveyard
     {
         private ChancesTracker _chances = new ChancesTracker();
 
-        private static readonly List<string> ChooseOne = new List<string>
+        internal static readonly List<string> ChooseOne = new List<string>
         {
             HearthDb.CardIds.Collectible.Druid.DruidOfTheSaber,
             HearthDb.CardIds.Collectible.Druid.DruidOfTheSwarm,
@@ -17,6 +17,7 @@ namespace HDT.Plugins.Graveyard
             HearthDb.CardIds.Collectible.Druid.WardruidLoti,
             HearthDb.CardIds.Collectible.Druid.Shellshifter,
             HearthDb.CardIds.Collectible.Druid.DruidOfTheClaw,
+            HearthDb.CardIds.Collectible.Druid.DruidOfTheFang, // Honorary "choose one" for beast purposes
         };
 
         public static bool isValid()
