@@ -38,6 +38,7 @@ namespace HDT.Plugins.Graveyard
 		public HoardPillagerView HoardPillager;
 		public LadyLiadrinView LadyLiadrin;
 		public NZothGotDView NZothGotD;
+		public RallyView Rally;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -304,6 +305,11 @@ namespace HDT.Plugins.Graveyard
 				NZothGotD = new NZothGotDView();
 				_friendlyPanel.Children.Add(NZothGotD);
             }
+			if (Settings.Default.RallyEnabled && RallyView.isValid())
+            {
+				Rally = new RallyView();
+				_friendlyPanel.Children.Add(Rally);
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -319,7 +325,8 @@ namespace HDT.Plugins.Graveyard
             var witching = WitchingHour?.Update(card) ?? false;
 			var hoardpillager = HoardPillager?.Update(card) ?? false;
 			var nzothgotd = NZothGotD?.Update(card) ?? false;
-            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd))
+			var rally = Rally?.Update(card) ?? false;
+            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd || rally))
 			{
 				Normal?.Update(card);
 			}

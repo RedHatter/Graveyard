@@ -382,5 +382,17 @@ namespace HDT.Plugins.Graveyard {
                 this["NZothGotDEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RallyEnabled {
+            get {
+                return ((bool)(this["RallyEnabled"]));
+            }
+            set {
+                this["RallyEnabled"] = value;
+            }
+        }
     }
 }

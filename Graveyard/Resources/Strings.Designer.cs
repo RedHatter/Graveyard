@@ -403,6 +403,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rally!.
+        /// </summary>
+        public static string Rally {
+            get {
+                return ResourceManager.GetString("Rally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Rally!&apos;, show the resurrect chance of friendly 1, 2 and 3 cost minions that have died.
+        /// </summary>
+        public static string RallyDescription {
+            get {
+                return ResourceManager.GetString("RallyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resurrect.
         /// </summary>
         public static string Resurrect {

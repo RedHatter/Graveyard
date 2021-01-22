@@ -241,6 +241,12 @@
   <data name="OpponentDescription" xml:space="preserve">
     <value>All enemy minions that have died</value>
   </data>
+  <data name="Rally" xml:space="preserve">
+    <value>Rally!</value>
+  </data>
+  <data name="RallyDescription" xml:space="preserve">
+    <value>When the deck contains 'Rally!', show the resurrect chance of friendly 1, 2 and 3 cost minions that have died</value>
+  </data>
   <data name="Resurrect" xml:space="preserve">
     <value>Resurrect</value>
   </data>

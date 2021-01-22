@@ -187,5 +187,9 @@
                           Content="{lex:Loc NZothGotD}"
                           ToolTip="{lex:Loc NZothGotDDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding RallyEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Rally}"
+                          ToolTip="{lex:Loc RallyDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>
