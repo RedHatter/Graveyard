@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				card.Id == HearthDb.CardIds.Collectible.Neutral.Rally) > -1;
 		}
 
-		public static bool AlwaysSeparate => Settings.Default.AlwaysRallySeparately;
+		public static bool AlwaysSeparate => Settings.Default.AlwaysRallySeparately || !Settings.Default.ResurrectEnabled; // THis is iffy
 
 		public RallyView()
 		{
@@ -23,14 +23,12 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			if (!base.Update(card))
-			{
-				return false;
-			}
+			var update = card.Type == "Minion" && card.Cost <= 3  && base.Update(card);
 
-			_chances.Update(card, Cards, View);
+			if (update)
+				_chances.Update(card, Cards, View);
 
-			return true;
+			return update;
 		}
 	}
 }
