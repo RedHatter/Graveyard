@@ -9,9 +9,11 @@ namespace HDT.Plugins.Graveyard
 
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card =>
+			return AlwaysSeparate && Core.Game.Player.PlayerCardList.FindIndex(card =>
 				card.Id == HearthDb.CardIds.Collectible.Neutral.Rally) > -1;
 		}
+
+		public static bool AlwaysSeparate => Settings.Default.AlwaysRallySeparately;
 
 		public RallyView()
 		{

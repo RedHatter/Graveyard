@@ -190,6 +190,10 @@
         <mah:ToggleSwitch IsChecked="{Binding RallyEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Rally}"
                           ToolTip="{lex:Loc RallyDescription}" 
+                          Style="{StaticResource TitleToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding AlwaysRallySeparately, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc AlwaysRallySeparately}"
+                          ToolTip="{lex:Loc AlwaysRallySeparatelyDescription}" 
                           Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

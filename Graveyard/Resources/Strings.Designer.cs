@@ -79,6 +79,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always Rally! separately.
+        /// </summary>
+        public static string AlwaysRallySeparately {
+            get {
+                return ResourceManager.GetString("AlwaysRallySeparately", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a separate view for Rally! even when the Resurrect view is active.
+        /// </summary>
+        public static string AlwaysRallySeparatelyDescription {
+            get {
+                return ResourceManager.GetString("AlwaysRallySeparatelyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anyfin.
         /// </summary>
         public static string Anyfin {

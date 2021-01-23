@@ -394,5 +394,17 @@ namespace HDT.Plugins.Graveyard {
                 this["RallyEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AlwaysRallySeparately {
+            get {
+                return ((bool)(this["AlwaysRallySeparately"]));
+            }
+            set {
+                this["AlwaysRallySeparately"] = value;
+            }
+        }
     }
 }
