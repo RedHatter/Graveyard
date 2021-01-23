@@ -57,7 +57,7 @@ namespace HDT.Plugins.Graveyard
 
 			// Create container
 			_friendlyPanel = new StackPanel();
-			_friendlyPanel.Orientation = Orientation.Vertical;
+			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			Core.OverlayCanvas.Children.Add(_friendlyPanel);
 			Canvas.SetTop(_friendlyPanel, Settings.Default.PlayerTop);
 			Canvas.SetLeft(_friendlyPanel, Settings.Default.PlayerLeft);
@@ -85,6 +85,7 @@ namespace HDT.Plugins.Graveyard
 		//on year change clear out the grid and update the data
 		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
+			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
 			_friendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
 			_enemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);

@@ -1,6 +1,9 @@
 using Hearthstone_Deck_Tracker;
 using MahApps.Metro.Controls;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WPFLocalizeExtension.Engine;
@@ -38,6 +41,8 @@ namespace HDT.Plugins.Graveyard
 		{
 			InitializeComponent();
 		}
+
+		public IEnumerable<Orientation> OrientationTypes => Enum.GetValues(typeof(Orientation)).Cast<Orientation>();
 
 		private void BtnUnlock_Click (object sender, RoutedEventArgs e) {
 			BtnUnlock.Content = Graveyard.Input.Toggle() ? Strings.GetLocalized("Lock") : Strings.GetLocalized("Unlock");

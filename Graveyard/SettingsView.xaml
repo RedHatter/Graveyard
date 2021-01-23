@@ -85,6 +85,22 @@
                        Style="{StaticResource SliderTextStyle}"
                        DockPanel.Dock="Right" />
         </DockPanel>
+        <DockPanel Style="{StaticResource SliderPanelStyle}" ToolTip="{lex:Loc OrientationDescription}">
+            <DockPanel.Resources>
+                <local:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+            </DockPanel.Resources>
+            <RadioButton IsChecked="{Binding Path=FriendlyOrientation, 
+                Source={x:Static local:Settings.Default}, 
+                Converter={StaticResource EnumToBoolConverter}, 
+                ConverterParameter={x:Static Orientation.Horizontal}}" 
+                         Content="{lex:Loc Horizontal}" VerticalAlignment="Center" DockPanel.Dock="Right" Width="120"/>
+            <RadioButton IsChecked="{Binding Path=FriendlyOrientation, 
+                Source={x:Static local:Settings.Default}, 
+                Converter={StaticResource EnumToBoolConverter}, 
+                ConverterParameter={x:Static Orientation.Vertical}}" 
+                         Content="{lex:Loc Vertical}" VerticalAlignment="Center" DockPanel.Dock="Right" Width="120"/>
+            <Label Content="{lex:Loc Orientation}" VerticalAlignment="Center" DockPanel.Dock="Left" />
+        </DockPanel>
         <mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Opponent}"
                           ToolTip="{lex:Loc OpponentDescription}" 

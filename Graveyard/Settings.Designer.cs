@@ -406,5 +406,17 @@ namespace HDT.Plugins.Graveyard {
                 this["AlwaysRallySeparately"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Vertical")]
+        public global::System.Windows.Controls.Orientation FriendlyOrientation {
+            get {
+                return ((global::System.Windows.Controls.Orientation)(this["FriendlyOrientation"]));
+            }
+            set {
+                this["FriendlyOrientation"] = value;
+            }
+        }
     }
 }

@@ -75,6 +75,7 @@
     <Compile Include="ChancesTracker.cs" />
     <Compile Include="DeathrattleView.cs" />
     <Compile Include="DragoncallerAlannaView.cs" />
+    <Compile Include="EnumToBoolConverter.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />
