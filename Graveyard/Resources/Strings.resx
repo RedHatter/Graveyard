@@ -268,6 +268,12 @@
   <data name="ResurrectDescription" xml:space="preserve">
     <value>When the deck contains 'Resurrect', 'Onyx Bishop', 'Eternal Servitude', or 'Lesser Diamond Spellstone', show the resurrect chance of friendly  minions that have died</value>
   </data>
+  <data name="Saurfang" xml:space="preserve">
+    <value>Overlord Saurfang</value>
+  </data>
+  <data name="SaurfangDescription" xml:space="preserve">
+    <value>When the deck contains 'Overload Saurfang', show summon chance of Frenzy minions that have died.</value>
+  </data>
   <data name="Scale" xml:space="preserve">
     <value>Scale</value>
   </data>

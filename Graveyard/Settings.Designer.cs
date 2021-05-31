@@ -418,5 +418,17 @@ namespace HDT.Plugins.Graveyard {
                 this["FriendlyOrientation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaurfangEnabled {
+            get {
+                return ((bool)(this["SaurfangEnabled"]));
+            }
+            set {
+                this["SaurfangEnabled"] = value;
+            }
+        }
     }
 }

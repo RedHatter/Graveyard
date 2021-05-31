@@ -95,6 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="SaurfangView.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="ResurrectView.cs" />
     <Compile Include="NZothView.cs" />

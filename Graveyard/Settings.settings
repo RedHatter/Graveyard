@@ -101,5 +101,8 @@
     <Setting Name="FriendlyOrientation" Type="System.Windows.Controls.Orientation" Scope="User">
       <Value Profile="(Default)">Vertical</Value>
     </Setting>
+    <Setting Name="SaurfangEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

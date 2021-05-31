@@ -484,6 +484,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overlord Saurfang.
+        /// </summary>
+        public static string Saurfang {
+            get {
+                return ResourceManager.GetString("Saurfang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Overload Saurfang&apos;, show summon chance of Frenzy minions that have died..
+        /// </summary>
+        public static string SaurfangDescription {
+            get {
+                return ResourceManager.GetString("SaurfangDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scale.
         /// </summary>
         public static string Scale {
