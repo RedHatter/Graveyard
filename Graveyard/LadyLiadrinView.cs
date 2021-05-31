@@ -13,10 +13,10 @@ namespace HDT.Plugins.Graveyard
             Paladin.ForbiddenHealing,
             // 1
             Paladin.Adaptation,
-            Paladin.BlessingOfMight,
+            Paladin.BlessingOfMightLegacy,
             Paladin.BlessingOfWisdom,
             Paladin.DivineStrength,
-            Paladin.HandOfProtection,
+            Paladin.HandOfProtectionLegacy,
             //Paladin.Humility
             Paladin.SandBreath,
             Paladin.ShieldOfHonor,
@@ -24,7 +24,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.DarkConviction,
             Paladin.FlashOfLight,
             Paladin.HandOfAdal,
-            Paladin.HolyLight,
+            Paladin.HolyLightLegacy,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
             Paladin.PotionOfHeroism,
@@ -35,7 +35,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.GiftOfLuminance,
             Paladin.SealOfChampions,
             // 4
-            Paladin.BlessingOfKings,
+            Paladin.BlessingOfKingsLegacy,
             //Paladin.HammerOfWrath,
             Paladin.SilvermoonPortal,
             // 5
