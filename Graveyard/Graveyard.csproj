@@ -75,22 +75,28 @@
     <Compile Include="ChancesTracker.cs" />
     <Compile Include="DeathrattleView.cs" />
     <Compile Include="DragoncallerAlannaView.cs" />
+    <Compile Include="EnumToBoolConverter.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />
     <Compile Include="KangorView.cs" />
+    <Compile Include="LadyLiadrinView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="NZothGotDView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
     <Compile Include="GraveyardPlugin.cs" />
     <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
+    <Compile Include="RallyView.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="SaurfangView.cs" />
+    <Compile Include="Strings.cs" />
     <Compile Include="ResurrectView.cs" />
     <Compile Include="NZothView.cs" />
     <Compile Include="InputManager.cs" />
@@ -123,15 +129,21 @@
     <PackageReference Include="MahApps.Metro">
       <Version>1.6.5</Version>
     </PackageReference>
+    <PackageReference Include="WPFLocalizeExtension">
+      <Version>3.5.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.zh-CN.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Debug' ">
     <Copy SourceFiles="bin/x86/Debug/Graveyard.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins" />
+    <Copy SourceFiles="bin/x86/Debug/zh-CN/Graveyard.resources.dll" DestinationFolder="$(AppData)\HearthstoneDeckTracker\Plugins\zh-CN" />
   </Target>
 </Project>

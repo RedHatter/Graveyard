@@ -1,7 +1,6 @@
-using System.Linq;
-using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using System.Linq;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -9,14 +8,13 @@ namespace HDT.Plugins.Graveyard
 	{
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptor 
-            || card.Id == HearthDb.CardIds.NonCollectible.Neutral.NzothTheCorruptor) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptor) > -1;
 		}
 
 		public NZothView()
 		{
 			// Section Label
-			Label.Text = Strings.NZoth;
+			Label.Text = Strings.GetLocalized("NZoth");
 		}
 
 		public bool Update(Card card)

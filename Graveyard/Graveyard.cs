@@ -36,6 +36,10 @@ namespace HDT.Plugins.Graveyard
         public SoulwardenView Soulwarden;
 		public ZuljinView Zuljin;
 		public HoardPillagerView HoardPillager;
+		public LadyLiadrinView LadyLiadrin;
+		public NZothGotDView NZothGotD;
+		public RallyView Rally;
+		public SaurfangView Saurfang;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -54,7 +58,7 @@ namespace HDT.Plugins.Graveyard
 
 			// Create container
 			_friendlyPanel = new StackPanel();
-			_friendlyPanel.Orientation = Orientation.Vertical;
+			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			Core.OverlayCanvas.Children.Add(_friendlyPanel);
 			Canvas.SetTop(_friendlyPanel, Settings.Default.PlayerTop);
 			Canvas.SetLeft(_friendlyPanel, Settings.Default.PlayerLeft);
@@ -82,6 +86,7 @@ namespace HDT.Plugins.Graveyard
 		//on year change clear out the grid and update the data
 		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
+			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
 			_friendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
 			_enemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
@@ -288,6 +293,30 @@ namespace HDT.Plugins.Graveyard
 			{
 				HoardPillager = null;
 			}
+			if (Settings.Default.LadyLiadrinEnabled && LadyLiadrinView.isValid())
+            {
+				LadyLiadrin = new LadyLiadrinView();
+				_friendlyPanel.Children.Add(LadyLiadrin);
+            }
+            else
+            {
+				LadyLiadrin = null;
+            }
+            if (Settings.Default.NZothGotDEnabled && NZothGotDView.isValid())
+            {
+				NZothGotD = new NZothGotDView();
+				_friendlyPanel.Children.Add(NZothGotD);
+            }
+			if (Settings.Default.RallyEnabled && RallyView.isValid())
+            {
+				Rally = new RallyView();
+				_friendlyPanel.Children.Add(Rally);
+            }
+			if (Settings.Default.SaurfangEnabled && SaurfangView.isValid())
+            {
+				Saurfang = new SaurfangView();
+				_friendlyPanel.Children.Add(Saurfang);
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -302,7 +331,10 @@ namespace HDT.Plugins.Graveyard
             var kangor = Kangor?.Update(card) ?? false;
             var witching = WitchingHour?.Update(card) ?? false;
 			var hoardpillager = HoardPillager?.Update(card) ?? false;
-            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager))
+			var nzothgotd = NZothGotD?.Update(card) ?? false;
+			var rally = Rally?.Update(card) ?? false;
+			var saurfang = Saurfang?.Update(card) ?? false;
+            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd || rally || saurfang))
 			{
 				Normal?.Update(card);
 			}
@@ -327,6 +359,7 @@ namespace HDT.Plugins.Graveyard
             Caverns?.Update(card);
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
+			LadyLiadrin?.Update(card);
         }
 	}
 }

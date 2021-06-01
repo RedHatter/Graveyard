@@ -1,4 +1,3 @@
-using HDT.Plugins.Graveyard.Resources;
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 
@@ -11,6 +10,8 @@ namespace HDT.Plugins.Graveyard
 		public static bool isValid()
 		{
 			return Core.Game.Player.PlayerCardList.FindIndex(card =>
+				(card.Id == HearthDb.CardIds.Collectible.Neutral.Rally && !RallyView.AlwaysSeparate) ||
+				card.Id == HearthDb.CardIds.Collectible.Priest.RaiseDead ||
                 card.Id == HearthDb.CardIds.Collectible.Priest.Psychopomp ||
                 card.Id == HearthDb.CardIds.Collectible.Neutral.BodyWrapper ||
                 card.Id == HearthDb.CardIds.Collectible.Priest.MassResurrection ||
@@ -26,7 +27,7 @@ namespace HDT.Plugins.Graveyard
 		public ResurrectView()
 		{
 			// Section Label
-			Label.Text = Strings.Resurrect;
+			Label.Text = Strings.GetLocalized("Resurrect");
 		}
 
 		public bool Update(Card card)

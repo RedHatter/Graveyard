@@ -1,11 +1,10 @@
+using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.Controls;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Controls;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
-using HDT.Plugins.Graveyard.Resources;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -23,7 +22,7 @@ namespace HDT.Plugins.Graveyard
 			Label = new HearthstoneTextBlock();
 			Label.FontSize = 16;
 			Label.TextAlignment = TextAlignment.Center;
-			Label.Text = Strings.Graveyard;
+			Label.Text = Strings.GetLocalized("Graveyard");
 			var margin = Label.Margin;
 			margin.Top = 20;
 			Label.Margin = margin;
@@ -47,13 +46,12 @@ namespace HDT.Plugins.Graveyard
 			var match = Cards.FirstOrDefault(c => c.Name == card.Name);
 			if (match != null)
 			{
-				Cards.Remove(match);
-				card = match.Clone() as Card;
-				card.Count++;
+				match.Count++;
 			}
-
-			// Update View
-			Cards.Add(card);
+			else
+			{
+				Cards.Add(card.Clone() as Card);
+			}
 			View.Update(Cards, false);
 
 			Label.Visibility = Visibility.Visible;

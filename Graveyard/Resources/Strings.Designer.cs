@@ -79,6 +79,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always Rally! separately.
+        /// </summary>
+        public static string AlwaysRallySeparately {
+            get {
+                return ResourceManager.GetString("AlwaysRallySeparately", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a separate view for Rally! even when the Resurrect view is active.
+        /// </summary>
+        public static string AlwaysRallySeparatelyDescription {
+            get {
+                return ResourceManager.GetString("AlwaysRallySeparatelyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anyfin.
         /// </summary>
         public static string Anyfin {
@@ -190,13 +208,13 @@ namespace HDT.Plugins.Graveyard.Resources {
         ///   Looks up a localized string similar to Displays minions that have died this game. Includes specialized displays:
         ///- Deathrattle minions (Nine Lives/Da Undatakah/Twilight&apos;s Call/N&apos;Zoth)
         ///- Taunt minions (Hadronox)
-        ///- Demons (Bloodreaver Gul&apos;dan)
+        ///- Demon deaths (Bloodreaver Gul&apos;dan/Kanrethad Ebonlocke)
         ///- Resurrection chance (Catrina Muerte/Mass Resurrection/Wild Priest cards)
         ///- Murloc minions with a damage calculator for Anyfin Can Happen
         ///- Discard retrieve chance (Soulwarden/Cruel Dinomancer) 
         ///- Treant deaths (Mulchmuncher)
         ///- Mech deaths (Kangor&apos;s Endless Army)
-        ///- 5-cost spells (Dragoncaller Alann [rest of string was truncated]&quot;;.
+        ///- Spells  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string GraveyardDescription {
             get {
@@ -205,7 +223,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloodreaver Gul&apos;dan.
+        ///   Looks up a localized string similar to Demons.
         /// </summary>
         public static string Guldan {
             get {
@@ -214,7 +232,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the deck contains &apos;Bloodreaver Gul&apos;dan&apos;, show demons that have died.
+        ///   Looks up a localized string similar to When the deck contains &apos;Bloodreaver Gul&apos;dan&apos; or &apos;Kanrethad Ebonlocke&apos;, show demons that have died.
         /// </summary>
         public static string GuldanDescription {
             get {
@@ -259,6 +277,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal.
+        /// </summary>
+        public static string Horizontal {
+            get {
+                return ResourceManager.GetString("Horizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kangor&apos;s Endless Army.
         /// </summary>
         public static string Kangor {
@@ -295,6 +322,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lady Liadrin.
+        /// </summary>
+        public static string LadyLiadrin {
+            get {
+                return ResourceManager.GetString("LadyLiadrin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Lady Liadrin&apos;, show all spells cast on friendly characters this game..
+        /// </summary>
+        public static string LadyLiadrinDescription {
+            get {
+                return ResourceManager.GetString("LadyLiadrinDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lock Graveyards.
         /// </summary>
         public static string Lock {
@@ -322,7 +367,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N&apos;Zoth.
+        ///   Looks up a localized string similar to N&apos;Zoth, the Corruptor.
         /// </summary>
         public static string NZoth {
             get {
@@ -336,6 +381,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string NZothDescription {
             get {
                 return ResourceManager.GetString("NZothDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to N&apos;Zoth, God of the Deep.
+        /// </summary>
+        public static string NZothGotD {
+            get {
+                return ResourceManager.GetString("NZothGotD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;N&apos;Zoth, God of the Deep&apos;, show all minions, with a specific type, that have died.
+        /// </summary>
+        public static string NZothGotDDescription {
+            get {
+                return ResourceManager.GetString("NZothGotDDescription", resourceCulture);
             }
         }
         
@@ -367,6 +430,42 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Orientation.
+        /// </summary>
+        public static string Orientation {
+            get {
+                return ResourceManager.GetString("Orientation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical or Horizontal view stacking.
+        /// </summary>
+        public static string OrientationDescription {
+            get {
+                return ResourceManager.GetString("OrientationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rally!.
+        /// </summary>
+        public static string Rally {
+            get {
+                return ResourceManager.GetString("Rally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Rally!&apos;, show the resurrect chance of friendly 1, 2 and 3 cost minions that have died.
+        /// </summary>
+        public static string RallyDescription {
+            get {
+                return ResourceManager.GetString("RallyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resurrect.
         /// </summary>
         public static string Resurrect {
@@ -381,6 +480,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string ResurrectDescription {
             get {
                 return ResourceManager.GetString("ResurrectDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlord Saurfang.
+        /// </summary>
+        public static string Saurfang {
+            get {
+                return ResourceManager.GetString("Saurfang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Overload Saurfang&apos;, show summon chance of Frenzy minions that have died..
+        /// </summary>
+        public static string SaurfangDescription {
+            get {
+                return ResourceManager.GetString("SaurfangDescription", resourceCulture);
             }
         }
         
@@ -471,6 +588,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string Unlock {
             get {
                 return ResourceManager.GetString("Unlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical.
+        /// </summary>
+        public static string Vertical {
+            get {
+                return ResourceManager.GetString("Vertical", resourceCulture);
             }
         }
         

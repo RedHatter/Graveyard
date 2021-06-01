@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Alanna" xml:space="preserve">
+    <value>巨龙召唤者奥兰纳</value>
+  </data>
+  <data name="AlannaDescription" xml:space="preserve">
+    <value>如果卡组中包含巨龙召唤者奥兰纳，显示所有打出过的5费或以上的法术牌</value>
+  </data>
+  <data name="Anyfin" xml:space="preserve">
+    <value>亡者归来</value>
+  </data>
+  <data name="AnyfinDescription" xml:space="preserve">
+    <value>如果卡组中包含亡者归来，显示所有死亡的鱼人并显示最小和最大的伤害值</value>
+  </data>
+  <data name="Caverns" xml:space="preserve">
+    <value>探索地下洞穴</value>
+  </data>
+  <data name="CavernsDescription" xml:space="preserve">
+    <value>如果卡组中包含探索地下洞穴，计算所有打出的随从数</value>
+  </data>
+  <data name="Deathrattle" xml:space="preserve">
+    <value>亡语</value>
+  </data>
+  <data name="DeathrattleDescription" xml:space="preserve">
+    <value>如果卡组中包含暮光召唤，显示所有死亡的亡语随从</value>
+  </data>
+  <data name="Discard" xml:space="preserve">
+    <value>弃牌</value>
+  </data>
+  <data name="DiscardDescription" xml:space="preserve">
+    <value>如果卡组中包含残暴的恐龙术士，显示所有被弃掉的友方随从及其复活概率</value>
+  </data>
+  <data name="DiscardTitle" xml:space="preserve">
+    <value>被弃掉的随从</value>
+  </data>
+  <data name="Friendly" xml:space="preserve">
+    <value>友方墓地显示设置</value>
+  </data>
+  <data name="FriendlyDescription" xml:space="preserve">
+    <value>所有死亡的友方随从</value>
+  </data>
+  <data name="Graveyard" xml:space="preserve">
+    <value>墓地</value>
+  </data>
+  <data name="GraveyardDescription" xml:space="preserve">
+    <value>显示本局对战中死亡的随从。包含以下特殊计数器：
+- 亡语随从（九命兽魂/送葬者安德提卡/暮光召唤/恩佐斯）
+- 嘲讽随从（哈多诺克斯）
+- 恶魔（鲜血掠夺者古尔丹）
+- 复活几率（亡者卡特琳娜/群体复活/各类狂野牧师复活卡）
+- 鱼人及一个亡者归来伤害计算器
+- 弃置的牌及其回归概率（护魂者/残暴的恐龙术士）
+- 树人死亡数量（植被破碎机）
+- 机械随从（坎格尔的无尽大军）
+- 5费及以上的法术（巨龙召唤者奥兰纳）
+- 野兽复活几率（巫术时刻）
+- 随从打出数量（探索地下洞穴）</value>
+  </data>
+  <data name="Guldan" xml:space="preserve">
+    <value>恶魔</value>
+  </data>
+  <data name="GuldanDescription" xml:space="preserve">
+    <value>如果卡组中包含鲜血掠夺者古尔丹或坎雷萨德·埃伯洛克，显示所有死亡的恶魔及其概率</value>
+  </data>
+  <data name="Hadronox" xml:space="preserve">
+    <value>哈多诺克斯</value>
+  </data>
+  <data name="HadronoxDescription" xml:space="preserve">
+    <value>如果卡组中包含哈多诺克斯，显示所有死亡的嘲讽随从</value>
+  </data>
+  <data name="HoardPillager" xml:space="preserve">
+    <value>使用过的武器</value>
+  </data>
+  <data name="HoardPillagerDescription" xml:space="preserve">
+    <value>如果卡组中包含藏宝匪贼或狗头人拾荒者，显示所有使用过的武器及其概率</value>
+  </data>
+  <data name="Kangor" xml:space="preserve">
+    <value>坎格尔的无尽大军</value>
+  </data>
+  <data name="KangorDescription" xml:space="preserve">
+    <value>如果卡组中包含坎格尔的无尽大军，显示所有死亡的机械随从及其复活概率</value>
+  </data>
+  <data name="Kazakus" xml:space="preserve">
+    <value>卡扎库斯</value>
+  </data>
+  <data name="KazakusDescription" xml:space="preserve">
+    <value>显示卡扎库斯药水的所有复活概率</value>
+  </data>
+  <data name="LadyLiadrin" xml:space="preserve">
+    <value>女伯爵莉亚德琳</value>
+  </data>
+  <data name="LadyLiadrinDescription" xml:space="preserve">
+    <value>如果卡座中有伯爵夫人莉亚德琳伯爵夫人,出示所有您用友善角色打过的咒语牌</value>
+  </data>
+  <data name="Lock" xml:space="preserve">
+    <value>锁定位置</value>
+  </data>
+  <data name="Mulchmuncher" xml:space="preserve">
+    <value>植被破碎机</value>
+  </data>
+  <data name="MulchmuncherDescription" xml:space="preserve">
+    <value>如果卡组中包含至少一张植被破碎机，计算所有死亡的树人数量</value>
+  </data>
+  <data name="NZoth" xml:space="preserve">
+    <value>恩佐斯</value>
+  </data>
+  <data name="NZothDescription" xml:space="preserve">
+    <value>如果卡组中包含恩佐斯，显示所有死亡的亡语随从</value>
+  </data>
+  <data name="NZothGotD" xml:space="preserve">
+    <value>恩佐斯，深渊之神</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>不透明度</value>
+  </data>
+  <data name="Opponent" xml:space="preserve">
+    <value>对手墓地显示设置</value>
+  </data>
+  <data name="OpponentDescription" xml:space="preserve">
+    <value>所有死亡的敌方随从</value>
+  </data>
+  <data name="Resurrect" xml:space="preserve">
+    <value>复活池</value>
+  </data>
+  <data name="ResurrectDescription" xml:space="preserve">
+    <value>如果卡组中包含复活术、玛瑙主教、永恒奴役、小型法术钻石或群体复活，显示所有死亡的友方随从及其复活概率</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>墓地设置</value>
+  </data>
+  <data name="Shudderwock" xml:space="preserve">
+    <value>沙德沃克</value>
+  </data>
+  <data name="ShudderwockDescription" xml:space="preserve">
+    <value>如果卡组包含沙德沃克，显示所有打出过的战吼随从</value>
+  </data>
+  <data name="Soulwarden" xml:space="preserve">
+    <value>护魂者</value>
+  </data>
+  <data name="SoulwardenDescription" xml:space="preserve">
+    <value>如果卡组中包含护魂者，显示所有被弃掉的牌及其重新置入手牌概率</value>
+  </data>
+  <data name="TessGreymane" xml:space="preserve">
+    <value>苔丝·格雷迈恩</value>
+  </data>
+  <data name="TessGreymaneDescription" xml:space="preserve">
+    <value>如果卡组中包含苔丝·格雷迈恩，显示所有使用过的其他职业的卡牌</value>
+  </data>
+  <data name="Unlock" xml:space="preserve">
+    <value>调整位置</value>
+  </data>
+  <data name="WitchingHour" xml:space="preserve">
+    <value>巫术时刻</value>
+  </data>
+  <data name="WitchingHourDescription" xml:space="preserve">
+    <value>如果卡组中包含巫术时刻，显示所有死亡的友方野兽及其复活概率</value>
+  </data>
+  <data name="Zuljin" xml:space="preserve">
+    <value>祖尔金</value>
+  </data>
+  <data name="ZuljinDescription" xml:space="preserve">
+    <value>如果卡组中包含祖尔金，显示所有打出过的法术牌</value>
+  </data>
+</root>
