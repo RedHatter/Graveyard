@@ -40,6 +40,7 @@ namespace HDT.Plugins.Graveyard
 		public NZothGotDView NZothGotD;
 		public RallyView Rally;
 		public SaurfangView Saurfang;
+		public YShaarjView YShaarj;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -317,6 +318,11 @@ namespace HDT.Plugins.Graveyard
 				Saurfang = new SaurfangView();
 				_friendlyPanel.Children.Add(Saurfang);
             }
+            if (Settings.Default.YShaarjEnabled && YShaarjView.isValid())
+            {
+				YShaarj = new YShaarjView();
+				_friendlyPanel.Children.Add(YShaarj);
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -360,6 +366,7 @@ namespace HDT.Plugins.Graveyard
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
 			LadyLiadrin?.Update(card);
+			YShaarj?.Update(card);
         }
 	}
 }

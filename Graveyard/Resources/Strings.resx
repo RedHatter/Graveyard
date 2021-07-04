@@ -313,6 +313,12 @@
   <data name="WitchingHourDescription" xml:space="preserve">
     <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
   </data>
+  <data name="YShaarj" xml:space="preserve">
+    <value>Y'Shaarj, the Defiler</value>
+  </data>
+  <data name="YShaarjDescription" xml:space="preserve">
+    <value>When the deck contains 'Y'Shaarj, the Defiler', show all Corrupted cards played this game</value>
+  </data>
   <data name="Zuljin" xml:space="preserve">
     <value>Zul'jin</value>
   </data>

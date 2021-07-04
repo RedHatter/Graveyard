@@ -619,6 +619,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Y&apos;Shaarj, the Defiler.
+        /// </summary>
+        public static string YShaarj {
+            get {
+                return ResourceManager.GetString("YShaarj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Y&apos;Shaarj, the Defiler&apos;, show all Corrupted cards played this game.
+        /// </summary>
+        public static string YShaarjDescription {
+            get {
+                return ResourceManager.GetString("YShaarjDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zul&apos;jin.
         /// </summary>
         public static string Zuljin {

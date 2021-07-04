@@ -46,7 +46,9 @@ namespace HDT.Plugins.Graveyard
 
                     foreach (var setting in actual)
                     {
-                        this[setting.Name] = Convert.ChangeType(setting.Value, this.Properties[setting.Name].PropertyType);
+                        this[setting.Name] = Properties[setting.Name].PropertyType.IsEnum
+                            ? Enum.Parse(Properties[setting.Name].PropertyType, setting.Value)
+                            : Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
                     }
                 }
             }
