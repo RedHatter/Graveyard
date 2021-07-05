@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			return (card.Text?.StartsWith("Corrupted") ?? false) && base.Update(card, true);
+			return ((card.EnglishText?.StartsWith("Corrupted") ?? false) && base.Update(card, true));
 		}
 	}
 }
