@@ -79,6 +79,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always &apos;Elwynn Boar&apos; separately.
+        /// </summary>
+        public static string AlwaysBoarSeparately {
+            get {
+                return ResourceManager.GetString("AlwaysBoarSeparately", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a separate view for &apos;Elwynn Boar&apos; even when the Deathrattle view is active..
+        /// </summary>
+        public static string AlwaysBoarSeparatelyDescription {
+            get {
+                return ResourceManager.GetString("AlwaysBoarSeparatelyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Always Rally! separately.
         /// </summary>
         public static string AlwaysRallySeparately {
@@ -174,6 +192,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string DiscardTitle {
             get {
                 return ResourceManager.GetString("DiscardTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elwynn Boar.
+        /// </summary>
+        public static string ElwynnBoar {
+            get {
+                return ResourceManager.GetString("ElwynnBoar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains one or more &apos;Elwynn Boar&apos;, show number of friendly boar to die this game..
+        /// </summary>
+        public static string ElwynnBoarDescription {
+            get {
+                return ResourceManager.GetString("ElwynnBoarDescription", resourceCulture);
             }
         }
         

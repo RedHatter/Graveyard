@@ -123,6 +123,12 @@
   <data name="AlannaDescription" xml:space="preserve">
     <value>When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played.</value>
   </data>
+  <data name="AlwaysBoarSeparately" xml:space="preserve">
+    <value>Always 'Elwynn Boar' separately</value>
+  </data>
+  <data name="AlwaysBoarSeparatelyDescription" xml:space="preserve">
+    <value>Show a separate view for 'Elwynn Boar' even when the Deathrattle view is active.</value>
+  </data>
   <data name="AlwaysRallySeparately" xml:space="preserve">
     <value>Always Rally! separately</value>
   </data>
@@ -155,6 +161,12 @@
   </data>
   <data name="DiscardTitle" xml:space="preserve">
     <value>Discarded Minions</value>
+  </data>
+  <data name="ElwynnBoar" xml:space="preserve">
+    <value>Elwynn Boar</value>
+  </data>
+  <data name="ElwynnBoarDescription" xml:space="preserve">
+    <value>When the deck contains one or more 'Elwynn Boar', show number of friendly boar to die this game.</value>
   </data>
   <data name="Friendly" xml:space="preserve">
     <value>Friendly</value>
