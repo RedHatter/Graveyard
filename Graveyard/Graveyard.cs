@@ -42,6 +42,7 @@ namespace HDT.Plugins.Graveyard
 		public SaurfangView Saurfang;
 		public YShaarjView YShaarj;
 		public ElwynnBoarView ElwynnBoar;
+		public KargalView Kargal;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -329,6 +330,11 @@ namespace HDT.Plugins.Graveyard
 				ElwynnBoar = new ElwynnBoarView();
 				_friendlyPanel.Children.Add(ElwynnBoar);
             }
+            if (Settings.Default.KargalEnabled && KargalView.isValid())
+            {
+				Kargal = new KargalView();
+				_friendlyPanel.Children.Add(Kargal);
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -374,6 +380,7 @@ namespace HDT.Plugins.Graveyard
 			Zuljin?.Update(card);
 			LadyLiadrin?.Update(card);
 			YShaarj?.Update(card);
+			Kargal?.Update(card);
         }
 	}
 }

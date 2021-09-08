@@ -466,5 +466,17 @@ namespace HDT.Plugins.Graveyard {
                 this["AlwaysBoarSeparately"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool KargalEnabled {
+            get {
+                return ((bool)(this["KargalEnabled"]));
+            }
+            set {
+                this["KargalEnabled"] = value;
+            }
+        }
     }
 }

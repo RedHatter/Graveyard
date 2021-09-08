@@ -340,6 +340,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kargal Battlescar.
+        /// </summary>
+        public static string Kargal {
+            get {
+                return ResourceManager.GetString("Kargal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Kargal Battlescar&apos;, show all &apos;Posts&apos; that have been played this game..
+        /// </summary>
+        public static string KargalDescription {
+            get {
+                return ResourceManager.GetString("KargalDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kazakus.
         /// </summary>
         public static string Kazakus {

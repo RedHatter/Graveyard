@@ -220,6 +220,12 @@
   <data name="KangorDescription" xml:space="preserve">
     <value>When the deck contains 'Kangor's Endless Army', show summon chance of friendly (base) Mechs that have died</value>
   </data>
+  <data name="Kargal" xml:space="preserve">
+    <value>Kargal Battlescar</value>
+  </data>
+  <data name="KargalDescription" xml:space="preserve">
+    <value>When the deck contains 'Kargal Battlescar', show all 'Posts' that have been played this game.</value>
+  </data>
   <data name="Kazakus" xml:space="preserve">
     <value>Kazakus</value>
   </data>
