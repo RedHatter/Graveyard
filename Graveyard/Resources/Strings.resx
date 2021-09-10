@@ -135,6 +135,12 @@
   <data name="AlwaysRallySeparatelyDescription" xml:space="preserve">
     <value>Show a separate view for Rally! even when the Resurrect view is active</value>
   </data>
+  <data name="Antonidas" xml:space="preserve">
+    <value>Grand Magus Antonidas</value>
+  </data>
+  <data name="AntonidasDescription" xml:space="preserve">
+    <value>When the deck contains 'Grand Magus Antonidas' show the Fire spells cast for each of the last three played turns.</value>
+  </data>
   <data name="Anyfin" xml:space="preserve">
     <value>Anyfin</value>
   </data>

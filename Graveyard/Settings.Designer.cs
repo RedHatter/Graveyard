@@ -478,5 +478,17 @@ namespace HDT.Plugins.Graveyard {
                 this["KargalEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AntonidusEnabled {
+            get {
+                return ((bool)(this["AntonidusEnabled"]));
+            }
+            set {
+                this["AntonidusEnabled"] = value;
+            }
+        }
     }
 }

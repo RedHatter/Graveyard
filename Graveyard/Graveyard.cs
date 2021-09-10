@@ -43,13 +43,14 @@ namespace HDT.Plugins.Graveyard
 		public YShaarjView YShaarj;
 		public ElwynnBoarView ElwynnBoar;
 		public KargalView Kargal;
+		public AntonidasView Antonidas;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
 
 		public static InputManager Input;
 
-		public Graveyard()
+        public Graveyard()
 		{
 
 			// Create container
@@ -84,10 +85,12 @@ namespace HDT.Plugins.Graveyard
 
 			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
 			GameEvents.OnPlayerPlay.Add(PlayerPlayUpdate);
+
+			GameEvents.OnTurnStart.Add(TurnStartUpdate);
 		}
 
-		//on year change clear out the grid and update the data
-		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        //on year change clear out the grid and update the data
+        private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
@@ -310,31 +313,64 @@ namespace HDT.Plugins.Graveyard
 				NZothGotD = new NZothGotDView();
 				_friendlyPanel.Children.Add(NZothGotD);
             }
+			else
+			{
+				NZothGotD = null;
+			}
 			if (Settings.Default.RallyEnabled && RallyView.isValid())
             {
 				Rally = new RallyView();
 				_friendlyPanel.Children.Add(Rally);
             }
+			else
+			{
+				Rally = null;
+			}
 			if (Settings.Default.SaurfangEnabled && SaurfangView.isValid())
             {
 				Saurfang = new SaurfangView();
 				_friendlyPanel.Children.Add(Saurfang);
             }
-            if (Settings.Default.YShaarjEnabled && YShaarjView.isValid())
+			else
+			{
+				Saurfang = null;
+			}
+			if (Settings.Default.YShaarjEnabled && YShaarjView.isValid())
             {
 				YShaarj = new YShaarjView();
 				_friendlyPanel.Children.Add(YShaarj);
             }
-            if (Settings.Default.ElwynnBoarEnabled && ElwynnBoarView.isValid())
+			else
+			{
+				YShaarj = null;
+			}
+			if (Settings.Default.ElwynnBoarEnabled && ElwynnBoarView.isValid())
             {
 				ElwynnBoar = new ElwynnBoarView();
 				_friendlyPanel.Children.Add(ElwynnBoar);
             }
-            if (Settings.Default.KargalEnabled && KargalView.isValid())
+			else
+			{
+				ElwynnBoar = null;
+			}
+			if (Settings.Default.KargalEnabled && KargalView.isValid())
             {
 				Kargal = new KargalView();
 				_friendlyPanel.Children.Add(Kargal);
 			}
+			else
+			{
+				Kargal = null;
+			}
+			if (Settings.Default.AntonidusEnabled && AntonidasView.isValid())
+            {
+				Antonidas = new AntonidasView();
+				_friendlyPanel.Children.Add(Antonidas);
+            }
+            else
+            {
+				Antonidas = null;
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -381,6 +417,15 @@ namespace HDT.Plugins.Graveyard
 			LadyLiadrin?.Update(card);
 			YShaarj?.Update(card);
 			Kargal?.Update(card);
+			Antonidas?.Update(card);
         }
+
+		private async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
+		{
+			if (player == Hearthstone_Deck_Tracker.Enums.ActivePlayer.Opponent)
+            {
+				if (Antonidas != null) await Antonidas.TurnEnded();
+			}
+		}
 	}
 }

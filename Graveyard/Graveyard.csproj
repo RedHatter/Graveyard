@@ -77,6 +77,7 @@
     <Compile Include="DragoncallerAlannaView.cs" />
     <Compile Include="ElwynnBoarView.cs" />
     <Compile Include="EnumToBoolConverter.cs" />
+    <Compile Include="AntonidasView.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />

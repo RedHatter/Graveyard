@@ -115,6 +115,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grand Magus Antonidas.
+        /// </summary>
+        public static string Antonidas {
+            get {
+                return ResourceManager.GetString("Antonidas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Grand Magus Antonidas&apos; show the Fire spells cast for each of the last three played turns..
+        /// </summary>
+        public static string AntonidasDescription {
+            get {
+                return ResourceManager.GetString("AntonidasDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anyfin.
         /// </summary>
         public static string Anyfin {

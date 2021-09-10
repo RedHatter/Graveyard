@@ -230,5 +230,9 @@
                   Content="{lex:Loc AlwaysBoarSeparately}"
                   ToolTip="{lex:Loc AlwaysBoarSeparatelyDescription}" 
                   Style="{StaticResource CheckboxStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding AntonidasEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Antonidas}"
+                          ToolTip="{lex:Loc AntonidasDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>
