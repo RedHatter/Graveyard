@@ -482,12 +482,12 @@ namespace HDT.Plugins.Graveyard {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool AntonidusEnabled {
+        public bool AntonidasEnabled {
             get {
-                return ((bool)(this["AntonidusEnabled"]));
+                return ((bool)(this["AntonidasEnabled"]));
             }
             set {
-                this["AntonidusEnabled"] = value;
+                this["AntonidasEnabled"] = value;
             }
         }
     }

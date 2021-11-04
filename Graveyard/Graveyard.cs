@@ -362,7 +362,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Kargal = null;
 			}
-			if (Settings.Default.AntonidusEnabled && AntonidasView.isValid())
+			if (Settings.Default.AntonidasEnabled && AntonidasView.isValid())
             {
 				Antonidas = new AntonidasView();
 				_friendlyPanel.Children.Add(Antonidas);
