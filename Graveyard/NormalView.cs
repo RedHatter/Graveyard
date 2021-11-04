@@ -16,6 +16,7 @@ namespace HDT.Plugins.Graveyard
 
 		public NormalView()
 		{
+			Visibility = Visibility.Collapsed;
 			Orientation = Orientation.Vertical;
 
 			// Section Label
@@ -27,7 +28,6 @@ namespace HDT.Plugins.Graveyard
 			margin.Top = 20;
 			Label.Margin = margin;
 			Children.Add(Label);
-			Label.Visibility = Visibility.Hidden;
 
 			// Card View
 			View = new AnimatedCardList();
@@ -54,7 +54,7 @@ namespace HDT.Plugins.Graveyard
 			}
 			View.Update(Cards, false);
 
-			Label.Visibility = Visibility.Visible;
+			Visibility = Visibility.Visible;
 
 			return true;
 		}
