@@ -1,19 +1,13 @@
-using System;
-using System.ComponentModel;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Collections.Generic;
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.API;
-using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
+using Core = Hearthstone_Deck_Tracker.API.Core;
 using GameMode = Hearthstone_Deck_Tracker.Enums.GameMode;
 
 
 namespace HDT.Plugins.Graveyard
 {
-	public class Graveyard
+    public class Graveyard
 	{
 		// The views
 		public NormalView Normal;
@@ -71,22 +65,6 @@ namespace HDT.Plugins.Graveyard
 
 			Settings.Default.PropertyChanged += SettingsChanged;
 			SettingsChanged(null, null);
-
-			// Connect events
-			GameEvents.OnGameStart.Add(Reset);
-			GameEvents.OnGameEnd.Add(Reset);
-			DeckManagerEvents.OnDeckSelected.Add(d => Reset());
-
-			GameEvents.OnPlayerPlayToGraveyard.Add(PlayerGraveyardUpdate);
-			GameEvents.OnOpponentPlayToGraveyard.Add(EnemyGraveyardUpdate);
-
-			GameEvents.OnPlayerPlay.Add(c => Anyfin?.UpdateDamage());
-			GameEvents.OnOpponentPlay.Add(c => Anyfin?.UpdateDamage());
-
-			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
-			GameEvents.OnPlayerPlay.Add(PlayerPlayUpdate);
-
-			GameEvents.OnTurnStart.Add(TurnStartUpdate);
 		}
 
         //on year change clear out the grid and update the data
@@ -395,6 +373,16 @@ namespace HDT.Plugins.Graveyard
 			}
 		}
 
+		public void EnemyDamageUpdate(Card card)
+		{
+			Anyfin?.Update(card);
+		}
+
+		public void PlayerDamageUpdate(Card card)
+		{
+			Anyfin?.Update(card);
+		}
+
 		public void EnemyGraveyardUpdate(Card card)
 		{
 			Anyfin?.Update(card);
@@ -420,7 +408,7 @@ namespace HDT.Plugins.Graveyard
 			Antonidas?.Update(card);
         }
 
-		private async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
+		public async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
 		{
 			if (player == Hearthstone_Deck_Tracker.Enums.ActivePlayer.Opponent)
             {
