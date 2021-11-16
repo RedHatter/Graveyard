@@ -147,6 +147,9 @@
   <data name="AnyfinDescription" xml:space="preserve">
     <value>When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage</value>
   </data>
+  <data name="BrilliantMacaw" xml:space="preserve">
+    <value>Brilliant Macaw</value>
+  </data>
   <data name="Caverns" xml:space="preserve">
     <value>The Caverns Below</value>
   </data>
@@ -205,6 +208,9 @@
 - Other class cards played (Tess Greymane)
 - Battlecry cards played (Shudderwock)</value>
   </data>
+  <data name="GreySageParrot" xml:space="preserve">
+    <value>Grey Sage Parrot</value>
+  </data>
   <data name="Guldan" xml:space="preserve">
     <value>Demons</value>
   </data>
@@ -250,8 +256,17 @@
   <data name="LadyLiadrinDescription" xml:space="preserve">
     <value>When the deck contains 'Lady Liadrin', show all spells cast on friendly characters this game.</value>
   </data>
+  <data name="LastPlayed" xml:space="preserve">
+    <value>Last Played</value>
+  </data>
+  <data name="LastPlayedDescription" xml:space="preserve">
+    <value>When the deck contains 'Brilliant Macaw', 'Grey Sage Parrot', 'Monstrous Parrot', Sunwing Squawker' or 'Vanessa VanCleef', shows the last card played as per the deck card criteria.</value>
+  </data>
   <data name="Lock" xml:space="preserve">
     <value>Lock Graveyards</value>
+  </data>
+  <data name="MonstrousParrot" xml:space="preserve">
+    <value>Monstrous Parrot</value>
   </data>
   <data name="Mulchmuncher" xml:space="preserve">
     <value>Mulchmuncher</value>
@@ -325,6 +340,9 @@
   <data name="SoulwardenDescription" xml:space="preserve">
     <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
   </data>
+  <data name="SunwingSquawker" xml:space="preserve">
+    <value>Sunwing Squawker</value>
+  </data>
   <data name="TessGreymane" xml:space="preserve">
     <value>Tess Greymane</value>
   </data>
@@ -333,6 +351,9 @@
   </data>
   <data name="Unlock" xml:space="preserve">
     <value>Unlock Graveyards</value>
+  </data>
+  <data name="VanessaVanCleef" xml:space="preserve">
+    <value>Vanessa VanCleef</value>
   </data>
   <data name="Vertical" xml:space="preserve">
     <value>Vertical</value>

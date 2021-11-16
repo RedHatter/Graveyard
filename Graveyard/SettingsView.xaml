@@ -238,5 +238,9 @@
                           Content="{lex:Loc GrandFinale}"
                           ToolTip="{lex:Loc GrandFinaleDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding LastPlayedEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc LastPlayed}"
+                          ToolTip="{lex:Loc LastPlayedDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

@@ -151,6 +151,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brilliant Macaw.
+        /// </summary>
+        public static string BrilliantMacaw {
+            get {
+                return ResourceManager.GetString("BrilliantMacaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Caverns Below.
         /// </summary>
         public static string Caverns {
@@ -295,6 +304,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grey Sage Parrot.
+        /// </summary>
+        public static string GreySageParrot {
+            get {
+                return ResourceManager.GetString("GreySageParrot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Demons.
         /// </summary>
         public static string Guldan {
@@ -430,11 +448,38 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Played.
+        /// </summary>
+        public static string LastPlayed {
+            get {
+                return ResourceManager.GetString("LastPlayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Brilliant Macaw&apos;, &apos;Grey Sage Parrot&apos;, &apos;Monstrous Parrot&apos;, Sunwing Squawker&apos; or &apos;Vanessa VanCleef&apos;, shows the last card played as per the deck card criteria..
+        /// </summary>
+        public static string LastPlayedDescription {
+            get {
+                return ResourceManager.GetString("LastPlayedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lock Graveyards.
         /// </summary>
         public static string Lock {
             get {
                 return ResourceManager.GetString("Lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monstrous Parrot.
+        /// </summary>
+        public static string MonstrousParrot {
+            get {
+                return ResourceManager.GetString("MonstrousParrot", resourceCulture);
             }
         }
         
@@ -655,6 +700,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sunwing Squawker.
+        /// </summary>
+        public static string SunwingSquawker {
+            get {
+                return ResourceManager.GetString("SunwingSquawker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tess Greymane.
         /// </summary>
         public static string TessGreymane {
@@ -678,6 +732,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string Unlock {
             get {
                 return ResourceManager.GetString("Unlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vanessa VanCleef.
+        /// </summary>
+        public static string VanessaVanCleef {
+            get {
+                return ResourceManager.GetString("VanessaVanCleef", resourceCulture);
             }
         }
         

@@ -36,7 +36,9 @@ namespace HDT.Plugins.Graveyard
             GameEvents.OnOpponentPlay.Add(GraveyardInstance.EnemyDamageUpdate);
 
             GameEvents.OnPlayerHandDiscard.Add(GraveyardInstance.PlayerDiscardUpdate);
+            
             GameEvents.OnPlayerPlay.Add(GraveyardInstance.PlayerPlayUpdate);
+            GameEvents.OnOpponentPlay.Add(GraveyardInstance.OpponentPlayUpdate);
 
             GameEvents.OnTurnStart.Add(GraveyardInstance.TurnStartUpdate);
         }

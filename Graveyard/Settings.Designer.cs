@@ -502,5 +502,17 @@ namespace HDT.Plugins.Graveyard {
                 this["GrandFinaleEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LastPlayedEnabled {
+            get {
+                return ((bool)(this["LastPlayedEnabled"]));
+            }
+            set {
+                this["LastPlayedEnabled"] = value;
+            }
+        }
     }
 }
