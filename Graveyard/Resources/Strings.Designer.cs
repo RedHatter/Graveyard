@@ -19,7 +19,7 @@ namespace HDT.Plugins.Graveyard.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -246,6 +246,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string FriendlyDescription {
             get {
                 return ResourceManager.GetString("FriendlyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grand Finale.
+        /// </summary>
+        public static string GrandFinale {
+            get {
+                return ResourceManager.GetString("GrandFinale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Grand Finale&apos;, show all elementals played this and last player turn..
+        /// </summary>
+        public static string GrandFinaleDescription {
+            get {
+                return ResourceManager.GetString("GrandFinaleDescription", resourceCulture);
             }
         }
         

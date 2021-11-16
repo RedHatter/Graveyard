@@ -234,5 +234,9 @@
                           Content="{lex:Loc Antonidas}"
                           ToolTip="{lex:Loc AntonidasDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding GrandFinaleEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc GrandFinale}"
+                          ToolTip="{lex:Loc GrandFinaleDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

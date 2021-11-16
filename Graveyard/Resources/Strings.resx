@@ -180,6 +180,12 @@
   <data name="FriendlyDescription" xml:space="preserve">
     <value>All friendly minions that have died.</value>
   </data>
+  <data name="GrandFinale" xml:space="preserve">
+    <value>Grand Finale</value>
+  </data>
+  <data name="GrandFinaleDescription" xml:space="preserve">
+    <value>When the deck contains 'Grand Finale', show all elementals played this and last player turn.</value>
+  </data>
   <data name="Graveyard" xml:space="preserve">
     <value>Graveyard</value>
   </data>

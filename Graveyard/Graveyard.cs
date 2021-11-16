@@ -38,6 +38,7 @@ namespace HDT.Plugins.Graveyard
 		public ElwynnBoarView ElwynnBoar;
 		public KargalView Kargal;
 		public AntonidasView Antonidas;
+		public GrandFinaleView GrandFinale;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -349,6 +350,15 @@ namespace HDT.Plugins.Graveyard
             {
 				Antonidas = null;
             }
+            if (Settings.Default.GrandFinaleEnabled && GrandFinaleView.isValid())
+            {
+				GrandFinale = new GrandFinaleView();
+				_friendlyPanel.Children.Add(GrandFinale);
+            }
+            else
+            {
+				GrandFinale = null;
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -406,6 +416,7 @@ namespace HDT.Plugins.Graveyard
 			YShaarj?.Update(card);
 			Kargal?.Update(card);
 			Antonidas?.Update(card);
+			GrandFinale?.Update(card);
         }
 
 		public async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
@@ -413,6 +424,7 @@ namespace HDT.Plugins.Graveyard
 			if (player == Hearthstone_Deck_Tracker.Enums.ActivePlayer.Opponent)
             {
 				if (Antonidas != null) await Antonidas.TurnEnded();
+				if (GrandFinale != null) await GrandFinale.TurnEnded();
 			}
 		}
 	}

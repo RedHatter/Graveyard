@@ -78,6 +78,7 @@
     <Compile Include="ElwynnBoarView.cs" />
     <Compile Include="EnumToBoolConverter.cs" />
     <Compile Include="AntonidasView.cs" />
+    <Compile Include="GrandFinaleView.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="KargalView.cs" />
     <Compile Include="LadyLiadrinView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="MultiTurnView.cs" />
     <Compile Include="NZothGotDView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
