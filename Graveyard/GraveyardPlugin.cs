@@ -14,12 +14,15 @@ namespace HDT.Plugins.Graveyard
 
         public string Description => Strings.GetLocalized("GraveyardDescription");
 
-        public MenuItem MenuItem => null;
+        public MenuItem MenuItem { get; set; }
         public string Name => "Graveyard";
 
         public void OnButtonPress() => SettingsView.Flyout.IsOpen = true;
         public void OnLoad()
         {
+            MenuItem = new MenuItem { Header = Name };
+            MenuItem.Click += (sender, args) => OnButtonPress();
+
             GraveyardInstance = new Graveyard();
 
             GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
