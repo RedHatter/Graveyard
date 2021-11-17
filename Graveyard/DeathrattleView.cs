@@ -1,6 +1,7 @@
 ﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
+using Collectible = HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -9,12 +10,13 @@ namespace HDT.Plugins.Graveyard
         public static bool isValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card =>
-                card.Id == HearthDb.CardIds.Collectible.Priest.AmuletOfUndying ||
-                card.Id == HearthDb.CardIds.Collectible.Hunter.JewelOfNzoth ||
-                card.Id == HearthDb.CardIds.Collectible.Neutral.Vectus ||
-                card.Id == HearthDb.CardIds.Collectible.Hunter.NineLives ||
-                card.Id == HearthDb.CardIds.Collectible.Neutral.DaUndatakah ||
-                card.Id == HearthDb.CardIds.Collectible.Priest.TwilightsCall                
+                card.Id == Collectible.Priest.AmuletOfUndying ||
+                card.Id == Collectible.Rogue.CounterfeitBlade ||
+                card.Id == Collectible.Hunter.JewelOfNzoth ||
+                card.Id == Collectible.Neutral.Vectus ||
+                card.Id == Collectible.Hunter.NineLives ||
+                card.Id == Collectible.Neutral.DaUndatakah ||
+                card.Id == Collectible.Priest.TwilightsCall                
                 ) > -1;
         }
 
@@ -26,7 +28,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool Update(Card card)
         {
-            return card.Mechanics.Contains("Deathrattle") && card.Id != HearthDb.CardIds.Collectible.Rogue.UnearthedRaptor && base.Update(card);
+            return card.Mechanics.Contains("Deathrattle") && card.Id != Collectible.Rogue.UnearthedRaptor && base.Update(card);
         }
     }
 }
