@@ -28,6 +28,7 @@ namespace HDT.Plugins.Graveyard
         internal static string DataDir => Config.Instance.DataDir;
         private static string SettingsPath => Path.Combine(DataDir, Filename);
 
+        public bool HasChanges { get; private set; } = false;
         public Settings()
         {
             var provider = Providers;
@@ -40,6 +41,7 @@ namespace HDT.Plugins.Graveyard
         {
             try
             {
+                Log.Debug($"Loading {SettingsPath}");
                 if (File.Exists(SettingsPath))
                 {
                     var actual = XmlManager<List<Setting>>.Load(SettingsPath);
@@ -51,6 +53,8 @@ namespace HDT.Plugins.Graveyard
                             : Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
                     }
                 }
+                PropertyChanged += (s, args) => HasChanges = true;
+                Log.Info($"{SettingsPath} Loaded");
             }
             catch (Exception ex)
             {
@@ -60,6 +64,7 @@ namespace HDT.Plugins.Graveyard
 
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Log.Debug($"Saving {SettingsPath}");
             try
             {
                 var saveFormat = PropertyValues.Cast<SettingsPropertyValue>()
@@ -69,7 +74,11 @@ namespace HDT.Plugins.Graveyard
 
                 XmlManager<List<Setting>>.Save(SettingsPath, saveFormat);
 
+                HasChanges = false;
+               
                 e.Cancel = true;
+
+                Log.Info($"{SettingsPath} saved");
             }
             catch (Exception ex)
             {

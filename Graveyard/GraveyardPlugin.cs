@@ -8,7 +8,8 @@ namespace HDT.Plugins.Graveyard
 {
     public class GraveyardPlugin : IPlugin
 	{
-		public Graveyard GraveyardInstance;
+        private Settings Settings;
+        public Graveyard GraveyardInstance;
         public string Author => "RedHatter";
         public string ButtonText => Strings.GetLocalized("Settings");
 
@@ -20,6 +21,8 @@ namespace HDT.Plugins.Graveyard
         public void OnButtonPress() => SettingsView.Flyout.IsOpen = true;
         public void OnLoad()
         {
+            Settings = Settings.Default;
+
             MenuItem = new MenuItem { Header = Name };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
@@ -45,7 +48,8 @@ namespace HDT.Plugins.Graveyard
 
         public void OnUnload()
         {
-            Settings.Default.Save();
+            if (Settings?.HasChanges ?? false) Settings?.Save();
+            Settings = null;
 
             GraveyardInstance?.Dispose();
             GraveyardInstance = null;
