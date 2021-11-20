@@ -360,7 +360,7 @@ namespace HDT.Plugins.Graveyard
             {
 				GrandFinale = null;
             }
-			if (LastPlayedView.IsValid())
+			if (Settings.Default.LastPlayedEnabled && LastPlayedView.IsValid())
             {
 				LastPlayed = new LastPlayedView();
 				_friendlyPanel.Children.Add(LastPlayed);
