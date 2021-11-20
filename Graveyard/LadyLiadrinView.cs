@@ -27,11 +27,13 @@ namespace HDT.Plugins.Graveyard
             Paladin.HandOfAdal,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
+            Paladin.NobleMount,
             Paladin.PotionOfHeroism,
             Paladin.SoundTheBells,
             //Paladin.Subdue
             // 3
             Paladin.GiftOfLuminance,
+            //Paladin.RighteousDefense,
             Paladin.SealOfChampions,
             // 4
             Paladin.BlessingOfKingsCore,
