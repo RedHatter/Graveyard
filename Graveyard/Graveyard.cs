@@ -13,6 +13,9 @@ namespace HDT.Plugins.Graveyard
 		public NormalView Normal;
 		public NormalView Enemy;
 
+		public QuestlineView FriendlyQuestline;
+		public QuestlineView EnemyQuestline;
+
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
         public DeathrattleView Deathrattle;
@@ -100,6 +103,15 @@ namespace HDT.Plugins.Graveyard
 				return;
 			}
 
+			if (Settings.Default.EnemyQuestlineEnabled)
+			{
+				EnemyQuestline = new QuestlineView();
+				_enemyPanel.Children.Add(EnemyQuestline);
+			}
+			else
+			{
+				EnemyQuestline = null;
+			}
 			if (Settings.Default.EnemyEnabled)
 			{
 				Enemy = new NormalView();
@@ -108,6 +120,15 @@ namespace HDT.Plugins.Graveyard
 			else
 			{
 				Enemy = null;
+			}
+			if (Settings.Default.FriendlyQuestlineEnabled)
+			{
+				FriendlyQuestline = new QuestlineView();
+				_friendlyPanel.Children.Add(FriendlyQuestline);
+			}
+			else
+			{
+				FriendlyQuestline = null;
 			}
 
 			if (Settings.Default.ResurrectEnabled && ResurrectView.isValid())
@@ -418,6 +439,7 @@ namespace HDT.Plugins.Graveyard
 
 		public void PlayerPlayUpdate(Card card)
 		{
+			FriendlyQuestline?.Update(card);
 			Shudderwock?.Update(card);
 			LastPlayed?.UpdateBrilliantMacaw(card);
 			DragoncallerAlanna?.Update(card);
@@ -435,6 +457,7 @@ namespace HDT.Plugins.Graveyard
 
 		public void OpponentPlayUpdate(Card card)
         {
+			EnemyQuestline?.Update(card);
 			LastPlayed?.UpdateVanessaVanCleef(card);
         }
 

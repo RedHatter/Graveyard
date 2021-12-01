@@ -583,6 +583,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Questline.
+        /// </summary>
+        public static string Questline {
+            get {
+                return ResourceManager.GetString("Questline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays player questline progress.
+        /// </summary>
+        public static string QuestlineDescription {
+            get {
+                return ResourceManager.GetString("QuestlineDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rally!.
         /// </summary>
         public static string Rally {

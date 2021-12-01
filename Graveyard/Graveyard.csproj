@@ -96,6 +96,7 @@
     <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
+    <Compile Include="QuestlineView.cs" />
     <Compile Include="RallyView.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>

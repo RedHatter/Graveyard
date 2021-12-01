@@ -301,6 +301,12 @@
   <data name="OrientationDescription" xml:space="preserve">
     <value>Vertical or Horizontal view stacking</value>
   </data>
+  <data name="Questline" xml:space="preserve">
+    <value>Questline</value>
+  </data>
+  <data name="QuestlineDescription" xml:space="preserve">
+    <value>Displays player questline progress</value>
+  </data>
   <data name="Rally" xml:space="preserve">
     <value>Rally!</value>
   </data>

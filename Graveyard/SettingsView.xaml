@@ -70,6 +70,10 @@
                           Content="{lex:Loc Friendly}"
                           ToolTip="{lex:Loc FriendlyDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding FriendlyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Questline}"
+                          ToolTip="{lex:Loc QuestlineDescription}" 
+                          Style="{StaticResource SubToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderPanelStyle}">
             <Slider x:Name="SliderFriendlyOpacity" DockPanel.Dock="Right"
                     Style="{StaticResource OpacitySliderStyle}"
@@ -108,6 +112,10 @@
                           Content="{lex:Loc Opponent}"
                           ToolTip="{lex:Loc OpponentDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Questline}"
+                          ToolTip="{lex:Loc QuestlineDescription}" 
+                          Style="{StaticResource SubToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderPanelStyle}">
             <Slider x:Name="SliderEnemyOpacity" DockPanel.Dock="Right"
                     Style="{StaticResource OpacitySliderStyle}"

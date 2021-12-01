@@ -514,5 +514,29 @@ namespace HDT.Plugins.Graveyard {
                 this["LastPlayedEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FriendlyQuestlineEnabled {
+            get {
+                return ((bool)(this["FriendlyQuestlineEnabled"]));
+            }
+            set {
+                this["FriendlyQuestlineEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnemyQuestlineEnabled {
+            get {
+                return ((bool)(this["EnemyQuestlineEnabled"]));
+            }
+            set {
+                this["EnemyQuestlineEnabled"] = value;
+            }
+        }
     }
 }
