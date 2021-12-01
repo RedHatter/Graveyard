@@ -81,7 +81,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateVanessaVanCleef(Card card)
         {
-            if (card.Type == "Spell" || card.Type == "Minion")
+            if (VanessaVanCleef != null && card.Type == "Spell" || card.Type == "Minion")
             {
                 return VanessaVanCleef.Update(card); 
             }
