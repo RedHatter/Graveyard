@@ -43,6 +43,7 @@ namespace HDT.Plugins.Graveyard
 		public AntonidasView Antonidas;
 		public GrandFinaleView GrandFinale;
 		public LastPlayedView LastPlayed;
+		public MulticasterView Multicaster;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -390,6 +391,15 @@ namespace HDT.Plugins.Graveyard
             {
 				LastPlayed = null;
             }
+			if (Settings.Default.MulticasterEnabled && MulticasterView.IsValid())
+            {
+				Multicaster = new MulticasterView();
+				_friendlyPanel.Children.Add(Multicaster);
+            }
+			else
+            {
+				Multicaster = null;
+            }
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -452,7 +462,8 @@ namespace HDT.Plugins.Graveyard
 			YShaarj?.Update(card);
 			Kargal?.Update(card);
 			Antonidas?.Update(card);
-			GrandFinale?.Update(card);			
+			GrandFinale?.Update(card);
+			Multicaster?.Update(card);
         }
 
 		public void OpponentPlayUpdate(Card card)

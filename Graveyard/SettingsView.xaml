@@ -250,5 +250,9 @@
                           Content="{lex:Loc LastPlayed}"
                           ToolTip="{lex:Loc LastPlayedDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding MulticasterEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Multicaster}"
+                          ToolTip="{lex:Loc MulticasterDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

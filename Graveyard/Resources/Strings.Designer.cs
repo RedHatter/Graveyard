@@ -502,6 +502,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multicaster.
+        /// </summary>
+        public static string Multicaster {
+            get {
+                return ResourceManager.GetString("Multicaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Multicaster&apos;, show last spell cast per school..
+        /// </summary>
+        public static string MulticasterDescription {
+            get {
+                return ResourceManager.GetString("MulticasterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to N&apos;Zoth, the Corruptor.
         /// </summary>
         public static string NZoth {

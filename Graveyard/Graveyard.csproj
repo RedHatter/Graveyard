@@ -87,6 +87,7 @@
     <Compile Include="LadyLiadrinView.cs" />
     <Compile Include="LastCardView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="MulticasterView.cs" />
     <Compile Include="MultiTurnView.cs" />
     <Compile Include="NZothGotDView.cs" />
     <Compile Include="LastPlayedView.cs" />

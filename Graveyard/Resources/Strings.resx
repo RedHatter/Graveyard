@@ -274,6 +274,12 @@
   <data name="MulchmuncherDescription" xml:space="preserve">
     <value>When the deck contains at least one 'Mulchmuncher', count Treants that have died</value>
   </data>
+  <data name="Multicaster" xml:space="preserve">
+    <value>Multicaster</value>
+  </data>
+  <data name="MulticasterDescription" xml:space="preserve">
+    <value>When the deck contains 'Multicaster', show last spell cast per school.</value>
+  </data>
   <data name="NZoth" xml:space="preserve">
     <value>N'Zoth, the Corruptor</value>
   </data>
