@@ -11,7 +11,10 @@ namespace HDT.Plugins.Graveyard
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Druid.WitchingHour) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => 
+                card.Id == HearthDb.CardIds.Collectible.Druid.WitchingHour ||
+                card.Id == HearthDb.CardIds.Collectible.Hunter.RevivePet
+                ) > -1;
         }
 
         public WitchingHourView()
