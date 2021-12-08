@@ -14,7 +14,10 @@ namespace HDT.Plugins.Graveyard
     {
         public static bool IsValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.Multicaster) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => 
+                card.Id == HearthDb.CardIds.Collectible.Mage.MagisterDawngrasp ||
+                card.Id == HearthDb.CardIds.Collectible.Neutral.Multicaster
+                ) > -1;
         }
 
         public readonly HearthstoneTextBlock Label;
