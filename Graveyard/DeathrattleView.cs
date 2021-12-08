@@ -10,6 +10,8 @@ namespace HDT.Plugins.Graveyard
         public static bool isValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card =>
+                card.Id == Collectible.Priest.XyrellaTheDevout ||
+                card.Id == Collectible.Warlock.TamsinsPhylactery ||
                 card.Id == Collectible.Priest.AmuletOfUndying ||
                 card.Id == Collectible.Rogue.CounterfeitBlade ||
                 card.Id == Collectible.Hunter.JewelOfNzoth ||
