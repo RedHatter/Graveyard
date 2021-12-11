@@ -18,7 +18,7 @@ jobs:
       - run: nuget restore "${{ env.PROJECT }}.sln"
       - id: set_version
         run: |
-          $build = 3000 + $Env:GITHUB_RUN_NUMBER
+          $build = 4000 + $Env:GITHUB_RUN_NUMBER
           $buildVersion = .\scripts\assembly-version.ps1 -project "${{ env.PROJECT }}" -build $build -overrideVersion ${{ github.ref }}
           echo "::set-output name=buildVersion::$buildVersion"
       - run: msbuild.exe "${{ env.PROJECT }}.sln" /p:platform="x86" /p:configuration="Release"
