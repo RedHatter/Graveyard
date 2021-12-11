@@ -2,21 +2,37 @@
 
 "Looking for Hearthstone Deck Tracker install..."
 $HDTPath = "$Env:LOCALAPPDATA\HearthstoneDeckTracker"
-if(Test-Path $HDTPath)
-{
-    $HDTExe = Get-ChildItem "$Env:LOCALAPPDATA\HearthstoneDeckTracker" | Where-Object { $_.PSIsContainer -and $_.Name.StartsWith("app-")} | Sort-Object CreationTime -desc | Select-Object -f 1 | Get-ChildItem | Where-Object { $_.Name.Equals("HearthstoneDeckTracker.exe")}
-    if($HDTExe.Exists)
+$HDTInstalled = Test-Path $HDTPath
+
+function CopyLocal($name) {
+    if($HDTInstalled)
     {
-        "Copying $($HDTExe.Name) v$($HDTExe.VersionInfo.FileVersion)... "
-        Copy-Item $HDTExe.FullName ".\lib\$($HDTExe.Name)" -Force
+        $HDTFile = Get-ChildItem $HDTPath | 
+            Where-Object { $_.PSIsContainer -and $_.Name.StartsWith("app-")} | 
+            Sort-Object CreationTime -desc |
+            Select-Object -f 1 |
+            Get-ChildItem |
+            Where-Object { $_.Name.Equals($name)}
+        if($HDTFile.Exists)
+        {
+            Write-Host "Copying $($HDTFile.Name) v$($HDTFile.VersionInfo.FileVersion) "
+            Copy-Item $HDTFile.FullName ".\lib\$($HDTFile.Name)" -Force
+            return $true
+        }
+        Write-Host "$name not found locally"
     }
+    return $false
 }
 
  function FetchLib($name) {
-	"Fetching $name..."
-	$url = "https://libs.hearthsim.net/hdt/$name.dll"
-	try { (New-Object Net.WebClient).DownloadFile($url, ".\lib\$name.dll") }
-    catch { $error[0].Exception.ToString() }
+    if(-Not (CopyLocal $name))
+    {
+	    "Fetching $name..."
+	    $url = "https://libs.hearthsim.net/hdt/$name"
+	    try { (New-Object Net.WebClient).DownloadFile($url, ".\lib\$name") }
+        catch { $error[0].Exception.ToString() }    
+    }
 }
 
-FetchLib "HearthDb"
+CopyLocal "HearthstoneDeckTracker.exe" | Out-Null
+FetchLib "HearthDb.dll"
