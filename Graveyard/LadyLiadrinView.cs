@@ -33,6 +33,7 @@ namespace HDT.Plugins.Graveyard
             //Paladin.Subdue
             // 3
             Paladin.GiftOfLuminance,
+            Paladin.HoldTheBridge,
             //Paladin.RighteousDefense,
             Paladin.SealOfChampions,
             // 4
