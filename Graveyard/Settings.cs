@@ -42,24 +42,39 @@ namespace HDT.Plugins.Graveyard
             try
             {
                 Log.Debug($"Loading {SettingsPath}");
+
                 if (File.Exists(SettingsPath))
                 {
                     var actual = XmlManager<List<Setting>>.Load(SettingsPath);
 
                     foreach (var setting in actual)
                     {
-                        this[setting.Name] = Properties[setting.Name].PropertyType.IsEnum
-                            ? Enum.Parse(Properties[setting.Name].PropertyType, setting.Value)
-                            : Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
+                        try
+                        {
+                            if (Properties[setting.Name].PropertyType.IsEnum)
+                                this[setting.Name] = Enum.Parse(Properties[setting.Name].PropertyType, setting.Value);
+                            else
+                                this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Warn($"{setting.Name} loading error");
+                            Log.Error(ex);
+                        }
                     }
+                    Log.Info($"{SettingsPath} loaded");
                 }
-                PropertyChanged += (s, args) => HasChanges = true;
-                Log.Info($"{SettingsPath} Loaded");
+                else
+                {
+                    Log.Warn($"{SettingsPath} does not exist");
+                }
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
+            PropertyChanged += (s, a) => HasChanges = true;
+            Log.Info($"Watching {SettingsPath} changes");
         }
 
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e)
