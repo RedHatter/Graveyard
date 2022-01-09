@@ -63,7 +63,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateBrilliantMacaw(Card card)
         {
-            if (BrilliantMacaw != null && card.Mechanics.Contains("Battlecry"))
+            if (BrilliantMacaw != null && card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw)
             {
                 return BrilliantMacaw.Update(card);
             }
