@@ -13,7 +13,8 @@ namespace HDT.Plugins.Graveyard
                 card.Id == HearthDb.CardIds.Collectible.Neutral.Vectus ||
                 card.Id == HearthDb.CardIds.Collectible.Hunter.NineLives ||
                 card.Id == HearthDb.CardIds.Collectible.Neutral.DaUndatakah ||
-                card.Id == HearthDb.CardIds.Collectible.Priest.TwilightsCall                
+                card.Id == HearthDb.CardIds.Collectible.Priest.TwilightsCall  ||
+                card.Id == HearthDb.CardIds.Collectible.Priest.XyrellaTheDevout              
                 ) > -1;
         }
 

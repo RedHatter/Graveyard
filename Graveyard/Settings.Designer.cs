@@ -430,5 +430,16 @@ namespace HDT.Plugins.Graveyard {
                 this["SaurfangEnabled"] = value;
             }
         }
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShirvallahEnabled {
+            get {
+                return ((bool)(this["ShirvallahEnabled"]));
+            }
+            set {
+                this["ShirvallahEnabled"] = value;
+            }
+        }
     }
 }
