@@ -40,6 +40,7 @@ namespace HDT.Plugins.Graveyard
 		public NZothGotDView NZothGotD;
 		public RallyView Rally;
 		public SaurfangView Saurfang;
+		public ShirvallahView Shirvallah;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -317,6 +318,15 @@ namespace HDT.Plugins.Graveyard
 				Saurfang = new SaurfangView();
 				_friendlyPanel.Children.Add(Saurfang);
             }
+            if (Settings.Default.ShirvallahEnabled && ShirvallahView.isValid())
+            {
+				Shirvallah = new ShirvallahView();
+				_friendlyPanel.Children.Add(Shirvallah);
+			}
+			else
+            {
+				Shirvallah = null;
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -360,6 +370,7 @@ namespace HDT.Plugins.Graveyard
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
 			LadyLiadrin?.Update(card);
+			Shirvallah?.Update(card);
         }
 	}
 }

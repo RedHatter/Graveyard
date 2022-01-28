@@ -1,43 +1,50 @@
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.Utility.Logging;
+using System;
+using System.Windows;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
 	public class ShirvallahView : NormalView
 	{
-		public static bool isValid()
+        public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.ShirvallahTheTiger) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.ShirvallahTheTiger) > -1;
 		}
+
+		private readonly Card ShirvallahCard = Database.GetCardFromId(Paladin.ShirvallahTheTiger);
 
 		public ShirvallahView()
 		{
             Label.Text = Strings.GetLocalized("Shirvallah");
-            int mana = 25;
 		}
 
-		public bool Update(Card card)
-		{
-			if (card.Type == "Spell" && card.Cost > 0 )
-			{
-				mana =- card.Cost;
-				ShirvallahTheTiger = Database.GetCardFromId("TRL_300");
-				Card ShirvallahTheTiger { get; };
+        private void ShirvallahCard_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+			Log.Info($"Shirvallah changed {e.PropertyName}");
+        }
 
-				var match = Cards.FirstOrDefault(c => c.Name == "Shirvallah, the Tiger");
-				if (match != null)
+        public bool Update(Card card)
+		{
+			if (card.Type == "Spell" && card.Cost > 0)
+			{
+				if (Cards.Count == 0)
 				{
-					match.Count = mana;
+					Cards.Add(ShirvallahCard);
 				}
-				else
-				{
-					Cards.Add(ShirvallahTheTiger as Card);
-				}
+
+				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - card.Cost, 0);
+				ShirvallahCard.Count = ShirvallahCard.Cost;			
+
 				View.Update(Cards, false);
 
 				Label.Visibility = Visibility.Visible;
 
 				return true;
+			}
+			return false;
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace HDT.Plugins.Graveyard.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -525,6 +525,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shirvallah, the Tiger.
+        /// </summary>
+        public static string Shirvallah {
+            get {
+                return ResourceManager.GetString("Shirvallah", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Shirvallah, the Tiger&apos;, show it&apos;s adjusted cost..
+        /// </summary>
+        public static string ShirvallahDescription {
+            get {
+                return ResourceManager.GetString("ShirvallahDescription", resourceCulture);
             }
         }
         
