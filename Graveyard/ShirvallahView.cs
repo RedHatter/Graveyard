@@ -3,6 +3,7 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
 using System.Windows;
+using static Hearthstone_Deck_Tracker.API.Core;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -28,14 +29,14 @@ namespace HDT.Plugins.Graveyard
 
         public bool Update(Card card)
 		{
-			if (card.Type == "Spell" && card.Cost > 0)
+			if (card.Type == "Spell" && ActualCardCost(card) > 0)
 			{
 				if (Cards.Count == 0)
 				{
 					Cards.Add(ShirvallahCard);
 				}
 
-				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - card.Cost, 0);
+				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - ActualCardCost(card), 0);
 				ShirvallahCard.Count = ShirvallahCard.Cost;			
 
 				View.Update(Cards, false);
@@ -46,5 +47,19 @@ namespace HDT.Plugins.Graveyard
 			}
 			return false;
 		}
+
+		private int ActualCardCost(Card card)
+        {
+            switch (card.Id)
+            {
+				case Paladin.LibramOfHope:
+				case Paladin.LibramOfJudgment:
+				case Paladin.LibramOfJustice:
+				case Paladin.LibramOfWisdom:
+					return card.Cost - Game.Player.LibramReductionCount;
+                default:
+					return card.Cost;
+            }
+        }
 	}
 }
