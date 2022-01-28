@@ -28,6 +28,7 @@ namespace HDT.Plugins.Graveyard
         internal static string DataDir => Config.Instance.DataDir;
         private static string SettingsPath => Path.Combine(DataDir, Filename);
 
+        public bool HasChanges { get; private set; } = false;
         public Settings()
         {
             var provider = Providers;
@@ -40,24 +41,45 @@ namespace HDT.Plugins.Graveyard
         {
             try
             {
+                Log.Debug($"Loading {SettingsPath}");
+
                 if (File.Exists(SettingsPath))
                 {
                     var actual = XmlManager<List<Setting>>.Load(SettingsPath);
 
                     foreach (var setting in actual)
                     {
-                        this[setting.Name] = Convert.ChangeType(setting.Value, this.Properties[setting.Name].PropertyType);
+                        try
+                        {
+                            if (Properties[setting.Name].PropertyType.IsEnum)
+                                this[setting.Name] = Enum.Parse(Properties[setting.Name].PropertyType, setting.Value);
+                            else
+                                this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Warn($"{setting.Name} loading error");
+                            Log.Error(ex);
+                        }
                     }
+                    Log.Info($"{SettingsPath} loaded");
+                }
+                else
+                {
+                    Log.Warn($"{SettingsPath} does not exist");
                 }
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
+            PropertyChanged += (s, a) => HasChanges = true;
+            Log.Info($"Watching {SettingsPath} changes");
         }
 
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Log.Debug($"Saving {SettingsPath}");
             try
             {
                 var saveFormat = PropertyValues.Cast<SettingsPropertyValue>()
@@ -67,7 +89,11 @@ namespace HDT.Plugins.Graveyard
 
                 XmlManager<List<Setting>>.Save(SettingsPath, saveFormat);
 
+                HasChanges = false;
+               
                 e.Cancel = true;
+
+                Log.Info($"{SettingsPath} saved");
             }
             catch (Exception ex)
             {

@@ -21,7 +21,7 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			if ((card.Race != null || card.Type == "Minion" && WitchingHourView.ChooseOne.Contains(card.Id)) && base.Update(card))
+			if (card.Race != null && base.Update(card))
 			{
 				_chances.Update(card, Cards, View);
 

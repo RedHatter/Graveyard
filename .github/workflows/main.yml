@@ -1,0 +1,42 @@
+name: Build+Release on PR
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+env: 
+  PROJECT: ${{ 'Graveyard' }}
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: microsoft/setup-msbuild@v1
+      - uses: NuGet/setup-nuget@v1.0.5 
+      - run: .\scripts\update-libraries.ps1
+      - run: nuget restore "${{ env.PROJECT }}.sln"
+      - id: set_version
+        run: |
+          $build = 4000 + $Env:GITHUB_RUN_NUMBER
+          $buildVersion = .\scripts\assembly-version.ps1 -project "${{ env.PROJECT }}" -build $build -overrideVersion ${{ github.ref }}
+          echo "::set-output name=buildVersion::$buildVersion"
+      - run: msbuild.exe "${{ env.PROJECT }}.sln" /p:platform="x86" /p:configuration="Release"
+      - run: 7z a ${{ env.PROJECT }}.zip .\${{ env.PROJECT }}\bin\x86\Release\${{ env.PROJECT }}.dll .\${{ env.PROJECT }}\bin\x86\Release\*-*
+      - uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.set_version.outputs.buildVersion }}
+          draft: false
+          prerelease: true
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.PROJECT }}.zip
+          asset_name: ${{ env.PROJECT }}-v${{ steps.set_version.outputs.buildVersion }}.zip
+          asset_content_type: application/zip
+      

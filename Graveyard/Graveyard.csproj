@@ -75,20 +75,29 @@
     <Compile Include="ChancesTracker.cs" />
     <Compile Include="DeathrattleView.cs" />
     <Compile Include="DragoncallerAlannaView.cs" />
+    <Compile Include="ElwynnBoarView.cs" />
     <Compile Include="EnumToBoolConverter.cs" />
+    <Compile Include="AntonidasView.cs" />
+    <Compile Include="GrandFinaleView.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />
     <Compile Include="KangorView.cs" />
+    <Compile Include="KargalView.cs" />
     <Compile Include="LadyLiadrinView.cs" />
+    <Compile Include="LastCardView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="MulticasterView.cs" />
+    <Compile Include="MultiTurnView.cs" />
     <Compile Include="NZothGotDView.cs" />
+    <Compile Include="LastPlayedView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
     <Compile Include="GraveyardPlugin.cs" />
     <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
+    <Compile Include="QuestlineView.cs" />
     <Compile Include="RallyView.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +119,7 @@
     <Compile Include="SoulwardenView.cs" />
     <Compile Include="TessGreymaneView.cs" />
     <Compile Include="WitchingHourView.cs" />
+    <Compile Include="YShaarjView.cs" />
     <Compile Include="ZuljinView.cs" />
     <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>

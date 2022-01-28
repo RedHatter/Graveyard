@@ -20,28 +20,19 @@ namespace HDT.Plugins.Graveyard
 		public ShirvallahView()
 		{
             Label.Text = Strings.GetLocalized("Shirvallah");
+			Cards.Add(ShirvallahCard);
 		}
-
-        private void ShirvallahCard_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-			Log.Info($"Shirvallah changed {e.PropertyName}");
-        }
 
         public bool Update(Card card)
 		{
 			if (card.Type == "Spell" && ActualCardCost(card) > 0)
 			{
-				if (Cards.Count == 0)
-				{
-					Cards.Add(ShirvallahCard);
-				}
-
 				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - ActualCardCost(card), 0);
 				ShirvallahCard.Count = ShirvallahCard.Cost;			
 
 				View.Update(Cards, false);
 
-				Label.Visibility = Visibility.Visible;
+				Visibility = Visibility.Visible;
 
 				return true;
 			}

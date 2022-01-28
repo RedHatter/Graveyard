@@ -79,6 +79,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always &apos;Elwynn Boar&apos; separately.
+        /// </summary>
+        public static string AlwaysBoarSeparately {
+            get {
+                return ResourceManager.GetString("AlwaysBoarSeparately", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a separate view for &apos;Elwynn Boar&apos; even when the Deathrattle view is active..
+        /// </summary>
+        public static string AlwaysBoarSeparatelyDescription {
+            get {
+                return ResourceManager.GetString("AlwaysBoarSeparatelyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Always Rally! separately.
         /// </summary>
         public static string AlwaysRallySeparately {
@@ -97,6 +115,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grand Magus Antonidas.
+        /// </summary>
+        public static string Antonidas {
+            get {
+                return ResourceManager.GetString("Antonidas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Grand Magus Antonidas&apos; show the Fire spells cast for each of the last three played turns..
+        /// </summary>
+        public static string AntonidasDescription {
+            get {
+                return ResourceManager.GetString("AntonidasDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anyfin.
         /// </summary>
         public static string Anyfin {
@@ -111,6 +147,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string AnyfinDescription {
             get {
                 return ResourceManager.GetString("AnyfinDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brilliant Macaw.
+        /// </summary>
+        public static string BrilliantMacaw {
+            get {
+                return ResourceManager.GetString("BrilliantMacaw", resourceCulture);
             }
         }
         
@@ -178,6 +223,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Elwynn Boar.
+        /// </summary>
+        public static string ElwynnBoar {
+            get {
+                return ResourceManager.GetString("ElwynnBoar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains one or more &apos;Elwynn Boar&apos;, show number of friendly boar to die this game..
+        /// </summary>
+        public static string ElwynnBoarDescription {
+            get {
+                return ResourceManager.GetString("ElwynnBoarDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Friendly.
         /// </summary>
         public static string Friendly {
@@ -192,6 +255,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string FriendlyDescription {
             get {
                 return ResourceManager.GetString("FriendlyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grand Finale.
+        /// </summary>
+        public static string GrandFinale {
+            get {
+                return ResourceManager.GetString("GrandFinale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Grand Finale&apos;, show all elementals played this and last player turn..
+        /// </summary>
+        public static string GrandFinaleDescription {
+            get {
+                return ResourceManager.GetString("GrandFinaleDescription", resourceCulture);
             }
         }
         
@@ -219,6 +300,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string GraveyardDescription {
             get {
                 return ResourceManager.GetString("GraveyardDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grey Sage Parrot.
+        /// </summary>
+        public static string GreySageParrot {
+            get {
+                return ResourceManager.GetString("GreySageParrot", resourceCulture);
             }
         }
         
@@ -304,6 +394,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kargal Battlescar.
+        /// </summary>
+        public static string Kargal {
+            get {
+                return ResourceManager.GetString("Kargal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Kargal Battlescar&apos;, show all &apos;Posts&apos; that have been played this game..
+        /// </summary>
+        public static string KargalDescription {
+            get {
+                return ResourceManager.GetString("KargalDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kazakus.
         /// </summary>
         public static string Kazakus {
@@ -340,11 +448,38 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Played.
+        /// </summary>
+        public static string LastPlayed {
+            get {
+                return ResourceManager.GetString("LastPlayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Brilliant Macaw&apos;, &apos;Grey Sage Parrot&apos;, &apos;Monstrous Parrot&apos;, Sunwing Squawker&apos; or &apos;Vanessa VanCleef&apos;, shows the last card played as per the deck card criteria..
+        /// </summary>
+        public static string LastPlayedDescription {
+            get {
+                return ResourceManager.GetString("LastPlayedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lock Graveyards.
         /// </summary>
         public static string Lock {
             get {
                 return ResourceManager.GetString("Lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monstrous Parrot.
+        /// </summary>
+        public static string MonstrousParrot {
+            get {
+                return ResourceManager.GetString("MonstrousParrot", resourceCulture);
             }
         }
         
@@ -363,6 +498,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string MulchmuncherDescription {
             get {
                 return ResourceManager.GetString("MulchmuncherDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multicaster.
+        /// </summary>
+        public static string Multicaster {
+            get {
+                return ResourceManager.GetString("Multicaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Multicaster&apos;, show last spell cast per school..
+        /// </summary>
+        public static string MulticasterDescription {
+            get {
+                return ResourceManager.GetString("MulticasterDescription", resourceCulture);
             }
         }
         
@@ -444,6 +597,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string OrientationDescription {
             get {
                 return ResourceManager.GetString("OrientationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Questline.
+        /// </summary>
+        public static string Questline {
+            get {
+                return ResourceManager.GetString("Questline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays player questline progress.
+        /// </summary>
+        public static string QuestlineDescription {
+            get {
+                return ResourceManager.GetString("QuestlineDescription", resourceCulture);
             }
         }
         
@@ -583,6 +754,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sunwing Squawker.
+        /// </summary>
+        public static string SunwingSquawker {
+            get {
+                return ResourceManager.GetString("SunwingSquawker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tess Greymane.
         /// </summary>
         public static string TessGreymane {
@@ -610,6 +790,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vanessa VanCleef.
+        /// </summary>
+        public static string VanessaVanCleef {
+            get {
+                return ResourceManager.GetString("VanessaVanCleef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vertical.
         /// </summary>
         public static string Vertical {
@@ -633,6 +822,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string WitchingHourDescription {
             get {
                 return ResourceManager.GetString("WitchingHourDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y&apos;Shaarj, the Defiler.
+        /// </summary>
+        public static string YShaarj {
+            get {
+                return ResourceManager.GetString("YShaarj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Y&apos;Shaarj, the Defiler&apos;, show all Corrupted cards played this game.
+        /// </summary>
+        public static string YShaarjDescription {
+            get {
+                return ResourceManager.GetString("YShaarjDescription", resourceCulture);
             }
         }
         

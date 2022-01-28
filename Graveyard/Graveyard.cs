@@ -1,23 +1,20 @@
-using System;
-using System.ComponentModel;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Collections.Generic;
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.API;
-using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
+using Core = Hearthstone_Deck_Tracker.API.Core;
 using GameMode = Hearthstone_Deck_Tracker.Enums.GameMode;
 
 
 namespace HDT.Plugins.Graveyard
 {
-	public class Graveyard
+    public class Graveyard
 	{
 		// The views
 		public NormalView Normal;
 		public NormalView Enemy;
+
+		public QuestlineView FriendlyQuestline;
+		public QuestlineView EnemyQuestline;
 
 		public ResurrectView Resurrect;
 		public AnyfinView Anyfin;
@@ -40,6 +37,13 @@ namespace HDT.Plugins.Graveyard
 		public NZothGotDView NZothGotD;
 		public RallyView Rally;
 		public SaurfangView Saurfang;
+		public YShaarjView YShaarj;
+		public ElwynnBoarView ElwynnBoar;
+		public KargalView Kargal;
+		public AntonidasView Antonidas;
+		public GrandFinaleView GrandFinale;
+		public LastPlayedView LastPlayed;
+		public MulticasterView Multicaster;
 		public ShirvallahView Shirvallah;
 
 		private StackPanel _friendlyPanel;
@@ -47,7 +51,7 @@ namespace HDT.Plugins.Graveyard
 
 		public static InputManager Input;
 
-		public Graveyard()
+        public Graveyard()
 		{
 
 			// Create container
@@ -68,24 +72,10 @@ namespace HDT.Plugins.Graveyard
 
 			Settings.Default.PropertyChanged += SettingsChanged;
 			SettingsChanged(null, null);
-
-			// Connect events
-			GameEvents.OnGameStart.Add(Reset);
-			GameEvents.OnGameEnd.Add(Reset);
-			DeckManagerEvents.OnDeckSelected.Add(d => Reset());
-
-			GameEvents.OnPlayerPlayToGraveyard.Add(PlayerGraveyardUpdate);
-			GameEvents.OnOpponentPlayToGraveyard.Add(EnemyGraveyardUpdate);
-
-			GameEvents.OnPlayerPlay.Add(c => Anyfin?.UpdateDamage());
-			GameEvents.OnOpponentPlay.Add(c => Anyfin?.UpdateDamage());
-
-			GameEvents.OnPlayerHandDiscard.Add(PlayerDiscardUpdate);
-			GameEvents.OnPlayerPlay.Add(PlayerPlayUpdate);
 		}
 
-		//on year change clear out the grid and update the data
-		private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        //on year change clear out the grid and update the data
+        private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
 			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
@@ -115,6 +105,15 @@ namespace HDT.Plugins.Graveyard
 				return;
 			}
 
+			if (Settings.Default.EnemyQuestlineEnabled)
+			{
+				EnemyQuestline = new QuestlineView();
+				_enemyPanel.Children.Add(EnemyQuestline);
+			}
+			else
+			{
+				EnemyQuestline = null;
+			}
 			if (Settings.Default.EnemyEnabled)
 			{
 				Enemy = new NormalView();
@@ -123,6 +122,15 @@ namespace HDT.Plugins.Graveyard
 			else
 			{
 				Enemy = null;
+			}
+			if (Settings.Default.FriendlyQuestlineEnabled)
+			{
+				FriendlyQuestline = new QuestlineView();
+				_friendlyPanel.Children.Add(FriendlyQuestline);
+			}
+			else
+			{
+				FriendlyQuestline = null;
 			}
 
 			if (Settings.Default.ResurrectEnabled && ResurrectView.isValid())
@@ -308,15 +316,90 @@ namespace HDT.Plugins.Graveyard
 				NZothGotD = new NZothGotDView();
 				_friendlyPanel.Children.Add(NZothGotD);
             }
+			else
+			{
+				NZothGotD = null;
+			}
 			if (Settings.Default.RallyEnabled && RallyView.isValid())
             {
 				Rally = new RallyView();
 				_friendlyPanel.Children.Add(Rally);
             }
+			else
+			{
+				Rally = null;
+			}
 			if (Settings.Default.SaurfangEnabled && SaurfangView.isValid())
             {
 				Saurfang = new SaurfangView();
 				_friendlyPanel.Children.Add(Saurfang);
+            }
+			else
+			{
+				Saurfang = null;
+			}
+			if (Settings.Default.YShaarjEnabled && YShaarjView.isValid())
+            {
+				YShaarj = new YShaarjView();
+				_friendlyPanel.Children.Add(YShaarj);
+            }
+			else
+			{
+				YShaarj = null;
+			}
+			if (Settings.Default.ElwynnBoarEnabled && ElwynnBoarView.isValid())
+            {
+				ElwynnBoar = new ElwynnBoarView();
+				_friendlyPanel.Children.Add(ElwynnBoar);
+            }
+			else
+			{
+				ElwynnBoar = null;
+			}
+			if (Settings.Default.KargalEnabled && KargalView.isValid())
+            {
+				Kargal = new KargalView();
+				_friendlyPanel.Children.Add(Kargal);
+			}
+			else
+			{
+				Kargal = null;
+			}
+			if (Settings.Default.AntonidasEnabled && AntonidasView.isValid())
+            {
+				Antonidas = new AntonidasView();
+				_friendlyPanel.Children.Add(Antonidas);
+            }
+            else
+            {
+				Antonidas = null;
+            }
+            if (Settings.Default.GrandFinaleEnabled && GrandFinaleView.isValid())
+            {
+				GrandFinale = new GrandFinaleView();
+				_friendlyPanel.Children.Add(GrandFinale);
+            }
+            else
+            {
+				GrandFinale = null;
+            }
+			if (Settings.Default.LastPlayedEnabled && LastPlayedView.IsValid())
+            {
+				LastPlayed = new LastPlayedView();
+				_friendlyPanel.Children.Add(LastPlayed);
+            }
+			else
+            {
+				LastPlayed = null;
+            }
+			if (Settings.Default.MulticasterEnabled && MulticasterView.IsValid())
+            {
+				Multicaster = new MulticasterView();
+				_friendlyPanel.Children.Add(Multicaster);
+            }
+			else
+            {
+				Multicaster = null;
             }
             if (Settings.Default.ShirvallahEnabled && ShirvallahView.isValid())
             {
@@ -333,6 +416,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			var any = Anyfin?.Update(card) ?? false;
             var deathrattle = Deathrattle?.Update(card) ?? false;
+			LastPlayed?.UpdateMonstrousParrot(card);
             var nzoth = NZoth?.Update(card) ?? false;
 			var hadr = Hadronox?.Update(card) ?? false;
 			var guldan = Guldan?.Update(card) ?? false;
@@ -342,12 +426,23 @@ namespace HDT.Plugins.Graveyard
             var witching = WitchingHour?.Update(card) ?? false;
 			var hoardpillager = HoardPillager?.Update(card) ?? false;
 			var nzothgotd = NZothGotD?.Update(card) ?? false;
-			var rally = Rally?.Update(card) ?? false;
+			var rally = ((rez && RallyView.IsAlwaysSeparate) || !rez) && (Rally?.Update(card) ?? false);
 			var saurfang = Saurfang?.Update(card) ?? false;
-            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd || rally || saurfang))
+			var elwynnboar = ((deathrattle && ElwynnBoarView.IsAlwaysSeparate) || !deathrattle) && (ElwynnBoar?.Update(card) ?? false);
+            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd || rally || saurfang || elwynnboar))
 			{
 				Normal?.Update(card);
 			}
+		}
+
+		public void EnemyDamageUpdate(Card card)
+		{
+			Anyfin?.Update(card);
+		}
+
+		public void PlayerDamageUpdate(Card card)
+		{
+			Anyfin?.Update(card);
 		}
 
 		public void EnemyGraveyardUpdate(Card card)
@@ -364,13 +459,37 @@ namespace HDT.Plugins.Graveyard
 
 		public void PlayerPlayUpdate(Card card)
 		{
+			FriendlyQuestline?.Update(card);
 			Shudderwock?.Update(card);
+			LastPlayed?.UpdateBrilliantMacaw(card);
 			DragoncallerAlanna?.Update(card);
+			LastPlayed?.UpdateGreySageParrot(card);
             Caverns?.Update(card);
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
 			LadyLiadrin?.Update(card);
+			LastPlayed?.UpdateSunwingSquawker(card);
+			YShaarj?.Update(card);
+			Kargal?.Update(card);
+			Antonidas?.Update(card);
+			GrandFinale?.Update(card);
+			Multicaster?.Update(card);
 			Shirvallah?.Update(card);
+		}
+
+		public void OpponentPlayUpdate(Card card)
+        {
+			EnemyQuestline?.Update(card);
+			LastPlayed?.UpdateVanessaVanCleef(card);
         }
+
+		public async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
+		{
+			if (player == Hearthstone_Deck_Tracker.Enums.ActivePlayer.Opponent)
+            {
+				if (Antonidas != null) await Antonidas.TurnEnded();
+				if (GrandFinale != null) await GrandFinale.TurnEnded();
+			}
+		}
 	}
 }

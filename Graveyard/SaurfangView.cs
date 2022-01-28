@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			if (!((card.Text?.Contains("Frenzy:") ?? false) && base.Update(card)))
+			if (!((card.EnglishText?.Contains("Frenzy:") ?? false) && base.Update(card)))
 			{
 				return false;
 			}

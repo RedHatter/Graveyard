@@ -123,17 +123,32 @@
   <data name="AlannaDescription" xml:space="preserve">
     <value>When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played.</value>
   </data>
+  <data name="AlwaysBoarSeparately" xml:space="preserve">
+    <value>Always 'Elwynn Boar' separately</value>
+  </data>
+  <data name="AlwaysBoarSeparatelyDescription" xml:space="preserve">
+    <value>Show a separate view for 'Elwynn Boar' even when the Deathrattle view is active.</value>
+  </data>
   <data name="AlwaysRallySeparately" xml:space="preserve">
     <value>Always Rally! separately</value>
   </data>
   <data name="AlwaysRallySeparatelyDescription" xml:space="preserve">
     <value>Show a separate view for Rally! even when the Resurrect view is active</value>
   </data>
+  <data name="Antonidas" xml:space="preserve">
+    <value>Grand Magus Antonidas</value>
+  </data>
+  <data name="AntonidasDescription" xml:space="preserve">
+    <value>When the deck contains 'Grand Magus Antonidas' show the Fire spells cast for each of the last three played turns.</value>
+  </data>
   <data name="Anyfin" xml:space="preserve">
     <value>Anyfin</value>
   </data>
   <data name="AnyfinDescription" xml:space="preserve">
     <value>When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage</value>
+  </data>
+  <data name="BrilliantMacaw" xml:space="preserve">
+    <value>Brilliant Macaw</value>
   </data>
   <data name="Caverns" xml:space="preserve">
     <value>The Caverns Below</value>
@@ -156,11 +171,23 @@
   <data name="DiscardTitle" xml:space="preserve">
     <value>Discarded Minions</value>
   </data>
+  <data name="ElwynnBoar" xml:space="preserve">
+    <value>Elwynn Boar</value>
+  </data>
+  <data name="ElwynnBoarDescription" xml:space="preserve">
+    <value>When the deck contains one or more 'Elwynn Boar', show number of friendly boar to die this game.</value>
+  </data>
   <data name="Friendly" xml:space="preserve">
     <value>Friendly</value>
   </data>
   <data name="FriendlyDescription" xml:space="preserve">
     <value>All friendly minions that have died.</value>
+  </data>
+  <data name="GrandFinale" xml:space="preserve">
+    <value>Grand Finale</value>
+  </data>
+  <data name="GrandFinaleDescription" xml:space="preserve">
+    <value>When the deck contains 'Grand Finale', show all elementals played this and last player turn.</value>
   </data>
   <data name="Graveyard" xml:space="preserve">
     <value>Graveyard</value>
@@ -180,6 +207,9 @@
 - Minions played count (The Caverns Below)
 - Other class cards played (Tess Greymane)
 - Battlecry cards played (Shudderwock)</value>
+  </data>
+  <data name="GreySageParrot" xml:space="preserve">
+    <value>Grey Sage Parrot</value>
   </data>
   <data name="Guldan" xml:space="preserve">
     <value>Demons</value>
@@ -208,6 +238,12 @@
   <data name="KangorDescription" xml:space="preserve">
     <value>When the deck contains 'Kangor's Endless Army', show summon chance of friendly (base) Mechs that have died</value>
   </data>
+  <data name="Kargal" xml:space="preserve">
+    <value>Kargal Battlescar</value>
+  </data>
+  <data name="KargalDescription" xml:space="preserve">
+    <value>When the deck contains 'Kargal Battlescar', show all 'Posts' that have been played this game.</value>
+  </data>
   <data name="Kazakus" xml:space="preserve">
     <value>Kazakus</value>
   </data>
@@ -220,14 +256,29 @@
   <data name="LadyLiadrinDescription" xml:space="preserve">
     <value>When the deck contains 'Lady Liadrin', show all spells cast on friendly characters this game.</value>
   </data>
+  <data name="LastPlayed" xml:space="preserve">
+    <value>Last Played</value>
+  </data>
+  <data name="LastPlayedDescription" xml:space="preserve">
+    <value>When the deck contains 'Brilliant Macaw', 'Grey Sage Parrot', 'Monstrous Parrot', Sunwing Squawker' or 'Vanessa VanCleef', shows the last card played as per the deck card criteria.</value>
+  </data>
   <data name="Lock" xml:space="preserve">
     <value>Lock Graveyards</value>
+  </data>
+  <data name="MonstrousParrot" xml:space="preserve">
+    <value>Monstrous Parrot</value>
   </data>
   <data name="Mulchmuncher" xml:space="preserve">
     <value>Mulchmuncher</value>
   </data>
   <data name="MulchmuncherDescription" xml:space="preserve">
     <value>When the deck contains at least one 'Mulchmuncher', count Treants that have died</value>
+  </data>
+  <data name="Multicaster" xml:space="preserve">
+    <value>Multicaster</value>
+  </data>
+  <data name="MulticasterDescription" xml:space="preserve">
+    <value>When the deck contains 'Multicaster', show last spell cast per school.</value>
   </data>
   <data name="NZoth" xml:space="preserve">
     <value>N'Zoth, the Corruptor</value>
@@ -255,6 +306,12 @@
   </data>
   <data name="OrientationDescription" xml:space="preserve">
     <value>Vertical or Horizontal view stacking</value>
+  </data>
+  <data name="Questline" xml:space="preserve">
+    <value>Questline</value>
+  </data>
+  <data name="QuestlineDescription" xml:space="preserve">
+    <value>Displays player questline progress</value>
   </data>
   <data name="Rally" xml:space="preserve">
     <value>Rally!</value>
@@ -301,6 +358,9 @@
   <data name="SoulwardenDescription" xml:space="preserve">
     <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
   </data>
+  <data name="SunwingSquawker" xml:space="preserve">
+    <value>Sunwing Squawker</value>
+  </data>
   <data name="TessGreymane" xml:space="preserve">
     <value>Tess Greymane</value>
   </data>
@@ -310,6 +370,9 @@
   <data name="Unlock" xml:space="preserve">
     <value>Unlock Graveyards</value>
   </data>
+  <data name="VanessaVanCleef" xml:space="preserve">
+    <value>Vanessa VanCleef</value>
+  </data>
   <data name="Vertical" xml:space="preserve">
     <value>Vertical</value>
   </data>
@@ -318,6 +381,12 @@
   </data>
   <data name="WitchingHourDescription" xml:space="preserve">
     <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
+  </data>
+  <data name="YShaarj" xml:space="preserve">
+    <value>Y'Shaarj, the Defiler</value>
+  </data>
+  <data name="YShaarjDescription" xml:space="preserve">
+    <value>When the deck contains 'Y'Shaarj, the Defiler', show all Corrupted cards played this game</value>
   </data>
   <data name="Zuljin" xml:space="preserve">
     <value>Zul'jin</value>

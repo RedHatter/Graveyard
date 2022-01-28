@@ -271,7 +271,7 @@ namespace HDT.Plugins.Graveyard
 		public static Card AnyfinCanHappen { get; }
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool IsMurloc(this Card card) => card.Race == "Murloc";
+		public static bool IsMurloc(this Card card) => card.Race == "Murloc" || card.Race == "All";
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool IsChargeMurloc(this Card card) => card.Id == OldMurkEye.Id || card.Id == BluegillWarrior.Id;

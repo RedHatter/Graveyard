@@ -39,7 +39,7 @@ namespace HDT.Plugins.Graveyard
 
 		public bool Update(Card card)
 		{
-			if (card.Race != "Murloc" || !base.Update(card))
+			if (!card.IsMurloc() || !base.Update(card))
 			{
 				return false;
 			}

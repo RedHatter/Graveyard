@@ -22,20 +22,22 @@ namespace HDT.Plugins.Graveyard
             Paladin.ShieldOfHonor,
             // 2
             Paladin.DarkConviction,
+            Paladin.DesperateStand,
             Paladin.FlashOfLight,
             Paladin.HandOfAdal,
-            Paladin.HolyLightLegacy,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
+            Paladin.NobleMount,
             Paladin.PotionOfHeroism,
-            Paladin.SealOfLight,
             Paladin.SoundTheBells,
             //Paladin.Subdue
             // 3
             Paladin.GiftOfLuminance,
+            Paladin.HoldTheBridge,
+            //Paladin.RighteousDefense,
             Paladin.SealOfChampions,
             // 4
-            Paladin.BlessingOfKingsLegacy,
+            Paladin.BlessingOfKingsCore,
             //Paladin.HammerOfWrath,
             Paladin.SilvermoonPortal,
             // 5

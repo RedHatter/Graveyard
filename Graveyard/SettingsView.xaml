@@ -61,12 +61,19 @@
                 <Setter Property="Width" Value="40"/>
                 <Setter Property="Margin" Value="0,0,10,0"/>
             </Style>
+            <Style x:Key="CheckboxStyle" TargetType="CheckBox">
+                <Setter Property="Margin" Value="12,0,0,4"/>
+            </Style>
         </StackPanel.Resources>
         <Button Name="BtnUnlock" Width="150" Content="{lex:Loc Unlock}" Click="BtnUnlock_Click" />
         <mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Friendly}"
                           ToolTip="{lex:Loc FriendlyDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding FriendlyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Questline}"
+                          ToolTip="{lex:Loc QuestlineDescription}" 
+                          Style="{StaticResource SubToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderPanelStyle}">
             <Slider x:Name="SliderFriendlyOpacity" DockPanel.Dock="Right"
                     Style="{StaticResource OpacitySliderStyle}"
@@ -105,6 +112,10 @@
                           Content="{lex:Loc Opponent}"
                           ToolTip="{lex:Loc OpponentDescription}" 
                           Style="{StaticResource TitleToggleStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Questline}"
+                          ToolTip="{lex:Loc QuestlineDescription}" 
+                          Style="{StaticResource SubToggleStyle}"/>
         <DockPanel Style="{StaticResource SliderPanelStyle}">
             <Slider x:Name="SliderEnemyOpacity" DockPanel.Dock="Right"
                     Style="{StaticResource OpacitySliderStyle}"
@@ -207,6 +218,10 @@
                           Content="{lex:Loc Saurfang}"
                           ToolTip="{lex:Loc SaurfangDescription}" 
                           Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding YShaarjEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc YShaarj}"
+                          ToolTip="{lex:Loc YShaarjDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
         <mah:ToggleSwitch IsChecked="{Binding ShirvallahEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Shirvallah}"
                           ToolTip="{lex:Loc ShirvallahDescription}" 
@@ -214,10 +229,34 @@
         <mah:ToggleSwitch IsChecked="{Binding RallyEnabled, Source={x:Static local:Settings.Default}}" 
                           Content="{lex:Loc Rally}"
                           ToolTip="{lex:Loc RallyDescription}" 
-                          Style="{StaticResource TitleToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding AlwaysRallySeparately, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc AlwaysRallySeparately}"
-                          ToolTip="{lex:Loc AlwaysRallySeparatelyDescription}" 
-                          Style="{StaticResource ToggleStyle}" />        
+                          Style="{StaticResource ToggleStyle}" />
+        <CheckBox IsChecked="{Binding AlwaysRallySeparately, Source={x:Static local:Settings.Default}}" 
+                  Content="{lex:Loc AlwaysRallySeparately}"
+                  ToolTip="{lex:Loc AlwaysRallySeparatelyDescription}" 
+                  Style="{StaticResource CheckboxStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding ElwynnBoarEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc ElwynnBoar}"
+                          ToolTip="{lex:Loc ElwynnBoarDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
+        <CheckBox IsChecked="{Binding AlwaysBoarSeparately, Source={x:Static local:Settings.Default}}" 
+                  Content="{lex:Loc AlwaysBoarSeparately}"
+                  ToolTip="{lex:Loc AlwaysBoarSeparatelyDescription}" 
+                  Style="{StaticResource CheckboxStyle}"/>
+        <mah:ToggleSwitch IsChecked="{Binding AntonidasEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Antonidas}"
+                          ToolTip="{lex:Loc AntonidasDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding GrandFinaleEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc GrandFinale}"
+                          ToolTip="{lex:Loc GrandFinaleDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding LastPlayedEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc LastPlayed}"
+                          ToolTip="{lex:Loc LastPlayedDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
+        <mah:ToggleSwitch IsChecked="{Binding MulticasterEnabled, Source={x:Static local:Settings.Default}}" 
+                          Content="{lex:Loc Multicaster}"
+                          ToolTip="{lex:Loc MulticasterDescription}" 
+                          Style="{StaticResource ToggleStyle}" />
     </StackPanel>
 </ScrollViewer>

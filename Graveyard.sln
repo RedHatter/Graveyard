@@ -6,8 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graveyard", "Graveyard\Graveyard.csproj", "{59C8CCA4-7F9B-4592-87A8-A23ADED7759E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{53E4F774-8043-46B4-B786-BB32DEDA2CF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B860F31B-7A79-4229-864D-E02D5D1BBD76}"
 	ProjectSection(SolutionItems) = preProject
-		update-libraries.ps1 = update-libraries.ps1
+		scripts\assembly-version.ps1 = scripts\assembly-version.ps1
+		scripts\update-libraries.ps1 = scripts\update-libraries.ps1
 	EndProjectSection
 EndProject
 Global
@@ -29,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B860F31B-7A79-4229-864D-E02D5D1BBD76} = {53E4F774-8043-46B4-B786-BB32DEDA2CF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5703983-F932-4DBC-94F0-0FE31B4E6A90}
