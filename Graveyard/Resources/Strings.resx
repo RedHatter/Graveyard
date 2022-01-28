@@ -340,6 +340,12 @@
   <data name="SettingsTitle" xml:space="preserve">
     <value>Graveyard Settings</value>
   </data>
+  <data name="Shirvallah" xml:space="preserve">
+    <value>Shirvallah, the Tiger</value>
+  </data>
+  <data name="ShirvallahDescription" xml:space="preserve">
+    <value>When the deck contains 'Shirvallah, the Tiger', show it's adjusted cost.</value>
+  </data>
   <data name="Shudderwock" xml:space="preserve">
     <value>Shudderwock</value>
   </data>

@@ -44,6 +44,7 @@ namespace HDT.Plugins.Graveyard
 		public GrandFinaleView GrandFinale;
 		public LastPlayedView LastPlayed;
 		public MulticasterView Multicaster;
+		public ShirvallahView Shirvallah;
 
 		private StackPanel _friendlyPanel;
 		private StackPanel _enemyPanel;
@@ -400,6 +401,15 @@ namespace HDT.Plugins.Graveyard
             {
 				Multicaster = null;
             }
+            if (Settings.Default.ShirvallahEnabled && ShirvallahView.isValid())
+            {
+				Shirvallah = new ShirvallahView();
+				_friendlyPanel.Children.Add(Shirvallah);
+			}
+			else
+            {
+				Shirvallah = null;
+			}
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
@@ -464,7 +474,8 @@ namespace HDT.Plugins.Graveyard
 			Antonidas?.Update(card);
 			GrandFinale?.Update(card);
 			Multicaster?.Update(card);
-        }
+			Shirvallah?.Update(card);
+		}
 
 		public void OpponentPlayUpdate(Card card)
         {

@@ -700,6 +700,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shirvallah, the Tiger.
+        /// </summary>
+        public static string Shirvallah {
+            get {
+                return ResourceManager.GetString("Shirvallah", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Shirvallah, the Tiger&apos;, show it&apos;s adjusted cost..
+        /// </summary>
+        public static string ShirvallahDescription {
+            get {
+                return ResourceManager.GetString("ShirvallahDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shudderwock.
         /// </summary>
         public static string Shudderwock {
