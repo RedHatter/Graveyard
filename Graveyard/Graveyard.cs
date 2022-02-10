@@ -99,9 +99,10 @@ namespace HDT.Plugins.Graveyard
 			_friendlyPanel.Children.Clear();
 			_enemyPanel.Children.Clear();
 
-			if (Core.Game.CurrentGameMode == GameMode.Battlegrounds)
+			if (Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
-				// don't show graveyard for Battlegrounds
+				// don't show graveyard for Battlegrounds or Mercenaries
+				// this should include spectating
 				return;
 			}
 
