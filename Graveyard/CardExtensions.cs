@@ -8,9 +8,9 @@ using DbCard = HearthDb.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-    public enum SpellSchool
+    public enum School
     {
-        Unknown = -1,
+        NotASpell = -1,
         General = 0,
         Arcane = 1,
         Fire = 2,
@@ -23,32 +23,32 @@ namespace HDT.Plugins.Graveyard
 
     internal static class CardExtensions
     {
-        private static readonly Dictionary<string, SpellSchool> SpellSchoolCache = new Dictionary<string, SpellSchool>();
+        private static readonly Dictionary<string, School> SchoolCache = new Dictionary<string, School>();
 
-        public static SpellSchool GetSpellSchool(this Card card)
+        public static School GetSchool(this Card card)
         {
             if (card.Type == "Spell")
             {
-                if (SpellSchoolCache.ContainsKey(card.Id))
+                if (SchoolCache.ContainsKey(card.Id))
                 {
-                    return SpellSchoolCache[card.Id];
+                    return SchoolCache[card.Id];
                 }
 
                 HearthDb.Cards.All.TryGetValue(card.Id, out DbCard dbCard);
 
                 if (dbCard != null)
                 {
-                    var spellSchool = SpellSchool.General;
-                    var tryGetSpellSchool = (SpellSchool?)dbCard.SpellSchool;
-                    if (tryGetSpellSchool.HasValue)
+                    var school = School.General;
+                    var tryGetSchool = (School?)dbCard.SpellSchool;
+                    if (tryGetSchool.HasValue)
                     {
-                        spellSchool = tryGetSpellSchool.Value;
+                        school = tryGetSchool.Value;
                     }
-                    SpellSchoolCache.Add(card.Id, spellSchool);
-                    return spellSchool;
+                    SchoolCache.Add(card.Id, school);
+                    return school;
                 };               
             }
-            return SpellSchool.Unknown;
+            return School.NotASpell;
         }
     }
 }

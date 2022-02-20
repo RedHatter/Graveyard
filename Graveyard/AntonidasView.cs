@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 
 		public override bool Update(Card card)
 		{
-			if (card.GetSpellSchool() == SpellSchool.Fire)
+			if (card.GetSchool() == School.Fire)
 			{
 				return base.Update(card);
 			}

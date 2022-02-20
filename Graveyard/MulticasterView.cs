@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;
 
-        public Dictionary<SpellSchool, Card> SchoolList = new Dictionary<SpellSchool, Card>();
+        public Dictionary<School, Card> SchoolList = new Dictionary<School, Card>();
 
         public MulticasterView()
         {
@@ -45,17 +45,17 @@ namespace HDT.Plugins.Graveyard
 
         public virtual bool Update(Card card)
         {
-            var spellSchool = card.GetSpellSchool();
+            var school = card.GetSchool();
 
-            if (spellSchool > SpellSchool.General)
+            if (school > School.General)
             {
-                if (SchoolList.ContainsKey(spellSchool))
+                if (SchoolList.ContainsKey(school))
                 {
-                    SchoolList[spellSchool] = card.Clone() as Card;
+                    SchoolList[school] = card.Clone() as Card;
                 }
                 else
                 {
-                    SchoolList.Add(spellSchool, card.Clone() as Card);
+                    SchoolList.Add(school, card.Clone() as Card);
                         
                 }
 
