@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;
 
-        public Dictionary<int, Card> SchoolList = new Dictionary<int, Card>();
+        public Dictionary<School, Card> SchoolList = new Dictionary<School, Card>();
 
         public MulticasterView()
         {
@@ -45,28 +45,25 @@ namespace HDT.Plugins.Graveyard
 
         public virtual bool Update(Card card)
         {
-            if (card.Type == "Spell")
+            var school = card.GetSchool();
+
+            if (school > School.General)
             {
-                HearthDb.Cards.All.TryGetValue(card.Id, out DbCard dbCard);
-
-                if (dbCard?.SpellSchool > 0)
+                if (SchoolList.ContainsKey(school))
                 {
-                    if (SchoolList.ContainsKey(dbCard.SpellSchool))
-                    {
-                        SchoolList[dbCard.SpellSchool] = card.Clone() as Card;
-                    }
-                    else
-                    {
-                        SchoolList.Add(dbCard.SpellSchool, card.Clone() as Card);
-                        
-                    }
-
-                    Cards.Update(SchoolList.Values.ToList(), true);
-
-                    Visibility = Visibility.Visible;
-
-                    return true;
+                    SchoolList[school] = card.Clone() as Card;
                 }
+                else
+                {
+                    SchoolList.Add(school, card.Clone() as Card);
+                        
+                }
+
+                Cards.Update(SchoolList.Values.ToList(), true);
+
+                Visibility = Visibility.Visible;
+
+                return true;
             }
             return false;
         }

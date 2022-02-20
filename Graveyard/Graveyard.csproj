@@ -71,6 +71,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardExtensions.cs" />
     <Compile Include="CavernsView.cs" />
     <Compile Include="ChancesTracker.cs" />
     <Compile Include="DeathrattleView.cs" />

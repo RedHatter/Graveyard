@@ -17,14 +17,9 @@ namespace HDT.Plugins.Graveyard
 
 		public override bool Update(Card card)
 		{
-			if (card.Type == "Spell")
+			if (card.GetSchool() == School.Fire)
 			{
-                HearthDb.Card dbCard;
-                HearthDb.Cards.All.TryGetValue(card.Id, out dbCard);
-                if (dbCard?.SpellSchool == 2)
-                {
-					return base.Update(card);
-				}
+				return base.Update(card);
 			}
 			return false;
 		}
