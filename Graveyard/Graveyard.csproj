@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="SoulwardenView.cs" />
     <Compile Include="TessGreymaneView.cs" />
+    <Compile Include="ViewConfig.cs" />
     <Compile Include="WitchingHourView.cs" />
     <Compile Include="YShaarjView.cs" />
     <Compile Include="ZuljinView.cs" />
