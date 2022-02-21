@@ -20,6 +20,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Mage.GrandFinale)
             {
                 Name = Strings.GetLocalized("GrandFinale"),
+                Enabled = () => Settings.Default.GrandFinaleEnabled,
                 Condition = card => card.Race == "Elemental" || card.Race == "All",
             });
         }

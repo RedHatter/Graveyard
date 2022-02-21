@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.YshaarjTheDefiler)
 			{
 				Name = Strings.GetLocalized("YShaarj"),
+				Enabled = () => Settings.Default.YShaarjEnabled,
 				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),
 			});
 		}

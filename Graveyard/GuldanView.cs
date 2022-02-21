@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Warlock.BloodreaverGuldan, Warlock.KanrethadEbonlocke)
             {
 				Name = Strings.GetLocalized("Guldan"),
+				Enabled = () => Settings.Default.GuldanEnabled,
 				Condition = card => card.Race == "Demon",
 			});
 		}

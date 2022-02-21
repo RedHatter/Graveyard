@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Druid.Hadronox)
             {
 				Name = Strings.GetLocalized("Hadronox"),
+				Enabled = () => Settings.Default.HadronoxEnabled,
 				Condition = card => card.Mechanics.Contains("Taunt"),
 			});
 		}

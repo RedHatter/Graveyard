@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Shaman.Shudderwock)
             {
 				Name = Strings.GetLocalized("Shudderwock"),
+				Enabled = () => Settings.Default.ShudderwockEnabled,
 				Condition = card => card.Mechanics.Contains("Battlecry"),
 			});
 		}

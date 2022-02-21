@@ -13,19 +13,23 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Paladin.ShirvallahTheTiger)
+            {
+				Name = Strings.GetLocalized("Shirvallah"),
+				Enabled = () => Settings.Default.ShirvallahEnabled,
+			});
 		}
 		
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.ShirvallahTheTiger) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		private readonly Card ShirvallahCard = Database.GetCardFromId(Paladin.ShirvallahTheTiger);
 
 		public ShirvallahView()
 		{
-            Label.Text = Strings.GetLocalized("Shirvallah");
+            Label.Text = Config.Name;
 			Cards.Add(ShirvallahCard);
 		}
 

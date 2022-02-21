@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Druid.Mulchmuncher)
             {
                 Name = Strings.GetLocalized("Mulchmuncher"),
+                Enabled = () => Settings.Default.MulchmuncherEnabled,
                 Condition = card => card.Name == "Treant",
             });
         }

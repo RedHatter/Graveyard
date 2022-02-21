@@ -17,6 +17,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Neutral.ElwynnBoar)
             {
                 Name = Strings.GetLocalized("ElwynnBoar"),
+                Enabled = () => Settings.Default.ElwynnBoarEnabled,
                 Condition = card => card.Id == Neutral.ElwynnBoar,
             });
         }

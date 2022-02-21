@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
             {
                 Name = Strings.GetLocalized("LadyLiadrin"),
+                Enabled = () => Settings.Default.LadyLiadrinEnabled,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
             });
         }

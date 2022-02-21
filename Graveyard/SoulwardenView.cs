@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Warlock.Soulwarden)
             {
                 Name = Strings.GetLocalized("Soulwarden"),
+                Enabled = () => Settings.Default.SoulwardenEnabled,
                 Condition = card => true,
             });
         }

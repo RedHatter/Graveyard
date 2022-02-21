@@ -14,6 +14,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Druid.WitchingHour, Hunter.RevivePet)
             {
                 Name = Strings.GetLocalized("WitchingHour"),
+                Enabled = () => Settings.Default.WitchingHourEnabled,
                 Condition = card => card.Race == "Beast" || card.Race == "All",
             });
         }

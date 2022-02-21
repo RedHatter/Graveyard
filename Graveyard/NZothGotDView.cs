@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothGodOfTheDeep)
             {
 				Name = Strings.GetLocalized("NZothGotD"),
+				Enabled = () => Settings.Default.NZothGotDEnabled,
 				Condition = card => card.Race != null,
 			});
 		}

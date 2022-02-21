@@ -17,6 +17,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.KargalBattlescar)
             {
 				Name = Strings.GetLocalized("Kargal"),
+				Enabled = () => Settings.Default.KargalEnabled,
 				Condition = card => Posts.Contains(card.Id),
 			});
 		}

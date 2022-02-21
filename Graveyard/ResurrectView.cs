@@ -23,6 +23,7 @@ namespace HDT.Plugins.Graveyard
 				Neutral.Kazakus)
             {
 				Name = Strings.GetLocalized("Resurrect"),
+				Enabled = () => Settings.Default.ResurrectEnabled,
 				Condition = card => card.Type == "Minion",
 			});
 		}

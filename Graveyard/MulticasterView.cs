@@ -19,6 +19,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Mage.MagisterDawngrasp, Neutral.Multicaster)
             {
                 Name = Strings.GetLocalized("Multicaster"),
+                Enabled = () => Settings.Default.MulticasterEnabled,
             });
         }
         

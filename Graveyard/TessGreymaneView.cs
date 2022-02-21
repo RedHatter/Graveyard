@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Rogue.TessGreymane, Rogue.ContrabandStash)
             {
                 Name = Strings.GetLocalized("TessGreymane"),
+                Enabled = () => Settings.Default.TessGreymaneEnabled,
                 Condition = card => !card.IsClass("Rogue") && !card.IsClass("Neutral"),
             });
         }

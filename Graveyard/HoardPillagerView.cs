@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Neutral.HoardPillager, Neutral.RummagingKobold)
             {
                 Name = Strings.GetLocalized("HoardPillager"),
+                Enabled = () => Settings.Default.HoardPillagerEnabled,
                 Condition = card => card.Type == "Weapon"
             });
         }

@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Paladin.KangorsEndlessArmy)
             {
                 Name = Strings.GetLocalized("Kangor"),
+                Enabled = () => Settings.Default.KangorEnabled,
                 Condition = card => card.Race == "Mech" || card.Race == "All",
             });
         }

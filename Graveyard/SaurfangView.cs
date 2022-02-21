@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Warrior.OverlordSaurfang)
             {
 				Name = Strings.GetLocalized("Saurfang"),
+				Enabled = () => Settings.Default.SaurfangEnabled,
 				Condition = card => card.EnglishText?.Contains("Frenzy:") ?? false
 			});
 		}

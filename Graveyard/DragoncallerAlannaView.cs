@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Mage.DragoncallerAlanna)
             {
 				Name = Strings.GetLocalized("Alanna"),
+				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
 				Condition = card => card.Type == "Spell" && card.Cost >= 5,
 			});
 		}

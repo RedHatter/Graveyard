@@ -13,6 +13,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothTheCorruptor)
             {
 				Name = Strings.GetLocalized("NZoth"),
+				Enabled = () => Settings.Default.NZothEnabled,
 				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
 			});
 		}

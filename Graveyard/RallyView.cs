@@ -12,6 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.Rally)
             {
 				Name = Strings.GetLocalized("Rally"),
+				Enabled = () => Settings.Default.RallyEnabled,
 				Condition = card => card.Type == "Minion" && card.Cost >= 1 && card.Cost <= 3,
 			});
 		}
