@@ -7,6 +7,12 @@ namespace HDT.Plugins.Graveyard
 {
     public class LadyLiadrinView : NormalView
     {
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
+        {
+            get => _Config ?? (_Config = new ViewConfig());
+        }
+        
         public static readonly List<string> SpellList = new List<string>
         {
             // 0
@@ -59,7 +65,7 @@ namespace HDT.Plugins.Graveyard
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.LadyLiadrin) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.LadyLiadrin) > -1;
         }
 
         public LadyLiadrinView()

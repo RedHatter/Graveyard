@@ -6,6 +6,12 @@ namespace HDT.Plugins.Graveyard
 {
 	public class GuldanView : NormalView
 	{
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
+		{
+			get => _Config ?? (_Config = new ViewConfig());
+		}
+		
 		private ChancesTracker _chances = new ChancesTracker();
 
 		public static bool isValid()

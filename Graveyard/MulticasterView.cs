@@ -7,16 +7,23 @@ using System.Windows;
 using System.Windows.Controls;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 using DbCard = HearthDb.Card;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
     public class MulticasterView : StackPanel
     {
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
+        {
+            get => _Config ?? (_Config = new ViewConfig());
+        }
+        
         public static bool IsValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card => 
-                card.Id == HearthDb.CardIds.Collectible.Mage.MagisterDawngrasp ||
-                card.Id == HearthDb.CardIds.Collectible.Neutral.Multicaster
+                card.Id == Mage.MagisterDawngrasp ||
+                card.Id == Neutral.Multicaster
                 ) > -1;
         }
 

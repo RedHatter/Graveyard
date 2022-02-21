@@ -10,7 +10,13 @@ namespace HDT.Plugins.Graveyard
 {
 	public class ShirvallahView : NormalView
 	{
-        public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
+		{
+			get => _Config ?? (_Config = new ViewConfig());
+		}
+		
+		public static bool isValid()
 		{
 			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.ShirvallahTheTiger) > -1;
 		}
