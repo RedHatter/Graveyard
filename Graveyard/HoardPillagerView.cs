@@ -9,25 +9,28 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Neutral.HoardPillager, Neutral.RummagingKobold)
+            {
+                Name = Strings.GetLocalized("HoardPillager"),
+                Condition = card => card.Type == "Weapon"
+            });
         }
         
         private ChancesTracker _chances = new ChancesTracker();
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Neutral.HoardPillager
-            || card.Id == Neutral.RummagingKobold) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public HoardPillagerView()
         {
-            Label.Text = Strings.GetLocalized("HoardPillager");
+            Label.Text = Config.Name;
         }
 
         public bool Update(Card card)
         {
-            var update = card.Type == "Weapon"  && base.Update(card, true);
+            var update = Config.Condition(card) && base.Update(card, true);
 
             if (update)
                 _chances.Update(card, Cards, View);

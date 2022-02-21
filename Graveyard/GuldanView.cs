@@ -9,25 +9,29 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Warlock.BloodreaverGuldan, Warlock.KanrethadEbonlocke)
+            {
+				Name = Strings.GetLocalized("Guldan"),
+				Condition = card => card.Race == "Demon",
+			});
 		}
 		
 		private ChancesTracker _chances = new ChancesTracker();
 
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Warlock.BloodreaverGuldan || card.Id == Warlock.KanrethadEbonlocke) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		public GuldanView()
 		{
 			// Section Label
-			Label.Text = Strings.GetLocalized("Guldan");
+			Label.Text = Config.Name;
 		}
 
 		public bool Update(Card card)
 		{
-			var update = card.Race == "Demon" && base.Update(card);
+			var update = Config.Condition(card) && base.Update(card);
 
 			if (update)
 				_chances.Update(card, Cards, View);

@@ -9,23 +9,27 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Druid.Mulchmuncher)
+            {
+                Name = Strings.GetLocalized("Mulchmuncher"),
+                Condition = card => card.Name == "Treant",
+            });
         }
         
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Druid.Mulchmuncher) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public MulchmuncherView()
         {
             // Section Label
-            Label.Text = Strings.GetLocalized("Mulchmuncher");
+            Label.Text = Config.Name;
         }
 
         public bool Update(Card card)
         {
-            return card.Name == "Treant" && base.Update(card);
+            return Config.Condition(card) && base.Update(card);
         }
     }
 }

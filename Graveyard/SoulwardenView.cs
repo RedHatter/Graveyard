@@ -9,22 +9,24 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Warlock.Soulwarden)
+            {
+                Name = Strings.GetLocalized("Soulwarden"),
+                Condition = card => true,
+            });
         }
         
         private ChancesTracker _chances = new ChancesTracker();
 
-        public string Literal { get; }
-
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Warlock.Soulwarden) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public SoulwardenView()
         {
             // Section Label
-            Label.Text = Strings.GetLocalized("Soulwarden");
+            Label.Text = Config.Name;
         }
 
         public bool Update(Card card)

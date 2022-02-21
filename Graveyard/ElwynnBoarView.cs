@@ -14,13 +14,16 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Neutral.ElwynnBoar)
+            {
+                Name = Strings.GetLocalized("ElwynnBoar"),
+                Condition = card => card.Id == Neutral.ElwynnBoar,
+            });
         }
         
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card =>
-                card.Id == HearthDb.CardIds.Collectible.Neutral.ElwynnBoar) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public static bool IsAlwaysSeparate => Settings.Default.ElwynnBoarEnabled && Settings.Default.AlwaysBoarSeparately;
@@ -28,12 +31,12 @@ namespace HDT.Plugins.Graveyard
         public ElwynnBoarView()
         {
             // Section Label
-            Label.Text = Strings.GetLocalized("ElwynnBoar");
+            Label.Text = Config.Name;
         }
 
         public bool Update(Card card)
         {
-            return card.Id == HearthDb.CardIds.Collectible.Neutral.ElwynnBoar && base.Update(card);
+            return Config.Condition(card) && base.Update(card);
         }
     }
 }

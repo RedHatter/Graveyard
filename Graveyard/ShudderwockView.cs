@@ -10,22 +10,26 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Shaman.Shudderwock)
+            {
+				Name = Strings.GetLocalized("Shudderwock"),
+				Condition = card => card.Mechanics.Contains("Battlecry"),
+			});
 		}
 		
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Shaman.Shudderwock) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		public ShudderwockView()
 		{
-			Label.Text = Strings.GetLocalized("Shudderwock");
+			Label.Text = Config.Name;
 		}
 
 		public bool Update(Card card)
 		{
-			return card.Mechanics.Contains("Battlecry") && base.Update(card, true);
+			return Config.Condition(card) && base.Update(card, true);
 		}
 	}
 }

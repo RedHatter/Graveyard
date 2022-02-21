@@ -10,23 +10,27 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothTheCorruptor)
+            {
+				Name = Strings.GetLocalized("NZoth"),
+				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
+			});
 		}
 		
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Neutral.NzothTheCorruptor) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		public NZothView()
 		{
 			// Section Label
-			Label.Text = Strings.GetLocalized("NZoth");
+			Label.Text = Config.Name;
 		}
 
 		public bool Update(Card card)
 		{
-			return card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor && base.Update(card);
+			return Config.Condition(card) && base.Update(card);
 		}
 	}
 }

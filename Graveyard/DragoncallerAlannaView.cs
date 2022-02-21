@@ -9,22 +9,26 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Mage.DragoncallerAlanna)
+            {
+				Name = Strings.GetLocalized("Alanna"),
+				Condition = card => card.Type == "Spell" && card.Cost >= 5,
+			});
 		}
 
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Mage.DragoncallerAlanna) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		public DragoncallerAlannaView()
 		{
-            Label.Text = Strings.GetLocalized("Alanna");
+            Label.Text = Config.Name;
 		}
 
 		public bool Update(Card card)
 		{
-			return card.Type == "Spell" && card.Cost >= 5 && base.Update(card, true);
+			return Config.Condition(card) && base.Update(card, true);
 		}
 	}
 }

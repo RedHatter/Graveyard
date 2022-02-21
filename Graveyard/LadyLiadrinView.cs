@@ -10,7 +10,11 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
+            {
+                Name = Strings.GetLocalized("LadyLiadrin"),
+                Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
+            });
         }
         
         public static readonly List<string> SpellList = new List<string>
@@ -65,18 +69,18 @@ namespace HDT.Plugins.Graveyard
 
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.LadyLiadrin) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public LadyLiadrinView()
         {
             // Section Label
-            Label.Text = Strings.GetLocalized("LadyLiadrin");
+            Label.Text = Config.Name;
         }
 
         public bool Update(Card card)
         {
-            return card.Type == "Spell" && SpellList.Contains(card.Id) && base.Update(card, true);
+            return Config.Condition(card) && base.Update(card, true);
         }
     }
 }

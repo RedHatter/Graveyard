@@ -17,21 +17,25 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig());
+            get => _Config ?? (_Config = new ViewConfig(Mage.GrandFinale)
+            {
+                Name = Strings.GetLocalized("GrandFinale"),
+                Condition = card => card.Race == "Elemental" || card.Race == "All",
+            });
         }
         
         public static bool isValid()
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Mage.GrandFinale) > -1;
+            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
         public GrandFinaleView() 
-            : base(Strings.GetLocalized("GrandFinale"),1)
+            : base(Config.Name,1)
         {
         }
 
         public override bool Update(Card card)
         {
-            if (card.Race == "Elemental" || card.Race == "All")
+            if (Config.Condition(card))
             {
                 return base.Update(card);
             }

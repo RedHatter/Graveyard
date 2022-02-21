@@ -14,12 +14,16 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig());
+			get => _Config ?? (_Config = new ViewConfig(Neutral.KargalBattlescar)
+            {
+				Name = Strings.GetLocalized("Kargal"),
+				Condition = card => Posts.Contains(card.Id),
+			});
 		}
 		
 		public static bool isValid()
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Neutral.KargalBattlescar) > -1;
+			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
 		}
 
 		internal static readonly List<string> Posts = new List<string>
@@ -31,12 +35,12 @@ namespace HDT.Plugins.Graveyard
 
 		public KargalView()
 		{
-			Label.Text = Strings.GetLocalized("Kargal");
+			Label.Text = Config.Name;
 		}
 
 		public bool Update(Card card)
 		{
-			return Posts.Contains(card.Id) && base.Update(card);
+			return Config.Condition(card) && base.Update(card);
 		}
 	}
 }
