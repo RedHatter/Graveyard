@@ -1,13 +1,11 @@
 ﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Controls;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
-using DbCard = HearthDb.Card;
 using static HearthDb.CardIds.Collectible;
+using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -21,12 +19,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Multicaster"),
                 Enabled = () => Settings.Default.MulticasterEnabled,
             });
-        }
-        
-        public static bool IsValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-        }
+        }       
 
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;

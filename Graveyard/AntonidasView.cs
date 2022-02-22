@@ -1,7 +1,6 @@
 ﻿using Hearthstone_Deck_Tracker.API;
 using static HearthDb.CardIds.Collectible;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
-using Core = Hearthstone_Deck_Tracker.Core;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -19,11 +18,6 @@ namespace HDT.Plugins.Graveyard
 				CreateView = () => new MultiTurnView(Strings.GetLocalized("Antonidas"), 3),
 			});
         }
-
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
 
 		public AntonidasView() 
 			: base(Config.Name, 3)

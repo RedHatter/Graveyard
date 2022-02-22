@@ -20,12 +20,7 @@ namespace HDT.Plugins.Graveyard
                 Enabled = () => Settings.Default.ElwynnBoarEnabled,
                 Condition = card => card.Id == Neutral.ElwynnBoar,
             });
-        }
-        
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-        }
+        }       
 
         public static bool IsAlwaysSeparate => Settings.Default.ElwynnBoarEnabled && Settings.Default.AlwaysBoarSeparately;
 

@@ -1,11 +1,6 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using static HearthDb.CardIds.Collectible;
-using System;
+﻿using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -22,11 +17,6 @@ namespace HDT.Plugins.Graveyard
 			});
 		}
 		
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
-
 		internal static readonly List<string> Posts = new List<string>
 		{
             Neutral.CrossroadsWatchPost,

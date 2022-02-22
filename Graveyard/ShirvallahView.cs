@@ -1,14 +1,12 @@
-using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
 using System.Windows;
-using static Hearthstone_Deck_Tracker.API.Core;
 using static HearthDb.CardIds.Collectible;
+using static Hearthstone_Deck_Tracker.API.Core;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ShirvallahView : NormalView
+    public class ShirvallahView : NormalView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -18,12 +16,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Shirvallah"),
 				Enabled = () => Settings.Default.ShirvallahEnabled,
 			});
-		}
-		
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
+		}	
 
 		private readonly Card ShirvallahCard = Database.GetCardFromId(Paladin.ShirvallahTheTiger);
 

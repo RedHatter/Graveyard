@@ -1,5 +1,4 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -15,12 +14,7 @@ namespace HDT.Plugins.Graveyard
 				Enabled = () => Settings.Default.YShaarjEnabled,
 				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),
 			});
-		}
-		
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
+		}	
 
 		public YShaarjView()
 		{

@@ -1,3 +1,4 @@
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
@@ -133,257 +134,40 @@ namespace HDT.Plugins.Graveyard
 			{
 				FriendlyQuestline = null;
 			}
-
-			if (Settings.Default.ResurrectEnabled && ResurrectView.isValid())
-			{
-				Resurrect = new ResurrectView();
-				_friendlyPanel.Children.Add(Resurrect);
-				Normal = null;
-			}
-			else if (Settings.Default.NormalEnabled)
+			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect) && Settings.Default.NormalEnabled)
 			{
 				Normal = new NormalView();
 				_friendlyPanel.Children.Add(Normal);
-				Resurrect = null;
 			}
 			else
 			{
 				Normal = null;
-				Resurrect = null;
 			}
-
-			if (Settings.Default.AnyfinEnabled && AnyfinView.isValid())
-			{
-				Anyfin = new AnyfinView();
-				_friendlyPanel.Children.Add(Anyfin);
-			}
-			else
-			{
-				Anyfin = null;
-			}
-
-            if (Settings.Default.DeathrattleEnabled && DeathrattleView.isValid())
-            {
-                Deathrattle = new DeathrattleView();
-                _friendlyPanel.Children.Add(Deathrattle);
-            }
-            else
-            {
-                Deathrattle = null;
-            }
-
-            if (Settings.Default.NZothEnabled && NZothView.isValid())
-			{
-				NZoth = new NZothView();
-				_friendlyPanel.Children.Add(NZoth);
-			}
-			else
-			{
-				NZoth = null;
-			}
-
-			if (Settings.Default.HadronoxEnabled && HadronoxView.isValid())
-			{
-				Hadronox = new HadronoxView();
-				_friendlyPanel.Children.Add(Hadronox);
-			}
-			else
-			{
-				Hadronox = null;
-			}
-
-			if (Settings.Default.DiscardEnabled && DiscardView.isValid())
-			{
-				Discard = new DiscardView();
-				_friendlyPanel.Children.Add(Discard);
-			}
-			else
-			{
-				Discard = null;
-			}
-
-			if (Settings.Default.ShudderwockEnabled && ShudderwockView.isValid())
-			{
-				Shudderwock = new ShudderwockView();
-				_friendlyPanel.Children.Add(Shudderwock);
-			}
-			else
-			{
-				Shudderwock = null;
-			}
-
-			if (Settings.Default.GuldanEnabled && GuldanView.isValid())
-			{
-				Guldan = new GuldanView();
-				_friendlyPanel.Children.Add(Guldan);
-			}
-			else
-			{
-				Guldan = null;
-			}
-			if (Settings.Default.DragoncallerAlannaEnabled && DragoncallerAlannaView.isValid())
-			{
-				DragoncallerAlanna = new DragoncallerAlannaView();
-				_friendlyPanel.Children.Add(DragoncallerAlanna);
-			}
-			else
-			{
-				DragoncallerAlanna = null;
-			}
-            if (Settings.Default.MulchmuncherEnabled && MulchmuncherView.isValid())
-            {
-                Mulchmuncher = new MulchmuncherView();
-                _friendlyPanel.Children.Add(Mulchmuncher);
-            }
-            else
-            {
-                Mulchmuncher = null;
-            }
-
-            if (Settings.Default.CavernsEnabled && CavernsView.isValid())
-            {
-                Caverns = new CavernsView();
-                _friendlyPanel.Children.Add(Caverns);
-            }
-            else
-            {
-                Caverns = null;
-            }
-            if (Settings.Default.KangorEnabled && KangorView.isValid())
-            {
-                Kangor = new KangorView();
-                _friendlyPanel.Children.Add(Kangor);
-            }
-            else
-            {
-                Kangor = null;
-            }
-            if (Settings.Default.WitchingHourEnabled && WitchingHourView.isValid())
-            {
-                WitchingHour = new WitchingHourView();
-                _friendlyPanel.Children.Add(WitchingHour);
-            }
-            else
-            {
-                WitchingHour = null;
-            }
-            if (Settings.Default.SoulwardenEnabled && SoulwardenView.isValid())
-            {
-                Soulwarden = new SoulwardenView();
-                _friendlyPanel.Children.Add(Soulwarden);
-            }
-            else
-            {
-                Soulwarden = null;
-            }
-            if (Settings.Default.TessGreymaneEnabled && TessGreymaneView.isValid())
-            {
-                TessGreymane = new TessGreymaneView();
-                _friendlyPanel.Children.Add(TessGreymane);
-            }
-            else
-            {
-                TessGreymane = null;
-            }
-			if (Settings.Default.ZuljinEnabled && ZuljinView.isValid())
-			{
-				Zuljin = new ZuljinView();
-				_friendlyPanel.Children.Add(Zuljin);
-			}
-			else
-			{
-				Zuljin = null;	
-			}
-			if (Settings.Default.HoardPillagerEnabled && HoardPillagerView.isValid())
-			{
-				HoardPillager = new HoardPillagerView();
-				_friendlyPanel.Children.Add(HoardPillager);
-			}
-			else
-			{
-				HoardPillager = null;
-			}
-			if (Settings.Default.LadyLiadrinEnabled && LadyLiadrinView.isValid())
-            {
-				LadyLiadrin = new LadyLiadrinView();
-				_friendlyPanel.Children.Add(LadyLiadrin);
-            }
-            else
-            {
-				LadyLiadrin = null;
-            }
-            if (Settings.Default.NZothGotDEnabled && NZothGotDView.isValid())
-            {
-				NZothGotD = new NZothGotDView();
-				_friendlyPanel.Children.Add(NZothGotD);
-            }
-			else
-			{
-				NZothGotD = null;
-			}
-			if (Settings.Default.RallyEnabled && RallyView.isValid())
-            {
-				Rally = new RallyView();
-				_friendlyPanel.Children.Add(Rally);
-            }
-			else
-			{
-				Rally = null;
-			}
-			if (Settings.Default.SaurfangEnabled && SaurfangView.isValid())
-            {
-				Saurfang = new SaurfangView();
-				_friendlyPanel.Children.Add(Saurfang);
-            }
-			else
-			{
-				Saurfang = null;
-			}
-			if (Settings.Default.YShaarjEnabled && YShaarjView.isValid())
-            {
-				YShaarj = new YShaarjView();
-				_friendlyPanel.Children.Add(YShaarj);
-            }
-			else
-			{
-				YShaarj = null;
-			}
-			if (Settings.Default.ElwynnBoarEnabled && ElwynnBoarView.isValid())
-            {
-				ElwynnBoar = new ElwynnBoarView();
-				_friendlyPanel.Children.Add(ElwynnBoar);
-            }
-			else
-			{
-				ElwynnBoar = null;
-			}
-			if (Settings.Default.KargalEnabled && KargalView.isValid())
-            {
-				Kargal = new KargalView();
-				_friendlyPanel.Children.Add(Kargal);
-			}
-			else
-			{
-				Kargal = null;
-			}
-			if (Settings.Default.AntonidasEnabled && AntonidasView.isValid())
-            {
-				Antonidas = new AntonidasView();
-				_friendlyPanel.Children.Add(Antonidas);
-            }
-            else
-            {
-				Antonidas = null;
-            }
-            if (Settings.Default.GrandFinaleEnabled && GrandFinaleView.isValid())
-            {
-				GrandFinale = new GrandFinaleView();
-				_friendlyPanel.Children.Add(GrandFinale);
-            }
-            else
-            {
-				GrandFinale = null;
-            }
+			ShowFriendlyView(AnyfinView.Config, ref Anyfin);
+			ShowFriendlyView(DeathrattleView.Config, ref Deathrattle);
+			ShowFriendlyView(NZothView.Config, ref NZoth);
+			ShowFriendlyView(HadronoxView.Config, ref Hadronox);
+			ShowFriendlyView(DiscardView.Config, ref Discard);
+			ShowFriendlyView(ShudderwockView.Config, ref Shudderwock);
+			ShowFriendlyView(GuldanView.Config, ref Guldan);
+			ShowFriendlyView(DragoncallerAlannaView.Config, ref DragoncallerAlanna);
+			ShowFriendlyView(MulchmuncherView.Config, ref Mulchmuncher);
+			ShowFriendlyView(CavernsView.Config, ref Caverns);
+			ShowFriendlyView(KangorView.Config, ref Kangor);
+			ShowFriendlyView(WitchingHourView.Config, ref WitchingHour);
+			ShowFriendlyView(SoulwardenView.Config, ref Soulwarden);
+			ShowFriendlyView(TessGreymaneView.Config, ref TessGreymane);
+			ShowFriendlyView(ZuljinView.Config, ref Zuljin);
+			ShowFriendlyView(HoardPillagerView.Config, ref HoardPillager);
+			ShowFriendlyView(LadyLiadrinView.Config, ref LadyLiadrin);
+			ShowFriendlyView(NZothGotDView.Config, ref NZothGotD);
+			ShowFriendlyView(RallyView.Config, ref Rally);
+			ShowFriendlyView(SaurfangView.Config, ref Saurfang);
+			ShowFriendlyView(YShaarjView.Config, ref YShaarj);
+			ShowFriendlyView(ElwynnBoarView.Config, ref ElwynnBoar);
+			ShowFriendlyView(KargalView.Config, ref Kargal);
+			ShowFriendlyView(AntonidasView.Config, ref Antonidas);
+			ShowFriendlyView(GrandFinaleView.Config, ref GrandFinale);
 			if (Settings.Default.LastPlayedEnabled && LastPlayedView.IsValid())
             {
 				LastPlayed = new LastPlayedView();
@@ -393,25 +177,24 @@ namespace HDT.Plugins.Graveyard
             {
 				LastPlayed = null;
             }
-			if (Settings.Default.MulticasterEnabled && MulticasterView.IsValid())
-            {
-				Multicaster = new MulticasterView();
-				_friendlyPanel.Children.Add(Multicaster);
-            }
-			else
-            {
-				Multicaster = null;
-            }
-            if (Settings.Default.ShirvallahEnabled && ShirvallahView.isValid())
-            {
-				Shirvallah = new ShirvallahView();
-				_friendlyPanel.Children.Add(Shirvallah);
-			}
-			else
-            {
-				Shirvallah = null;
-			}
+			ShowFriendlyView(MulticasterView.Config, ref Multicaster);
+			ShowFriendlyView(ShirvallahView.Config, ref Shirvallah);
 		}
+
+		private bool ShowFriendlyView<T>(ViewConfig config, ref T view) where T : UIElement, new()
+        {
+			if(config.Enabled() && Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1)
+            {
+				view = new T();
+				_friendlyPanel.Children.Add(view);
+				return true;
+			}
+            else
+            {
+				view = null;
+				return false;
+            }
+        }
 
 		public void PlayerGraveyardUpdate(Card card)
 		{

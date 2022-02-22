@@ -1,11 +1,10 @@
-using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using static HearthDb.CardIds.Collectible;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class NZothView : NormalView
+    public class NZothView : NormalView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -18,11 +17,6 @@ namespace HDT.Plugins.Graveyard
 			});
 		}
 		
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
-
 		public NZothView()
 		{
 			// Section Label

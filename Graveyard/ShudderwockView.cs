@@ -1,11 +1,10 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using static HearthDb.CardIds.Collectible;
+﻿using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ShudderwockView : NormalView
+    public class ShudderwockView : NormalView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -16,12 +15,7 @@ namespace HDT.Plugins.Graveyard
 				Enabled = () => Settings.Default.ShudderwockEnabled,
 				Condition = card => card.Mechanics.Contains("Battlecry"),
 			});
-		}
-		
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
+		}	
 
 		public ShudderwockView()
 		{

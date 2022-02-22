@@ -19,11 +19,6 @@ namespace HDT.Plugins.Graveyard
         
         private ChancesTracker _chances = new ChancesTracker();
 
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-        }
-
         public SoulwardenView()
         {
             // Section Label

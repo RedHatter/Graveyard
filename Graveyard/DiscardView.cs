@@ -1,12 +1,10 @@
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using System.Linq;
 using static HearthDb.CardIds.Collectible;
-using Core = Hearthstone_Deck_Tracker.Core;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class DiscardView : NormalView
+    public class DiscardView : NormalView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -22,11 +20,6 @@ namespace HDT.Plugins.Graveyard
 		}
 
 		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
 
 		public DiscardView()
 		{

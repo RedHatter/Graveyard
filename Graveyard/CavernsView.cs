@@ -1,8 +1,6 @@
 ﻿using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using System.Linq;
 using static HearthDb.CardIds.Collectible;
-using Core = Hearthstone_Deck_Tracker.Core;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -19,10 +17,6 @@ namespace HDT.Plugins.Graveyard
                 WatchFor = GameEvents.OnPlayerPlay,
                 CreateView = () => new NormalView(),
             });
-        }
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
         }
 
         public CavernsView()

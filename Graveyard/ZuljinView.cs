@@ -15,12 +15,7 @@ namespace HDT.Plugins.Graveyard
                 Enabled = () => Settings.Default.ZuljinEnabled,
                 Condition = card => card.Type == "Spell",
             });
-        }
-        
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-        }
+        }       
 
         public ZuljinView()
         {

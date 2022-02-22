@@ -30,11 +30,6 @@ namespace HDT.Plugins.Graveyard
             });
         }
 
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-        }
-
         public DeathrattleView()
         {
             // Section Label

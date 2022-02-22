@@ -3,23 +3,29 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
 	public class AnyfinView : NormalView
 	{
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
+		{
+			get => _Config ?? (_Config = new ViewConfig(Paladin.AnyfinCanHappen)
+			{
+				Name = Strings.GetLocalized("Anyfin"),
+				Enabled = () => Settings.Default.AnyfinEnabled,
+			});
+		}				
+
 		private HearthstoneTextBlock _dmg;
 		private HearthstoneTextBlock _secondDmg;
-
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.AnyfinCanHappen) > -1;
-		}
 
 		public AnyfinView()
 		{
 			// Section Label
-			Label.Text = Strings.GetLocalized("Anyfin");
+			Label.Text = Config.Name;
 
 			// Damage Label
 			_dmg = new HearthstoneTextBlock();

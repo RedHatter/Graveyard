@@ -1,11 +1,9 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
-using System.Linq;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class SaurfangView : NormalView
+    public class SaurfangView : NormalView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -19,11 +17,6 @@ namespace HDT.Plugins.Graveyard
 		}
 		
 		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
 
 		public SaurfangView()
 		{
