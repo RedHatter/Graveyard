@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using static HearthDb.CardIds.Collectible;
 
@@ -13,6 +14,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("LadyLiadrin"),
                 Enabled = () => Settings.Default.LadyLiadrinEnabled,
+                WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
             });
         }

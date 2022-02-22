@@ -13,8 +13,8 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Antonidas"),
 				Enabled = () => Settings.Default.AntonidasEnabled,
-				Condition = card => card.GetSchool() == School.Fire,
 				WatchFor = GameEvents.OnPlayerPlay,
+				Condition = card => card.GetSchool() == School.Fire,
 				CreateView = () => new MultiTurnView(Strings.GetLocalized("Antonidas"), 3),
 			});
         }

@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -12,6 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("GrandFinale"),
                 Enabled = () => Settings.Default.GrandFinaleEnabled,
+                WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Race == "Elemental" || card.Race == "All",
             });
         }

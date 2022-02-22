@@ -13,8 +13,8 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Caverns"),
                 Enabled = () => Settings.Default.CavernsEnabled,
-                Condition = card => card.Type == "Minion",
                 WatchFor = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Minion",
                 CreateView = () => new NormalView(),
             });
         }

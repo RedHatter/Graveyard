@@ -1,3 +1,4 @@
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Windows;
@@ -15,6 +16,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Shirvallah"),
 				Enabled = () => Settings.Default.ShirvallahEnabled,
+				WatchFor = GameEvents.OnPlayerPlay,
 			});
 		}	
 

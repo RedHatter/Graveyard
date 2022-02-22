@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hearthstone_Deck_Tracker.API;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -18,6 +19,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("ElwynnBoar"),
                 Enabled = () => Settings.Default.ElwynnBoarEnabled,
+                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Id == Neutral.ElwynnBoar,
             });
         }       

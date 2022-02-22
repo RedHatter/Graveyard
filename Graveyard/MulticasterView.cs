@@ -1,4 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Controls;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Multicaster"),
                 Enabled = () => Settings.Default.MulticasterEnabled,
+                WatchFor = GameEvents.OnPlayerPlay,
             });
         }       
 

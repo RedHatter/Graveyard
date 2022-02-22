@@ -1,4 +1,5 @@
 using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
@@ -24,16 +25,12 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Resurrect"),
 				Enabled = () => Settings.Default.ResurrectEnabled,
+				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion",
 			});
 		}
 		
 		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
-		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => Config.ShowOn.Contains(card.Id)) > -1;
-		}
 
 		public ResurrectView()
 		{

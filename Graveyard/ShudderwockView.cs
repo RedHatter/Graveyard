@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
 using static HearthDb.CardIds.Collectible;
 
@@ -13,6 +14,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Shudderwock"),
 				Enabled = () => Settings.Default.ShudderwockEnabled,
+				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.Mechanics.Contains("Battlecry"),
 			});
 		}	

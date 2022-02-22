@@ -2,6 +2,7 @@
 using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 using System.Linq;
+using Hearthstone_Deck_Tracker.API;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -14,6 +15,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("NZothGotD"),
 				Enabled = () => Settings.Default.NZothGotDEnabled,
+				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race != null,
 			});
 		}
