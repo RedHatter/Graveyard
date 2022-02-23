@@ -1,4 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker;
+//using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
 using System.Windows.Controls;
@@ -8,27 +9,74 @@ namespace HDT.Plugins.Graveyard
 {
     public class LastPlayedView : StackPanel
     {
-        private ViewConfig _GreySageParrotConfig;
-        internal ViewConfig GreySageParrotConfig
+        internal static ViewConfig Config 
         {
-            get => _GreySageParrotConfig ?? (new ViewConfig(Mage.GreySageParrot));
+            get => _Config ?? (_Config = new ViewConfig(
+                GreySageParrotConfig.ShowOn
+                .Concat(SunwingSquawkerConfig.ShowOn)
+                .Concat(BrilliantMacawConfig.ShowOn)
+                .Concat(MonstrousParrotConfig.ShowOn)
+                .Concat(VanessaVanCleefConfig.ShowOn).ToArray())
+            {
+                Enabled = () => Settings.Default.LastPlayedEnabled,
+            });
         }
-        private ViewConfig _SunwingSquawker;
-        internal ViewConfig SunwingSquawker
+        private static ViewConfig _Config;
+
+        internal static ViewConfig GreySageParrotConfig
         {
-            get => _SunwingSquawker ?? (new ViewConfig(Paladin.SunwingSquawker));
+            get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new ViewConfig(Mage.GreySageParrot)
+            {
+                Name = Strings.GetLocalized("GreySageParrot"),
+                //WatchFor = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && card.Cost >= 5,
+            });
         }
-        private ViewConfig _BrilliantMacaw;
-        internal ViewConfig BrilliantMacaw
+        private static ViewConfig _GreySageParrotConfig;
+
+        internal static ViewConfig SunwingSquawkerConfig
         {
-            get => _BrilliantMacaw ?? (new ViewConfig(Shaman.BrilliantMacaw));
+            get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new ViewConfig(Paladin.SunwingSquawker)
+            {
+                Name = Strings.GetLocalized("SunwingSquawker"),
+                //WatchFor = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id),
+            });
         }
-        private ViewConfig _MonstrousParrot;
-        internal ViewConfig MonstrousParrot
+        private static ViewConfig _SunwingSquawkerConfig;
+
+        internal static ViewConfig BrilliantMacawConfig
         {
-            get => _MonstrousParrot ?? (new ViewConfig(Hunter.MonstrousParrot));
+            get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new ViewConfig(Shaman.BrilliantMacaw)
+            {
+                Name = Strings.GetLocalized("BrilliantMacaw"),
+                //WatchFor = GameEvents.OnPlayerPlay,
+                Condition = card => card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw,
+            });
         }
-        private ViewConfig _VanessaVanCleef;
+        private static ViewConfig _BrilliantMacawConfig;
+
+        internal static ViewConfig MonstrousParrotConfig
+        {
+            get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new ViewConfig(Hunter.MonstrousParrot)
+            {
+                Name = Strings.GetLocalized("MonstrousParrot"),
+                //WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
+            });
+        }
+        private static ViewConfig _MonstrousParrotConfig;
+
+        internal static ViewConfig VanessaVanCleefConfig
+        {
+            get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new ViewConfig(Rogue.VanessaVancleefCore)
+            {
+                Name = Strings.GetLocalized("VanessaVanCleef"),
+                //WatchFor = GameEvents.OnOpponentPlay,
+                Condition = card => (card.Type == "Spell" || card.Type == "Minion"),
+            });
+        }
+        private static ViewConfig _VanessaVanCleefConfig;
 
         public static bool IsValid()
         {
@@ -49,11 +97,11 @@ namespace HDT.Plugins.Graveyard
 
         public LastPlayedView()
         {
-            CreateViewIf(HasGreySageParrot, ref GreySageParrot, Strings.GetLocalized("GreySageParrot"));
-            CreateViewIf(HasSunwingSquawker, ref SunwingSquawker, Strings.GetLocalized("SunwingSquawker"));
-            CreateViewIf(HasBrilliantMacaw, ref BrilliantMacaw, Strings.GetLocalized("BrilliantMacaw"));
-            CreateViewIf(HasMonstrousParrot, ref MonstrousParrot, Strings.GetLocalized("MonstrousParrot"));
-            CreateViewIf(HasVanessaVanCleef, ref VanessaVanCleef, Strings.GetLocalized("VanessaVanCleef"));
+            CreateViewIf(HasGreySageParrot, ref GreySageParrot, GreySageParrotConfig.Name);
+            CreateViewIf(HasSunwingSquawker, ref SunwingSquawker, SunwingSquawkerConfig.Name);
+            CreateViewIf(HasBrilliantMacaw, ref BrilliantMacaw, BrilliantMacawConfig.Name);
+            CreateViewIf(HasMonstrousParrot, ref MonstrousParrot, MonstrousParrotConfig.Name);
+            CreateViewIf(HasVanessaVanCleef, ref VanessaVanCleef, VanessaVanCleefConfig.Name);
         }
 
         private void CreateViewIf(bool create, ref LastCardView view, string title)
@@ -67,7 +115,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateGreySageParrot(Card card)
         {
-            if (GreySageParrot != null && card.Type == "Spell" && card.Cost >= 5)
+            if (GreySageParrot != null && GreySageParrotConfig.Condition(card))
             {
                 return GreySageParrot.Update(card);
             }
@@ -76,7 +124,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateSunwingSquawker(Card card)
         {
-            if (SunwingSquawker != null && card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id))
+            if (SunwingSquawker != null && SunwingSquawkerConfig.Condition(card))
             {
                 return SunwingSquawker.Update(card);
             }
@@ -85,7 +133,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateBrilliantMacaw(Card card)
         {
-            if (BrilliantMacaw != null && card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw)
+            if (BrilliantMacaw != null && BrilliantMacawConfig.Condition(card))
             {
                 return BrilliantMacaw.Update(card);
             }
@@ -94,7 +142,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateMonstrousParrot(Card card)
         {
-            if (MonstrousParrot != null && card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor)
+            if (MonstrousParrot != null && MonstrousParrotConfig.Condition(card))
             {
                 return MonstrousParrot.Update(card);
             }
@@ -103,7 +151,7 @@ namespace HDT.Plugins.Graveyard
 
         public bool UpdateVanessaVanCleef(Card card)
         {
-            if (VanessaVanCleef != null && (card.Type == "Spell" || card.Type == "Minion"))
+            if (VanessaVanCleef != null && VanessaVanCleefConfig.Condition(card))
             {
                 return VanessaVanCleef.Update(card); 
             }

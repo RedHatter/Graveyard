@@ -168,15 +168,7 @@ namespace HDT.Plugins.Graveyard
 			ShowFriendlyView(KargalView.Config, ref Kargal);
 			ShowFriendlyView(AntonidasView.Config, ref Antonidas);
 			ShowFriendlyView(GrandFinaleView.Config, ref GrandFinale);
-			if (Settings.Default.LastPlayedEnabled && LastPlayedView.IsValid())
-            {
-				LastPlayed = new LastPlayedView();
-				_friendlyPanel.Children.Add(LastPlayed);
-            }
-			else
-            {
-				LastPlayed = null;
-            }
+			ShowFriendlyView(LastPlayedView.Config, ref LastPlayed);
 			ShowFriendlyView(MulticasterView.Config, ref Multicaster);
 			ShowFriendlyView(ShirvallahView.Config, ref Shirvallah);
 		}
