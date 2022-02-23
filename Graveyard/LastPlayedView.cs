@@ -8,6 +8,28 @@ namespace HDT.Plugins.Graveyard
 {
     public class LastPlayedView : StackPanel
     {
+        private ViewConfig _GreySageParrotConfig;
+        internal ViewConfig GreySageParrotConfig
+        {
+            get => _GreySageParrotConfig ?? (new ViewConfig(Mage.GreySageParrot));
+        }
+        private ViewConfig _SunwingSquawker;
+        internal ViewConfig SunwingSquawker
+        {
+            get => _SunwingSquawker ?? (new ViewConfig(Paladin.SunwingSquawker));
+        }
+        private ViewConfig _BrilliantMacaw;
+        internal ViewConfig BrilliantMacaw
+        {
+            get => _BrilliantMacaw ?? (new ViewConfig(Shaman.BrilliantMacaw));
+        }
+        private ViewConfig _MonstrousParrot;
+        internal ViewConfig MonstrousParrot
+        {
+            get => _MonstrousParrot ?? (new ViewConfig(Hunter.MonstrousParrot));
+        }
+        private ViewConfig _VanessaVanCleef;
+
         public static bool IsValid()
         {
             return HasGreySageParrot || HasSunwingSquawker || HasBrilliantMacaw || HasMonstrousParrot || HasVanessaVanCleef;
