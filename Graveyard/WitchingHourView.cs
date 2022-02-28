@@ -1,10 +1,9 @@
 ﻿using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class WitchingHourView : NormalView
+    public class WitchingHourView : ChancesView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -13,27 +12,10 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("WitchingHour"),
                 Enabled = () => Settings.Default.WitchingHourEnabled,
+                CreateView = () => new WitchingHourView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Beast" || card.Race == "All",
             });
-        }
-        
-        private ChancesTracker _chances = new ChancesTracker();
-
-        public WitchingHourView()
-        {
-            // Section Label
-            Label.Text = Config.Name;
-        }
-
-        public bool Update(Card card)
-        {
-            var update = Config.Condition(card) && base.Update(card);
-
-            if (update)
-                _chances.Update(card, Cards, View);
-
-            return update;
-        }
+        }       
     }
 }

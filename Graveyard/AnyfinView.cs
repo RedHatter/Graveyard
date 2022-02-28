@@ -16,6 +16,8 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Anyfin"),
 				Enabled = () => Settings.Default.AnyfinEnabled,
+				CreateView = () => new AnyfinView(),
+				Condition = card => card.IsMurloc(),
 			});
 		}				
 
@@ -24,9 +26,6 @@ namespace HDT.Plugins.Graveyard
 
 		public AnyfinView()
 		{
-			// Section Label
-			Label.Text = Config.Name;
-
 			// Damage Label
 			_dmg = new HearthstoneTextBlock();
 			_dmg.FontSize = 24;
@@ -43,15 +42,14 @@ namespace HDT.Plugins.Graveyard
 			_secondDmg.Visibility = Visibility.Hidden;
 		}
 
-		public bool Update(Card card)
+		public override bool Update(Card card)
 		{
-			if (!card.IsMurloc() || !base.Update(card))
+			if (base.Update(card))
 			{
-				return false;
+				UpdateDamage();
+				return true; 
 			}
-
-			UpdateDamage();
-			return true;
+			return false;
 		}
 
 		public void UpdateDamage()

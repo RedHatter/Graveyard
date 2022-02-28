@@ -2,12 +2,11 @@
 //using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
-using System.Windows.Controls;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LastPlayedView : StackPanel
+    public class LastPlayedView : ViewBase
     {
         internal static ViewConfig Config 
         {
@@ -111,6 +110,11 @@ namespace HDT.Plugins.Graveyard
                 view = new LastCardView(title);
                 Children.Add(view); 
             }
+        }
+
+        public override bool Update(Card card)
+        {
+            throw new System.NotImplementedException();
         }
 
         public bool UpdateGreySageParrot(Card card)

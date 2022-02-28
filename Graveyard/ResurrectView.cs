@@ -1,11 +1,9 @@
-using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ResurrectView : NormalView
+    public class ResurrectView : ChancesView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -25,28 +23,10 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Resurrect"),
 				Enabled = () => Settings.Default.ResurrectEnabled,
+				CreateView = () => new ResurrectView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion",
 			});
-		}
-		
-		private ChancesTracker _chances = new ChancesTracker();
-
-		public ResurrectView()
-		{
-			// Section Label
-			Label.Text = Config.Name;
-		}
-
-		public bool Update(Card card)
-		{
-			if (Config.Condition(card) && base.Update(card))
-			{
-				_chances.Update(card, Cards, View);
-
-				return true; 
-			}
-			return false;
 		}
 	}
 }

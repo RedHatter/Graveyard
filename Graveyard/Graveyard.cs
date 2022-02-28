@@ -1,3 +1,5 @@
+using Hearthstone_Deck_Tracker.API;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -10,6 +12,36 @@ namespace HDT.Plugins.Graveyard
 {
     public class Graveyard
 	{
+		private static readonly string SharedName = Strings.GetLocalized("Graveyard");
+		private static readonly Func<ViewBase> SharedCreateView = () => new NormalView();
+		private static readonly Predicate<Card> SharedCondition = card => card.Type == "Minion";
+
+		internal static ViewConfig FriendlyConfig
+        {
+			get => _FriendlyConfig ?? (_FriendlyConfig = new ViewConfig()
+            {
+				Name = SharedName,
+				Enabled = () => Settings.Default.NormalEnabled,
+				CreateView = SharedCreateView,
+				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = SharedCondition,
+			});
+        }
+		private static ViewConfig _FriendlyConfig;
+
+		internal static ViewConfig EnemyConfig
+        {
+			get => _EnemyConfig ?? (_EnemyConfig = new ViewConfig()
+            {
+				Name = SharedName,
+				Enabled = () => Settings.Default.EnemyEnabled,
+				CreateView = SharedCreateView,
+				WatchFor = GameEvents.OnOpponentPlayToGraveyard,
+				Condition = SharedCondition,
+            });
+        }
+		private static ViewConfig _EnemyConfig;
+
 		// The views
 		public NormalView Normal;
 		public NormalView Enemy;
@@ -107,41 +139,13 @@ namespace HDT.Plugins.Graveyard
 				return;
 			}
 
-			if (Settings.Default.EnemyQuestlineEnabled)
+			ShowEnemyView(QuestlineView.EnemyConfig, ref EnemyQuestline);
+			ShowEnemyView(EnemyConfig, ref Enemy);
+
+			ShowFriendlyView(QuestlineView.FriendlyConfig, ref FriendlyQuestline);
+			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect))
 			{
-				EnemyQuestline = new QuestlineView();
-				_enemyPanel.Children.Add(EnemyQuestline);
-			}
-			else
-			{
-				EnemyQuestline = null;
-			}
-			if (Settings.Default.EnemyEnabled)
-			{
-				Enemy = new NormalView();
-				_enemyPanel.Children.Add(Enemy);
-			}
-			else
-			{
-				Enemy = null;
-			}
-			if (Settings.Default.FriendlyQuestlineEnabled)
-			{
-				FriendlyQuestline = new QuestlineView();
-				_friendlyPanel.Children.Add(FriendlyQuestline);
-			}
-			else
-			{
-				FriendlyQuestline = null;
-			}
-			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect) && Settings.Default.NormalEnabled)
-			{
-				Normal = new NormalView();
-				_friendlyPanel.Children.Add(Normal);
-			}
-			else
-			{
-				Normal = null;
+				ShowFriendlyView(FriendlyConfig, ref Normal);
 			}
 			ShowFriendlyView(AnyfinView.Config, ref Anyfin);
 			ShowFriendlyView(DeathrattleView.Config, ref Deathrattle);
@@ -173,20 +177,32 @@ namespace HDT.Plugins.Graveyard
 			ShowFriendlyView(ShirvallahView.Config, ref Shirvallah);
 		}
 
-		private bool ShowFriendlyView<T>(ViewConfig config, ref T view) where T : UIElement, new()
+		private bool ShowFriendlyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
         {
-			if(config.Enabled() && Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1)
-            {
-				view = new T();
-				_friendlyPanel.Children.Add(view);
+			return ShowView(config, ref view, _friendlyPanel.Children);
+		}
+
+		private bool ShowEnemyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
+		{
+			return ShowView(config, ref view, _enemyPanel.Children);
+		}
+
+		private bool ShowView<T>(ViewConfig config, ref T view, UIElementCollection parent) where T : ViewBase, new()
+		{
+			if (config.Enabled() && (config.ShowOn == null || Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1))
+			{
+				view = config.CreateView() as T;
+				view.Title = config.Name;
+				view.Condition = config.Condition;
+				parent.Add(view);
 				return true;
 			}
-            else
-            {
+			else
+			{
 				view = null;
 				return false;
-            }
-        }
+			}
+		}
 
 		public void PlayerGraveyardUpdate(Card card)
 		{

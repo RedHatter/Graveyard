@@ -10,7 +10,7 @@ using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class MulticasterView : StackPanel
+    public class MulticasterView : ViewBase
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -19,6 +19,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Multicaster"),
                 Enabled = () => Settings.Default.MulticasterEnabled,
+                CreateView = () => new MulticasterView(),
                 WatchFor = GameEvents.OnPlayerPlay,
             });
         }       
@@ -33,20 +34,11 @@ namespace HDT.Plugins.Graveyard
             Visibility = Visibility.Collapsed;
             Orientation = Orientation.Vertical;
 
-            Label = new HearthstoneTextBlock
-            {
-                FontSize = 16,
-                TextAlignment = TextAlignment.Center,
-                Text = Config.Name,
-                Margin = new Thickness(0, 20, 0, 0),
-            };
-            Children.Add(Label);
-
             Cards = new AnimatedCardList();
             Children.Add(Cards);
         }
 
-        public virtual bool Update(Card card)
+        public override bool Update(Card card)
         {
             var school = card.GetSchool();
 

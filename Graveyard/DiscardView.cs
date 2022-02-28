@@ -1,10 +1,9 @@
 using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DiscardView : NormalView
+    public class DiscardView : ChancesView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -13,29 +12,10 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("DiscardTitle"),
 				Enabled = () => Settings.Default.DiscardEnabled,
+				CreateView = () => new DiscardView(),
 				WatchFor = GameEvents.OnPlayerHandDiscard,
-				Condition = card => card.Type == "Minion",
-				CreateView = () => new NormalView(),
+				Condition = card => card.Type == "Minion",				
 			});
-		}
-
-		private ChancesTracker _chances = new ChancesTracker();
-
-		public DiscardView()
-		{
-			// Section Label
-			Label.Text = Config.Name;
-		}
-
-		public bool Update(Card card)
-		{
-			if (Config.Condition(card) && base.Update(card))
-			{
-				// Silverware Golem and Clutchmother Zaras are still counted as discarded, even when their effects trigger
-				_chances.Update(card, Cards, View);
-				return true;
-			}
-			return false;
 		}
 	}
 }

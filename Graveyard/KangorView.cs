@@ -1,6 +1,4 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -14,20 +12,10 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Kangor"),
                 Enabled = () => Settings.Default.KangorEnabled,
+                CreateView = () => new KangorView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Mech" || card.Race == "All",
             });
-        }
-        
-        public KangorView()
-        {
-            // Section Label
-            Label.Text = Config.Name;
-        }
-
-        public bool Update(Card card)
-        {
-            return Config.Condition(card) && base.Update(card);
-        }
+        }      
     }
 }

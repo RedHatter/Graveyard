@@ -14,6 +14,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("LadyLiadrin"),
                 Enabled = () => Settings.Default.LadyLiadrinEnabled,
+                CreateView = () => new LadyLiadrinView(),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
             });
@@ -68,16 +69,5 @@ namespace HDT.Plugins.Graveyard
             // 9
             Paladin.LibramOfHope,
         };
-
-        public LadyLiadrinView()
-        {
-            // Section Label
-            Label.Text = Config.Name;
-        }
-
-        public bool Update(Card card)
-        {
-            return Config.Condition(card) && base.Update(card, true);
-        }
     }
 }

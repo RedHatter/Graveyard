@@ -1,5 +1,4 @@
 ﻿using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -13,19 +12,10 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Alanna"),
 				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
+				CreateView = () => new DragoncallerAlannaView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && card.Cost >= 5,
 			});
-		}
-
-		public DragoncallerAlannaView()
-		{
-            Label.Text = Config.Name;
-		}
-
-		public bool Update(Card card)
-		{
-			return Config.Condition(card) && base.Update(card, true);
 		}
 	}
 }

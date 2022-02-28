@@ -1,6 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker.API;
 using static HearthDb.CardIds.Collectible;
-using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -13,24 +12,15 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Antonidas"),
 				Enabled = () => Settings.Default.AntonidasEnabled,
+				CreateView = () => new AntonidasView(),
 				WatchFor = GameEvents.OnPlayerPlay,
-				Condition = card => card.GetSchool() == School.Fire,
-				CreateView = () => new MultiTurnView(Strings.GetLocalized("Antonidas"), 3),
+				Condition = card => card.GetSchool() == School.Fire,				
 			});
         }
 
 		public AntonidasView() 
 			: base(Config.Name, 3)
 		{
-		}
-
-		public override bool Update(Card card)
-		{
-			if (Config.Condition(card))
-			{
-				return base.Update(card);
-			}
-			return false;
 		}
 	}
 }

@@ -1,6 +1,4 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
@@ -14,20 +12,10 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Mulchmuncher"),
                 Enabled = () => Settings.Default.MulchmuncherEnabled,
+                CreateView = () => new MulchmuncherView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Name == "Treant",
             });
-        }
-        
-        public MulchmuncherView()
-        {
-            // Section Label
-            Label.Text = Config.Name;
-        }
-
-        public bool Update(Card card)
-        {
-            return Config.Condition(card) && base.Update(card);
-        }
+        }       
     }
 }

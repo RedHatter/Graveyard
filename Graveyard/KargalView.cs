@@ -1,5 +1,4 @@
 ﻿using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using static HearthDb.CardIds.Collectible;
 
@@ -14,6 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Kargal"),
 				Enabled = () => Settings.Default.KargalEnabled,
+				CreateView = () => new KargalView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => Posts.Contains(card.Id),
 			});
@@ -25,15 +25,5 @@ namespace HDT.Plugins.Graveyard
             Neutral.FarWatchPost,
             Neutral.MorshanWatchPost,
         };
-
-		public KargalView()
-		{
-			Label.Text = Config.Name;
-		}
-
-		public bool Update(Card card)
-		{
-			return Config.Condition(card) && base.Update(card);
-		}
 	}
 }

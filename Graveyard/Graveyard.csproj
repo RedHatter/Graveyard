@@ -74,6 +74,7 @@
     <Compile Include="CardExtensions.cs" />
     <Compile Include="CavernsView.cs" />
     <Compile Include="ChancesTracker.cs" />
+    <Compile Include="ChancesView.cs" />
     <Compile Include="DeathrattleView.cs" />
     <Compile Include="DragoncallerAlannaView.cs" />
     <Compile Include="ElwynnBoarView.cs" />
@@ -119,6 +120,7 @@
     </Compile>
     <Compile Include="SoulwardenView.cs" />
     <Compile Include="TessGreymaneView.cs" />
+    <Compile Include="ViewBase.cs" />
     <Compile Include="ViewConfig.cs" />
     <Compile Include="WitchingHourView.cs" />
     <Compile Include="YShaarjView.cs" />

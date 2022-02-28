@@ -16,6 +16,8 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Shirvallah"),
 				Enabled = () => Settings.Default.ShirvallahEnabled,
+				Condition = card => card.Type == "Spell" && ActualCardCost(card) > 0,
+				CreateView = () => new ShirvallahView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 			});
 		}	
@@ -28,9 +30,9 @@ namespace HDT.Plugins.Graveyard
 			Cards.Add(ShirvallahCard);
 		}
 
-        public bool Update(Card card)
+        public override bool Update(Card card)
 		{
-			if (card.Type == "Spell" && ActualCardCost(card) > 0)
+			if (Condition(card))
 			{
 				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - ActualCardCost(card), 0);
 				ShirvallahCard.Count = ShirvallahCard.Cost;			
@@ -44,7 +46,7 @@ namespace HDT.Plugins.Graveyard
 			return false;
 		}
 
-		private int ActualCardCost(Card card)
+		private static int ActualCardCost(Card card)
         {
             switch (card.Id)
             {

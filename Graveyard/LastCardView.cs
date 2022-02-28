@@ -7,7 +7,7 @@ using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LastCardView : StackPanel
+    public class LastCardView : ViewBase
     {
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;
@@ -17,22 +17,14 @@ namespace HDT.Plugins.Graveyard
             Visibility = Visibility.Collapsed;
             Orientation = Orientation.Vertical;
 
-            // Title
-            Label = new HearthstoneTextBlock
-            {
-                FontSize = 16,
-                TextAlignment = TextAlignment.Center,
-                Text = title,
-                Margin = new Thickness(0, 20, 0, 0),
-            };
-            Children.Add(Label);
-
             Cards = new AnimatedCardList();
             Children.Add(Cards);
         }
 
-        public virtual bool Update(Card card)
+        public override bool Update(Card card)
         {
+            if (!Condition(card)) return false;
+
             Cards.Update(new List<Card> { card.Clone() as Card }, false);
 
             Visibility = Visibility.Visible;

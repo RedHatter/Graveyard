@@ -1,5 +1,4 @@
 using Hearthstone_Deck_Tracker.API;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Linq;
 using static HearthDb.CardIds.Collectible;
 
@@ -14,20 +13,11 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("NZoth"),
 				Enabled = () => Settings.Default.NZothEnabled,
+				CreateView = () => new NZothView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
 			});
 		}
-		
-		public NZothView()
-		{
-			// Section Label
-			Label.Text = Config.Name;
-		}
-
-		public bool Update(Card card)
-		{
-			return Config.Condition(card) && base.Update(card);
-		}
+	
 	}
 }

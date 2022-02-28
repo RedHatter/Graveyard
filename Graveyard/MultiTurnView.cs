@@ -11,7 +11,7 @@ using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class MultiTurnView : StackPanel
+	public class MultiTurnView : ViewBase
     {
         public HearthstoneTextBlock Label;
 
@@ -29,16 +29,6 @@ namespace HDT.Plugins.Graveyard
             Orientation = Orientation.Vertical;
             MinWidth = 250;
 
-            // Title
-            Label = new HearthstoneTextBlock
-            {
-                FontSize = 16,
-                TextAlignment = TextAlignment.Center,
-                Text = title,
-                Margin = new Thickness(0, 20, 0, 0),
-            };
-            Children.Add(Label);
-
             // Turn Card Lists
             for (int i = 0; i < Turns + 1; i++)
             {
@@ -48,8 +38,10 @@ namespace HDT.Plugins.Graveyard
             }
         }
 
-        public virtual bool Update(Card card)
+        public override bool Update(Card card)
         {
+            if (!Condition(card)) return false;
+
             CardLists[0].Add(card.Clone() as Card);
             Views[0].Cards.Update(CardLists[0], false);
 
