@@ -76,11 +76,18 @@ namespace HDT.Plugins.Graveyard
 		public AntonidasView Antonidas;
 		public GrandFinaleView GrandFinale;
 		public LastPlayedView LastPlayed;
+		public LastCardView BrilliantMacaw;
+		public LastCardView GreySageParrot;
+		public LastCardView MonstrousParrot;
+		public LastCardView SunwingSquawker;
+		public LastCardView VanessaVanCleef;
 		public MulticasterView Multicaster;
 		public ShirvallahView Shirvallah;
 
-		private StackPanel _friendlyPanel;
-		private StackPanel _enemyPanel;
+		private readonly StackPanel FriendlyPanel;
+		private readonly StackPanel EnemyPanel;
+
+		private StackPanel SinglesPanel;
 
 		public static InputManager Input;
 
@@ -88,20 +95,20 @@ namespace HDT.Plugins.Graveyard
 		{
 
 			// Create container
-			_enemyPanel = new StackPanel();
-			_enemyPanel.Orientation = Orientation.Vertical;
-			Core.OverlayCanvas.Children.Add(_enemyPanel);
-			Canvas.SetTop(_enemyPanel, Settings.Default.EnemyTop);
-			Canvas.SetLeft(_enemyPanel, Settings.Default.EnemyLeft);
+			EnemyPanel = new StackPanel();
+			EnemyPanel.Orientation = Orientation.Vertical;
+			Core.OverlayCanvas.Children.Add(EnemyPanel);
+			Canvas.SetTop(EnemyPanel, Settings.Default.EnemyTop);
+			Canvas.SetLeft(EnemyPanel, Settings.Default.EnemyLeft);
 
 			// Create container
-			_friendlyPanel = new StackPanel();
-			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
-			Core.OverlayCanvas.Children.Add(_friendlyPanel);
-			Canvas.SetTop(_friendlyPanel, Settings.Default.PlayerTop);
-			Canvas.SetLeft(_friendlyPanel, Settings.Default.PlayerLeft);
+			FriendlyPanel = new StackPanel();
+			FriendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
+			Core.OverlayCanvas.Children.Add(FriendlyPanel);
+			Canvas.SetTop(FriendlyPanel, Settings.Default.PlayerTop);
+			Canvas.SetLeft(FriendlyPanel, Settings.Default.PlayerLeft);
 
-			Input = new InputManager(_friendlyPanel, _enemyPanel);
+			Input = new InputManager(FriendlyPanel, EnemyPanel);
 
 			Settings.Default.PropertyChanged += SettingsChanged;
 			SettingsChanged(null, null);
@@ -110,17 +117,17 @@ namespace HDT.Plugins.Graveyard
         //on year change clear out the grid and update the data
         private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
-			_friendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
-			_friendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
-			_friendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
-			_enemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
-			_enemyPanel.Opacity = Settings.Default.EnemyOpacity / 100;
+			FriendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
+			FriendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
+			FriendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
+			EnemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
+			EnemyPanel.Opacity = Settings.Default.EnemyOpacity / 100;
 		}
 
 		public void Dispose()
 		{
-			Core.OverlayCanvas.Children.Remove(_friendlyPanel);
-			Core.OverlayCanvas.Children.Remove(_enemyPanel);
+			Core.OverlayCanvas.Children.Remove(FriendlyPanel);
+			Core.OverlayCanvas.Children.Remove(EnemyPanel);
 			Input.Dispose();
 		}
 
@@ -129,8 +136,8 @@ namespace HDT.Plugins.Graveyard
 		*/
 		public void Reset()
 		{
-			_friendlyPanel.Children.Clear();
-			_enemyPanel.Children.Clear();
+			FriendlyPanel.Children.Clear();
+			EnemyPanel.Children.Clear();
 
 			if (Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
@@ -143,6 +150,8 @@ namespace HDT.Plugins.Graveyard
 			ShowEnemyView(EnemyConfig, ref Enemy);
 
 			ShowFriendlyView(QuestlineView.FriendlyConfig, ref FriendlyQuestline);
+			SinglesPanel = new StackPanel();
+			FriendlyPanel.Children.Add(SinglesPanel);
 			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect))
 			{
 				ShowFriendlyView(FriendlyConfig, ref Normal);
@@ -155,7 +164,7 @@ namespace HDT.Plugins.Graveyard
 			ShowFriendlyView(ShudderwockView.Config, ref Shudderwock);
 			ShowFriendlyView(GuldanView.Config, ref Guldan);
 			ShowFriendlyView(DragoncallerAlannaView.Config, ref DragoncallerAlanna);
-			ShowFriendlyView(MulchmuncherView.Config, ref Mulchmuncher);
+			ShowView(MulchmuncherView.Config, ref Mulchmuncher, SinglesPanel.Children);
 			ShowFriendlyView(CavernsView.Config, ref Caverns);
 			ShowFriendlyView(KangorView.Config, ref Kangor);
 			ShowFriendlyView(WitchingHourView.Config, ref WitchingHour);
@@ -168,47 +177,57 @@ namespace HDT.Plugins.Graveyard
 			ShowFriendlyView(RallyView.Config, ref Rally);
 			ShowFriendlyView(SaurfangView.Config, ref Saurfang);
 			ShowFriendlyView(YShaarjView.Config, ref YShaarj);
-			ShowFriendlyView(ElwynnBoarView.Config, ref ElwynnBoar);
+			ShowView(ElwynnBoarView.Config, ref ElwynnBoar, SinglesPanel.Children);
 			ShowFriendlyView(KargalView.Config, ref Kargal);
 			ShowFriendlyView(AntonidasView.Config, ref Antonidas);
 			ShowFriendlyView(GrandFinaleView.Config, ref GrandFinale);
-			ShowFriendlyView(LastPlayedView.Config, ref LastPlayed);
+			ShowView(LastPlayedView.BrilliantMacawConfig, ref BrilliantMacaw, SinglesPanel.Children);
+			ShowView(LastPlayedView.GreySageParrotConfig, ref GreySageParrot, SinglesPanel.Children);
+			ShowView(LastPlayedView.MonstrousParrotConfig, ref MonstrousParrot, SinglesPanel.Children);
+			ShowView(LastPlayedView.SunwingSquawkerConfig, ref SunwingSquawker, SinglesPanel.Children);
+			ShowView(LastPlayedView.VanessaVanCleefConfig, ref VanessaVanCleef, SinglesPanel.Children);
 			ShowFriendlyView(MulticasterView.Config, ref Multicaster);
 			ShowFriendlyView(ShirvallahView.Config, ref Shirvallah);
 		}
 
 		private bool ShowFriendlyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
         {
-			return ShowView(config, ref view, _friendlyPanel.Children);
+			return ShowView(config, ref view, FriendlyPanel.Children);
 		}
 
 		private bool ShowEnemyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
 		{
-			return ShowView(config, ref view, _enemyPanel.Children);
+			return ShowView(config, ref view, EnemyPanel.Children);
 		}
 
 		private bool ShowView<T>(ViewConfig config, ref T view, UIElementCollection parent) where T : ViewBase, new()
 		{
+			view = CreateView<T>(config);
+            if (view == null)
+            {
+				return false;
+			}	
+			parent.Add(view);
+			return true;
+		}
+
+		private T CreateView<T>(ViewConfig config) where T : ViewBase, new()
+        {
 			if (config.Enabled() && (config.ShowOn == null || Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1))
 			{
-				view = config.CreateView() as T;
+				var view = config.CreateView() as T;
 				view.Title = config.Name;
 				view.Condition = config.Condition;
-				parent.Add(view);
-				return true;
+				return view;
 			}
-			else
-			{
-				view = null;
-				return false;
-			}
+			return null;
 		}
 
 		public void PlayerGraveyardUpdate(Card card)
 		{
 			var any = Anyfin?.Update(card) ?? false;
             var deathrattle = Deathrattle?.Update(card) ?? false;
-			LastPlayed?.UpdateMonstrousParrot(card);
+			MonstrousParrot?.Update(card);
             var nzoth = NZoth?.Update(card) ?? false;
 			var hadr = Hadronox?.Update(card) ?? false;
 			var guldan = Guldan?.Update(card) ?? false;
@@ -253,14 +272,14 @@ namespace HDT.Plugins.Graveyard
 		{
 			FriendlyQuestline?.Update(card);
 			Shudderwock?.Update(card);
-			LastPlayed?.UpdateBrilliantMacaw(card);
+			BrilliantMacaw?.Update(card);
 			DragoncallerAlanna?.Update(card);
-			LastPlayed?.UpdateGreySageParrot(card);
+			GreySageParrot?.Update(card);
             Caverns?.Update(card);
             TessGreymane?.Update(card);
 			Zuljin?.Update(card);
 			LadyLiadrin?.Update(card);
-			LastPlayed?.UpdateSunwingSquawker(card);
+			SunwingSquawker?.Update(card);
 			YShaarj?.Update(card);
 			Kargal?.Update(card);
 			Antonidas?.Update(card);
@@ -272,7 +291,7 @@ namespace HDT.Plugins.Graveyard
 		public void OpponentPlayUpdate(Card card)
         {
 			EnemyQuestline?.Update(card);
-			LastPlayed?.UpdateVanessaVanCleef(card);
+			VanessaVanCleef?.Update(card);
         }
 
 		public async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)

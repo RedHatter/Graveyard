@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;
 
-        public LastCardView(string title = "Last Card")
+        public LastCardView()
         {
             Visibility = Visibility.Collapsed;
             Orientation = Orientation.Vertical;
