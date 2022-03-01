@@ -26,7 +26,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("SunwingSquawker"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 CreateView = () => new LastCardView(),
-                //WatchFor = GameEvents.OnPlayerPlay,
+                WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id),
             });
         }

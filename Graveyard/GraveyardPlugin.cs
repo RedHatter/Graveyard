@@ -33,15 +33,12 @@ namespace HDT.Plugins.Graveyard
             DeckManagerEvents.OnDeckSelected.Add(d => GraveyardInstance.Reset());
 
             GameEvents.OnPlayerPlayToGraveyard.Add(GraveyardInstance.PlayerGraveyardUpdate);
-            GameEvents.OnOpponentPlayToGraveyard.Add(GraveyardInstance.EnemyGraveyardUpdate);
+            GameEvents.OnOpponentPlayToGraveyard.Add(GraveyardInstance.OnOpponentPlayToGraveyard.Poll);
 
-            GameEvents.OnPlayerPlay.Add(GraveyardInstance.PlayerDamageUpdate);
-            GameEvents.OnOpponentPlay.Add(GraveyardInstance.EnemyDamageUpdate);
-
-            GameEvents.OnPlayerHandDiscard.Add(GraveyardInstance.PlayerDiscardUpdate);
+            GameEvents.OnPlayerHandDiscard.Add(GraveyardInstance.OnPlayerHandDiscard.Poll);
             
-            GameEvents.OnPlayerPlay.Add(GraveyardInstance.PlayerPlayUpdate);
-            GameEvents.OnOpponentPlay.Add(GraveyardInstance.OpponentPlayUpdate);
+            GameEvents.OnPlayerPlay.Add(GraveyardInstance.OnPlayerPlay.Poll);
+            GameEvents.OnOpponentPlay.Add(GraveyardInstance.OnOpponentPlay.Poll);
 
             GameEvents.OnTurnStart.Add(GraveyardInstance.TurnStartUpdate);
         }

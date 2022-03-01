@@ -1,4 +1,5 @@
 using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Enums;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,7 +92,14 @@ namespace HDT.Plugins.Graveyard
 
 		public static InputManager Input;
 
-        public Graveyard()
+		internal UpdatePoller OnOpponentTurnStart { get; } = new UpdatePoller();
+		internal UpdatePoller<Card> OnPlayerPlayToGraveyard { get; } = new UpdatePoller<Card>();
+		internal UpdatePoller<Card> OnOpponentPlayToGraveyard { get; } = new UpdatePoller<Card>();
+		internal UpdatePoller<Card> OnPlayerPlay { get; } = new UpdatePoller<Card>();
+		internal UpdatePoller<Card> OnOpponentPlay { get; } = new UpdatePoller<Card>();
+		internal UpdatePoller<Card> OnPlayerHandDiscard { get; } = new UpdatePoller<Card>();
+
+		public Graveyard()
 		{
 
 			// Create container
@@ -139,7 +147,17 @@ namespace HDT.Plugins.Graveyard
 			FriendlyPanel.Children.Clear();
 			EnemyPanel.Children.Clear();
 
-			if (Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
+			OnPlayerPlayToGraveyard.Clear();
+			OnOpponentPlayToGraveyard.Clear();
+			
+			OnPlayerPlay.Clear();
+			OnOpponentPlay.Clear();
+
+			OnPlayerHandDiscard.Clear();
+
+			OnOpponentTurnStart.Clear();
+
+			if (Core.Game.IsInMenu || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
 				// don't show graveyard for Battlegrounds or Mercenaries
 				// this should include spectating
@@ -218,6 +236,26 @@ namespace HDT.Plugins.Graveyard
 				var view = config.CreateView() as T;
 				view.Title = config.Name;
 				view.Condition = config.Condition;
+                if (config.WatchFor == GameEvents.OnPlayerPlayToGraveyard)
+				{ 
+					OnPlayerPlayToGraveyard.Register(card => view.Update(card));
+                }
+				else if (config.WatchFor == GameEvents.OnOpponentPlayToGraveyard)
+				{
+					OnOpponentPlayToGraveyard.Register(card => view.Update(card));
+				}
+				else if (config.WatchFor == GameEvents.OnPlayerPlay)
+                {
+					OnPlayerPlay.Register(card => view.Update(card));
+				}
+				else if (config.WatchFor == GameEvents.OnOpponentPlay)
+				{
+					OnOpponentPlay.Register(card => view.Update(card));
+				}
+				else if (config.WatchFor == GameEvents.OnPlayerHandDiscard)
+				{
+					OnPlayerHandDiscard.Register(card => view.Update(card));
+				}
 				return view;
 			}
 			return null;
@@ -246,57 +284,9 @@ namespace HDT.Plugins.Graveyard
 			}
 		}
 
-		public void EnemyDamageUpdate(Card card)
+		public async void TurnStartUpdate(ActivePlayer player)
 		{
-			Anyfin?.Update(card);
-		}
-
-		public void PlayerDamageUpdate(Card card)
-		{
-			Anyfin?.Update(card);
-		}
-
-		public void EnemyGraveyardUpdate(Card card)
-		{
-			Anyfin?.Update(card);
-			Enemy?.Update(card);
-		}
-
-		public void PlayerDiscardUpdate(Card card)
-		{
-			Discard?.Update(card);
-            Soulwarden?.Update(card);
-		}
-
-		public void PlayerPlayUpdate(Card card)
-		{
-			FriendlyQuestline?.Update(card);
-			Shudderwock?.Update(card);
-			BrilliantMacaw?.Update(card);
-			DragoncallerAlanna?.Update(card);
-			GreySageParrot?.Update(card);
-            Caverns?.Update(card);
-            TessGreymane?.Update(card);
-			Zuljin?.Update(card);
-			LadyLiadrin?.Update(card);
-			SunwingSquawker?.Update(card);
-			YShaarj?.Update(card);
-			Kargal?.Update(card);
-			Antonidas?.Update(card);
-			GrandFinale?.Update(card);
-			Multicaster?.Update(card);
-			Shirvallah?.Update(card);
-		}
-
-		public void OpponentPlayUpdate(Card card)
-        {
-			EnemyQuestline?.Update(card);
-			VanessaVanCleef?.Update(card);
-        }
-
-		public async void TurnStartUpdate(Hearthstone_Deck_Tracker.Enums.ActivePlayer player)
-		{
-			if (player == Hearthstone_Deck_Tracker.Enums.ActivePlayer.Opponent)
+			if (player == ActivePlayer.Opponent)
             {
 				if (Antonidas != null) await Antonidas.TurnEnded();
 				if (GrandFinale != null) await GrandFinale.TurnEnded();
