@@ -40,7 +40,7 @@ namespace HDT.Plugins.Graveyard
             GameEvents.OnPlayerPlay.Add(GraveyardInstance.OnPlayerPlay.Poll);
             GameEvents.OnOpponentPlay.Add(GraveyardInstance.OnOpponentPlay.Poll);
 
-            GameEvents.OnTurnStart.Add(GraveyardInstance.TurnStartUpdate);
+            GameEvents.OnTurnStart.Add(GraveyardInstance.OnOpponentTurnStart.Poll);
         }
 
         public void OnUnload()

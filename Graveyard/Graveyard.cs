@@ -92,7 +92,7 @@ namespace HDT.Plugins.Graveyard
 
 		public static InputManager Input;
 
-		internal UpdatePoller OnOpponentTurnStart { get; } = new UpdatePoller();
+		internal TurnUpdatePoller OnOpponentTurnStart { get; } = new TurnUpdatePoller(ActivePlayer.Opponent);
 		internal CardUpdatePoller OnPlayerPlayToGraveyard { get; } = new CardUpdatePoller();
 		internal CardUpdatePoller OnOpponentPlayToGraveyard { get; } = new CardUpdatePoller();
 		internal CardUpdatePoller OnPlayerPlay { get; } = new CardUpdatePoller();
@@ -157,7 +157,7 @@ namespace HDT.Plugins.Graveyard
 
 			OnOpponentTurnStart.Clear();
 
-			if (Core.Game.IsInMenu || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
+			if (Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
 				// don't show graveyard for Battlegrounds or Mercenaries
 				// this should include spectating
@@ -264,20 +264,11 @@ namespace HDT.Plugins.Graveyard
 			{
 				OnPlayerHandDiscard.Register(view.Update);
 			}
-			//var multiTurn = view as MultiTurnView;
-			//if (multiTurn != null)
-			//{
-			//	OnOpponentTurnStart.Register(multiTurn.TurnEnded)
-   //         }
-		}
-
-		public async void TurnStartUpdate(ActivePlayer player)
-		{
-			if (player == ActivePlayer.Opponent)
-            {
-				if (Antonidas != null) await Antonidas.TurnEnded();
-				if (GrandFinale != null) await GrandFinale.TurnEnded();
-			}
+			var multiTurn = view as MultiTurnView;
+			if (multiTurn != null)
+			{
+				OnOpponentTurnStart.Register(multiTurn.TurnEnded);
+            }
 		}
 	}
 }
