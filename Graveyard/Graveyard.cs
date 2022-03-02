@@ -1,6 +1,7 @@
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -50,40 +51,53 @@ namespace HDT.Plugins.Graveyard
 		public QuestlineView FriendlyQuestline;
 		public QuestlineView EnemyQuestline;
 
-		public ResurrectView Resurrect;
-		public AnyfinView Anyfin;
-        public DeathrattleView Deathrattle;
-        public NZothView NZoth;
-		public HadronoxView Hadronox;
-		public DiscardView Discard;
-		public GuldanView Guldan;
-		public ShudderwockView Shudderwock;
-		public DragoncallerAlannaView DragoncallerAlanna;
-        public CavernsView Caverns;
-        public MulchmuncherView Mulchmuncher;
-        public KangorView Kangor;
-        public WitchingHourView WitchingHour;
-        public TessGreymaneView TessGreymane;
-        public SoulwardenView Soulwarden;
-		public ZuljinView Zuljin;
-		public HoardPillagerView HoardPillager;
-		public LadyLiadrinView LadyLiadrin;
-		public NZothGotDView NZothGotD;
-		public RallyView Rally;
-		public SaurfangView Saurfang;
-		public YShaarjView YShaarj;
-		public ElwynnBoarView ElwynnBoar;
-		public KargalView Kargal;
-		public AntonidasView Antonidas;
-		public GrandFinaleView GrandFinale;
-		public LastPlayedView LastPlayed;
-		public LastCardView BrilliantMacaw;
-		public LastCardView GreySageParrot;
-		public LastCardView MonstrousParrot;
-		public LastCardView SunwingSquawker;
-		public LastCardView VanessaVanCleef;
-		public MulticasterView Multicaster;
-		public ShirvallahView Shirvallah;
+		internal List<ViewConfig> ConfigList = new List<ViewConfig>
+		{ 
+			ResurrectView.Config,
+			AnyfinView.Config,
+			DeathrattleView.Config,
+			NZothView.Config,
+			HadronoxView.Config,
+			DiscardView.Config,
+			GuldanView.Config,
+			ShudderwockView.Config,
+			DragoncallerAlannaView.Config,
+			CavernsView.Config,
+			//MulchmuncherView.Config,
+			KangorView.Config,
+			WitchingHourView.Config,
+			TessGreymaneView.Config,
+			SoulwardenView.Config,
+			ZuljinView.Config,
+			HoardPillagerView.Config,
+			LadyLiadrinView.Config,
+			NZothGotDView.Config,
+			RallyView.Config,
+			SaurfangView.Config,
+			YShaarjView.Config,
+			//ElwynnBoarView.Config,
+			KargalView.Config,
+			AntonidasView.Config,
+			GrandFinaleView.Config,
+			//LastPlayedView.BrilliantMacawConfig,
+			//LastPlayedView.GreySageParrotConfig,
+			//LastPlayedView.MonstrousParrotConfig,
+			//LastPlayedView.SunwingSquawkerConfig,
+			//LastPlayedView.VanessaVanCleefConfig,
+			MulticasterView.Config,
+			ShirvallahView.Config,
+		};
+
+		internal List<ViewConfig> ConfigSinglesList = new List<ViewConfig>
+		{
+			MulchmuncherView.Config,
+			ElwynnBoarView.Config,
+			LastPlayedView.BrilliantMacawConfig,
+			LastPlayedView.GreySageParrotConfig,
+			LastPlayedView.MonstrousParrotConfig,
+			LastPlayedView.SunwingSquawkerConfig,
+			LastPlayedView.VanessaVanCleefConfig,
+		};
 
 		private readonly StackPanel FriendlyPanel;
 		private readonly StackPanel EnemyPanel;
@@ -170,6 +184,10 @@ namespace HDT.Plugins.Graveyard
 			ShowFriendlyView(QuestlineView.FriendlyConfig, ref FriendlyQuestline);
 			SinglesPanel = new StackPanel();
 			FriendlyPanel.Children.Add(SinglesPanel);
+            foreach (var config in ConfigSinglesList)
+            {
+				var v
+            }
 			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect))
 			{
 				ShowFriendlyView(FriendlyConfig, ref Normal);
