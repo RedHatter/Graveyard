@@ -16,9 +16,9 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Shirvallah"),
 				Enabled = () => Settings.Default.ShirvallahEnabled,
+				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && ActualCardCost(card) > 0,
 				CreateView = () => new ShirvallahView(),
-				WatchFor = GameEvents.OnPlayerPlay,
 			});
 		}	
 
@@ -26,7 +26,6 @@ namespace HDT.Plugins.Graveyard
 
 		public ShirvallahView()
 		{
-            Label.Text = Config.Name;
 			Cards.Add(ShirvallahCard);
 		}
 
