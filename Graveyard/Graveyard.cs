@@ -45,11 +45,11 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _EnemyConfig;
 
 		// The views
-		public NormalView Normal;
-		public NormalView Enemy;
+		public ViewBase Normal;
+		public ViewBase Enemy;
 
-		public QuestlineView FriendlyQuestline;
-		public QuestlineView EnemyQuestline;
+		public ViewBase FriendlyQuestline;
+		public ViewBase EnemyQuestline;
 
 		internal List<ViewConfig> ConfigList = new List<ViewConfig>
 		{ 
@@ -182,77 +182,51 @@ namespace HDT.Plugins.Graveyard
 			ShowEnemyView(EnemyConfig, ref Enemy);
 
 			ShowFriendlyView(QuestlineView.FriendlyConfig, ref FriendlyQuestline);
+			
 			SinglesPanel = new StackPanel();
 			FriendlyPanel.Children.Add(SinglesPanel);
-            foreach (var config in ConfigSinglesList)
+            
+			foreach (var config in ConfigSinglesList)
             {
-				var v
+				ShowView(config, SinglesPanel.Children);
             }
-			if (!ShowFriendlyView(ResurrectView.Config, ref Resurrect))
-			{
-				ShowFriendlyView(FriendlyConfig, ref Normal);
-			}
-			ShowFriendlyView(AnyfinView.Config, ref Anyfin);
-			ShowFriendlyView(DeathrattleView.Config, ref Deathrattle);
-			ShowFriendlyView(NZothView.Config, ref NZoth);
-			ShowFriendlyView(HadronoxView.Config, ref Hadronox);
-			ShowFriendlyView(DiscardView.Config, ref Discard);
-			ShowFriendlyView(ShudderwockView.Config, ref Shudderwock);
-			ShowFriendlyView(GuldanView.Config, ref Guldan);
-			ShowFriendlyView(DragoncallerAlannaView.Config, ref DragoncallerAlanna);
-			ShowView(MulchmuncherView.Config, ref Mulchmuncher, SinglesPanel.Children);
-			ShowFriendlyView(CavernsView.Config, ref Caverns);
-			ShowFriendlyView(KangorView.Config, ref Kangor);
-			ShowFriendlyView(WitchingHourView.Config, ref WitchingHour);
-			ShowFriendlyView(SoulwardenView.Config, ref Soulwarden);
-			ShowFriendlyView(TessGreymaneView.Config, ref TessGreymane);
-			ShowFriendlyView(ZuljinView.Config, ref Zuljin);
-			ShowFriendlyView(HoardPillagerView.Config, ref HoardPillager);
-			ShowFriendlyView(LadyLiadrinView.Config, ref LadyLiadrin);
-			ShowFriendlyView(NZothGotDView.Config, ref NZothGotD);
-			ShowFriendlyView(RallyView.Config, ref Rally);
-			ShowFriendlyView(SaurfangView.Config, ref Saurfang);
-			ShowFriendlyView(YShaarjView.Config, ref YShaarj);
-			ShowView(ElwynnBoarView.Config, ref ElwynnBoar, SinglesPanel.Children);
-			ShowFriendlyView(KargalView.Config, ref Kargal);
-			ShowFriendlyView(AntonidasView.Config, ref Antonidas);
-			ShowFriendlyView(GrandFinaleView.Config, ref GrandFinale);
-			ShowView(LastPlayedView.BrilliantMacawConfig, ref BrilliantMacaw, SinglesPanel.Children);
-			ShowView(LastPlayedView.GreySageParrotConfig, ref GreySageParrot, SinglesPanel.Children);
-			ShowView(LastPlayedView.MonstrousParrotConfig, ref MonstrousParrot, SinglesPanel.Children);
-			ShowView(LastPlayedView.SunwingSquawkerConfig, ref SunwingSquawker, SinglesPanel.Children);
-			ShowView(LastPlayedView.VanessaVanCleefConfig, ref VanessaVanCleef, SinglesPanel.Children);
-			ShowFriendlyView(MulticasterView.Config, ref Multicaster);
-			ShowFriendlyView(ShirvallahView.Config, ref Shirvallah);
-		}
 
-		private bool ShowFriendlyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
-        {
-			return ShowView(config, ref view, FriendlyPanel.Children);
-		}
+			ShowFriendlyView(FriendlyConfig, ref Normal);
 
-		private bool ShowEnemyView<T>(ViewConfig config, ref T view) where T : ViewBase, new()
-		{
-			return ShowView(config, ref view, EnemyPanel.Children);
-		}
-
-		private bool ShowView<T>(ViewConfig config, ref T view, UIElementCollection parent) where T : ViewBase, new()
-		{
-			view = CreateView<T>(config);
-            if (view == null)
+            foreach (var config in ConfigList)
             {
-				return false;
+				ShowView(config, FriendlyPanel.Children);
 			}
-			RegisterView(config, view);
-			parent.Add(view);
-			return true;
 		}
 
-		private T CreateView<T>(ViewConfig config) where T : ViewBase, new()
+		private bool ShowFriendlyView(ViewConfig config, ref ViewBase view)
+        {
+			view = ShowView(config, FriendlyPanel.Children);
+			return view != null;
+		}
+
+		private bool ShowEnemyView(ViewConfig config, ref ViewBase view)
+		{
+			view = ShowView(config, EnemyPanel.Children);
+			return view != null;
+		}
+
+		private ViewBase ShowView(ViewConfig config, UIElementCollection parent)
+		{
+			var view = CreateView(config);
+            if (view != null)
+            {
+				RegisterView(config, view);
+				parent.Add(view);
+			}			
+			return view;
+		}
+
+		private ViewBase CreateView(ViewConfig config)
         {
 			if (config.Enabled() && (config.ShowOn == null || Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1))
 			{
-				var view = config.CreateView() as T;
+				var view = config.CreateView();
 				view.Title = config.Name;
 				view.Condition = config.Condition;
 				return view;
