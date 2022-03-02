@@ -93,11 +93,11 @@ namespace HDT.Plugins.Graveyard
 		public static InputManager Input;
 
 		internal UpdatePoller OnOpponentTurnStart { get; } = new UpdatePoller();
-		internal UpdatePoller<Card> OnPlayerPlayToGraveyard { get; } = new UpdatePoller<Card>();
-		internal UpdatePoller<Card> OnOpponentPlayToGraveyard { get; } = new UpdatePoller<Card>();
-		internal UpdatePoller<Card> OnPlayerPlay { get; } = new UpdatePoller<Card>();
-		internal UpdatePoller<Card> OnOpponentPlay { get; } = new UpdatePoller<Card>();
-		internal UpdatePoller<Card> OnPlayerHandDiscard { get; } = new UpdatePoller<Card>();
+		internal CardUpdatePoller OnPlayerPlayToGraveyard { get; } = new CardUpdatePoller();
+		internal CardUpdatePoller OnOpponentPlayToGraveyard { get; } = new CardUpdatePoller();
+		internal CardUpdatePoller OnPlayerPlay { get; } = new CardUpdatePoller();
+		internal CardUpdatePoller OnOpponentPlay { get; } = new CardUpdatePoller();
+		internal CardUpdatePoller OnPlayerHandDiscard { get; } = new CardUpdatePoller();
 
 		public Graveyard()
 		{
@@ -224,7 +224,8 @@ namespace HDT.Plugins.Graveyard
             if (view == null)
             {
 				return false;
-			}	
+			}
+			RegisterView(config, view);
 			parent.Add(view);
 			return true;
 		}
@@ -236,52 +237,38 @@ namespace HDT.Plugins.Graveyard
 				var view = config.CreateView() as T;
 				view.Title = config.Name;
 				view.Condition = config.Condition;
-                if (config.WatchFor == GameEvents.OnPlayerPlayToGraveyard)
-				{ 
-					OnPlayerPlayToGraveyard.Register(card => view.Update(card));
-                }
-				else if (config.WatchFor == GameEvents.OnOpponentPlayToGraveyard)
-				{
-					OnOpponentPlayToGraveyard.Register(card => view.Update(card));
-				}
-				else if (config.WatchFor == GameEvents.OnPlayerPlay)
-                {
-					OnPlayerPlay.Register(card => view.Update(card));
-				}
-				else if (config.WatchFor == GameEvents.OnOpponentPlay)
-				{
-					OnOpponentPlay.Register(card => view.Update(card));
-				}
-				else if (config.WatchFor == GameEvents.OnPlayerHandDiscard)
-				{
-					OnPlayerHandDiscard.Register(card => view.Update(card));
-				}
 				return view;
 			}
 			return null;
 		}
 
-		public void PlayerGraveyardUpdate(Card card)
-		{
-			var any = Anyfin?.Update(card) ?? false;
-            var deathrattle = Deathrattle?.Update(card) ?? false;
-			MonstrousParrot?.Update(card);
-            var nzoth = NZoth?.Update(card) ?? false;
-			var hadr = Hadronox?.Update(card) ?? false;
-			var guldan = Guldan?.Update(card) ?? false;
-			var rez = Resurrect?.Update(card) ?? false;
-            var mulch = Mulchmuncher?.Update(card) ?? false;
-            var kangor = Kangor?.Update(card) ?? false;
-            var witching = WitchingHour?.Update(card) ?? false;
-			var hoardpillager = HoardPillager?.Update(card) ?? false;
-			var nzothgotd = NZothGotD?.Update(card) ?? false;
-			var rally = ((rez && RallyView.IsAlwaysSeparate) || !rez) && (Rally?.Update(card) ?? false);
-			var saurfang = Saurfang?.Update(card) ?? false;
-			var elwynnboar = ((deathrattle && ElwynnBoarView.IsAlwaysSeparate) || !deathrattle) && (ElwynnBoar?.Update(card) ?? false);
-            if (!(any || deathrattle || nzoth || hadr || guldan || rez || mulch || kangor || witching || hoardpillager || nzothgotd || rally || saurfang || elwynnboar))
+		private void RegisterView(ViewConfig config, ViewBase view)
+        {
+			if (config.WatchFor == GameEvents.OnPlayerPlayToGraveyard)
 			{
-				Normal?.Update(card);
+				OnPlayerPlayToGraveyard.Register(view.Update);
 			}
+			else if (config.WatchFor == GameEvents.OnOpponentPlayToGraveyard)
+			{
+				OnOpponentPlayToGraveyard.Register(view.Update);
+			}
+			else if (config.WatchFor == GameEvents.OnPlayerPlay)
+			{
+				OnPlayerPlay.Register(view.Update);
+			}
+			else if (config.WatchFor == GameEvents.OnOpponentPlay)
+			{
+				OnOpponentPlay.Register(view.Update);
+			}
+			else if (config.WatchFor == GameEvents.OnPlayerHandDiscard)
+			{
+				OnPlayerHandDiscard.Register(view.Update);
+			}
+			//var multiTurn = view as MultiTurnView;
+			//if (multiTurn != null)
+			//{
+			//	OnOpponentTurnStart.Register(multiTurn.TurnEnded)
+   //         }
 		}
 
 		public async void TurnStartUpdate(ActivePlayer player)
