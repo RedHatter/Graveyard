@@ -173,6 +173,7 @@ namespace HDT.Plugins.Graveyard
 
 			if ((Core.Game.IsInMenu && !Core.OverlayWindow.IsVisible) || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
+				// don't initialize in menu unless the overlay is visible
 				// don't show graveyard for Battlegrounds or Mercenaries
 				// this should include spectating
 				return;
@@ -198,12 +199,15 @@ namespace HDT.Plugins.Graveyard
 				ShowView(config, FriendlyPanel.Children);
 			}
 
-            if (Core.Game.IsInMenu)
+            // Show "demo mode" when overlay is visible in menu
+			if (Core.Game.IsInMenu)
             {
                 foreach (var card in Core.Game.Player.PlayerCardList)
                 {
 					if (card != null)
                     {
+						OnOpponentPlay.Poll(card);
+						OnOpponentPlayToGraveyard.Poll(card);
 						OnPlayerHandDiscard.Poll(card);
 						OnPlayerPlay.Poll(card);
 						OnPlayerPlayToGraveyard.Poll(card);						

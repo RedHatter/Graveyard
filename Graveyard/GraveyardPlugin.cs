@@ -1,4 +1,6 @@
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Plugins;
 using System;
 using System.Reflection;
@@ -28,9 +30,10 @@ namespace HDT.Plugins.Graveyard
 
             GraveyardInstance = new Graveyard();
 
+            GameEvents.OnInMenu.Add(GraveyardInstance.Reset);
             GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
             GameEvents.OnGameEnd.Add(GraveyardInstance.Reset);
-            DeckManagerEvents.OnDeckSelected.Add(d => GraveyardInstance.Reset());
+            DeckManagerEvents.OnDeckSelected.Add(UpdateSelectedDeck);
 
             GameEvents.OnPlayerPlayToGraveyard.Add(GraveyardInstance.OnPlayerPlayToGraveyard.Poll);
             GameEvents.OnOpponentPlayToGraveyard.Add(GraveyardInstance.OnOpponentPlayToGraveyard.Poll);
@@ -41,6 +44,18 @@ namespace HDT.Plugins.Graveyard
             GameEvents.OnOpponentPlay.Add(GraveyardInstance.OnOpponentPlay.Poll);
 
             GameEvents.OnTurnStart.Add(GraveyardInstance.OnOpponentTurnStart.Poll);
+
+            UpdateSelectedDeck(DeckList.Instance.ActiveDeck);
+        }
+
+        private Deck SelectedDeck;
+        private void UpdateSelectedDeck(Deck deck)
+        {
+            if (deck == DeckList.Instance.ActiveDeck && deck != SelectedDeck)
+            {
+                SelectedDeck = deck;
+                GraveyardInstance.Reset();
+            }
         }
 
         public void OnUnload()
