@@ -171,7 +171,7 @@ namespace HDT.Plugins.Graveyard
 
 			OnOpponentTurnStart.Clear();
 
-			if (Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
+			if ((Core.Game.IsInMenu && !Core.OverlayWindow.IsVisible) || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
 				// don't show graveyard for Battlegrounds or Mercenaries
 				// this should include spectating
@@ -197,6 +197,19 @@ namespace HDT.Plugins.Graveyard
             {
 				ShowView(config, FriendlyPanel.Children);
 			}
+
+            if (Core.Game.IsInMenu)
+            {
+                foreach (var card in Core.Game.Player.PlayerCardList)
+                {
+					if (card != null)
+                    {
+						OnPlayerHandDiscard.Poll(card);
+						OnPlayerPlay.Poll(card);
+						OnPlayerPlayToGraveyard.Poll(card);						
+					}
+                }
+            }
 		}
 
 		private bool ShowFriendlyView(ViewConfig config, ref ViewBase view)
