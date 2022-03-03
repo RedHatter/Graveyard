@@ -86,6 +86,24 @@ namespace HDT.Plugins.Graveyard
 			//LastPlayedView.VanessaVanCleefConfig,
 			MulticasterView.Config,
 			ShirvallahView.Config,
+			new ViewConfig(HearthDb.CardIds.Collectible.Demonhunter.JaceDarkweaver)
+            {
+				Name = Strings.GetLocalized("Jace"),
+				Enabled = () => true,
+				CreateView = () => new NormalView(),
+				WatchFor = GameEvents.OnPlayerPlay,
+				Condition = card => card.GetSchool() == School.Fel,
+            },
+			new ViewConfig(HearthDb.CardIds.Collectible.Rogue.Si7Assassin,
+				HearthDb.CardIds.Collectible.Rogue.Si7Informant,
+				HearthDb.CardIds.Collectible.Rogue.Si7Smuggler)
+			{
+				Name = Strings.GetLocalized("SI7"),
+				Enabled = () => true,
+				CreateView = () => new NormalView(),
+				WatchFor = GameEvents.OnPlayerPlay,
+				Condition = card => card.Name.StartsWith("SI:7"),
+			}
 		};
 
 		internal List<ViewConfig> ConfigSinglesList = new List<ViewConfig>
