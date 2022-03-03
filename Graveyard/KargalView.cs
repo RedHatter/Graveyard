@@ -4,7 +4,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class KargalView : NormalView
+    public class KargalView
     {
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Kargal"),
 				Enabled = () => Settings.Default.KargalEnabled,
-				CreateView = () => new KargalView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => Posts.Contains(card.Id),
 			});

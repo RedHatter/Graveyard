@@ -4,7 +4,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DeathrattleView : NormalView
+    public class DeathrattleView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -24,7 +24,7 @@ namespace HDT.Plugins.Graveyard
                 Enabled = () => Settings.Default.DeathrattleEnabled,
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
-                CreateView = () => new DeathrattleView(),
+                CreateView = () => new NormalView(),
             });
         }
     }

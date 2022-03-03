@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class HoardPillagerView : ChancesView
+    public class HoardPillagerView 
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("HoardPillager"),
                 Enabled = () => Settings.Default.HoardPillagerEnabled,
-                CreateView = () => new HoardPillagerView(),
+                CreateView = () => new ChancesView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Type == "Weapon"
             });

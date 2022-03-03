@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DragoncallerAlannaView : NormalView
+    public class DragoncallerAlannaView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Alanna"),
 				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
-				CreateView = () => new DragoncallerAlannaView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && card.Cost >= 5,
 			});

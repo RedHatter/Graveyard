@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class KangorView : NormalView
+    public class KangorView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Kangor"),
                 Enabled = () => Settings.Default.KangorEnabled,
-                CreateView = () => new KangorView(),
+                CreateView = () => new NormalView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Mech" || card.Race == "All",
             });

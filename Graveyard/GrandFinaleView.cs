@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class GrandFinaleView : MultiTurnView
+    public class GrandFinaleView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,15 +12,10 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("GrandFinale"),
                 Enabled = () => Settings.Default.GrandFinaleEnabled,
-                CreateView = () => new GrandFinaleView(),
+                CreateView = () => new MultiTurnView(Config.Name, 1),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Race == "Elemental" || card.Race == "All",
             });
-        }
-        
-        public GrandFinaleView() 
-            : base(Config.Name,1)
-        {
-        }
+        }       
     }
 }

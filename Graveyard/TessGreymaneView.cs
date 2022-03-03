@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class TessGreymaneView : NormalView
+    public class TessGreymaneView 
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("TessGreymane"),
                 Enabled = () => Settings.Default.TessGreymaneEnabled,
-                CreateView = () => new TessGreymaneView(),
+                CreateView = () => new NormalView(),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => !card.IsClass("Rogue") && !card.IsClass("Neutral"),
             });

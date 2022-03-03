@@ -5,7 +5,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LadyLiadrinView : NormalView
+    public class LadyLiadrinView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("LadyLiadrin"),
                 Enabled = () => Settings.Default.LadyLiadrinEnabled,
-                CreateView = () => new LadyLiadrinView(),
+                CreateView = () => new NormalView(),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
             });

@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class SoulwardenView : ChancesView
+    public class SoulwardenView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Soulwarden"),
                 Enabled = () => Settings.Default.SoulwardenEnabled,
-                CreateView = () => new SoulwardenView(),
+                CreateView = () => new ChancesView(),
                 WatchFor = GameEvents.OnPlayerHandDiscard,
                 Condition = card => true,
             });

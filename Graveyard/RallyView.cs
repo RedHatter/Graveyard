@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class RallyView : ChancesView
+    public class RallyView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Rally"),
 				Enabled = () => Settings.Default.RallyEnabled,
-				CreateView = () => new RallyView(),
+				CreateView = () => new ChancesView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion" && card.Cost >= 1 && card.Cost <= 3,
 			});

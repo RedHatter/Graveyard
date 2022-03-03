@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class ResurrectView : ChancesView
+    public class ResurrectView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Resurrect"),
 				Enabled = () => Settings.Default.ResurrectEnabled,
-				CreateView = () => new ResurrectView(),
+				CreateView = () => new ChancesView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion",
 			});

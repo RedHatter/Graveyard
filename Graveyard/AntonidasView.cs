@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class AntonidasView : MultiTurnView
+    public class AntonidasView
     {
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,15 +12,10 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Antonidas"),
 				Enabled = () => Settings.Default.AntonidasEnabled,
-				CreateView = () => new AntonidasView(),
+				CreateView = () => new MultiTurnView(Config.Name, 3),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.GetSchool() == School.Fire,				
 			});
         }
-
-		public AntonidasView() 
-			: base(Config.Name, 3)
-		{
-		}
 	}
 }

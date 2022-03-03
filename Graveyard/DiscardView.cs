@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DiscardView : ChancesView
+    public class DiscardView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("DiscardTitle"),
 				Enabled = () => Settings.Default.DiscardEnabled,
-				CreateView = () => new DiscardView(),
+				CreateView = () => new ChancesView(),
 				WatchFor = GameEvents.OnPlayerHandDiscard,
 				Condition = card => card.Type == "Minion",				
 			});

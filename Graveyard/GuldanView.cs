@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class GuldanView : ChancesView
+    public class GuldanView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Guldan"),
 				Enabled = () => Settings.Default.GuldanEnabled,
-				CreateView = () => new GuldanView(),
+				CreateView = () => new ChancesView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race == "Demon",
 			});

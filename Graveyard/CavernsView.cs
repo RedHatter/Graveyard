@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class CavernsView : NormalView
+    public class CavernsView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Caverns"),
                 Enabled = () => Settings.Default.CavernsEnabled,
-                CreateView = () => new CavernsView(),
+                CreateView = () => new NormalView(),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Minion",                
             });

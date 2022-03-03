@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class WitchingHourView : ChancesView
+    public class WitchingHourView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("WitchingHour"),
                 Enabled = () => Settings.Default.WitchingHourEnabled,
-                CreateView = () => new WitchingHourView(),
+                CreateView = () => new ChancesView(),
                 WatchFor = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Beast" || card.Race == "All",
             });

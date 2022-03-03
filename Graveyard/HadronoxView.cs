@@ -4,7 +4,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class HadronoxView : NormalView
+    public class HadronoxView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Hadronox"),
 				Enabled = () => Settings.Default.HadronoxEnabled,
-				CreateView = () => new HadronoxView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Taunt"),
 			});

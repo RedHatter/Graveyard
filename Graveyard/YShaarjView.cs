@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class YShaarjView : NormalView
+    public class YShaarjView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("YShaarj"),
 				Enabled = () => Settings.Default.YShaarjEnabled,
-				CreateView = () => new YShaarjView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),
 			});

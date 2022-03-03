@@ -4,7 +4,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class NZothView : NormalView
+    public class NZothView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("NZoth"),
 				Enabled = () => Settings.Default.NZothEnabled,
-				CreateView = () => new NZothView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
 			});

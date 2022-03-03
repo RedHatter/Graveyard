@@ -9,7 +9,7 @@ namespace HDT.Plugins.Graveyard
     public class QuestlineView : NormalView
     {
         private static readonly string SharedName = Strings.GetLocalized("Questline");
-        private static readonly Func<ViewBase> SharedCreateView = () => new QuestlineView();
+        private static readonly Func<ViewBase> SharedCreateView = () => new NormalView();
         private static readonly Predicate<Card> SharedCondition = card => true; 
 
         internal static ViewConfig FriendlyConfig

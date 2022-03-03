@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class NZothGotDView : ChancesView
+    public class NZothGotDView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("NZothGotD"),
 				Enabled = () => Settings.Default.NZothGotDEnabled,
-				CreateView = () => new NZothGotDView(),
+				CreateView = () => new ChancesView(),
 				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race != null,
 			});

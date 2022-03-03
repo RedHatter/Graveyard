@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class ZuljinView : NormalView
+    public class ZuljinView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Zuljin"),
                 Enabled = () => Settings.Default.ZuljinEnabled,
-                CreateView = () => new ZuljinView(),
+                CreateView = () => new NormalView(),
                 WatchFor = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell",
             });

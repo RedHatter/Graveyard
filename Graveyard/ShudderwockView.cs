@@ -4,7 +4,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class ShudderwockView : NormalView
+    public class ShudderwockView
 	{
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
 				Name = Strings.GetLocalized("Shudderwock"),
 				Enabled = () => Settings.Default.ShudderwockEnabled,
-				CreateView = () => new ShudderwockView(),
+				CreateView = () => new NormalView(),
 				WatchFor = GameEvents.OnPlayerPlay,
 				Condition = card => card.Mechanics.Contains("Battlecry"),
 			});
