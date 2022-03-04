@@ -376,6 +376,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jace Darkweather.
+        /// </summary>
+        public static string Jace {
+            get {
+                return ResourceManager.GetString("Jace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;Jace Darkweather&apos;, show all Fel spells cast..
+        /// </summary>
+        public static string JaceDescription {
+            get {
+                return ResourceManager.GetString("JaceDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kangor&apos;s Endless Army.
         /// </summary>
         public static string Kangor {
@@ -732,6 +750,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string ShudderwockDescription {
             get {
                 return ResourceManager.GetString("ShudderwockDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SI:7.
+        /// </summary>
+        public static string SI7 {
+            get {
+                return ResourceManager.GetString("SI7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the deck contains &apos;SI:7 Assassin&apos;, &apos;SI:7 Informant&apos; or &apos;SI:7 Smuggler&apos;, show all SI:7 cards played..
+        /// </summary>
+        public static string SI7Description {
+            get {
+                return ResourceManager.GetString("SI7Description", resourceCulture);
             }
         }
         

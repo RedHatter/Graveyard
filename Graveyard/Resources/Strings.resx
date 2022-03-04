@@ -232,6 +232,12 @@
   <data name="Horizontal" xml:space="preserve">
     <value>Horizontal</value>
   </data>
+  <data name="Jace" xml:space="preserve">
+    <value>Jace Darkweather</value>
+  </data>
+  <data name="JaceDescription" xml:space="preserve">
+    <value>When the deck contains 'Jace Darkweather', show all Fel spells cast.</value>
+  </data>
   <data name="Kangor" xml:space="preserve">
     <value>Kangor's Endless Army</value>
   </data>
@@ -351,6 +357,12 @@
   </data>
   <data name="ShudderwockDescription" xml:space="preserve">
     <value>When the deck contains 'Shudderwock', show battlecry minions that have been played</value>
+  </data>
+  <data name="SI7" xml:space="preserve">
+    <value>SI:7</value>
+  </data>
+  <data name="SI7Description" xml:space="preserve">
+    <value>When the deck contains 'SI:7 Assassin', 'SI:7 Informant' or 'SI:7 Smuggler', show all SI:7 cards played.</value>
   </data>
   <data name="Soulwarden" xml:space="preserve">
     <value>Soulwarden</value>
