@@ -45,16 +45,9 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _EnemyConfig;
 
 		// The views
-		public ViewBase Normal;
-		public ViewBase Enemy;
-
-		public ViewBase FriendlyQuestline;
-		public ViewBase EnemyQuestline;
-
 		internal List<ViewConfig> ConfigList = new List<ViewConfig>
 		{ 
 			ResurrectView.Config,
-			AnyfinView.Config,
 			DeathrattleView.Config,
 			NZothView.Config,
 			HadronoxView.Config,
@@ -202,24 +195,30 @@ namespace HDT.Plugins.Graveyard
 				return;
 			}
 
-			ShowEnemyView(QuestlineView.EnemyConfig, ref EnemyQuestline);
-			ShowEnemyView(EnemyConfig, ref Enemy);
+			InitializeView(EnemyPanel, QuestlineView.EnemyConfig);
+			InitializeView(EnemyPanel, EnemyConfig);
 
-			ShowFriendlyView(QuestlineView.FriendlyConfig, ref FriendlyQuestline);
+			InitializeView(FriendlyPanel, QuestlineView.FriendlyConfig);
 			
 			SinglesPanel = new StackPanel();
 			FriendlyPanel.Children.Add(SinglesPanel);
             
 			foreach (var config in ConfigSinglesList)
             {
-				ShowView(config, SinglesPanel.Children);
+				InitializeView(SinglesPanel, config);
             }
 
-			ShowFriendlyView(FriendlyConfig, ref Normal);
+			InitializeView(FriendlyPanel, FriendlyConfig, true);
+			
+			var anyfinView = InitializeView(FriendlyPanel, AnyfinView.Config);
+			if (anyfinView != null)
+			{
+				RegisterView(GameEvents.OnOpponentPlayToGraveyard, anyfinView);
+			}
 
-            foreach (var config in ConfigList)
+			foreach (var config in ConfigList)
             {
-				ShowView(config, FriendlyPanel.Children);
+				InitializeView(FriendlyPanel, config);
 			}
 
             // Show "demo mode" when overlay is visible in menu
@@ -239,27 +238,23 @@ namespace HDT.Plugins.Graveyard
             }
 		}
 
-		private bool ShowFriendlyView(ViewConfig config, ref ViewBase view)
+		private ViewBase InitializeView(Panel parent, ViewConfig config, bool isDefault = false)
         {
-			view = ShowView(config, FriendlyPanel.Children);
-			return view != null;
-		}
-
-		private bool ShowEnemyView(ViewConfig config, ref ViewBase view)
-		{
-			view = ShowView(config, EnemyPanel.Children);
-			return view != null;
-		}
-
-		private ViewBase ShowView(ViewConfig config, UIElementCollection parent)
-		{
 			var view = CreateView(config);
-            if (view != null)
-            {
-				RegisterView(config, view);
-				parent.Add(view);
-			}			
+			if (view == null) return null;
+			
+			RegisterView(config, view, isDefault);
+			ShowView(parent, view);
 			return view;
+		}
+
+		private bool ShowView(Panel parent, ViewBase view)
+		{
+			if (view == null) return false;
+			
+			parent.Children.Add(view);
+
+			return true;
 		}
 
 		private ViewBase CreateView(ViewConfig config)
@@ -274,33 +269,38 @@ namespace HDT.Plugins.Graveyard
 			return null;
 		}
 
-		private void RegisterView(ViewConfig config, ViewBase view)
+		private void RegisterView(ViewConfig config, ViewBase view, bool isDefault = false)
         {
-			if (config.WatchFor == GameEvents.OnPlayerPlayToGraveyard)
-			{
-				OnPlayerPlayToGraveyard.Register(view.Update);
-			}
-			else if (config.WatchFor == GameEvents.OnOpponentPlayToGraveyard)
-			{
-				OnOpponentPlayToGraveyard.Register(view.Update);
-			}
-			else if (config.WatchFor == GameEvents.OnPlayerPlay)
-			{
-				OnPlayerPlay.Register(view.Update);
-			}
-			else if (config.WatchFor == GameEvents.OnOpponentPlay)
-			{
-				OnOpponentPlay.Register(view.Update);
-			}
-			else if (config.WatchFor == GameEvents.OnPlayerHandDiscard)
-			{
-				OnPlayerHandDiscard.Register(view.Update);
-			}
+			RegisterView(config.WatchFor, view, isDefault);
 			var multiTurn = view as MultiTurnView;
 			if (multiTurn != null)
 			{
 				OnOpponentTurnStart.Register(multiTurn.TurnEnded);
-            }
+			}
+		}
+
+		private void RegisterView(ActionList<Card> actionList, ViewBase view, bool isDefault = false)
+        {
+			if (actionList == GameEvents.OnPlayerPlayToGraveyard)
+			{
+				OnPlayerPlayToGraveyard.Register(view.Update, isDefault);
+			}
+			else if (actionList == GameEvents.OnOpponentPlayToGraveyard)
+			{
+				OnOpponentPlayToGraveyard.Register(view.Update, isDefault);
+			}
+			else if (actionList == GameEvents.OnPlayerPlay)
+			{
+				OnPlayerPlay.Register(view.Update, isDefault);
+			}
+			else if (actionList == GameEvents.OnOpponentPlay)
+			{
+				OnOpponentPlay.Register(view.Update, isDefault);
+			}
+			else if (actionList == GameEvents.OnPlayerHandDiscard)
+			{
+				OnPlayerHandDiscard.Register(view.Update, isDefault);
+			}
 		}
 	}
 }

@@ -1,4 +1,5 @@
 using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Anyfin"),
 				Enabled = () => Settings.Default.AnyfinEnabled,
+				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
 				CreateView = () => new AnyfinView(),
 				Condition = card => card.IsMurloc(),
 			});
