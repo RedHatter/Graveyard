@@ -171,25 +171,30 @@ namespace HDT.Plugins.Graveyard
 			Input.Dispose();
 		}
 
-		/**
-		* Clear then recreate all Views.
-		*/
-		public void Reset()
-		{
+		public void Clear()
+        {
 			FriendlyPanel.Children.Clear();
 			EnemyPanel.Children.Clear();
 
 			OnPlayerPlayToGraveyard.Clear();
 			OnOpponentPlayToGraveyard.Clear();
-			
+
 			OnPlayerPlay.Clear();
 			OnOpponentPlay.Clear();
 
 			OnPlayerHandDiscard.Clear();
 
 			OnOpponentTurnStart.Clear();
+		}
 
-			if ((Core.Game.IsInMenu && !Core.OverlayWindow.IsVisible) || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
+		/**
+		* Clear then recreate all Views.
+		*/
+		public void Reset()
+		{
+			Clear();
+
+			if ((Core.Game.IsInMenu && Hearthstone_Deck_Tracker.Config.Instance.HideInMenu) || Core.Game.IsBattlegroundsMatch || Core.Game.IsMercenariesMatch)
 			{
 				// don't initialize in menu unless the overlay is visible
 				// don't show graveyard for Battlegrounds or Mercenaries
