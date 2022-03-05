@@ -76,7 +76,7 @@ namespace HDT.Plugins.Graveyard
                     Log.Error(ex);
                 }
             }            
-            if (!(result && DefaultMode == DefaultMode.None))
+            if (!result && DefaultMode != DefaultMode.None)
             {
                 result |= Default.Invoke(card);
             }
