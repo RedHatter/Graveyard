@@ -15,7 +15,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("LadyLiadrin"),
                 Enabled = () => Settings.Default.LadyLiadrinEnabled,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
             });
         }

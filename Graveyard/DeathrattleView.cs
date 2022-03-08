@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Deathrattle"),
                 Enabled = () => Settings.Default.DeathrattleEnabled,
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 CreateView = () => new NormalView(),
             });
         }

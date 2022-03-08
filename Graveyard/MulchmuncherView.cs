@@ -12,8 +12,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("Mulchmuncher"),
                 Enabled = () => Settings.Default.MulchmuncherEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Name == "Treant",
             });
         }       

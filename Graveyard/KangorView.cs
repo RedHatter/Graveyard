@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Kangor"),
                 Enabled = () => Settings.Default.KangorEnabled,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Mech" || card.Race == "All",
             });
         }      

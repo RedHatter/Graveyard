@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Alanna"),
 				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && card.Cost >= 5,
 			});
 		}

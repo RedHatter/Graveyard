@@ -12,8 +12,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("ElwynnBoar"),
                 Enabled = () => Settings.Default.ElwynnBoarEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Id == Neutral.ElwynnBoar,
             });
         }       

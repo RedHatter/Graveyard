@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("TessGreymane"),
                 Enabled = () => Settings.Default.TessGreymaneEnabled,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => !card.IsClass("Rogue") && !card.IsClass("Neutral"),
             });
         }       

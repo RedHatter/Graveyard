@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("YShaarj"),
 				Enabled = () => Settings.Default.YShaarjEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),
 			});
 		}	

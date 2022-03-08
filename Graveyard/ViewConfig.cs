@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace HDT.Plugins.Graveyard
 {
-    internal class ViewConfig//<T> where T : ViewBase, new() 
+    internal class ViewConfig
     {
         public string Name { get; set; }
         public Func<bool> Enabled { get; set; }
-        public Func<bool> AlwaysShow { get; set; }
+        public Func<bool> ShowFirst { get; set; } = () => false;
+        public ActionList<Card> UpdateOn { get; set; }       
         public List<string> ShowOn { get; set; }
-        public Predicate<Card> Condition { get; set; }
-        public ActionList<Card> WatchFor { get; set; }       
+        public Predicate<Card> Condition { get; set; }        
         public Func<ViewBase> CreateView { get; set; }
 
         public ViewConfig() { }

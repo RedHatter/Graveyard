@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Kargal"),
 				Enabled = () => Settings.Default.KargalEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => Posts.Contains(card.Id),
 			});
 		}

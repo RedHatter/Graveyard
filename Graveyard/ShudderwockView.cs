@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Shudderwock"),
 				Enabled = () => Settings.Default.ShudderwockEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Mechanics.Contains("Battlecry"),
 			});
 		}	

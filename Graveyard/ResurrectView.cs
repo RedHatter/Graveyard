@@ -24,7 +24,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Resurrect"),
 				Enabled = () => Settings.Default.ResurrectEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion",
 			});
 		}

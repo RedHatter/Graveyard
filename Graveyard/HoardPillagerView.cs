@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("HoardPillager"),
                 Enabled = () => Settings.Default.HoardPillagerEnabled,
                 CreateView = () => new ChancesView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Type == "Weapon"
             });
         } 

@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Rally"),
 				Enabled = () => Settings.Default.RallyEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion" && card.Cost >= 1 && card.Cost <= 3,
 			});
 		}

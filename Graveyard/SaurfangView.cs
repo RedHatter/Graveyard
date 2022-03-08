@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Saurfang"),
 				Enabled = () => Settings.Default.SaurfangEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.EnglishText?.Contains("Frenzy:") ?? false
 			});
 		}

@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = Strings.GetLocalized("Anyfin"),
 				Enabled = () => Settings.Default.AnyfinEnabled,
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				CreateView = () => new AnyfinView(),
 				Condition = card => card.IsMurloc(),
 			});

@@ -18,8 +18,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = SharedName,
                 Enabled = () => Settings.Default.FriendlyQuestlineEnabled,
+                ShowFirst = () => true,
                 CreateView = SharedCreateView,
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = SharedCondition,
             });
         }
@@ -32,7 +33,7 @@ namespace HDT.Plugins.Graveyard
                 Name = SharedName,
                 Enabled = () => Settings.Default.EnemyQuestlineEnabled,
                 CreateView = SharedCreateView, 
-                WatchFor = GameEvents.OnOpponentPlay,
+                UpdateOn = GameEvents.OnOpponentPlay,
                 Condition = SharedCondition,
             });
         }

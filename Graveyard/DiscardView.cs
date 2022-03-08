@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("DiscardTitle"),
 				Enabled = () => Settings.Default.DiscardEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerHandDiscard,
+				UpdateOn = GameEvents.OnPlayerHandDiscard,
 				Condition = card => card.Type == "Minion",				
 			});
 		}

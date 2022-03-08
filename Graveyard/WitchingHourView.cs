@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("WitchingHour"),
                 Enabled = () => Settings.Default.WitchingHourEnabled,
                 CreateView = () => new ChancesView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Beast" || card.Race == "All",
             });
         }       

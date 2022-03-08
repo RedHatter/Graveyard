@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Zuljin"),
                 Enabled = () => Settings.Default.ZuljinEnabled,
                 CreateView = () => new NormalView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell",
             });
         }       

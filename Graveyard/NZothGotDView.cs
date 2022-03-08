@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("NZothGotD"),
 				Enabled = () => Settings.Default.NZothGotDEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race != null,
 			});
 		}	

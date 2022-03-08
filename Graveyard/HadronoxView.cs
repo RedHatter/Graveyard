@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Hadronox"),
 				Enabled = () => Settings.Default.HadronoxEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Taunt"),
 			});
 		}

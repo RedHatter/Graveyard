@@ -25,7 +25,7 @@ namespace HDT.Plugins.Graveyard
 				Name = SharedName,
 				Enabled = () => Settings.Default.NormalEnabled,
 				CreateView = SharedCreateView,
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = SharedCondition,
 			});
         }
@@ -38,7 +38,7 @@ namespace HDT.Plugins.Graveyard
 				Name = SharedName,
 				Enabled = () => Settings.Default.EnemyEnabled,
 				CreateView = SharedCreateView,
-				WatchFor = GameEvents.OnOpponentPlayToGraveyard,
+				UpdateOn = GameEvents.OnOpponentPlayToGraveyard,
 				Condition = SharedCondition,
             });
         }
@@ -46,7 +46,8 @@ namespace HDT.Plugins.Graveyard
 
 		// The views
 		internal List<ViewConfig> ConfigList = new List<ViewConfig>
-		{ 
+		{
+			QuestlineView.FriendlyConfig,
 			ResurrectView.Config,
 			DeathrattleView.Config,
 			NZothView.Config,
@@ -56,7 +57,7 @@ namespace HDT.Plugins.Graveyard
 			ShudderwockView.Config,
 			DragoncallerAlannaView.Config,
 			CavernsView.Config,
-			//MulchmuncherView.Config,
+			MulchmuncherView.Config,
 			KangorView.Config,
 			WitchingHourView.Config,
 			TessGreymaneView.Config,
@@ -68,15 +69,15 @@ namespace HDT.Plugins.Graveyard
 			RallyView.Config,
 			SaurfangView.Config,
 			YShaarjView.Config,
-			//ElwynnBoarView.Config,
+			ElwynnBoarView.Config,
 			KargalView.Config,
 			AntonidasView.Config,
 			GrandFinaleView.Config,
-			//LastPlayedView.BrilliantMacawConfig,
-			//LastPlayedView.GreySageParrotConfig,
-			//LastPlayedView.MonstrousParrotConfig,
-			//LastPlayedView.SunwingSquawkerConfig,
-			//LastPlayedView.VanessaVanCleefConfig,
+			LastPlayedView.BrilliantMacawConfig,
+			LastPlayedView.GreySageParrotConfig,
+			LastPlayedView.MonstrousParrotConfig,
+			LastPlayedView.SunwingSquawkerConfig,
+			LastPlayedView.VanessaVanCleefConfig,
 			MulticasterView.Config,
 			ShirvallahView.Config,
 			new ViewConfig(HearthDb.CardIds.Collectible.Demonhunter.JaceDarkweaver)
@@ -84,7 +85,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Jace"),
 				Enabled = () => true,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.GetSchool() == School.Fel,
             },
 			new ViewConfig(HearthDb.CardIds.Collectible.Rogue.Si7Assassin,
@@ -94,26 +95,15 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("SI7"),
 				Enabled = () => true,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlay,
+				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Name.StartsWith("SI:7"),
 			}
-		};
-
-		internal List<ViewConfig> ConfigSinglesList = new List<ViewConfig>
-		{
-			MulchmuncherView.Config,
-			ElwynnBoarView.Config,
-			LastPlayedView.BrilliantMacawConfig,
-			LastPlayedView.GreySageParrotConfig,
-			LastPlayedView.MonstrousParrotConfig,
-			LastPlayedView.SunwingSquawkerConfig,
-			LastPlayedView.VanessaVanCleefConfig,
 		};
 
 		private readonly StackPanel FriendlyPanel;
 		private readonly StackPanel EnemyPanel;
 
-		private StackPanel SinglesPanel;
+		private StackPanel FirstPanel;
 
 		public static InputManager Input;
 
@@ -197,17 +187,10 @@ namespace HDT.Plugins.Graveyard
 
 			InitializeView(EnemyPanel, QuestlineView.EnemyConfig);
 			InitializeView(EnemyPanel, EnemyConfig);
-
-			InitializeView(FriendlyPanel, QuestlineView.FriendlyConfig);
-			
-			SinglesPanel = new StackPanel();
-			FriendlyPanel.Children.Add(SinglesPanel);
+		
+			FirstPanel = new StackPanel();
+			FriendlyPanel.Children.Add(FirstPanel);
             
-			foreach (var config in ConfigSinglesList)
-            {
-				InitializeView(SinglesPanel, config);
-            }
-
 			InitializeView(FriendlyPanel, FriendlyConfig, true);
 			
 			var anyfinView = InitializeView(FriendlyPanel, AnyfinView.Config);
@@ -218,7 +201,14 @@ namespace HDT.Plugins.Graveyard
 
 			foreach (var config in ConfigList)
             {
-				InitializeView(FriendlyPanel, config);
+                if (config.ShowFirst())
+                {
+					InitializeView(FirstPanel, config);
+				}
+				else
+                {
+					InitializeView(FriendlyPanel, config);
+				}
 			}
 
             // Show "demo mode" when overlay is visible in menu
@@ -271,7 +261,7 @@ namespace HDT.Plugins.Graveyard
 
 		private void RegisterView(ViewConfig config, ViewBase view, bool isDefault = false)
         {
-			RegisterView(config.WatchFor, view, isDefault);
+			RegisterView(config.UpdateOn, view, isDefault);
 			var multiTurn = view as MultiTurnView;
 			if (multiTurn != null)
 			{

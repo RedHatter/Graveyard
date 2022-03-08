@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Soulwarden"),
                 Enabled = () => Settings.Default.SoulwardenEnabled,
                 CreateView = () => new ChancesView(),
-                WatchFor = GameEvents.OnPlayerHandDiscard,
+                UpdateOn = GameEvents.OnPlayerHandDiscard,
                 Condition = card => true,
             });
         }

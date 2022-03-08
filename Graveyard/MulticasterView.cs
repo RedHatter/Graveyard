@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("Multicaster"),
                 Enabled = () => Settings.Default.MulticasterEnabled,
                 CreateView = () => new MulticasterView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
             });
         }       
 

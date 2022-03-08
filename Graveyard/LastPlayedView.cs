@@ -12,8 +12,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("GreySageParrot"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && card.Cost >= 5,
             });
         }
@@ -25,8 +26,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("SunwingSquawker"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id),
             });
         }
@@ -38,8 +40,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("BrilliantMacaw"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw,
             });
         }
@@ -51,8 +54,9 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = Strings.GetLocalized("MonstrousParrot"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
+                ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
-                WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
             });
         }
@@ -65,7 +69,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("VanessaVanCleef"),
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 CreateView = () => new LastCardView(),
-                WatchFor = GameEvents.OnOpponentPlay,
+                UpdateOn = GameEvents.OnOpponentPlay,
                 Condition = card => (card.Type == "Spell" || card.Type == "Minion"),
             });
         }

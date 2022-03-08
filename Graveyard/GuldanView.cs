@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("Guldan"),
 				Enabled = () => Settings.Default.GuldanEnabled,
 				CreateView = () => new ChancesView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race == "Demon",
 			});
 		}

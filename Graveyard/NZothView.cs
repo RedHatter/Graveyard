@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
 				Name = Strings.GetLocalized("NZoth"),
 				Enabled = () => Settings.Default.NZothEnabled,
 				CreateView = () => new NormalView(),
-				WatchFor = GameEvents.OnPlayerPlayToGraveyard,
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
 			});
 		}

@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Name = Strings.GetLocalized("GrandFinale"),
                 Enabled = () => Settings.Default.GrandFinaleEnabled,
                 CreateView = () => new MultiTurnView(Config.Name, 1),
-                WatchFor = GameEvents.OnPlayerPlay,
+                UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Race == "Elemental" || card.Race == "All",
             });
         }       
