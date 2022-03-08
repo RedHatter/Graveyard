@@ -550,6 +550,7 @@ namespace HDT.Plugins.Graveyard {
                 this["MulticasterEnabled"] = value;
             }
         }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -559,6 +560,30 @@ namespace HDT.Plugins.Graveyard {
             }
             set {
                 this["ShirvallahEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SI7Enabled {
+            get {
+                return ((bool)(this["SI7Enabled"]));
+            }
+            set {
+                this["SI7Enabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool JaceEnabled {
+            get {
+                return ((bool)(this["JaceEnabled"]));
+            }
+            set {
+                this["JaceEnabled"] = value;
             }
         }
     }

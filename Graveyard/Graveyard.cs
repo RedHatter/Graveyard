@@ -1,49 +1,15 @@
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
-using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 using Core = Hearthstone_Deck_Tracker.API.Core;
-using GameMode = Hearthstone_Deck_Tracker.Enums.GameMode;
-
 
 namespace HDT.Plugins.Graveyard
 {
     public class Graveyard
 	{
-		private static readonly string SharedName = Strings.GetLocalized("Graveyard");
-		private static readonly Func<ViewBase> SharedCreateView = () => new NormalView();
-		private static readonly Predicate<Card> SharedCondition = card => card.Type == "Minion";
-
-		internal static ViewConfig FriendlyConfig
-        {
-			get => _FriendlyConfig ?? (_FriendlyConfig = new ViewConfig()
-            {
-				Name = SharedName,
-				Enabled = () => Settings.Default.NormalEnabled,
-				CreateView = SharedCreateView,
-				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
-				Condition = SharedCondition,
-			});
-        }
-		private static ViewConfig _FriendlyConfig;
-
-		internal static ViewConfig EnemyConfig
-        {
-			get => _EnemyConfig ?? (_EnemyConfig = new ViewConfig()
-            {
-				Name = SharedName,
-				Enabled = () => Settings.Default.EnemyEnabled,
-				CreateView = SharedCreateView,
-				UpdateOn = GameEvents.OnOpponentPlayToGraveyard,
-				Condition = SharedCondition,
-            });
-        }
-		private static ViewConfig _EnemyConfig;
-
 		// The views
 		internal List<ViewConfig> ConfigList = new List<ViewConfig>
 		{
@@ -80,24 +46,8 @@ namespace HDT.Plugins.Graveyard
 			LastPlayedView.VanessaVanCleefConfig,
 			MulticasterView.Config,
 			ShirvallahView.Config,
-			new ViewConfig(HearthDb.CardIds.Collectible.Demonhunter.JaceDarkweaver)
-            {
-				Name = Strings.GetLocalized("Jace"),
-				Enabled = () => true,
-				CreateView = () => new NormalView(),
-				UpdateOn = GameEvents.OnPlayerPlay,
-				Condition = card => card.GetSchool() == School.Fel,
-            },
-			new ViewConfig(HearthDb.CardIds.Collectible.Rogue.Si7Assassin,
-				HearthDb.CardIds.Collectible.Rogue.Si7Informant,
-				HearthDb.CardIds.Collectible.Rogue.Si7Smuggler)
-			{
-				Name = Strings.GetLocalized("SI7"),
-				Enabled = () => true,
-				CreateView = () => new NormalView(),
-				UpdateOn = GameEvents.OnPlayerPlay,
-				Condition = card => card.Name.StartsWith("SI:7"),
-			}
+			JaceDarkweaverView.Config,
+			SI7View.Config,
 		};
 
 		private readonly StackPanel FriendlyPanel;
@@ -184,14 +134,14 @@ namespace HDT.Plugins.Graveyard
 				// this should include spectating
 				return;
 			}
-
+			
 			InitializeView(EnemyPanel, QuestlineView.EnemyConfig);
-			InitializeView(EnemyPanel, EnemyConfig);
+			InitializeView(EnemyPanel, GraveyardView.EnemyConfig);
 		
 			FirstPanel = new StackPanel();
 			FriendlyPanel.Children.Add(FirstPanel);
             
-			InitializeView(FriendlyPanel, FriendlyConfig, true);
+			InitializeView(FriendlyPanel, GraveyardView.FriendlyConfig, true);
 			
 			var anyfinView = InitializeView(FriendlyPanel, AnyfinView.Config);
 			if (anyfinView != null)
