@@ -10,7 +10,7 @@ using WPFLocalizeExtension.Engine;
 
 namespace HDT.Plugins.Graveyard
 {
-	public partial class SettingsView : ScrollViewer
+	public partial class SettingsView : Grid
 	{
 		private static Flyout _flyout;
 

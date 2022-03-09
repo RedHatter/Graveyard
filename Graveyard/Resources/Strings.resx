@@ -178,7 +178,7 @@
     <value>When the deck contains one or more 'Elwynn Boar', show number of friendly boar to die this game.</value>
   </data>
   <data name="Friendly" xml:space="preserve">
-    <value>Friendly</value>
+    <value>Player</value>
   </data>
   <data name="FriendlyDescription" xml:space="preserve">
     <value>All friendly minions that have died.</value>
@@ -342,6 +342,12 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="SettingsCardsTitle" xml:space="preserve">
+    <value>Cards</value>
+  </data>
+  <data name="SettingsDisplayTitle" xml:space="preserve">
+    <value>Display</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Graveyard Settings</value>

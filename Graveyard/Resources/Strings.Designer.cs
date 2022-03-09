@@ -241,7 +241,7 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Friendly.
+        ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string Friendly {
             get {
@@ -705,6 +705,24 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cards.
+        /// </summary>
+        public static string SettingsCardsTitle {
+            get {
+                return ResourceManager.GetString("SettingsCardsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display.
+        /// </summary>
+        public static string SettingsDisplayTitle {
+            get {
+                return ResourceManager.GetString("SettingsDisplayTitle", resourceCulture);
             }
         }
         
