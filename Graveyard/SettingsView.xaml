@@ -4,6 +4,7 @@
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
               xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+              xmlns:hdtc="clr-namespace:Hearthstone_Deck_Tracker.Controls;assembly=HearthstoneDeckTracker"
               xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
               xmlns:lex="http://wpflocalizeextension.codeplex.com"
               lex:LocalizeDictionary.DesignCulture="en"
@@ -72,6 +73,9 @@
                 <Setter Property="Margin" Value="5"/>
                 <Setter Property="MinWidth" Value="410"/>
                 <Setter Property="IsExpanded" Value="True"/>
+            </Style>
+            <Style x:Key="ListViewStyle" TargetType="ListView" BasedOn="{StaticResource MetroListView}">
+                <Setter Property="Margin" Value="5"/>
             </Style>
         </ResourceDictionary>
     </Grid.Resources>
@@ -181,125 +185,37 @@
     <GroupBox Header="{lex:Loc SettingsCardsTitle}"
               Margin="5"
               Grid.Row="3">
-        <ScrollViewer>
-            <StackPanel>
-                <mah:ToggleSwitch IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Kazakus}"
-                        ToolTip="{lex:Loc KazakusDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc NZoth}"
-                        ToolTip="{lex:Loc NZothDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Hadronox}"
-                        ToolTip="{lex:Loc HadronoxDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Discard}"
-                        ToolTip="{lex:Loc DiscardDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding SoulwardenEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Soulwarden}"
-                        ToolTip="{lex:Loc SoulwardenDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Anyfin}"
-                        ToolTip="{lex:Loc AnyfinDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Guldan}"
-                        ToolTip="{lex:Loc GuldanDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Shudderwock}"
-                        ToolTip="{lex:Loc ShudderwockDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Alanna}"
-                        ToolTip="{lex:Loc AlannaDescription}" 
-                        Style="{StaticResource ToggleStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding CavernsEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Caverns}"
-                        ToolTip="{lex:Loc CavernsDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding MulchmuncherEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Mulchmuncher}"
-                        ToolTip="{lex:Loc MulchmuncherDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding KangorEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Kangor}"
-                        ToolTip="{lex:Loc KangorDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding WitchingHourEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc WitchingHour}"
-                        ToolTip="{lex:Loc WitchingHourDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding TessGreymaneEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc TessGreymane}"
-                        ToolTip="{lex:Loc TessGreymaneDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding ZuljinEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Zuljin}"
-                        ToolTip="{lex:Loc ZuljinDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding HoardPillagerEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc HoardPillager}"
-                        ToolTip="{lex:Loc HoardPillagerDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding LadyLiadrinEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc LadyLiadrin}"
-                        ToolTip="{lex:Loc LadyLiadrinDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding NZothGotDEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc NZothGotD}"
-                        ToolTip="{lex:Loc NZothGotDDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding SaurfangEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Saurfang}"
-                        ToolTip="{lex:Loc SaurfangDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding YShaarjEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc YShaarj}"
-                        ToolTip="{lex:Loc YShaarjDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding ShirvallahEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Shirvallah}"
-                        ToolTip="{lex:Loc ShirvallahDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding RallyEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Rally}"
-                        ToolTip="{lex:Loc RallyDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <CheckBox IsChecked="{Binding AlwaysRallySeparately, Source={x:Static local:Settings.Default}}" 
-                Content="{lex:Loc AlwaysRallySeparately}"
-                ToolTip="{lex:Loc AlwaysRallySeparatelyDescription}" 
-                Style="{StaticResource CheckboxStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding ElwynnBoarEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc ElwynnBoar}"
-                        ToolTip="{lex:Loc ElwynnBoarDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <CheckBox IsChecked="{Binding AlwaysBoarSeparately, Source={x:Static local:Settings.Default}}" 
-                Content="{lex:Loc AlwaysBoarSeparately}"
-                ToolTip="{lex:Loc AlwaysBoarSeparatelyDescription}" 
-                Style="{StaticResource CheckboxStyle}"/>
-                <mah:ToggleSwitch IsChecked="{Binding AntonidasEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Antonidas}"
-                        ToolTip="{lex:Loc AntonidasDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding GrandFinaleEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc GrandFinale}"
-                        ToolTip="{lex:Loc GrandFinaleDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding LastPlayedEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc LastPlayed}"
-                        ToolTip="{lex:Loc LastPlayedDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-                <mah:ToggleSwitch IsChecked="{Binding MulticasterEnabled, Source={x:Static local:Settings.Default}}" 
-                        Content="{lex:Loc Multicaster}"
-                        ToolTip="{lex:Loc MulticasterDescription}" 
-                        Style="{StaticResource ToggleStyle}" />
-            </StackPanel>
-        </ScrollViewer>
+        <ListView x:Name="CardView"
+                  Style="{StaticResource ListViewStyle}"
+                      Margin="0"
+                  Grid.Row="1"
+                  >
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander Header="{Binding Name}" IsExpanded="True"
+                                            HorizontalAlignment="Stretch" 
+                                            HorizontalContentAlignment="Stretch">
+                                            <ItemsPresenter/>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListView.GroupStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <mah:ToggleSwitch IsChecked="{Binding IsEnabled}">
+                        <hdtc:Card DataContext="{Binding Card}"/>
+                    </mah:ToggleSwitch>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </GroupBox>
 </Grid>

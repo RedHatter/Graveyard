@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
     public class Graveyard
 	{
 		// The views
-		internal List<ViewConfig> ConfigList = new List<ViewConfig>
+		internal static List<ViewConfig> ConfigList = new List<ViewConfig>
 		{
 			QuestlineView.FriendlyConfig,
 			ResurrectView.Config,
