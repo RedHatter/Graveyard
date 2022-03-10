@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 
 namespace HDT.Plugins.Graveyard
 {
-    internal class SettingsCard
+    internal class SettingsCard : INotifyPropertyChanged
     {
+        public ViewConfigCard Config { get; private set; }
         public Card Card { get; private set; }
-        public bool IsEnabled { get => _IsEnabled; set => SetProperty(ref _IsEnabled, value); }
+        public bool IsEnabled { get => _IsEnabled; set => SetProperty(ref _IsEnabled, value, onChanged: () => Config.IsEnabled = value); }
         private bool _IsEnabled;
         public string CardClass => Card == null ? string.Empty : Card.GetPlayerClass;
 
-        public SettingsCard(string cardId, bool isEnabled = true)
+        public SettingsCard(ViewConfigCard config)
         {
-            Card = Database.GetCardFromId(cardId);
-            _IsEnabled = isEnabled;
+            Card = Database.GetCardFromId(config.CardId);
+            _IsEnabled = config.IsEnabled;
         }
 
         #region INotifyPropertyChanged
@@ -45,6 +46,6 @@ namespace HDT.Plugins.Graveyard
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
+        #endregion       
     }
 }
