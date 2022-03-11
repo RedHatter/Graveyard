@@ -8,6 +8,8 @@ namespace HDT.Plugins.Graveyard
 {
     internal class ViewConfigCards
     {
+        public static ViewConfigCards Instance { get; set; }
+
         private readonly Settings Settings;
         private readonly Dictionary<string, ViewConfigCard> Lookup = new Dictionary<string, ViewConfigCard>();
         private readonly List<string> Excluded = new List<string>();

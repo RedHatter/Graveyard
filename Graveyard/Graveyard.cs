@@ -1,6 +1,7 @@
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
@@ -11,7 +12,7 @@ namespace HDT.Plugins.Graveyard
     public class Graveyard
 	{
 		// The views
-		internal List<ViewConfig> ConfigList = new List<ViewConfig>
+		internal List<ViewConfig> ConfigList { get; } = new List<ViewConfig>
 		{
 			QuestlineView.FriendlyConfig,
 			ResurrectView.Config,

@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
     public class GraveyardPlugin : IPlugin
 	{
         private Settings Settings;
-        public Graveyard GraveyardInstance;
+        internal static Graveyard GraveyardInstance { get; private set; }
         public string Author => "RedHatter";
         public string ButtonText => Strings.GetLocalized("Settings");
 
@@ -27,6 +27,8 @@ namespace HDT.Plugins.Graveyard
 
             MenuItem = new MenuItem { Header = Name };
             MenuItem.Click += (sender, args) => OnButtonPress();
+
+            ViewConfigCards.Instance = new ViewConfigCards(Settings);
 
             GraveyardInstance = new Graveyard();
 
@@ -65,6 +67,8 @@ namespace HDT.Plugins.Graveyard
 
             GraveyardInstance?.Dispose();
             GraveyardInstance = null;
+
+            ViewConfigCards.Instance = null;
         }
         public void OnUpdate() { }
 

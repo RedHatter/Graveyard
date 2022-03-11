@@ -19,6 +19,7 @@ namespace HDT.Plugins.Graveyard
 
         public SettingsCard(ViewConfigCard config)
         {
+            Config = config;
             Card = Database.GetCardFromId(config.CardId);
             _IsEnabled = config.IsEnabled;
         }

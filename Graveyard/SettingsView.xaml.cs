@@ -46,10 +46,8 @@ namespace HDT.Plugins.Graveyard
 			InitializeComponent();
 
 			var cards = new ObservableCollection<SettingsCard>(
-				Graveyard.ConfigList
-				.Where(c => c.ShowOn != null)
-				.SelectMany(c => c.ShowOn)
-				.Select(cardId => new SettingsCard(cardId)));
+				ViewConfigCards.Instance.Enumerable
+				.Select(v => new SettingsCard(v)));
 
 			CardView.ItemsSource = cards;
 
