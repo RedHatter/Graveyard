@@ -19,7 +19,7 @@ namespace HDT.Plugins.Graveyard
             Settings = settings;
             if (Settings.ExcludedCards != "")
             {
-                Excluded.AddRange(Settings.ExcludedCards.Split('c'));
+                Excluded.AddRange(Settings.ExcludedCards.Split(','));
             }
         }
         public ViewConfigCard Factory(string cardId)
@@ -35,6 +35,11 @@ namespace HDT.Plugins.Graveyard
         public IEnumerable<ViewConfigCard> Enumerable => Lookup.Values;
 
         public bool IsEnabled(string cardId) => !Excluded.Contains(cardId);
+
+        public void Toggle(ViewConfigCard config)
+        {
+            Toggle(config.CardId, config.IsEnabled);
+        }
 
         public void Toggle(string cardId, bool value)
         {

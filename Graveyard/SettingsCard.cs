@@ -13,7 +13,15 @@ namespace HDT.Plugins.Graveyard
     {
         public ViewConfigCard Config { get; private set; }
         public Card Card { get; private set; }
-        public bool IsEnabled { get => _IsEnabled; set => SetProperty(ref _IsEnabled, value, onChanged: () => Config.IsEnabled = value); }
+        public bool IsEnabled
+        {
+            get => _IsEnabled;
+            set => SetProperty(ref _IsEnabled, value, onChanged: () =>
+            {
+                Config.IsEnabled = value;
+                ViewConfigCards.Instance.Toggle(Config);
+            });
+        }
         private bool _IsEnabled;
         public string CardClass => Card == null ? string.Empty : Card.GetPlayerClass;
 
