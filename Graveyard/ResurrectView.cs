@@ -9,7 +9,6 @@ namespace HDT.Plugins.Graveyard
 		internal static ViewConfig Config
 		{
 			get => _Config ?? (_Config = new ViewConfig(
-				Neutral.Rally, 
 				Priest.RaiseDead, 
 				Priest.Psychopomp, 
 				Neutral.BodyWrapper, 
