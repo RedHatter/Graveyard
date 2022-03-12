@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Mage.GrandFinale)
             {
-                Name = Strings.GetLocalized("GrandFinale"),
+                Name = "GrandFinale",
                 Enabled = () => Settings.Default.GrandFinaleEnabled,
                 CreateView = () => new MultiTurnView(Config.Name, 1),
                 UpdateOn = GameEvents.OnPlayerPlay,

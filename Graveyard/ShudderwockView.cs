@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Shaman.Shudderwock)
             {
-				Name = Strings.GetLocalized("Shudderwock"),
+				Name = "Shudderwock",
 				Enabled = () => Settings.Default.ShudderwockEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,

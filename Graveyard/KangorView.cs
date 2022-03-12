@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Paladin.KangorsEndlessArmy)
             {
-                Name = Strings.GetLocalized("Kangor"),
+                Name = "Kangor",
                 Enabled = () => Settings.Default.KangorEnabled,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

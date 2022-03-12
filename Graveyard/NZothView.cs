@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothTheCorruptor)
             {
-				Name = Strings.GetLocalized("NZoth"),
+				Name = "NZoth",
 				Enabled = () => Settings.Default.NZothEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

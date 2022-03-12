@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new ViewConfig(Mage.GreySageParrot)
             {
-                Name = Strings.GetLocalized("GreySageParrot"),
+                Name = "GreySageParrot",
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
@@ -24,7 +24,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new ViewConfig(Paladin.SunwingSquawker)
             {
-                Name = Strings.GetLocalized("SunwingSquawker"),
+                Name = "SunwingSquawker",
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
@@ -38,7 +38,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new ViewConfig(Shaman.BrilliantMacaw)
             {
-                Name = Strings.GetLocalized("BrilliantMacaw"),
+                Name = "BrilliantMacaw",
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
@@ -52,7 +52,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new ViewConfig(Hunter.MonstrousParrot)
             {
-                Name = Strings.GetLocalized("MonstrousParrot"),
+                Name = "MonstrousParrot",
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
@@ -66,7 +66,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new ViewConfig(Rogue.VanessaVancleefCore)
             {
-                Name = Strings.GetLocalized("VanessaVanCleef"),
+                Name = "VanessaVanCleef",
                 Enabled = () => Settings.Default.LastPlayedEnabled,
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnOpponentPlay,

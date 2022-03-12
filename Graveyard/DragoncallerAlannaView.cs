@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Mage.DragoncallerAlanna)
             {
-				Name = Strings.GetLocalized("Alanna"),
+				Name = "Alanna",
 				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,

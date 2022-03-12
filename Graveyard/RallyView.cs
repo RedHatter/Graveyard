@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Neutral.Rally)
             {
-				Name = Strings.GetLocalized("Rally"),
+				Name = "Rally",
 				Enabled = () => Settings.Default.RallyEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

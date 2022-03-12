@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Warlock.CruelDinomancer)
 			{
-				Name = Strings.GetLocalized("DiscardTitle"),
+				Name = "DiscardTitle",
 				Enabled = () => Settings.Default.DiscardEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerHandDiscard,

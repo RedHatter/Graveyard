@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Neutral.YshaarjTheDefiler)
 			{
-				Name = Strings.GetLocalized("YShaarj"),
+				Name = "YShaarj",
 				Enabled = () => Settings.Default.YShaarjEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,

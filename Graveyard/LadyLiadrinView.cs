@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
             {
-                Name = Strings.GetLocalized("LadyLiadrin"),
+                Name = "LadyLiadrin",
                 Enabled = () => Settings.Default.LadyLiadrinEnabled,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,

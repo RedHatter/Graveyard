@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
 			get => _Config ?? (_Config = new ViewConfig(Mage.GrandMagusAntonidas)
 			{
-				Name = Strings.GetLocalized("Antonidas"),
+				Name = "Antonidas",
 				Enabled = () => Settings.Default.AntonidasEnabled,
 				CreateView = () => new MultiTurnView(Config.Name, 3),
 				UpdateOn = GameEvents.OnPlayerPlay,

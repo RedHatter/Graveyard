@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
                 Rogue.Si7Informant,
                 Rogue.Si7Smuggler)
 			{
-				Name = Strings.GetLocalized("SI7"),
+				Name = "SI7",
 				Enabled = () => Settings.Default.SI7Enabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,

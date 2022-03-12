@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Neutral.HoardPillager, Neutral.RummagingKobold)
             {
-                Name = Strings.GetLocalized("HoardPillager"),
+                Name = "HoardPillager",
                 Enabled = () => Settings.Default.HoardPillagerEnabled,
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

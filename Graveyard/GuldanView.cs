@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Warlock.BloodreaverGuldan, Warlock.KanrethadEbonlocke)
             {
-				Name = Strings.GetLocalized("Guldan"),
+				Name = "Guldan",
 				Enabled = () => Settings.Default.GuldanEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

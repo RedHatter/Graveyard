@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Rogue.TessGreymane, Rogue.ContrabandStash)
             {
-                Name = Strings.GetLocalized("TessGreymane"),
+                Name = "TessGreymane",
                 Enabled = () => Settings.Default.TessGreymaneEnabled,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,

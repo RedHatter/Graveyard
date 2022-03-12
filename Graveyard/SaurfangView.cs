@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Warrior.OverlordSaurfang)
             {
-				Name = Strings.GetLocalized("Saurfang"),
+				Name = "Saurfang",
 				Enabled = () => Settings.Default.SaurfangEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
 				Priest.LesserDiamondSpellstone,
 				Neutral.Kazakus)
             {
-				Name = Strings.GetLocalized("Resurrect"),
+				Name = "Resurrect",
 				Enabled = () => Settings.Default.ResurrectEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

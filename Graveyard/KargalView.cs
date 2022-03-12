@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Neutral.KargalBattlescar)
             {
-				Name = Strings.GetLocalized("Kargal"),
+				Name = "Kargal",
 				Enabled = () => Settings.Default.KargalEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,

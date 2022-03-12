@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothGodOfTheDeep)
             {
-				Name = Strings.GetLocalized("NZothGotD"),
+				Name = "NZothGotD",
 				Enabled = () => Settings.Default.NZothGotDEnabled,
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

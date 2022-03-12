@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Rogue.TheCavernsBelow)
             {
-                Name = Strings.GetLocalized("Caverns"),
+                Name = "Caverns",
                 Enabled = () => Settings.Default.CavernsEnabled,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,

@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Druid.Mulchmuncher)
             {
-                Name = Strings.GetLocalized("Mulchmuncher"),
+                Name = "Mulchmuncher",
                 Enabled = () => Settings.Default.MulchmuncherEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new NormalView(),

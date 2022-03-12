@@ -20,7 +20,7 @@ namespace HDT.Plugins.Graveyard
                 Neutral.DaUndatakah,
                 Priest.TwilightsCall)
             {
-                Name = Strings.GetLocalized("Deathrattle"),
+                Name = "Deathrattle",
                 Enabled = () => Settings.Default.DeathrattleEnabled,
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

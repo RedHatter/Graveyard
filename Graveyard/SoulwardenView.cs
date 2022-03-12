@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Warlock.Soulwarden)
             {
-                Name = Strings.GetLocalized("Soulwarden"),
+                Name = "Soulwarden",
                 Enabled = () => Settings.Default.SoulwardenEnabled,
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerHandDiscard,

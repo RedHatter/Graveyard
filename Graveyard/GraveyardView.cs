@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 {
     internal class GraveyardView
     {
-		private static readonly string SharedName = Strings.GetLocalized("Graveyard");
+		private static readonly string SharedName = "Graveyard";
 		private static readonly Func<ViewBase> SharedCreateView = () => new NormalView();
 		private static readonly Predicate<Card> SharedCondition = card => card.Type == "Minion";
 

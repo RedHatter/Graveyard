@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Hunter.Zuljin)
             {
-                Name = Strings.GetLocalized("Zuljin"),
+                Name = "Zuljin",
                 Enabled = () => Settings.Default.ZuljinEnabled,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,

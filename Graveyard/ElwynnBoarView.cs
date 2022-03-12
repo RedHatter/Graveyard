@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
         {
             get => _Config ?? (_Config = new ViewConfig(Neutral.ElwynnBoar)
             {
-                Name = Strings.GetLocalized("ElwynnBoar"),
+                Name = "ElwynnBoar",
                 Enabled = () => Settings.Default.ElwynnBoarEnabled,
                 ShowFirst = () => true,
                 CreateView = () => new NormalView(),
