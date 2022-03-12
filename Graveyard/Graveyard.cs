@@ -181,7 +181,7 @@ namespace HDT.Plugins.Graveyard
 
 		private ViewBase InitializeView(Panel parent, ViewConfig config, bool isDefault = false)
         {
-			var view = CreateView(config);
+			var view = new ViewBuilder(config, Core.Game.Player.PlayerCardList).BuildView();
 			if (view == null) return null;
 			
 			RegisterView(config, view, isDefault);
@@ -196,18 +196,6 @@ namespace HDT.Plugins.Graveyard
 			parent.Children.Add(view);
 
 			return true;
-		}
-
-		private ViewBase CreateView(ViewConfig config)
-        {
-			if (config.Enabled() && (config.ShowOn == null || Core.Game.Player.PlayerCardList.FindIndex(card => config.ShowOn.Contains(card.Id)) > -1))
-			{
-				var view = config.CreateView();
-				view.Title = config.Name;
-				view.Condition = config.Condition;
-				return view;
-			}
-			return null;
 		}
 
 		private void RegisterView(ViewConfig config, ViewBase view, bool isDefault = false)
