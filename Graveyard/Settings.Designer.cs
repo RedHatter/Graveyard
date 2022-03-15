@@ -565,30 +565,6 @@ namespace HDT.Plugins.Graveyard {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SI7Enabled {
-            get {
-                return ((bool)(this["SI7Enabled"]));
-            }
-            set {
-                this["SI7Enabled"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool JaceEnabled {
-            get {
-                return ((bool)(this["JaceEnabled"]));
-            }
-            set {
-                this["JaceEnabled"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ExcludedCards {
             get {
