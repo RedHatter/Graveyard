@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Druid.WitchingHour, Hunter.RevivePet)
             {
                 Name = "WitchingHour",
-                Enabled = () => Settings.Default.WitchingHourEnabled,
+                Enabled = "WitchingHourEnabled",
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Beast" || card.Race == "All",

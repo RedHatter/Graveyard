@@ -16,7 +16,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Paladin.AnyfinCanHappen)
 			{
 				Name = "Anyfin",
-				Enabled = () => Settings.Default.AnyfinEnabled,
+				Enabled = "AnyfinEnabled",
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				CreateView = () => new AnyfinView(),
 				Condition = card => card.IsMurloc(),

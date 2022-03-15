@@ -21,7 +21,7 @@ namespace HDT.Plugins.Graveyard
 				Neutral.Kazakus)
             {
 				Name = "Resurrect",
-				Enabled = () => Settings.Default.ResurrectEnabled,
+				Enabled = "ResurrectEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion",

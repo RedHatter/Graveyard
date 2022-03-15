@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Rogue.TheCavernsBelow)
             {
                 Name = "Caverns",
-                Enabled = () => Settings.Default.CavernsEnabled,
+                Enabled = "CavernsEnabled",
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Minion",                

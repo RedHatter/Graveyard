@@ -14,7 +14,6 @@ namespace HDT.Plugins.Graveyard
                 Rogue.Si7Smuggler)
 			{
 				Name = "SI7",
-				Enabled = () => Settings.Default.SI7Enabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Name.StartsWith("SI:7"),

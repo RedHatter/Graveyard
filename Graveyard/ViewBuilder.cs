@@ -31,9 +31,11 @@ namespace HDT.Plugins.Graveyard
                                   select playerCard);
         }
 
+        public bool Enabled => string.IsNullOrEmpty(Config.Enabled) || (bool)Settings.Default[Config.Enabled];
+
         public ViewBase BuildView()
         {
-            if (!Config.Enabled()) return null;
+            if (!Enabled) return null;
 
             if (Config.ShowOn == null || ActiveCards.Count() > 0)
             {

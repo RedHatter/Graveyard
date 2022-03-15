@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
             get => _FriendlyConfig ?? (_FriendlyConfig = new ViewConfig()
             {
                 Name = SharedName,
-                Enabled = () => Settings.Default.FriendlyQuestlineEnabled,
+                Enabled = "FriendlyQuestlineEnabled",
                 ShowFirst = () => true,
                 CreateView = SharedCreateView,
                 UpdateOn = GameEvents.OnPlayerPlay,
@@ -31,7 +31,7 @@ namespace HDT.Plugins.Graveyard
             get => _EnemyConfig ?? (_EnemyConfig = new ViewConfig()
             {
                 Name = SharedName,
-                Enabled = () => Settings.Default.EnemyQuestlineEnabled,
+                Enabled = "EnemyQuestlineEnabled",
                 CreateView = SharedCreateView, 
                 UpdateOn = GameEvents.OnOpponentPlay,
                 Condition = SharedCondition,

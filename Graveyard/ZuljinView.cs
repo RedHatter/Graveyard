@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Hunter.Zuljin)
             {
                 Name = "Zuljin",
-                Enabled = () => Settings.Default.ZuljinEnabled,
+                Enabled = "ZuljinEnabled",
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell",

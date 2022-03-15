@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Shaman.Shudderwock)
             {
 				Name = "Shudderwock",
-				Enabled = () => Settings.Default.ShudderwockEnabled,
+				Enabled = "ShudderwockEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Mechanics.Contains("Battlecry"),

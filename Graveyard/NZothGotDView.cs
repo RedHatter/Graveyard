@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothGodOfTheDeep)
             {
 				Name = "NZothGotD",
-				Enabled = () => Settings.Default.NZothGotDEnabled,
+				Enabled = "NZothGotDEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race != null,

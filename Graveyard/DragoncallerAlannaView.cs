@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Mage.DragoncallerAlanna)
             {
 				Name = "Alanna",
-				Enabled = () => Settings.Default.DragoncallerAlannaEnabled,
+				Enabled = "DragoncallerAlannaEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && card.Cost >= 5,

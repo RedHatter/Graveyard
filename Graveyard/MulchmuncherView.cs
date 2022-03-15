@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Druid.Mulchmuncher)
             {
                 Name = "Mulchmuncher",
-                Enabled = () => Settings.Default.MulchmuncherEnabled,
+                Enabled = "MulchmuncherEnabled",
                 ShowFirst = () => true,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,

@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Warlock.BloodreaverGuldan, Warlock.KanrethadEbonlocke)
             {
 				Name = "Guldan",
-				Enabled = () => Settings.Default.GuldanEnabled,
+				Enabled = "GuldanEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Race == "Demon",

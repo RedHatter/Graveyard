@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Warlock.CruelDinomancer)
 			{
 				Name = "DiscardTitle",
-				Enabled = () => Settings.Default.DiscardEnabled,
+				Enabled = "DiscardEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerHandDiscard,
 				Condition = card => card.Type == "Minion",				

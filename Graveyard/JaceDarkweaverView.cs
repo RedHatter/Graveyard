@@ -11,7 +11,6 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Demonhunter.JaceDarkweaver)
 			{
 				Name = "Jace",
-				Enabled = () => Settings.Default.JaceEnabled,
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.GetSchool() == School.Fel,

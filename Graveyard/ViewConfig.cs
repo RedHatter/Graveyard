@@ -9,7 +9,7 @@ namespace HDT.Plugins.Graveyard
     internal class ViewConfig
     {
         public string Name { get; set; }
-        public Func<bool> Enabled { get; set; }
+        public string Enabled { get; set; }
         public Func<bool> ShowFirst { get; set; } = () => false;
         public ActionList<Card> UpdateOn { get; set; }       
         public IEnumerable<string> ShowOn => ShowOnCards?.Where(c => c.IsEnabled).Select(c => c.CardId);

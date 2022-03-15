@@ -21,7 +21,7 @@ namespace HDT.Plugins.Graveyard
                 Priest.TwilightsCall)
             {
                 Name = "Deathrattle",
-                Enabled = () => Settings.Default.DeathrattleEnabled,
+                Enabled = "DeathrattleEnabled",
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 CreateView = () => new NormalView(),

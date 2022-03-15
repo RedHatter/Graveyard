@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Warrior.OverlordSaurfang)
             {
 				Name = "Saurfang",
-				Enabled = () => Settings.Default.SaurfangEnabled,
+				Enabled = "SaurfangEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.EnglishText?.Contains("Frenzy:") ?? false

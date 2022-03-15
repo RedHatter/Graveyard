@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Paladin.KangorsEndlessArmy)
             {
                 Name = "Kangor",
-                Enabled = () => Settings.Default.KangorEnabled,
+                Enabled = "KangorEnabled",
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Race == "Mech" || card.Race == "All",

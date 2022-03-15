@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new ViewConfig(Mage.GreySageParrot)
             {
                 Name = "GreySageParrot",
-                Enabled = () => Settings.Default.LastPlayedEnabled,
+                Enabled = "LastPlayedEnabled",
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
@@ -25,7 +25,7 @@ namespace HDT.Plugins.Graveyard
             get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new ViewConfig(Paladin.SunwingSquawker)
             {
                 Name = "SunwingSquawker",
-                Enabled = () => Settings.Default.LastPlayedEnabled,
+                Enabled = "LastPlayedEnabled",
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
@@ -39,7 +39,7 @@ namespace HDT.Plugins.Graveyard
             get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new ViewConfig(Shaman.BrilliantMacaw)
             {
                 Name = "BrilliantMacaw",
-                Enabled = () => Settings.Default.LastPlayedEnabled,
+                Enabled = "LastPlayedEnabled",
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
@@ -53,7 +53,7 @@ namespace HDT.Plugins.Graveyard
             get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new ViewConfig(Hunter.MonstrousParrot)
             {
                 Name = "MonstrousParrot",
-                Enabled = () => Settings.Default.LastPlayedEnabled,
+                Enabled = "LastPlayedEnabled",
                 ShowFirst = () => true,
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
@@ -67,7 +67,7 @@ namespace HDT.Plugins.Graveyard
             get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new ViewConfig(Rogue.VanessaVancleefCore)
             {
                 Name = "VanessaVanCleef",
-                Enabled = () => Settings.Default.LastPlayedEnabled,
+                Enabled = "LastPlayedEnabled",
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnOpponentPlay,
                 Condition = card => (card.Type == "Spell" || card.Type == "Minion"),

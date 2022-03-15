@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.YshaarjTheDefiler)
 			{
 				Name = "YShaarj",
-				Enabled = () => Settings.Default.YShaarjEnabled,
+				Enabled = "YShaarjEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),

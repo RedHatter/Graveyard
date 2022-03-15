@@ -19,7 +19,7 @@ namespace HDT.Plugins.Graveyard
 			get => _FriendlyConfig ?? (_FriendlyConfig = new ViewConfig()
 			{
 				Name = SharedName,
-				Enabled = () => Settings.Default.NormalEnabled,
+				Enabled = "NormalEnabled",
 				CreateView = SharedCreateView,
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = SharedCondition,
@@ -32,7 +32,7 @@ namespace HDT.Plugins.Graveyard
 			get => _EnemyConfig ?? (_EnemyConfig = new ViewConfig()
 			{
 				Name = SharedName,
-				Enabled = () => Settings.Default.EnemyEnabled,
+				Enabled = "EnemyEnabled",
 				CreateView = SharedCreateView,
 				UpdateOn = GameEvents.OnOpponentPlayToGraveyard,
 				Condition = SharedCondition,

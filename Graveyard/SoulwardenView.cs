@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Warlock.Soulwarden)
             {
                 Name = "Soulwarden",
-                Enabled = () => Settings.Default.SoulwardenEnabled,
+                Enabled = "SoulwardenEnabled",
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerHandDiscard,
                 Condition = card => true,

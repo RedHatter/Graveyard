@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothTheCorruptor)
             {
 				Name = "NZoth",
-				Enabled = () => Settings.Default.NZothEnabled,
+				Enabled = "NZothEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,

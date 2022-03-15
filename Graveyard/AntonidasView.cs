@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Mage.GrandMagusAntonidas)
 			{
 				Name = "Antonidas",
-				Enabled = () => Settings.Default.AntonidasEnabled,
+				Enabled = "AntonidasEnabled",
 				CreateView = () => new MultiTurnView(Config.Name, 3),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.GetSchool() == School.Fire,				

@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Druid.Hadronox)
             {
 				Name = "Hadronox",
-				Enabled = () => Settings.Default.HadronoxEnabled,
+				Enabled = "HadronoxEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Mechanics.Contains("Taunt"),

@@ -15,7 +15,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Paladin.ShirvallahTheTiger)
             {
 				Name = "Shirvallah",
-				Enabled = () => Settings.Default.ShirvallahEnabled,
+				Enabled = "ShirvallahEnabled",
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.Type == "Spell" && ActualCardCost(card) > 0,
 				CreateView = () => new ShirvallahView(),

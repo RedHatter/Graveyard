@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.Rally)
             {
 				Name = "Rally",
-				Enabled = () => Settings.Default.RallyEnabled,
+				Enabled = "RallyEnabled",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
 				Condition = card => card.Type == "Minion" && card.Cost >= 1 && card.Cost <= 3,

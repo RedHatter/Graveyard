@@ -11,7 +11,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Neutral.HoardPillager, Neutral.RummagingKobold)
             {
                 Name = "HoardPillager",
-                Enabled = () => Settings.Default.HoardPillagerEnabled,
+                Enabled = "HoardPillagerEnabled",
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Type == "Weapon"

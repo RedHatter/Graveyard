@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
             {
                 Name = "LadyLiadrin",
-                Enabled = () => Settings.Default.LadyLiadrinEnabled,
+                Enabled = "LadyLiadrinEnabled",
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),

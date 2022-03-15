@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			get => _Config ?? (_Config = new ViewConfig(Neutral.KargalBattlescar)
             {
 				Name = "Kargal",
-				Enabled = () => Settings.Default.KargalEnabled,
+				Enabled = "KargalEnabled",
 				CreateView = () => new NormalView(),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => Posts.Contains(card.Id),
