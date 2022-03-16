@@ -121,6 +121,16 @@ namespace HDT.Plugins.Graveyard
 			OnOpponentTurnStart.Clear();
 		}
 
+		public void Update()
+        {
+			var visibility = (Core.Game.IsInMenu && Hearthstone_Deck_Tracker.Config.Instance.HideInMenu)
+				|| Core.Game.IsBattlegroundsMatch
+				|| Core.Game.IsMercenariesMatch ? System.Windows.Visibility.Collapsed : System.Windows.Visibility.Visible;
+
+			FriendlyPanel.Visibility = visibility;
+			EnemyPanel.Visibility = visibility;
+		}
+
 		/**
 		* Clear then recreate all Views.
 		*/

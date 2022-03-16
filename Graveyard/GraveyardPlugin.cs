@@ -32,9 +32,7 @@ namespace HDT.Plugins.Graveyard
 
             GraveyardInstance = new Graveyard();
 
-            GameEvents.OnInMenu.Add(GraveyardInstance.Reset);
             GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
-            GameEvents.OnGameEnd.Add(GraveyardInstance.Clear);
             DeckManagerEvents.OnDeckSelected.Add(UpdateSelectedDeck);
 
             GameEvents.OnPlayerPlayToGraveyard.Add(GraveyardInstance.OnPlayerPlayToGraveyard.Poll);
@@ -70,7 +68,10 @@ namespace HDT.Plugins.Graveyard
 
             ViewConfigCards.Instance = null;
         }
-        public void OnUpdate() { }
+        public void OnUpdate() 
+        {
+            GraveyardInstance?.Update();
+        }
 
         public static readonly Version AssemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
         public static readonly Version PluginVersion = new Version(AssemblyVersion.Major, AssemblyVersion.Minor, AssemblyVersion.Build);
