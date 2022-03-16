@@ -100,5 +100,36 @@ namespace HDT.Plugins.Graveyard
                 Log.Error(ex);
             }
         }
+
+        public override void Upgrade()
+        {
+            var upgradeVersion = new Version(1, 10);
+            if (upgradeVersion.CompareTo(new Version(Default.Version)) > 0)
+            {
+                foreach (var config in GraveyardPlugin.GraveyardInstance.ConfigList)
+                {
+                    try
+                    {
+                        if (string.IsNullOrEmpty(config.Enabled)
+                                        || (bool)Default[config.Enabled]
+                                        || config.ShowOnCards == null
+                                        || config.ShowOnCards.Count() > 2) continue;
+
+                        foreach (var configCard in config.ShowOnCards)
+                        {
+                            configCard.IsEnabled = false;
+                            ViewConfigCards.Instance.Toggle(configCard);
+                        }
+                        Default[config.Enabled] = true;
+                        Log.Info($"Upgraded {config.Name} setting to {upgradeVersion}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex);
+                    }
+                }
+                Default.Version = upgradeVersion.ToString();
+            }
+        }
     }
 }

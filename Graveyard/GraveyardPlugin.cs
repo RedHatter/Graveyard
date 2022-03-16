@@ -32,6 +32,8 @@ namespace HDT.Plugins.Graveyard
 
             GraveyardInstance = new Graveyard();
 
+            Settings.Upgrade();
+
             GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
             DeckManagerEvents.OnDeckSelected.Add(UpdateSelectedDeck);
 

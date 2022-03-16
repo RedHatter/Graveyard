@@ -12,16 +12,17 @@ namespace HDT.Plugins.Graveyard
         public string Enabled { get; set; }
         public Func<bool> ShowFirst { get; set; } = () => false;
         public ActionList<Card> UpdateOn { get; set; }       
-        public IEnumerable<string> ShowOn => ShowOnCards?.Where(c => c.IsEnabled).Select(c => c.CardId);
+        public IEnumerable<string> ShowOn => _ShowOnCards?.Where(c => c.IsEnabled).Select(c => c.CardId);
         public Predicate<Card> Condition { get; set; }        
         public Func<ViewBase> CreateView { get; set; }
 
-        private List<ViewConfigCard> ShowOnCards;
+        public IEnumerable<ViewConfigCard> ShowOnCards => _ShowOnCards;
+        private readonly List<ViewConfigCard> _ShowOnCards;
 
         public ViewConfig() { }
         public ViewConfig(params string[] showOn)
         {
-            ShowOnCards = new List<ViewConfigCard>(showOn.Select(s => ViewConfigCards.Instance.Factory(s)));
+            _ShowOnCards = new List<ViewConfigCard>(showOn.Select(s => ViewConfigCards.Instance.Factory(s)));
         }
     }
 }
