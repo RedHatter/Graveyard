@@ -58,13 +58,6 @@ namespace HDT.Plugins.Graveyard
 
 		public static InputManager Input;
 
-		internal TurnUpdatePoller OnOpponentTurnStart { get; } = new TurnUpdatePoller(ActivePlayer.Opponent);
-		internal CardUpdatePoller OnPlayerPlayToGraveyard { get; } = new CardUpdatePoller();
-		internal CardUpdatePoller OnOpponentPlayToGraveyard { get; } = new CardUpdatePoller();
-		internal CardUpdatePoller OnPlayerPlay { get; } = new CardUpdatePoller();
-		internal CardUpdatePoller OnOpponentPlay { get; } = new CardUpdatePoller();
-		internal CardUpdatePoller OnPlayerHandDiscard { get; } = new CardUpdatePoller();
-
 		public Graveyard()
 		{
 
@@ -110,15 +103,7 @@ namespace HDT.Plugins.Graveyard
 			FriendlyPanel.Children.Clear();
 			EnemyPanel.Children.Clear();
 
-			OnPlayerPlayToGraveyard.Clear();
-			OnOpponentPlayToGraveyard.Clear();
-
-			OnPlayerPlay.Clear();
-			OnOpponentPlay.Clear();
-
-			OnPlayerHandDiscard.Clear();
-
-			OnOpponentTurnStart.Clear();
+			Plugin.Events.Clear();
 		}
 
 		public void Update()
@@ -179,11 +164,11 @@ namespace HDT.Plugins.Graveyard
                 {
 					if (card != null)
                     {
-						OnOpponentPlay.Poll(card);
-						OnOpponentPlayToGraveyard.Poll(card);
-						OnPlayerHandDiscard.Poll(card);
-						OnPlayerPlay.Poll(card);
-						OnPlayerPlayToGraveyard.Poll(card);						
+						Plugin.Events.OnOpponentPlay.Poll(card);
+						Plugin.Events.OnOpponentPlayToGraveyard.Poll(card);
+						Plugin.Events.OnPlayerHandDiscard.Poll(card);
+						Plugin.Events.OnPlayerPlay.Poll(card);
+						Plugin.Events.OnPlayerPlayToGraveyard.Poll(card);						
 					}
                 }
             }
@@ -214,7 +199,7 @@ namespace HDT.Plugins.Graveyard
 			var multiTurn = view as MultiTurnView;
 			if (multiTurn != null)
 			{
-				OnOpponentTurnStart.Register(multiTurn.TurnEnded);
+				Plugin.Events.OnOpponentTurnStart.Register(multiTurn.TurnEnded);
 			}
 		}
 
@@ -222,23 +207,23 @@ namespace HDT.Plugins.Graveyard
         {
 			if (actionList == GameEvents.OnPlayerPlayToGraveyard)
 			{
-				OnPlayerPlayToGraveyard.Register(view.Update, isDefault);
+				Plugin.Events.OnPlayerPlayToGraveyard.Register(view.Update, isDefault);
 			}
 			else if (actionList == GameEvents.OnOpponentPlayToGraveyard)
 			{
-				OnOpponentPlayToGraveyard.Register(view.Update, isDefault);
+				Plugin.Events.OnOpponentPlayToGraveyard.Register(view.Update, isDefault);
 			}
 			else if (actionList == GameEvents.OnPlayerPlay)
 			{
-				OnPlayerPlay.Register(view.Update, isDefault);
+				Plugin.Events.OnPlayerPlay.Register(view.Update, isDefault);
 			}
 			else if (actionList == GameEvents.OnOpponentPlay)
 			{
-				OnOpponentPlay.Register(view.Update, isDefault);
+				Plugin.Events.OnOpponentPlay.Register(view.Update, isDefault);
 			}
 			else if (actionList == GameEvents.OnPlayerHandDiscard)
 			{
-				OnPlayerHandDiscard.Register(view.Update, isDefault);
+				Plugin.Events.OnPlayerHandDiscard.Register(view.Update, isDefault);
 			}
 		}
 	}

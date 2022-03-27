@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardUpdatePoller.cs" />
+    <Compile Include="EventManager.cs" />
     <Compile Include="GraveyardView.cs" />
     <Compile Include="JaceDarkweaverView.cs" />
     <Compile Include="SettingsCard.cs" />

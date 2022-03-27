@@ -8,10 +8,11 @@ using System.Windows.Controls;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class GraveyardPlugin : IPlugin
+    public class Plugin : IPlugin
 	{
         private Settings Settings;
-        internal static Graveyard GraveyardInstance { get; private set; }
+        internal static EventManager Events { get; private set; }
+        internal static Graveyard Graveyard { get; private set; }
         public string Author => "RedHatter";
         public string ButtonText => Strings.GetLocalized("Settings");
 
@@ -28,24 +29,26 @@ namespace HDT.Plugins.Graveyard
             MenuItem = new MenuItem { Header = Name };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
+            Events = new EventManager();
+
             ViewConfigCards.Instance = new ViewConfigCards(Settings);
 
-            GraveyardInstance = new Graveyard();
+            Graveyard = new Graveyard();
 
             Settings.Upgrade();
 
-            GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
+            GameEvents.OnGameStart.Add(Graveyard.Reset);
             DeckManagerEvents.OnDeckSelected.Add(UpdateSelectedDeck);
 
-            GameEvents.OnPlayerPlayToGraveyard.Add(GraveyardInstance.OnPlayerPlayToGraveyard.Poll);
-            GameEvents.OnOpponentPlayToGraveyard.Add(GraveyardInstance.OnOpponentPlayToGraveyard.Poll);
+            GameEvents.OnPlayerPlayToGraveyard.Add(Events.OnPlayerPlayToGraveyard.Poll);
+            GameEvents.OnOpponentPlayToGraveyard.Add(Events.OnOpponentPlayToGraveyard.Poll);
 
-            GameEvents.OnPlayerHandDiscard.Add(GraveyardInstance.OnPlayerHandDiscard.Poll);
+            GameEvents.OnPlayerHandDiscard.Add(Events.OnPlayerHandDiscard.Poll);
             
-            GameEvents.OnPlayerPlay.Add(GraveyardInstance.OnPlayerPlay.Poll);
-            GameEvents.OnOpponentPlay.Add(GraveyardInstance.OnOpponentPlay.Poll);
+            GameEvents.OnPlayerPlay.Add(Events.OnPlayerPlay.Poll);
+            GameEvents.OnOpponentPlay.Add(Events.OnOpponentPlay.Poll);
 
-            GameEvents.OnTurnStart.Add(GraveyardInstance.OnOpponentTurnStart.Poll);
+            GameEvents.OnTurnStart.Add(Events.OnOpponentTurnStart.Poll);
 
             UpdateSelectedDeck(DeckList.Instance.ActiveDeck);
         }
@@ -56,7 +59,7 @@ namespace HDT.Plugins.Graveyard
             if (deck == DeckList.Instance.ActiveDeck && deck != SelectedDeck)
             {
                 SelectedDeck = deck;
-                GraveyardInstance.Reset();
+                Graveyard.Reset();
             }
         }
 
@@ -65,14 +68,18 @@ namespace HDT.Plugins.Graveyard
             if (Settings?.HasChanges ?? false) Settings?.Save();
             Settings = null;
 
-            GraveyardInstance?.Dispose();
-            GraveyardInstance = null;
+            Graveyard?.Dispose();
+            Graveyard = null;
 
             ViewConfigCards.Instance = null;
+
+            Events?.Clear();
+            Events = null;
         }
+
         public void OnUpdate() 
         {
-            GraveyardInstance?.Update();
+            Graveyard?.Update();
         }
 
         public static readonly Version AssemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;

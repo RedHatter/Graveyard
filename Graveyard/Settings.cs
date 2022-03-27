@@ -129,7 +129,7 @@ namespace HDT.Plugins.Graveyard
                 
                 // Process config list for disabled settings and convert to excluded cards
                 // Exclude "Last Played" views to process separately
-                foreach (var config in GraveyardPlugin.GraveyardInstance.ConfigList
+                foreach (var config in Plugin.Graveyard.ConfigList
                     .Where(c => !string.IsNullOrEmpty(c.Enabled)
                     && !(bool)Default[c.Enabled]
                     && c.Enabled != "LastPlayedEnabled"
@@ -143,7 +143,7 @@ namespace HDT.Plugins.Graveyard
                 TryUpdateConfig(AnyfinView.Config, true);
                 
                 // "Last Played" cards all use single LastPlayedEnabled setting
-                var lastPlayedConfigs = GraveyardPlugin.GraveyardInstance.ConfigList
+                var lastPlayedConfigs = Plugin.Graveyard.ConfigList
                     .Where(c => c.Enabled == "LastPlayedEnabled"
                     && !(bool)Default[c.Enabled])
                     .ToList();
