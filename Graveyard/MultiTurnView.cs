@@ -40,7 +40,7 @@ namespace HDT.Plugins.Graveyard
 
         public readonly int Turns;
 
-        public MultiTurnView(string title, int turns)
+        public MultiTurnView(int turns)
         {
             Turns = turns;
 

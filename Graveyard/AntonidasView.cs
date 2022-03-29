@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
 			{
 				Name = "Antonidas",
 				Enabled = "AntonidasEnabled",
-				CreateView = () => new MultiTurnView(Config.Name, 3),
+				CreateView = () => new MultiTurnView(3),
 				UpdateOn = GameEvents.OnPlayerPlay,
 				Condition = card => card.GetSchool() == School.Fire,				
 			});
