@@ -24,5 +24,15 @@ namespace HDT.Plugins.Graveyard
         {
             _ShowOnCards = new List<ViewConfigCard>(showOn.Select(s => ViewConfigCards.Instance.Factory(s)));
         }
+
+        public virtual void RegisterView(ViewBase view, bool isDefault = false)
+        {
+            RegisterForCardEvent(UpdateOn, view.Update, isDefault);
+        }
+
+        protected void RegisterForCardEvent(ActionList<Card> actionList, Func<Card, bool> func, bool isDefault = false)
+        {
+            Plugin.Events.MapCardEvent(actionList)?.Register(func, isDefault);
+        }
     }
 }

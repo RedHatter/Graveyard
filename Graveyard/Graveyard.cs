@@ -16,6 +16,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			QuestlineView.FriendlyConfig,
 			ResurrectView.Config,
+			AnyfinView.Config,
 			DeathrattleView.Config,
 			NZothView.Config,
 			HadronoxView.Config,
@@ -139,12 +140,6 @@ namespace HDT.Plugins.Graveyard
             
 			InitializeView(FriendlyPanel, GraveyardView.FriendlyConfig, true);
 			
-			var anyfinView = InitializeView(FriendlyPanel, AnyfinView.Config);
-			if (anyfinView != null)
-			{
-				RegisterView(GameEvents.OnOpponentPlayToGraveyard, anyfinView);
-			}
-
 			foreach (var config in ConfigList)
             {
                 if (config.ShowFirst())
@@ -178,8 +173,8 @@ namespace HDT.Plugins.Graveyard
         {
 			var view = new ViewBuilder(config, Core.Game.Player.PlayerCardList).BuildView();
 			if (view == null) return null;
-			
-			RegisterView(config, view, isDefault);
+
+			config.RegisterView(view, isDefault);
 			ShowView(parent, view);
 			return view;
 		}
@@ -191,40 +186,6 @@ namespace HDT.Plugins.Graveyard
 			parent.Children.Add(view);
 
 			return true;
-		}
-
-		private void RegisterView(ViewConfig config, ViewBase view, bool isDefault = false)
-        {
-			RegisterView(config.UpdateOn, view, isDefault);
-			var multiTurn = view as MultiTurnView;
-			if (multiTurn != null)
-			{
-				Plugin.Events.OnOpponentTurnStart.Register(multiTurn.TurnEnded);
-			}
-		}
-
-		private void RegisterView(ActionList<Card> actionList, ViewBase view, bool isDefault = false)
-        {
-			if (actionList == GameEvents.OnPlayerPlayToGraveyard)
-			{
-				Plugin.Events.OnPlayerPlayToGraveyard.Register(view.Update, isDefault);
-			}
-			else if (actionList == GameEvents.OnOpponentPlayToGraveyard)
-			{
-				Plugin.Events.OnOpponentPlayToGraveyard.Register(view.Update, isDefault);
-			}
-			else if (actionList == GameEvents.OnPlayerPlay)
-			{
-				Plugin.Events.OnPlayerPlay.Register(view.Update, isDefault);
-			}
-			else if (actionList == GameEvents.OnOpponentPlay)
-			{
-				Plugin.Events.OnOpponentPlay.Register(view.Update, isDefault);
-			}
-			else if (actionList == GameEvents.OnPlayerHandDiscard)
-			{
-				Plugin.Events.OnPlayerHandDiscard.Register(view.Update, isDefault);
-			}
-		}
+		}	
 	}
 }

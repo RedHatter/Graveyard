@@ -1,4 +1,6 @@
-﻿using Hearthstone_Deck_Tracker.Enums;
+﻿using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Enums;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,31 @@ namespace HDT.Plugins.Graveyard
 
 			OnOpponentTurnStart.Clear();
 		}
+
+		public CardUpdatePoller MapCardEvent(ActionList<Card> actionList)
+        {
+            CardUpdatePoller cardUpdatePoller = null;
+            if (actionList == GameEvents.OnPlayerPlayToGraveyard)
+            {
+                cardUpdatePoller = OnPlayerPlayToGraveyard;
+            }
+            else if (actionList == GameEvents.OnOpponentPlayToGraveyard)
+            {
+                cardUpdatePoller = OnOpponentPlayToGraveyard;
+            }
+            else if (actionList == GameEvents.OnPlayerPlay)
+            {
+                cardUpdatePoller = OnPlayerPlay;
+            }
+            else if (actionList == GameEvents.OnOpponentPlay)
+            {
+                cardUpdatePoller = OnOpponentPlay;
+            }
+            else if (actionList == GameEvents.OnPlayerHandDiscard)
+            {
+                cardUpdatePoller = OnPlayerHandDiscard;
+            }
+            return cardUpdatePoller;
+        }
 	}
 }

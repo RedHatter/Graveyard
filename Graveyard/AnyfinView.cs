@@ -10,10 +10,10 @@ namespace HDT.Plugins.Graveyard
 {
 	public class AnyfinView : NormalView
 	{
-		private static ViewConfig _Config;
+		private static AnyfinViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig(Paladin.AnyfinCanHappen)
+			get => _Config ?? (_Config = new AnyfinViewConfig(Paladin.AnyfinCanHappen)
 			{
 				Name = "Anyfin",
 				Enabled = "AnyfinEnabled",
@@ -22,6 +22,20 @@ namespace HDT.Plugins.Graveyard
 				Condition = card => card.IsMurloc(),
 			});
 		}				
+
+		internal class AnyfinViewConfig : ViewConfig
+        {
+            public AnyfinViewConfig(params string[] showOn) : base(showOn)
+            {
+
+            }
+
+            public override void RegisterView(ViewBase view, bool isDefault = false)
+            {
+                base.RegisterView(view, isDefault);
+				RegisterForCardEvent(GameEvents.OnOpponentPlayToGraveyard, view.Update, isDefault);
+			}
+        }
 
 		private HearthstoneTextBlock _dmg;
 		private HearthstoneTextBlock _secondDmg;

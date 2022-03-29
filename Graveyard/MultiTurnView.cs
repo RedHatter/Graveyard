@@ -1,4 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Controls;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,24 @@ namespace HDT.Plugins.Graveyard
 {
 	public class MultiTurnView : ViewBase
     {
+        internal class ViewConfig : Plugins.Graveyard.ViewConfig
+        {
+            public ViewConfig(params string[] showOn) : base(showOn)
+            {
+
+            }
+
+            public override void RegisterView(ViewBase view, bool isDefault = false)
+            {
+                base.RegisterView(view, isDefault);
+                var multiTurn = view as MultiTurnView;
+                if (multiTurn != null)
+                {
+                    Plugin.Events.OnOpponentTurnStart.Register(multiTurn.TurnEnded);
+                }
+            }
+        }
+
         public HearthstoneTextBlock Label;
 
         public List<TurnView> Views = new List<TurnView>();

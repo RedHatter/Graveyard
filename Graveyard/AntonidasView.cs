@@ -5,10 +5,10 @@ namespace HDT.Plugins.Graveyard
 {
     public class AntonidasView
     {
-		private static ViewConfig _Config;
+		private static MultiTurnView.ViewConfig _Config;
 		internal static ViewConfig Config
         {
-			get => _Config ?? (_Config = new ViewConfig(Mage.GrandMagusAntonidas)
+			get => _Config ?? (_Config = new MultiTurnView.ViewConfig(Mage.GrandMagusAntonidas)
 			{
 				Name = "Antonidas",
 				Enabled = "AntonidasEnabled",
