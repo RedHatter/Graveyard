@@ -106,7 +106,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
     <Compile Include="GraveyardPlugin.cs" />
-    <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
     <Compile Include="QuestlineView.cs" />
