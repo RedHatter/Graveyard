@@ -30,6 +30,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.BlessingOfWisdom,
             Paladin.DivineStrength,
             Paladin.HandOfProtectionLegacy,
+            Paladin.HolyMakiRoll,
             //Paladin.Humility
             Paladin.SandBreath,
             Paladin.ShieldOfHonor,
@@ -42,6 +43,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.LightforgedBlessing,
             Paladin.NobleMount,
             Paladin.PotionOfHeroism,
+            Paladin.RingOfCourage,
             Paladin.SoundTheBells,
             //Paladin.Subdue
             // 3
@@ -68,6 +70,8 @@ namespace HDT.Plugins.Graveyard
             Paladin.LayOnHands,
             // 9
             Paladin.LibramOfHope,
+            // 10
+            Paladin.TheGardensGrace,
         };
     }
 }
