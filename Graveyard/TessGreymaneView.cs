@@ -8,7 +8,7 @@ namespace HDT.Plugins.Graveyard
         public static bool isValid()
         {
             return Core.Game.Player.PlayerCardList.FindIndex(card => 
-                card.Id == HearthDb.CardIds.Collectible.Rogue.TessGreymane ||
+                card.Id == HearthDb.CardIds.Collectible.Rogue.TessGreymane1810 ||
                 card.Id == HearthDb.CardIds.Collectible.Rogue.ContrabandStash
                 ) > -1;
         }
