@@ -50,6 +50,7 @@ namespace HDT.Plugins.Graveyard
 			ShirvallahView.Config,
 			JaceDarkweaverView.Config,
 			SI7View.Config,
+			HedraView.Config,
 		};
 
 		private readonly StackPanel FriendlyPanel;
