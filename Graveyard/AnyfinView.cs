@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
 		private static AnyfinViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new AnyfinViewConfig(Paladin.AnyfinCanHappen)
+			get => _Config ?? (_Config = new AnyfinViewConfig()
 			{
 				Name = "Anyfin",
 				Enabled = "AnyfinEnabled",
@@ -25,7 +25,7 @@ namespace HDT.Plugins.Graveyard
 
 		internal class AnyfinViewConfig : ViewConfig
         {
-            public AnyfinViewConfig(params string[] showOn) : base(showOn)
+            public AnyfinViewConfig() : base(Paladin.AnyfinCanHappen)
             {
 
             }
