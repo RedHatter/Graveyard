@@ -8,7 +8,7 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Rogue.TessGreymane, Rogue.ContrabandStash)
+            get => _Config ?? (_Config = new ViewConfig(Rogue.TessGreymane1810, Rogue.ContrabandStash)
             {
                 Name = "TessGreymane",
                 Enabled = "TessGreymaneEnabled",
