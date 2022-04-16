@@ -261,6 +261,9 @@
             Grid.Row="1"
             Margin="0"
             Style="{StaticResource ListViewStyle}">
+            <ListView.Resources>
+                <local:KeyToLocalizedConverter x:Key="KeyToLocalizedConverter" />
+            </ListView.Resources>
             <ListView.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
@@ -271,7 +274,7 @@
                                         <Expander
                                             HorizontalAlignment="Stretch"
                                             HorizontalContentAlignment="Stretch"
-                                            Header="{Binding Name}"
+                                            Header="{Binding Name, Converter={StaticResource KeyToLocalizedConverter}}"
                                             IsExpanded="True">
                                             <ItemsPresenter />
                                         </Expander>

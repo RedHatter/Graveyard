@@ -66,10 +66,10 @@ namespace HDT.Plugins.Graveyard
 		{
 			public int Compare(object x, object y)
 			{
-				if (x is SettingsCard && y is SettingsCard)
+				if (x is SettingsCard settingsCardX && y is SettingsCard settingsCardY)
 				{
-					Card cardX = ((SettingsCard)x).Card;
-					Card cardY = ((SettingsCard)y).Card;
+					Card cardX = settingsCardX.Card;
+					Card cardY = settingsCardY.Card;
 					// workaround to put neutral cards last
 					bool xIsNeutral = cardX.CardClass == HearthDb.Enums.CardClass.NEUTRAL;
 					bool yIsNeutral = cardY.CardClass == HearthDb.Enums.CardClass.NEUTRAL;
@@ -77,7 +77,7 @@ namespace HDT.Plugins.Graveyard
 						return 1;
 					if (!xIsNeutral && yIsNeutral)
 						return -1;
-					int cardClassCompare = cardX.CardClass.CompareTo(cardY.CardClass);
+					int cardClassCompare = settingsCardX.CardClass.CompareTo(settingsCardY.CardClass);
 					if (cardClassCompare != 0)
 						return cardClassCompare;
 					int manaCostCompare = cardX.Cost.CompareTo(cardY.Cost);
