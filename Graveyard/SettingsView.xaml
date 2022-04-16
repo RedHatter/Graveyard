@@ -213,7 +213,7 @@
                 Content="{lex:Loc Questline}"
                 IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}"
                 Style="{StaticResource ToggleStyle}"
-                ToolTip="{lex:Loc QuestlineDescription}" />
+                ToolTip="{lex:Loc OpponentQuestlineDescription}" />
             <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
                 <StackPanel>
                     <DockPanel Style="{StaticResource SliderPanelStyle}">

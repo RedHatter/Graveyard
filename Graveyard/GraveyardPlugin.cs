@@ -26,7 +26,7 @@ namespace HDT.Plugins.Graveyard
         {
             Settings = Settings.Default;
 
-            MenuItem = new MenuItem { Header = Name };
+            MenuItem = new MenuItem { Header = Strings.GetLocalized("Graveyard") };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
             Events = new EventManager();
