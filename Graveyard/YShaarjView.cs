@@ -1,23 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class YShaarjView : NormalView
+    public class YShaarjView
 	{
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.YshaarjTheDefiler) > -1;
-		}
-
-		public YShaarjView()
-		{
-			Label.Text = Strings.GetLocalized("YShaarj");
-		}
-
-		public bool Update(Card card)
-		{
-			return ((card.EnglishText?.StartsWith("Corrupted") ?? false) && base.Update(card, true));
-		}
+			get => _Config ?? (_Config = new ViewConfig(Neutral.YshaarjTheDefiler)
+			{
+				Name = "YShaarj",
+				Enabled = "YShaarjEnabled",
+				CreateView = () => new NormalView(),
+				UpdateOn = GameEvents.OnPlayerPlay,
+				Condition = card => (card.EnglishText?.StartsWith("Corrupted") ?? false),
+			});
+		}	
 	}
 }

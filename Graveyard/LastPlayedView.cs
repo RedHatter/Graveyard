@@ -1,91 +1,78 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
 using System.Linq;
-using System.Windows.Controls;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LastPlayedView : StackPanel
+    public class LastPlayedView
     {
-        public static bool IsValid()
+        internal static ViewConfig GreySageParrotConfig
         {
-            return HasGreySageParrot || HasSunwingSquawker || HasBrilliantMacaw || HasMonstrousParrot || HasVanessaVanCleef;
-        }
-
-        public static bool HasGreySageParrot => Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Mage.GreySageParrot) > -1;
-        public static bool HasSunwingSquawker => Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.SunwingSquawker) > -1;
-        public static bool HasBrilliantMacaw => Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Shaman.BrilliantMacaw) > -1;
-        public static bool HasMonstrousParrot => Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Hunter.MonstrousParrot) > -1;
-        public static bool HasVanessaVanCleef => Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Rogue.VanessaVancleefCore) > -1;
-
-        readonly LastCardView GreySageParrot;
-        readonly LastCardView SunwingSquawker;
-        readonly LastCardView BrilliantMacaw;
-        readonly LastCardView MonstrousParrot;
-        readonly LastCardView VanessaVanCleef;
-
-        public LastPlayedView()
-        {
-            CreateViewIf(HasGreySageParrot, ref GreySageParrot, Strings.GetLocalized("GreySageParrot"));
-            CreateViewIf(HasSunwingSquawker, ref SunwingSquawker, Strings.GetLocalized("SunwingSquawker"));
-            CreateViewIf(HasBrilliantMacaw, ref BrilliantMacaw, Strings.GetLocalized("BrilliantMacaw"));
-            CreateViewIf(HasMonstrousParrot, ref MonstrousParrot, Strings.GetLocalized("MonstrousParrot"));
-            CreateViewIf(HasVanessaVanCleef, ref VanessaVanCleef, Strings.GetLocalized("VanessaVanCleef"));
-        }
-
-        private void CreateViewIf(bool create, ref LastCardView view, string title)
-        {
-            if (create)
+            get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new ViewConfig(Mage.GreySageParrot)
             {
-                view = new LastCardView(title);
-                Children.Add(view); 
-            }
+                Name = "GreySageParrot",
+                Enabled = "LastPlayedEnabled",
+                ShowFirst = () => true,
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && card.Cost >= 5,
+            });
         }
+        private static ViewConfig _GreySageParrotConfig;
 
-        public bool UpdateGreySageParrot(Card card)
+        internal static ViewConfig SunwingSquawkerConfig
         {
-            if (GreySageParrot != null && card.Type == "Spell" && card.Cost >= 5)
+            get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new ViewConfig(Paladin.SunwingSquawker)
             {
-                return GreySageParrot.Update(card);
-            }
-            return false;
+                Name = "SunwingSquawker",
+                Enabled = "LastPlayedEnabled",
+                ShowFirst = () => true,
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id),
+            });
         }
+        private static ViewConfig _SunwingSquawkerConfig;
 
-        public bool UpdateSunwingSquawker(Card card)
+        internal static ViewConfig BrilliantMacawConfig
         {
-            if (SunwingSquawker != null && card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id))
+            get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new ViewConfig(Shaman.BrilliantMacaw)
             {
-                return SunwingSquawker.Update(card);
-            }
-            return false;
+                Name = "BrilliantMacaw",
+                Enabled = "LastPlayedEnabled",
+                ShowFirst = () => true,
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw,
+            });
         }
+        private static ViewConfig _BrilliantMacawConfig;
 
-        public bool UpdateBrilliantMacaw(Card card)
+        internal static ViewConfig MonstrousParrotConfig
         {
-            if (BrilliantMacaw != null && card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw)
+            get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new ViewConfig(Hunter.MonstrousParrot)
             {
-                return BrilliantMacaw.Update(card);
-            }
-            return false;
+                Name = "MonstrousParrot",
+                Enabled = "LastPlayedEnabled",
+                ShowFirst = () => true,
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
+            });
         }
+        private static ViewConfig _MonstrousParrotConfig;
 
-        public bool UpdateMonstrousParrot(Card card)
+        internal static ViewConfig VanessaVanCleefConfig
         {
-            if (MonstrousParrot != null && card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor)
+            get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new ViewConfig(Rogue.VanessaVancleefCore)
             {
-                return MonstrousParrot.Update(card);
-            }
-            return false;
+                Name = "VanessaVanCleef",
+                Enabled = "LastPlayedEnabled",
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnOpponentPlay,
+                Condition = card => (card.Type == "Spell" || card.Type == "Minion"),
+            });
         }
-
-        public bool UpdateVanessaVanCleef(Card card)
-        {
-            if (VanessaVanCleef != null && (card.Type == "Spell" || card.Type == "Minion"))
-            {
-                return VanessaVanCleef.Update(card); 
-            }
-            return false;
-        }
+        private static ViewConfig _VanessaVanCleefConfig;
     }
 }

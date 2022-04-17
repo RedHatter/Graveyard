@@ -1,4 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Controls;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,26 @@ using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class MultiTurnView : StackPanel
+	public class MultiTurnView : ViewBase
     {
+        internal class ViewConfig : Plugins.Graveyard.ViewConfig
+        {
+            public ViewConfig(params string[] showOn) : base(showOn)
+            {
+
+            }
+
+            public override void RegisterView(ViewBase view, bool isDefault = false)
+            {
+                base.RegisterView(view, isDefault);
+                var multiTurn = view as MultiTurnView;
+                if (multiTurn != null)
+                {
+                    Plugin.Events.OnOpponentTurnStart.Register(multiTurn.TurnEnded);
+                }
+            }
+        }
+
         public HearthstoneTextBlock Label;
 
         public List<TurnView> Views = new List<TurnView>();
@@ -21,23 +40,13 @@ namespace HDT.Plugins.Graveyard
 
         public readonly int Turns;
 
-        public MultiTurnView(string title, int turns)
+        public MultiTurnView(int turns)
         {
             Turns = turns;
 
             Visibility = Visibility.Collapsed;
             Orientation = Orientation.Vertical;
             MinWidth = 250;
-
-            // Title
-            Label = new HearthstoneTextBlock
-            {
-                FontSize = 16,
-                TextAlignment = TextAlignment.Center,
-                Text = title,
-                Margin = new Thickness(0, 20, 0, 0),
-            };
-            Children.Add(Label);
 
             // Turn Card Lists
             for (int i = 0; i < Turns + 1; i++)
@@ -48,8 +57,10 @@ namespace HDT.Plugins.Graveyard
             }
         }
 
-        public virtual bool Update(Card card)
+        public override bool Update(Card card)
         {
+            if (!Condition(card)) return false;
+
             CardLists[0].Add(card.Clone() as Card);
             Views[0].Cards.Update(CardLists[0], false);
 

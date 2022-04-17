@@ -1,31 +1,37 @@
-using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
 using System.Windows;
-using static Hearthstone_Deck_Tracker.API.Core;
 using static HearthDb.CardIds.Collectible;
+using static Hearthstone_Deck_Tracker.API.Core;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ShirvallahView : NormalView
+    public class ShirvallahView : NormalView
 	{
-        public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Paladin.ShirvallahTheTiger) > -1;
-		}
+			get => _Config ?? (_Config = new ViewConfig(Paladin.ShirvallahTheTiger)
+            {
+				Name = "Shirvallah",
+				Enabled = "ShirvallahEnabled",
+				UpdateOn = GameEvents.OnPlayerPlay,
+				Condition = card => card.Type == "Spell" && ActualCardCost(card) > 0,
+				CreateView = () => new ShirvallahView(),
+			});
+		}	
 
 		private readonly Card ShirvallahCard = Database.GetCardFromId(Paladin.ShirvallahTheTiger);
 
 		public ShirvallahView()
 		{
-            Label.Text = Strings.GetLocalized("Shirvallah");
 			Cards.Add(ShirvallahCard);
 		}
 
-        public bool Update(Card card)
+        public override bool Update(Card card)
 		{
-			if (card.Type == "Spell" && ActualCardCost(card) > 0)
+			if (Condition(card))
 			{
 				ShirvallahCard.Cost = Math.Max(ShirvallahCard.Cost - ActualCardCost(card), 0);
 				ShirvallahCard.Count = ShirvallahCard.Cost;			
@@ -39,7 +45,7 @@ namespace HDT.Plugins.Graveyard
 			return false;
 		}
 
-		private int ActualCardCost(Card card)
+		private static int ActualCardCost(Card card)
         {
             switch (card.Id)
             {

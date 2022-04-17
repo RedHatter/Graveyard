@@ -1,33 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using System.Linq;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class SaurfangView : NormalView
+    public class SaurfangView
 	{
-		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Warrior.OverlordSaurfang) > -1;
-		}
-
-		public SaurfangView()
-		{
-			Label.Text = Strings.GetLocalized("Saurfang");
-		}
-
-		public bool Update(Card card)
-		{
-			if (!((card.EnglishText?.Contains("Frenzy:") ?? false) && base.Update(card)))
-			{
-				return false;
-			}
-
-			_chances.Update(card, Cards, View);
-
-			return true;
+			get => _Config ?? (_Config = new ViewConfig(Warrior.OverlordSaurfang)
+            {
+				Name = "Saurfang",
+				Enabled = "SaurfangEnabled",
+				CreateView = () => new ChancesView(),
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = card => card.EnglishText?.Contains("Frenzy:") ?? false
+			});
 		}
 	}
 }

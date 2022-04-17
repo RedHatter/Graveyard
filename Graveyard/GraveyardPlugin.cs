@@ -1,4 +1,6 @@
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Plugins;
 using System;
 using System.Reflection;
@@ -6,10 +8,11 @@ using System.Windows.Controls;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class GraveyardPlugin : IPlugin
+    public class Plugin : IPlugin
 	{
         private Settings Settings;
-        public Graveyard GraveyardInstance;
+        internal static EventManager Events { get; private set; }
+        internal static Graveyard Graveyard { get; private set; }
         public string Author => "RedHatter";
         public string ButtonText => Strings.GetLocalized("Settings");
 
@@ -23,27 +26,41 @@ namespace HDT.Plugins.Graveyard
         {
             Settings = Settings.Default;
 
-            MenuItem = new MenuItem { Header = Name };
+            MenuItem = new MenuItem { Header = Strings.GetLocalized("Graveyard") };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
-            GraveyardInstance = new Graveyard();
+            Events = new EventManager();
 
-            GameEvents.OnGameStart.Add(GraveyardInstance.Reset);
-            GameEvents.OnGameEnd.Add(GraveyardInstance.Reset);
-            DeckManagerEvents.OnDeckSelected.Add(d => GraveyardInstance.Reset());
+            ViewConfigCards.Instance = new ViewConfigCards(Settings);
 
-            GameEvents.OnPlayerPlayToGraveyard.Add(GraveyardInstance.PlayerGraveyardUpdate);
-            GameEvents.OnOpponentPlayToGraveyard.Add(GraveyardInstance.EnemyGraveyardUpdate);
+            Graveyard = new Graveyard();
 
-            GameEvents.OnPlayerPlay.Add(GraveyardInstance.PlayerDamageUpdate);
-            GameEvents.OnOpponentPlay.Add(GraveyardInstance.EnemyDamageUpdate);
+            Settings.Upgrade();
 
-            GameEvents.OnPlayerHandDiscard.Add(GraveyardInstance.PlayerDiscardUpdate);
+            GameEvents.OnGameStart.Add(Graveyard.Reset);
+            DeckManagerEvents.OnDeckSelected.Add(UpdateSelectedDeck);
+
+            GameEvents.OnPlayerPlayToGraveyard.Add(Events.OnPlayerPlayToGraveyard.Poll);
+            GameEvents.OnOpponentPlayToGraveyard.Add(Events.OnOpponentPlayToGraveyard.Poll);
+
+            GameEvents.OnPlayerHandDiscard.Add(Events.OnPlayerHandDiscard.Poll);
             
-            GameEvents.OnPlayerPlay.Add(GraveyardInstance.PlayerPlayUpdate);
-            GameEvents.OnOpponentPlay.Add(GraveyardInstance.OpponentPlayUpdate);
+            GameEvents.OnPlayerPlay.Add(Events.OnPlayerPlay.Poll);
+            GameEvents.OnOpponentPlay.Add(Events.OnOpponentPlay.Poll);
 
-            GameEvents.OnTurnStart.Add(GraveyardInstance.TurnStartUpdate);
+            GameEvents.OnTurnStart.Add(Events.OnOpponentTurnStart.Poll);
+
+            UpdateSelectedDeck(DeckList.Instance.ActiveDeck);
+        }
+
+        private Deck SelectedDeck;
+        private void UpdateSelectedDeck(Deck deck)
+        {
+            if (deck == DeckList.Instance.ActiveDeck && deck != SelectedDeck)
+            {
+                SelectedDeck = deck;
+                Graveyard.Reset();
+            }
         }
 
         public void OnUnload()
@@ -51,10 +68,19 @@ namespace HDT.Plugins.Graveyard
             if (Settings?.HasChanges ?? false) Settings?.Save();
             Settings = null;
 
-            GraveyardInstance?.Dispose();
-            GraveyardInstance = null;
+            Graveyard?.Dispose();
+            Graveyard = null;
+
+            ViewConfigCards.Instance = null;
+
+            Events?.Clear();
+            Events = null;
         }
-        public void OnUpdate() { }
+
+        public void OnUpdate() 
+        {
+            Graveyard?.Update();
+        }
 
         public static readonly Version AssemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
         public static readonly Version PluginVersion = new Version(AssemblyVersion.Major, AssemblyVersion.Minor, AssemblyVersion.Build);

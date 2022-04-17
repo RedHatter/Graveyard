@@ -1,23 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class ZuljinView : NormalView
+    public class ZuljinView
     {
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Hunter.Zuljin) > -1;
-        }
-
-        public ZuljinView()
-        {
-            Label.Text = Strings.GetLocalized("Zuljin");
-        }
-
-        public bool Update(Card card)
-        {
-            return card.Type == "Spell" && base.Update(card, true);
-        }
+            get => _Config ?? (_Config = new ViewConfig(Hunter.Zuljin)
+            {
+                Name = "Zuljin",
+                Enabled = "ZuljinEnabled",
+                CreateView = () => new NormalView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell",
+            });
+        }       
     }
 }

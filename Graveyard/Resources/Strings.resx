@@ -117,180 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Alanna" xml:space="preserve">
-    <value>Dragoncaller Alanna</value>
-  </data>
-  <data name="AlannaDescription" xml:space="preserve">
-    <value>When the deck contains 'Dragoncaller Alanna', show spells that cost 5 or more that have been played.</value>
-  </data>
-  <data name="AlwaysBoarSeparately" xml:space="preserve">
-    <value>Always 'Elwynn Boar' separately</value>
-  </data>
-  <data name="AlwaysBoarSeparatelyDescription" xml:space="preserve">
-    <value>Show a separate view for 'Elwynn Boar' even when the Deathrattle view is active.</value>
-  </data>
-  <data name="AlwaysRallySeparately" xml:space="preserve">
-    <value>Always Rally! separately</value>
-  </data>
-  <data name="AlwaysRallySeparatelyDescription" xml:space="preserve">
-    <value>Show a separate view for Rally! even when the Resurrect view is active</value>
-  </data>
-  <data name="Antonidas" xml:space="preserve">
-    <value>Grand Magus Antonidas</value>
-  </data>
-  <data name="AntonidasDescription" xml:space="preserve">
-    <value>When the deck contains 'Grand Magus Antonidas' show the Fire spells cast for each of the last three played turns.</value>
-  </data>
-  <data name="Anyfin" xml:space="preserve">
-    <value>Anyfin</value>
-  </data>
-  <data name="AnyfinDescription" xml:space="preserve">
-    <value>When the deck contains 'Anyfin Can Happen', show murlocs that have died and display minimum and maximum possible damage</value>
-  </data>
-  <data name="BrilliantMacaw" xml:space="preserve">
-    <value>Brilliant Macaw</value>
-  </data>
-  <data name="Caverns" xml:space="preserve">
-    <value>The Caverns Below</value>
-  </data>
-  <data name="CavernsDescription" xml:space="preserve">
-    <value>When the deck contains 'The Caverns Below', count all minions played</value>
-  </data>
   <data name="Deathrattle" xml:space="preserve">
     <value>Deathrattle</value>
   </data>
   <data name="DeathrattleDescription" xml:space="preserve">
-    <value>When the deck contains 'Twilight's Call', show the deathrattle minions that have died</value>
-  </data>
-  <data name="Discard" xml:space="preserve">
-    <value>Discard</value>
-  </data>
-  <data name="DiscardDescription" xml:space="preserve">
-    <value>When the deck contains 'Cruel Dinomancer', show summon chance of friendly minions that have been discarded</value>
-  </data>
-  <data name="DiscardTitle" xml:space="preserve">
-    <value>Discarded Minions</value>
-  </data>
-  <data name="ElwynnBoar" xml:space="preserve">
-    <value>Elwynn Boar</value>
-  </data>
-  <data name="ElwynnBoarDescription" xml:space="preserve">
-    <value>When the deck contains one or more 'Elwynn Boar', show number of friendly boar to die this game.</value>
+    <value>Show player deathrattle minions that have died</value>
   </data>
   <data name="Friendly" xml:space="preserve">
-    <value>Friendly</value>
+    <value>Player</value>
   </data>
   <data name="FriendlyDescription" xml:space="preserve">
-    <value>All friendly minions that have died.</value>
-  </data>
-  <data name="GrandFinale" xml:space="preserve">
-    <value>Grand Finale</value>
-  </data>
-  <data name="GrandFinaleDescription" xml:space="preserve">
-    <value>When the deck contains 'Grand Finale', show all elementals played this and last player turn.</value>
+    <value>Show all player minions that have died</value>
   </data>
   <data name="Graveyard" xml:space="preserve">
     <value>Graveyard</value>
   </data>
   <data name="GraveyardDescription" xml:space="preserve">
     <value>Displays minions that have died this game. Includes specialized displays:
-- Deathrattle minions (Nine Lives/Da Undatakah/Twilight's Call/N'Zoth)
-- Taunt minions (Hadronox)
-- Demon deaths (Bloodreaver Gul'dan/Kanrethad Ebonlocke)
-- Resurrection chance (Catrina Muerte/Mass Resurrection/Wild Priest cards)
-- Murloc minions with a damage calculator for Anyfin Can Happen
-- Discard retrieve chance (Soulwarden/Cruel Dinomancer) 
-- Treant deaths (Mulchmuncher)
-- Mech deaths (Kangor's Endless Army)
-- Spells cast (Lady Lianna/Zul'jin/Dragoncaller Alanna)
-- Beast minions resummon chance (Witching Hour)
-- Minions played count (The Caverns Below)
-- Other class cards played (Tess Greymane)
-- Battlecry cards played (Shudderwock)</value>
-  </data>
-  <data name="GreySageParrot" xml:space="preserve">
-    <value>Grey Sage Parrot</value>
+
+- Questline progress
+- Resurrection chance
+- Deathrattle minions
+
+Go to Settings for the full list of cards supported</value>
   </data>
   <data name="Guldan" xml:space="preserve">
     <value>Demons</value>
   </data>
-  <data name="GuldanDescription" xml:space="preserve">
-    <value>When the deck contains 'Bloodreaver Gul'dan' or 'Kanrethad Ebonlocke', show demons that have died</value>
-  </data>
-  <data name="Hadronox" xml:space="preserve">
-    <value>Hadronox</value>
-  </data>
-  <data name="HadronoxDescription" xml:space="preserve">
-    <value>When the deck contains 'Hadronox', show the friendly taunt minions that have died</value>
-  </data>
   <data name="HoardPillager" xml:space="preserve">
     <value>Weapons Used</value>
-  </data>
-  <data name="HoardPillagerDescription" xml:space="preserve">
-    <value>When the deck contains 'Hoard Pillager' or 'Rummaging Kobold', show equip/return chance of weapons used this game.</value>
   </data>
   <data name="Horizontal" xml:space="preserve">
     <value>Horizontal</value>
   </data>
-  <data name="Kangor" xml:space="preserve">
-    <value>Kangor's Endless Army</value>
-  </data>
-  <data name="KangorDescription" xml:space="preserve">
-    <value>When the deck contains 'Kangor's Endless Army', show summon chance of friendly (base) Mechs that have died</value>
-  </data>
-  <data name="Kargal" xml:space="preserve">
-    <value>Kargal Battlescar</value>
-  </data>
-  <data name="KargalDescription" xml:space="preserve">
-    <value>When the deck contains 'Kargal Battlescar', show all 'Posts' that have been played this game.</value>
-  </data>
-  <data name="Kazakus" xml:space="preserve">
-    <value>Kazakus</value>
-  </data>
-  <data name="KazakusDescription" xml:space="preserve">
-    <value>Also display for resurrect chances with Kazakus.</value>
-  </data>
-  <data name="LadyLiadrin" xml:space="preserve">
-    <value>Lady Liadrin</value>
-  </data>
-  <data name="LadyLiadrinDescription" xml:space="preserve">
-    <value>When the deck contains 'Lady Liadrin', show all spells cast on friendly characters this game.</value>
-  </data>
-  <data name="LastPlayed" xml:space="preserve">
-    <value>Last Played</value>
-  </data>
-  <data name="LastPlayedDescription" xml:space="preserve">
-    <value>When the deck contains 'Brilliant Macaw', 'Grey Sage Parrot', 'Monstrous Parrot', Sunwing Squawker' or 'Vanessa VanCleef', shows the last card played as per the deck card criteria.</value>
-  </data>
   <data name="Lock" xml:space="preserve">
     <value>Lock Graveyards</value>
   </data>
-  <data name="MonstrousParrot" xml:space="preserve">
-    <value>Monstrous Parrot</value>
-  </data>
-  <data name="Mulchmuncher" xml:space="preserve">
-    <value>Mulchmuncher</value>
-  </data>
-  <data name="MulchmuncherDescription" xml:space="preserve">
-    <value>When the deck contains at least one 'Mulchmuncher', count Treants that have died</value>
-  </data>
   <data name="Multicaster" xml:space="preserve">
-    <value>Multicaster</value>
-  </data>
-  <data name="MulticasterDescription" xml:space="preserve">
-    <value>When the deck contains 'Multicaster', show last spell cast per school.</value>
-  </data>
-  <data name="NZoth" xml:space="preserve">
-    <value>N'Zoth, the Corruptor</value>
-  </data>
-  <data name="NZothDescription" xml:space="preserve">
-    <value>When the deck contains 'N'Zoth, the Corruptor', show the deathrattle minions that have died</value>
-  </data>
-  <data name="NZothGotD" xml:space="preserve">
-    <value>N'Zoth, God of the Deep</value>
-  </data>
-  <data name="NZothGotDDescription" xml:space="preserve">
-    <value>When the deck contains 'N'Zoth, God of the Deep', show all minions, with a specific type, that have died</value>
+    <value>Last Spell by School</value>
   </data>
   <data name="Opacity" xml:space="preserve">
     <value>Opacity</value>
@@ -299,7 +163,10 @@
     <value>Opponent</value>
   </data>
   <data name="OpponentDescription" xml:space="preserve">
-    <value>All enemy minions that have died</value>
+    <value>Show all opponent minions that have died</value>
+  </data>
+  <data name="OpponentQuestlineDescription" xml:space="preserve">
+    <value>Show opponent questline progress</value>
   </data>
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
@@ -311,25 +178,13 @@
     <value>Questline</value>
   </data>
   <data name="QuestlineDescription" xml:space="preserve">
-    <value>Displays player questline progress</value>
-  </data>
-  <data name="Rally" xml:space="preserve">
-    <value>Rally!</value>
-  </data>
-  <data name="RallyDescription" xml:space="preserve">
-    <value>When the deck contains 'Rally!', show the resurrect chance of friendly 1, 2 and 3 cost minions that have died</value>
+    <value>Show player questline progress</value>
   </data>
   <data name="Resurrect" xml:space="preserve">
     <value>Resurrect</value>
   </data>
   <data name="ResurrectDescription" xml:space="preserve">
-    <value>When the deck contains 'Resurrect', 'Onyx Bishop', 'Eternal Servitude', or 'Lesser Diamond Spellstone', show the resurrect chance of friendly  minions that have died</value>
-  </data>
-  <data name="Saurfang" xml:space="preserve">
-    <value>Overlord Saurfang</value>
-  </data>
-  <data name="SaurfangDescription" xml:space="preserve">
-    <value>When the deck contains 'Overload Saurfang', show summon chance of Frenzy minions that have died.</value>
+    <value>Show the resurrect chance of player minions that have died</value>
   </data>
   <data name="Scale" xml:space="preserve">
     <value>Scale</value>
@@ -337,61 +192,28 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SettingsCardsTitle" xml:space="preserve">
+    <value>Cards</value>
+  </data>
+  <data name="SettingsDisplayTitle" xml:space="preserve">
+    <value>Display</value>
+  </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Graveyard Settings</value>
   </data>
-  <data name="Shirvallah" xml:space="preserve">
-    <value>Shirvallah, the Tiger</value>
-  </data>
-  <data name="ShirvallahDescription" xml:space="preserve">
-    <value>When the deck contains 'Shirvallah, the Tiger', show it's adjusted cost.</value>
-  </data>
-  <data name="Shudderwock" xml:space="preserve">
-    <value>Shudderwock</value>
-  </data>
-  <data name="ShudderwockDescription" xml:space="preserve">
-    <value>When the deck contains 'Shudderwock', show battlecry minions that have been played</value>
-  </data>
-  <data name="Soulwarden" xml:space="preserve">
-    <value>Soulwarden</value>
-  </data>
-  <data name="SoulwardenDescription" xml:space="preserve">
-    <value>When the deck contains 'Soulwarden', show chance of retrieving friendly cards that have been discarded</value>
-  </data>
-  <data name="SunwingSquawker" xml:space="preserve">
-    <value>Sunwing Squawker</value>
+  <data name="SI7" xml:space="preserve">
+    <value>SI:7</value>
   </data>
   <data name="TessGreymane" xml:space="preserve">
-    <value>Tess Greymane</value>
-  </data>
-  <data name="TessGreymaneDescription" xml:space="preserve">
-    <value>When the deck contains 'Tess Greymane', show all cards from other classes played this game.</value>
+    <value>Other Class Cards</value>
   </data>
   <data name="Unlock" xml:space="preserve">
     <value>Unlock Graveyards</value>
-  </data>
-  <data name="VanessaVanCleef" xml:space="preserve">
-    <value>Vanessa VanCleef</value>
   </data>
   <data name="Vertical" xml:space="preserve">
     <value>Vertical</value>
   </data>
   <data name="WitchingHour" xml:space="preserve">
-    <value>Witching Hour</value>
-  </data>
-  <data name="WitchingHourDescription" xml:space="preserve">
-    <value>When the deck contains 'Witching Hour', show summon chance of friendly Beasts that have died</value>
-  </data>
-  <data name="YShaarj" xml:space="preserve">
-    <value>Y'Shaarj, the Defiler</value>
-  </data>
-  <data name="YShaarjDescription" xml:space="preserve">
-    <value>When the deck contains 'Y'Shaarj, the Defiler', show all Corrupted cards played this game</value>
-  </data>
-  <data name="Zuljin" xml:space="preserve">
-    <value>Zul'jin</value>
-  </data>
-  <data name="ZuljinDescription" xml:space="preserve">
-    <value>When the deck contains 'Zul'jin', show all spells played this game.</value>
+    <value>Beasts</value>
   </data>
 </root>

@@ -1,262 +1,297 @@
-<ScrollViewer x:Class="HDT.Plugins.Graveyard.SettingsView"
-              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-              xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
-              xmlns:lex="http://wpflocalizeextension.codeplex.com"
-              lex:LocalizeDictionary.DesignCulture="en"
-              lex:ResxLocalizationProvider.DefaultAssembly="Graveyard"
-              lex:ResxLocalizationProvider.DefaultDictionary="Strings"
-              mc:Ignorable="d" VerticalScrollBarVisibility="Auto">
-	<StackPanel Width="400">
-		<StackPanel.Resources>
+<Grid
+    x:Class="HDT.Plugins.Graveyard.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hdtc="clr-namespace:Hearthstone_Deck_Tracker.Controls;assembly=HearthstoneDeckTracker"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:local="clr-namespace:HDT.Plugins.Graveyard"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="900"
+    d:DesignWidth="420"
+    lex:LocalizeDictionary.DesignCulture="en"
+    lex:ResxLocalizationProvider.DefaultAssembly="Graveyard"
+    lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+    mc:Ignorable="d">
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="Brown" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
             <Style x:Key="TitleStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="18"/>
-                <Setter Property="FontWeight" Value="bold"/>
-                <Setter Property="Margin" Value="10,20,10,5"/>
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="bold" />
+                <Setter Property="Margin" Value="10,20,10,5" />
             </Style>
             <Style x:Key="DescStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="TextWrapping" Value="Wrap"/>
-                <Setter Property="Margin" Value="10,0"/>
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Margin" Value="10,0" />
             </Style>
             <Style x:Key="ToggleStyle" TargetType="mah:ToggleSwitch">
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="OnLabel" Value="Enabled"/>
-                <Setter Property="OffLabel" Value="Disabled"/>
-                <Setter Property="Margin" Value="10,0"/>
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="OnLabel" Value="Enabled" />
+                <Setter Property="OffLabel" Value="Disabled" />
+                <Setter Property="Margin" Value="10,0" />
             </Style>
-            <Style x:Key="TitleToggleStyle" TargetType="mah:ToggleSwitch" BasedOn="{StaticResource ToggleStyle}">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="FontWeight" Value="Bold"/>
+            <Style
+                x:Key="TitleToggleStyle"
+                BasedOn="{StaticResource ToggleStyle}"
+                TargetType="mah:ToggleSwitch">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="Bold" />
             </Style>
-            <Style x:Key="SubToggleStyle" TargetType="mah:ToggleSwitch" BasedOn="{StaticResource ToggleStyle}">
-                <Setter Property="FontSize" Value="12"/>
+            <Style
+                x:Key="SubToggleStyle"
+                BasedOn="{StaticResource ToggleStyle}"
+                TargetType="mah:ToggleSwitch">
+                <Setter Property="FontSize" Value="12" />
             </Style>
             <Style x:Key="SliderPanelStyle" TargetType="DockPanel">
-                <Setter Property="Margin" Value="10,0"/>
+                <Setter Property="Margin" Value="10,0" />
             </Style>
             <Style x:Key="SliderStyle" TargetType="Slider">
-                <Setter Property="IsSnapToTickEnabled" Value="True"/>
-                <Setter Property="TickFrequency" Value="1"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="Width" Value="150"/>
+                <Setter Property="IsSnapToTickEnabled" Value="True" />
+                <Setter Property="TickFrequency" Value="1" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Width" Value="150" />
             </Style>
-            <Style x:Key="OpacitySliderStyle" TargetType="Slider" BasedOn="{StaticResource SliderStyle}">
-                <Setter Property="LargeChange" Value="10"/>
-                <Setter Property="Minimum" Value="20"/>
-                <Setter Property="Maximum" Value="100"/>
+            <Style
+                x:Key="OpacitySliderStyle"
+                BasedOn="{StaticResource SliderStyle}"
+                TargetType="Slider">
+                <Setter Property="LargeChange" Value="10" />
+                <Setter Property="Minimum" Value="20" />
+                <Setter Property="Maximum" Value="100" />
             </Style>
-            <Style x:Key="ScaleSliderStyle" TargetType="Slider" BasedOn="{StaticResource SliderStyle}">
-                <Setter Property="LargeChange" Value="10"/>
-                <Setter Property="Minimum" Value="50"/>
-                <Setter Property="Maximum" Value="200"/>
+            <Style
+                x:Key="ScaleSliderStyle"
+                BasedOn="{StaticResource SliderStyle}"
+                TargetType="Slider">
+                <Setter Property="LargeChange" Value="10" />
+                <Setter Property="Minimum" Value="50" />
+                <Setter Property="Maximum" Value="200" />
             </Style>
             <Style x:Key="SliderTextStyle" TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Right"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="TextAlignment" Value="Right"/>
-                <Setter Property="Width" Value="40"/>
-                <Setter Property="Margin" Value="0,0,10,0"/>
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="TextAlignment" Value="Right" />
+                <Setter Property="Width" Value="40" />
+                <Setter Property="Margin" Value="0,0,10,0" />
             </Style>
             <Style x:Key="CheckboxStyle" TargetType="CheckBox">
-                <Setter Property="Margin" Value="12,0,0,4"/>
+                <Setter Property="Margin" Value="12,0,0,4" />
             </Style>
-        </StackPanel.Resources>
-        <Button Name="BtnUnlock" Width="150" Content="{lex:Loc Unlock}" Click="BtnUnlock_Click" />
-        <mah:ToggleSwitch IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Friendly}"
-                          ToolTip="{lex:Loc FriendlyDescription}" 
-                          Style="{StaticResource TitleToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding FriendlyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Questline}"
-                          ToolTip="{lex:Loc QuestlineDescription}" 
-                          Style="{StaticResource SubToggleStyle}"/>
-        <DockPanel Style="{StaticResource SliderPanelStyle}">
-            <Slider x:Name="SliderFriendlyOpacity" DockPanel.Dock="Right"
-                    Style="{StaticResource OpacitySliderStyle}"
-                    Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
-            <TextBlock Text="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
-                       Style="{StaticResource SliderTextStyle}"
-                       DockPanel.Dock="Right"  />
-        </DockPanel>
-        <DockPanel Style="{StaticResource SliderPanelStyle}">
-            <Slider x:Name="SliderFriendlyScale" DockPanel.Dock="Right"
-                    Style="{StaticResource ScaleSliderStyle}"
-                    Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
-            <TextBlock Text="{Binding FriendlyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" 
-                       Style="{StaticResource SliderTextStyle}"
-                       DockPanel.Dock="Right" />
-        </DockPanel>
-        <DockPanel Style="{StaticResource SliderPanelStyle}" ToolTip="{lex:Loc OrientationDescription}">
-            <DockPanel.Resources>
-                <local:EnumToBoolConverter x:Key="EnumToBoolConverter" />
-            </DockPanel.Resources>
-            <RadioButton IsChecked="{Binding Path=FriendlyOrientation, 
-                Source={x:Static local:Settings.Default}, 
-                Converter={StaticResource EnumToBoolConverter}, 
-                ConverterParameter={x:Static Orientation.Horizontal}}" 
-                         Content="{lex:Loc Horizontal}" VerticalAlignment="Center" DockPanel.Dock="Right" Width="120"/>
-            <RadioButton IsChecked="{Binding Path=FriendlyOrientation, 
-                Source={x:Static local:Settings.Default}, 
-                Converter={StaticResource EnumToBoolConverter}, 
-                ConverterParameter={x:Static Orientation.Vertical}}" 
-                         Content="{lex:Loc Vertical}" VerticalAlignment="Center" DockPanel.Dock="Right" Width="120"/>
-            <Label Content="{lex:Loc Orientation}" VerticalAlignment="Center" DockPanel.Dock="Left" />
-        </DockPanel>
-        <mah:ToggleSwitch IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Opponent}"
-                          ToolTip="{lex:Loc OpponentDescription}" 
-                          Style="{StaticResource TitleToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Questline}"
-                          ToolTip="{lex:Loc QuestlineDescription}" 
-                          Style="{StaticResource SubToggleStyle}"/>
-        <DockPanel Style="{StaticResource SliderPanelStyle}">
-            <Slider x:Name="SliderEnemyOpacity" DockPanel.Dock="Right"
-                    Style="{StaticResource OpacitySliderStyle}"
-                    Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{lex:Loc Opacity}" VerticalAlignment="Center" DockPanel.Dock="Left" />
-            <TextBlock Text="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
-                       Style="{StaticResource SliderTextStyle}"
-                       DockPanel.Dock="Right" />
-        </DockPanel>
-        <DockPanel Style="{StaticResource SliderPanelStyle}">
-            <Slider x:Name="SliderEnemyScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-                    Style="{StaticResource ScaleSliderStyle}"
-                    Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}"/>
-            <Label Content="{lex:Loc Scale}" VerticalAlignment="Center" DockPanel.Dock="Left" />
-            <TextBlock Text="{Binding EnemyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}"
-                   Style="{StaticResource SliderTextStyle}"
-                   DockPanel.Dock="Right" />
-        </DockPanel>
-        <mah:ToggleSwitch IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Resurrect}"
-                          ToolTip="{lex:Loc ResurrectDescription}" 
-                          Style="{StaticResource TitleToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding ResurrectKazakus, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Kazakus}"
-                          ToolTip="{lex:Loc KazakusDescription}" 
-                          Style="{StaticResource SubToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding DeathrattleEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Deathrattle}"
-                          ToolTip="{lex:Loc DeathrattleDescription}" 
-                          Style="{StaticResource TitleToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding NZothEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc NZoth}"
-                          ToolTip="{lex:Loc NZothDescription}" 
-                          Style="{StaticResource SubToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding HadronoxEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Hadronox}"
-                          ToolTip="{lex:Loc HadronoxDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding DiscardEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Discard}"
-                          ToolTip="{lex:Loc DiscardDescription}" 
-                          Style="{StaticResource TitleToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding SoulwardenEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Soulwarden}"
-                          ToolTip="{lex:Loc SoulwardenDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding AnyfinEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Anyfin}"
-                          ToolTip="{lex:Loc AnyfinDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding GuldanEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Guldan}"
-                          ToolTip="{lex:Loc GuldanDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding ShudderwockEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Shudderwock}"
-                          ToolTip="{lex:Loc ShudderwockDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding DragoncallerAlannaEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Alanna}"
-                          ToolTip="{lex:Loc AlannaDescription}" 
-                          Style="{StaticResource ToggleStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding CavernsEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Caverns}"
-                          ToolTip="{lex:Loc CavernsDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding MulchmuncherEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Mulchmuncher}"
-                          ToolTip="{lex:Loc MulchmuncherDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding KangorEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Kangor}"
-                          ToolTip="{lex:Loc KangorDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding WitchingHourEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc WitchingHour}"
-                          ToolTip="{lex:Loc WitchingHourDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding TessGreymaneEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc TessGreymane}"
-                          ToolTip="{lex:Loc TessGreymaneDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding ZuljinEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Zuljin}"
-                          ToolTip="{lex:Loc ZuljinDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding HoardPillagerEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc HoardPillager}"
-                          ToolTip="{lex:Loc HoardPillagerDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding LadyLiadrinEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc LadyLiadrin}"
-                          ToolTip="{lex:Loc LadyLiadrinDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding NZothGotDEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc NZothGotD}"
-                          ToolTip="{lex:Loc NZothGotDDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding SaurfangEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Saurfang}"
-                          ToolTip="{lex:Loc SaurfangDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding YShaarjEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc YShaarj}"
-                          ToolTip="{lex:Loc YShaarjDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding ShirvallahEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Shirvallah}"
-                          ToolTip="{lex:Loc ShirvallahDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding RallyEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Rally}"
-                          ToolTip="{lex:Loc RallyDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <CheckBox IsChecked="{Binding AlwaysRallySeparately, Source={x:Static local:Settings.Default}}" 
-                  Content="{lex:Loc AlwaysRallySeparately}"
-                  ToolTip="{lex:Loc AlwaysRallySeparatelyDescription}" 
-                  Style="{StaticResource CheckboxStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding ElwynnBoarEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc ElwynnBoar}"
-                          ToolTip="{lex:Loc ElwynnBoarDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <CheckBox IsChecked="{Binding AlwaysBoarSeparately, Source={x:Static local:Settings.Default}}" 
-                  Content="{lex:Loc AlwaysBoarSeparately}"
-                  ToolTip="{lex:Loc AlwaysBoarSeparatelyDescription}" 
-                  Style="{StaticResource CheckboxStyle}"/>
-        <mah:ToggleSwitch IsChecked="{Binding AntonidasEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Antonidas}"
-                          ToolTip="{lex:Loc AntonidasDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding GrandFinaleEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc GrandFinale}"
-                          ToolTip="{lex:Loc GrandFinaleDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding LastPlayedEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc LastPlayed}"
-                          ToolTip="{lex:Loc LastPlayedDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-        <mah:ToggleSwitch IsChecked="{Binding MulticasterEnabled, Source={x:Static local:Settings.Default}}" 
-                          Content="{lex:Loc Multicaster}"
-                          ToolTip="{lex:Loc MulticasterDescription}" 
-                          Style="{StaticResource ToggleStyle}" />
-    </StackPanel>
-</ScrollViewer>
+            <Style
+                x:Key="ExpanderStyle"
+                BasedOn="{StaticResource MetroExpander}"
+                TargetType="Expander">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="MinWidth" Value="410" />
+                <Setter Property="IsExpanded" Value="True" />
+            </Style>
+            <Style
+                x:Key="ListViewStyle"
+                BasedOn="{StaticResource MetroListView}"
+                TargetType="ListView">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Button
+        Name="BtnUnlock"
+        Grid.Row="0"
+        Width="150"
+        Click="BtnUnlock_Click"
+        Content="{lex:Loc Unlock}" />
+    <Expander
+        Grid.Row="1"
+        Header="{lex:Loc Friendly}"
+        Style="{StaticResource ExpanderStyle}">
+        <StackPanel>
+            <mah:ToggleSwitch
+                Content="{lex:Loc Graveyard}"
+                IsChecked="{Binding NormalEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc FriendlyDescription}" />
+            <mah:ToggleSwitch
+                Content="{lex:Loc Questline}"
+                IsChecked="{Binding FriendlyQuestlineEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc QuestlineDescription}" />
+            <mah:ToggleSwitch
+                Content="{lex:Loc Resurrect}"
+                IsChecked="{Binding ResurrectEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc ResurrectDescription}" />
+            <mah:ToggleSwitch
+                Content="{lex:Loc Deathrattle}"
+                IsChecked="{Binding DeathrattleEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc DeathrattleDescription}" />
+            <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
+                <StackPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderFriendlyOpacity"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource OpacitySliderStyle}"
+                            Value="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Opacity}"
+                            DockPanel.Dock="Left" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding FriendlyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" />
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderFriendlyScale"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource ScaleSliderStyle}"
+                            Value="{Binding FriendlyScale, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Scale}"
+                            DockPanel.Dock="Left" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding FriendlyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" />
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}" ToolTip="{lex:Loc OrientationDescription}">
+                        <DockPanel.Resources>
+                            <local:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+                        </DockPanel.Resources>
+                        <RadioButton
+                            Width="120"
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Horizontal}"
+                            DockPanel.Dock="Right"
+                            IsChecked="{Binding Path=FriendlyOrientation, Source={x:Static local:Settings.Default}, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static Orientation.Horizontal}}" />
+                        <RadioButton
+                            Width="120"
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Vertical}"
+                            DockPanel.Dock="Right"
+                            IsChecked="{Binding Path=FriendlyOrientation, Source={x:Static local:Settings.Default}, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static Orientation.Vertical}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Orientation}"
+                            DockPanel.Dock="Left" />
+                    </DockPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Expander>
+    <Expander
+        Grid.Row="2"
+        Header="{lex:Loc Opponent}"
+        Style="{StaticResource ExpanderStyle}">
+        <StackPanel>
+            <mah:ToggleSwitch
+                Content="{lex:Loc Graveyard}"
+                IsChecked="{Binding EnemyEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc OpponentDescription}" />
+            <mah:ToggleSwitch
+                Content="{lex:Loc Questline}"
+                IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc OpponentQuestlineDescription}" />
+            <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
+                <StackPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderEnemyOpacity"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource OpacitySliderStyle}"
+                            Value="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Opacity}"
+                            DockPanel.Dock="Left" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding EnemyOpacity, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" />
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderEnemyScale"
+                            Width="150"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource ScaleSliderStyle}"
+                            Value="{Binding EnemyScale, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc Scale}"
+                            DockPanel.Dock="Left" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding EnemyScale, Source={x:Static local:Settings.Default}, StringFormat={}{0}%}" />
+                    </DockPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Expander>
+    <GroupBox
+        Grid.Row="3"
+        Margin="5"
+        Header="{lex:Loc SettingsCardsTitle}">
+        <ListView
+            x:Name="CardView"
+            Grid.Row="1"
+            Margin="0"
+            Style="{StaticResource ListViewStyle}">
+            <ListView.Resources>
+                <local:KeyToLocalizedConverter x:Key="KeyToLocalizedConverter" />
+            </ListView.Resources>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch"
+                                            Header="{Binding Name, Converter={StaticResource KeyToLocalizedConverter}}"
+                                            IsExpanded="True">
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListView.GroupStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <mah:ToggleSwitch IsChecked="{Binding IsEnabled}">
+                        <hdtc:Card DataContext="{Binding Card}" />
+                    </mah:ToggleSwitch>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </GroupBox>
+</Grid>

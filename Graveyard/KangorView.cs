@@ -1,24 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class KangorView : NormalView
+    public class KangorView
     {
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.KangorsEndlessArmy) > -1;
-        }
-
-        public KangorView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("Kangor");
-        }
-
-        public bool Update(Card card)
-        {
-            return (card.Race == "Mech" || card.Race == "All") && base.Update(card);
-        }
+            get => _Config ?? (_Config = new ViewConfig(Paladin.KangorsEndlessArmy)
+            {
+                Name = "Kangor",
+                Enabled = "KangorEnabled",
+                CreateView = () => new NormalView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Race == "Mech" || card.Race == "All",
+            });
+        }      
     }
 }

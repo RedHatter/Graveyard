@@ -1,36 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using System;
-using System.Collections.Generic;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class WitchingHourView : NormalView
+    public class WitchingHourView
     {
-        private ChancesTracker _chances = new ChancesTracker();
-
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => 
-                card.Id == HearthDb.CardIds.Collectible.Druid.WitchingHour ||
-                card.Id == HearthDb.CardIds.Collectible.Hunter.RevivePet
-                ) > -1;
-        }
-
-        public WitchingHourView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("WitchingHour");
-        }
-
-        public bool Update(Card card)
-        {
-            var update = (card.Race == "Beast" || card.Race == "All") && base.Update(card);
-
-            if (update)
-                _chances.Update(card, Cards, View);
-
-            return update;
-        }
+            get => _Config ?? (_Config = new ViewConfig(Druid.WitchingHour, Hunter.RevivePet)
+            {
+                Name = "WitchingHour",
+                Enabled = "WitchingHourEnabled",
+                CreateView = () => new ChancesView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Race == "Beast" || card.Race == "All",
+            });
+        }       
     }
 }

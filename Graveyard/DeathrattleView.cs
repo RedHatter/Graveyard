@@ -1,36 +1,31 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
 using System.Linq;
-using Collectible = HearthDb.CardIds.Collectible;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DeathrattleView : NormalView
+    public class DeathrattleView
     {
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card =>
-                card.Id == Collectible.Priest.XyrellaTheDevout ||
-                card.Id == Collectible.Warlock.TamsinsPhylactery ||
-                card.Id == Collectible.Priest.AmuletOfUndying ||
-                card.Id == Collectible.Rogue.CounterfeitBlade ||
-                card.Id == Collectible.Hunter.JewelOfNzoth ||
-                card.Id == Collectible.Neutral.Vectus ||
-                card.Id == Collectible.Hunter.NineLives ||
-                card.Id == Collectible.Neutral.DaUndatakah ||
-                card.Id == Collectible.Priest.TwilightsCall                
-                ) > -1;
-        }
-
-        public DeathrattleView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("Deathrattle");
-        }
-
-        public bool Update(Card card)
-        {
-            return card.Mechanics.Contains("Deathrattle") && card.Id != Collectible.Rogue.UnearthedRaptor && base.Update(card);
+            get => _Config ?? (_Config = new ViewConfig(
+                Priest.XyrellaTheDevout, 
+                Warlock.TamsinsPhylactery,
+                Priest.AmuletOfUndying,
+                Rogue.CounterfeitBlade,
+                Hunter.JewelOfNzoth,
+                Neutral.Vectus,
+                Hunter.NineLives,
+                Neutral.DaUndatakah,
+                Priest.TwilightsCall)
+            {
+                Name = "Deathrattle",
+                Enabled = "DeathrattleEnabled",
+                Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                CreateView = () => new NormalView(),
+            });
         }
     }
 }

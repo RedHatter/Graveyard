@@ -1,12 +1,25 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LadyLiadrinView : NormalView
+    public class LadyLiadrinView
     {
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
+        {
+            get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
+            {
+                Name = "LadyLiadrin",
+                Enabled = "LadyLiadrinEnabled",
+                CreateView = () => new NormalView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
+            });
+        }
+        
         public static readonly List<string> SpellList = new List<string>
         {
             // 0
@@ -60,21 +73,5 @@ namespace HDT.Plugins.Graveyard
             // 10
             Paladin.TheGardensGrace,
         };
-
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.LadyLiadrin) > -1;
-        }
-
-        public LadyLiadrinView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("LadyLiadrin");
-        }
-
-        public bool Update(Card card)
-        {
-            return card.Type == "Spell" && SpellList.Contains(card.Id) && base.Update(card, true);
-        }
     }
 }

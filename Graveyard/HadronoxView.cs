@@ -1,25 +1,23 @@
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.API;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class HadronoxView : NormalView
+    public class HadronoxView
 	{
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Druid.Hadronox) > -1;
+			get => _Config ?? (_Config = new ViewConfig(Druid.Hadronox)
+            {
+				Name = "Hadronox",
+				Enabled = "HadronoxEnabled",
+				CreateView = () => new NormalView(),
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = card => card.Mechanics.Contains("Taunt"),
+			});
 		}
-
-		public HadronoxView()
-		{
-			// Section Label
-			Label.Text = Strings.GetLocalized("Hadronox");
-		}
-
-		public bool Update(Card card)
-		{
-			return card.Mechanics.Contains("Taunt") && base.Update(card);
-		}
+	
 	}
 }

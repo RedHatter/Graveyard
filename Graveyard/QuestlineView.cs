@@ -1,9 +1,6 @@
-﻿using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Coll = HearthDb.CardIds.Collectible;
 using Non = HearthDb.CardIds.NonCollectible;
 
@@ -11,12 +8,38 @@ namespace HDT.Plugins.Graveyard
 {
     public class QuestlineView : NormalView
     {
-        public QuestlineView()
-        {
-            Label.Text = Strings.GetLocalized("Questline");
-        }
+        private static readonly string SharedName = "Questline";
+        private static readonly Func<ViewBase> SharedCreateView = () => new QuestlineView();
+        private static readonly Predicate<Card> SharedCondition = card => true; 
 
-        public bool Update(Card card)
+        internal static ViewConfig FriendlyConfig
+        {
+            get => _FriendlyConfig ?? (_FriendlyConfig = new ViewConfig()
+            {
+                Name = SharedName,
+                Enabled = "FriendlyQuestlineEnabled",
+                ShowFirst = () => true,
+                CreateView = SharedCreateView,
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = SharedCondition,
+            });
+        }
+        private static ViewConfig _FriendlyConfig;
+        
+        internal static ViewConfig EnemyConfig
+        {
+            get => _EnemyConfig ?? (_EnemyConfig = new ViewConfig()
+            {
+                Name = SharedName,
+                Enabled = "EnemyQuestlineEnabled",
+                CreateView = SharedCreateView, 
+                UpdateOn = GameEvents.OnOpponentPlay,
+                Condition = SharedCondition,
+            });
+        }
+        private static ViewConfig _EnemyConfig;
+
+        public override bool Update(Card card)
         {
             switch (card.Id)
             {
@@ -60,7 +83,7 @@ namespace HDT.Plugins.Graveyard
                 case Non.Warrior.RaidtheDocks_CreateADistractionToken:
                 case Non.Warrior.RaidtheDocks_SecureTheSuppliesToken:
                 case Non.Warrior.RaidtheDocks_CapnRokaraToken:
-                    return Update(card, true);
+                    return base.Update(card);
                 default:
                     return false;
             }

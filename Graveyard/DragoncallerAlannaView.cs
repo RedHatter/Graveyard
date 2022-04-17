@@ -1,23 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class DragoncallerAlannaView : NormalView
+    public class DragoncallerAlannaView
 	{
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Mage.DragoncallerAlanna) > -1;
-		}
-
-		public DragoncallerAlannaView()
-		{
-            Label.Text = Strings.GetLocalized("Alanna");
-		}
-
-		public bool Update(Card card)
-		{
-			return card.Type == "Spell" && card.Cost >= 5 && base.Update(card, true);
+			get => _Config ?? (_Config = new ViewConfig(Mage.DragoncallerAlanna)
+            {
+				Name = "Alanna",
+				Enabled = "DragoncallerAlannaEnabled",
+				CreateView = () => new NormalView(),
+				UpdateOn = GameEvents.OnPlayerPlay,
+				Condition = card => card.Type == "Spell" && card.Cost >= 5,
+			});
 		}
 	}
 }
