@@ -586,5 +586,17 @@ namespace HDT.Plugins.Graveyard {
                 this["Version"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/RedHatter/Graveyard")]
+        public string GitHubProjectUrl {
+            get {
+                return ((string)(this["GitHubProjectUrl"]));
+            }
+            set {
+                this["GitHubProjectUrl"] = value;
+            }
+        }
     }
 }

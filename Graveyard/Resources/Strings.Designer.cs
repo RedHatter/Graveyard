@@ -130,6 +130,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weapons Used.
         /// </summary>
         public static string HoardPillager {
@@ -216,6 +225,33 @@ namespace HDT.Plugins.Graveyard.Resources {
         public static string OrientationDescription {
             get {
                 return ResourceManager.GetString("OrientationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report Issue.
+        /// </summary>
+        public static string PluginIssues {
+            get {
+                return ResourceManager.GetString("PluginIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to README.
+        /// </summary>
+        public static string PluginReadme {
+            get {
+                return ResourceManager.GetString("PluginReadme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest Release.
+        /// </summary>
+        public static string PluginReleases {
+            get {
+                return ResourceManager.GetString("PluginReleases", resourceCulture);
             }
         }
         

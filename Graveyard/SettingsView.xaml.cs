@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Navigation;
 using WPFLocalizeExtension.Engine;
 
 namespace HDT.Plugins.Graveyard
@@ -40,6 +42,11 @@ namespace HDT.Plugins.Graveyard
 			Core.MainWindow.Flyouts.Items.Add(settings);
 			return settings;
 		}
+		public static Uri PluginReadmeUrl = new Uri(Settings.Default.GitHubProjectUrl + "#readme");
+		public static Uri PluginReleasesUrl = new Uri(Settings.Default.GitHubProjectUrl + "/releases");
+		public static Uri PluginIssuesUrl = new Uri(Settings.Default.GitHubProjectUrl + "/issues");
+	
+		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e) => Helper.TryOpenUrl(e.Uri.AbsoluteUri);
 
 		public SettingsView()
 		{
@@ -90,6 +97,6 @@ namespace HDT.Plugins.Graveyard
 					return 1;
 				}
 			}
-		}
-	}
+		}       
+    }
 }

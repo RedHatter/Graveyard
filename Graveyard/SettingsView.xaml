@@ -109,6 +109,7 @@
         <RowDefinition Height="auto" />
         <RowDefinition Height="auto" />
         <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Button
@@ -119,6 +120,34 @@
         Content="{lex:Loc Unlock}" />
     <Expander
         Grid.Row="1"
+        Header="{lex:Loc Help}"
+        IsExpanded="false"
+        Style="{StaticResource ExpanderStyle}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" TextAlignment="Center">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReadmeUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Text="{lex:Loc PluginReadme}" />
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Column="1" TextAlignment="Center">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReleasesUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Text="{lex:Loc PluginReleases}" />
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Column="2" TextAlignment="Center">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginIssuesUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Text="{lex:Loc PluginIssues}" />
+                </Hyperlink>
+            </TextBlock>
+        </Grid>
+    </Expander>
+    <Expander
+        Grid.Row="2"
         Header="{lex:Loc Friendly}"
         Style="{StaticResource ExpanderStyle}">
         <StackPanel>
@@ -200,7 +229,7 @@
         </StackPanel>
     </Expander>
     <Expander
-        Grid.Row="2"
+        Grid.Row="3"
         Header="{lex:Loc Opponent}"
         Style="{StaticResource ExpanderStyle}">
         <StackPanel>
@@ -253,7 +282,7 @@
         </StackPanel>
     </Expander>
     <GroupBox
-        Grid.Row="3"
+        Grid.Row="4"
         Margin="5"
         Header="{lex:Loc SettingsCardsTitle}">
         <ListView

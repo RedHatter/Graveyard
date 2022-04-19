@@ -143,5 +143,8 @@
     <Setting Name="Version" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.9.5</Value>
     </Setting>
+    <Setting Name="GitHubProjectUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/RedHatter/Graveyard</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

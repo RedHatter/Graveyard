@@ -144,6 +144,9 @@ Go to Settings for the full list of cards supported</value>
   <data name="Guldan" xml:space="preserve">
     <value>Demons</value>
   </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="HoardPillager" xml:space="preserve">
     <value>Weapons Used</value>
   </data>
@@ -173,6 +176,15 @@ Go to Settings for the full list of cards supported</value>
   </data>
   <data name="OrientationDescription" xml:space="preserve">
     <value>Vertical or Horizontal view stacking</value>
+  </data>
+  <data name="PluginIssues" xml:space="preserve">
+    <value>Report Issue</value>
+  </data>
+  <data name="PluginReadme" xml:space="preserve">
+    <value>README</value>
+  </data>
+  <data name="PluginReleases" xml:space="preserve">
+    <value>Latest Release</value>
   </data>
   <data name="Questline" xml:space="preserve">
     <value>Questline</value>
