@@ -146,5 +146,8 @@
     <Setting Name="GitHubProjectUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://github.com/RedHatter/Graveyard</Value>
     </Setting>
+    <Setting Name="OpponentDeathrattleEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

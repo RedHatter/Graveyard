@@ -243,6 +243,11 @@
                 IsChecked="{Binding EnemyQuestlineEnabled, Source={x:Static local:Settings.Default}}"
                 Style="{StaticResource ToggleStyle}"
                 ToolTip="{lex:Loc OpponentQuestlineDescription}" />
+            <mah:ToggleSwitch
+                Content="{lex:Loc Deathrattle}"
+                IsChecked="{Binding OpponentDeathrattleEnabled, Source={x:Static local:Settings.Default}}"
+                Style="{StaticResource ToggleStyle}"
+                ToolTip="{lex:Loc OpponentDeathrattleDescription}" />
             <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
                 <StackPanel>
                     <DockPanel Style="{StaticResource SliderPanelStyle}">

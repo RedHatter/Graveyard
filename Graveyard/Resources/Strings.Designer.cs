@@ -193,6 +193,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show opponent deathrattle minions that have died.
+        /// </summary>
+        public static string OpponentDeathrattleDescription {
+            get {
+                return ResourceManager.GetString("OpponentDeathrattleDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show all opponent minions that have died.
         /// </summary>
         public static string OpponentDescription {
