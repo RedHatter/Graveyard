@@ -165,6 +165,9 @@ Go to Settings for the full list of cards supported</value>
   <data name="Opponent" xml:space="preserve">
     <value>Opponent</value>
   </data>
+  <data name="OpponentDeathrattleDescription" xml:space="preserve">
+    <value>Show opponent deathrattle minions that have died</value>
+  </data>
   <data name="OpponentDescription" xml:space="preserve">
     <value>Show all opponent minions that have died</value>
   </data>

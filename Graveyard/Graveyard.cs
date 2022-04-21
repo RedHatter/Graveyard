@@ -17,7 +17,7 @@ namespace HDT.Plugins.Graveyard
 			QuestlineView.FriendlyConfig,
 			ResurrectView.Config,
 			AnyfinView.Config,
-			DeathrattleView.Config,
+			DeathrattleView.PlayerConfig,
 			NZothView.Config,
 			HadronoxView.Config,
 			DiscardView.Config,
@@ -134,8 +134,9 @@ namespace HDT.Plugins.Graveyard
 			}
 			
 			InitializeView(EnemyPanel, QuestlineView.EnemyConfig);
-			InitializeView(EnemyPanel, GraveyardView.EnemyConfig);
-		
+			InitializeView(EnemyPanel, GraveyardView.EnemyConfig, true);
+			InitializeView(EnemyPanel, DeathrattleView.OpponentConfig);
+
 			FirstPanel = new StackPanel();
 			FriendlyPanel.Children.Add(FirstPanel);
             
