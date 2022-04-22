@@ -139,9 +139,6 @@ namespace HDT.Plugins.Graveyard
                     TryUpdateConfig(config, true);                        
                 }
                 
-                // Anyfin isn't in the config list atm
-                TryUpdateConfig(AnyfinView.Config, true);
-                
                 // "Last Played" cards all use single LastPlayedEnabled setting
                 var lastPlayedConfigs = Plugin.Graveyard.ConfigList
                     .Where(c => c.Enabled == "LastPlayedEnabled"
