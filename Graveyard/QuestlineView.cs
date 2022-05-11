@@ -39,6 +39,43 @@ namespace HDT.Plugins.Graveyard
         }
         private static ViewConfig _EnemyConfig;
 
+        internal class ViewConfig : Plugins.Graveyard.ViewConfig
+        {
+            public ViewConfig() : base()
+            {
+
+            }
+
+            public override void RegisterView(ViewBase view, bool isDefault = false)
+            {
+                base.RegisterView(view, isDefault);
+                if (view is QuestlineView questlineView)
+                {
+                    if (UpdateOn == GameEvents.OnPlayerPlay)
+                    {
+                        Plugin.Events.OnPlayerCreateInPlay.Register(questlineView.HunterShortcut);
+                    }
+                    else if (UpdateOn == GameEvents.OnOpponentPlay)
+                    {
+                        Plugin.Events.OnOpponentCreateInPlay.Register(questlineView.HunterShortcut);
+                    }
+                }
+            }
+        }
+
+        private bool HunterShortcut(Card card)
+        {
+            if (card.Id == "SW_322e3")
+            {
+                return base.Update(Database.GetCardFromId(Non.Hunter.DefendtheDwarvenDistrict_TakeTheHighGroundToken));
+            }
+            else if (card.Id == "SW_322e")
+            {
+                return base.Update(Database.GetCardFromId(Non.Hunter.DefendtheDwarvenDistrict_KnockEmDownToken));
+            }
+            return true;
+        }
+
         public override bool Update(Card card)
         {
             switch (card.Id)
