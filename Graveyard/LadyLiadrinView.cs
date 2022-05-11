@@ -37,7 +37,7 @@ namespace HDT.Plugins.Graveyard
             // 2
             Paladin.DarkConviction,
             Paladin.DesperateStand,
-            Paladin.FlashOfLight1810,
+            Paladin.FlashOfLight,
             Paladin.HandOfAdal,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
