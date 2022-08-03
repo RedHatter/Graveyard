@@ -18,7 +18,7 @@ namespace HDT.Plugins.Graveyard
 				Name = "ImpKing",
 				CreateView = () => new ChancesView(),
 				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
-				Condition = card => card.Race == "Demon" && card.Name.Contains("imp"),
+				Condition = card => card.Race == "Demon" && card.Name.Contains("Imp") && card.Id != Neutral.ImprisonedVilefiend,
 			});
 		}
 	}
