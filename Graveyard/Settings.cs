@@ -35,7 +35,7 @@ namespace HDT.Plugins.Graveyard
 
             SettingsLoaded += SettingsLoadedEventHandler;
             SettingsSaving += SettingsSavingEventHandler;
-        }
+        }       
 
         private void SettingsLoadedEventHandler(object sender, System.Configuration.SettingsLoadedEventArgs e)
         {
@@ -99,72 +99,6 @@ namespace HDT.Plugins.Graveyard
             {
                 Log.Error(ex);
             }
-        }
-
-        public override void Upgrade()
-        {
-            var upgradeVersion = new Version(1, 10);
-            if (upgradeVersion.CompareTo(new Version(Default.Version)) > 0)
-            {
-                bool TryUpdateConfig(ViewConfig config, bool updateSetting)
-                {
-                    try
-                    {
-                        foreach (var configCard in config.ShowOnCards)
-                        {
-                            configCard.IsEnabled = false;
-                            ViewConfigCards.Instance.Toggle(configCard);
-                        }
-                        if (updateSetting) Default[config.Enabled] = true;
-                        Log.Info($"Upgraded {config.Name} setting to {upgradeVersion}");
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warn($"Upgrade {config.Name} setting to {upgradeVersion} failed");
-                        Log.Error(ex);
-                        return false;
-                    }
-                }
-                
-                // Process config list for disabled settings and convert to excluded cards
-                // Exclude "Last Played" views to process separately
-                foreach (var config in Plugin.Graveyard.ConfigList
-                    .Where(c => !string.IsNullOrEmpty(c.Enabled)
-                    && !(bool)Default[c.Enabled]
-                    && c.Enabled != "LastPlayedEnabled"
-                    && c.ShowOnCards != null
-                    && c.ShowOnCards.Count() <= 2))
-                {
-                    TryUpdateConfig(config, true);                        
-                }
-                
-                // "Last Played" cards all use single LastPlayedEnabled setting
-                var lastPlayedConfigs = Plugin.Graveyard.ConfigList
-                    .Where(c => c.Enabled == "LastPlayedEnabled"
-                    && !(bool)Default[c.Enabled])
-                    .ToList();
-                for (int i = 0; i < lastPlayedConfigs.Count(); i++)
-                {
-                    var config = lastPlayedConfigs[i];
-                    TryUpdateConfig(config, i == lastPlayedConfigs.Count() - 1);
-                }
-                
-                // Kazakus has his own ResurrectKazakus setting
-                if (!Default.ResurrectKazakus)
-                {
-                    var kazakusConfig = ResurrectView.Config.ShowOnCards
-                        .Where(c => c.CardId == HearthDb.CardIds.Collectible.Neutral.Kazakus)
-                        .FirstOrDefault();
-                    if (kazakusConfig != null)
-                    {
-                        kazakusConfig.IsEnabled = false;
-                        ViewConfigCards.Instance.Toggle(kazakusConfig);
-                    }
-                    Default.ResurrectKazakus = true;
-                }
-                Default.Version = upgradeVersion.ToString();
-            }
-        }
+        }         
     }
 }
