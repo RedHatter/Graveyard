@@ -52,6 +52,7 @@ namespace HDT.Plugins.Graveyard
 			SI7View.Config,
 			HedraView.Config,
 			ImpKingView.Config,
+			KelthuzadTheInevitableView.Config,
 		};
 
 		private readonly StackPanel FriendlyPanel;
