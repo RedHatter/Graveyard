@@ -76,6 +76,7 @@
     <Compile Include="GraveyardView.cs" />
     <Compile Include="HedraView.cs" />
     <Compile Include="ImpKingView.cs" />
+    <Compile Include="KelthuzadTheInevitableView.cs" />
     <Compile Include="JaceDarkweaverView.cs" />
     <Compile Include="KeyToLocalizedConverter.cs" />
     <Compile Include="SettingsCard.cs" />
