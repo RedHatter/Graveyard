@@ -29,7 +29,21 @@ function CopyLocal($name) {
     {
 	    "Fetching $name..."
 	    $url = "https://libs.hearthsim.net/hdt/$name"
-	    try { (New-Object Net.WebClient).DownloadFile($url, ".\lib\$name") }
+	    try 
+        { 
+            (New-Object Net.WebClient).DownloadFile($url, ".\lib\$name")
+            
+            $HDTFile = Get-ChildItem  ".\lib\" |
+                Where-Object { $_.Name.Equals($name)}
+            if($HDTFile.Exists)
+            {
+                Write-Host "Downloaded $($HDTFile.Name) v$($HDTFile.VersionInfo.FileVersion) "
+            }
+            else
+            {
+                Write-Host "$name download failed without error"
+            }
+        }
         catch { $error[0].Exception.ToString() }    
     }
 }
