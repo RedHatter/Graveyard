@@ -13,7 +13,6 @@ namespace HDT.Plugins.Graveyard
 		internal static IEnumerable<ISettingsUpgrade> Upgrades = new List<ISettingsUpgrade>()
 		{
 			new SettingsUpgradev0110(),
-            new SettingsUpgradev0111(),
         };
 
 		public override void Upgrade()
