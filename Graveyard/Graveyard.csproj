@@ -78,15 +78,10 @@
     <Compile Include="ImpKingView.cs" />
     <Compile Include="JaceDarkweaverView.cs" />
     <Compile Include="KeyToLocalizedConverter.cs" />
-    <Compile Include="Profiles\Profile.cs" />
-    <Compile Include="Profiles\ProfileFile.cs" />
-    <Compile Include="Profiles\ProfileSection.cs" />
-    <Compile Include="Settings.Profiles.cs" />
     <Compile Include="Settings.Upgrade.cs" />
     <Compile Include="SettingsCard.cs" />
     <Compile Include="SettingsUpgrades\ISettingsUpgrade.cs" />
     <Compile Include="SettingsUpgrades\SettingsUpgradev0110.cs" />
-    <Compile Include="SettingsUpgrades\SettingsUpgradev0111.cs" />
     <Compile Include="ViewBuilder.cs" />
     <Compile Include="ViewConfigCards.cs" />
     <Compile Include="ViewConfigCard.cs" />
