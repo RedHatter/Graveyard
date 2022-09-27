@@ -22,7 +22,7 @@ namespace HDT.Plugins.Graveyard
 				if (upgrade.Version.CompareTo(new Version(Version)) > 0)
 				{
 					if (upgrade.Upgrade(this))
-                        Version = upgrade.ToString();
+                        Version = upgrade.Version.ToString(); 
 					else
 						break;
 				}
