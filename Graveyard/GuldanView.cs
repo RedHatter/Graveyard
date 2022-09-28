@@ -8,7 +8,10 @@ namespace HDT.Plugins.Graveyard
 		private static ViewConfig _Config;
 		internal static ViewConfig Config
 		{
-			get => _Config ?? (_Config = new ViewConfig(Warlock.BloodreaverGuldan, Warlock.KanrethadEbonlocke)
+			get => _Config ?? (_Config = new ViewConfig(
+				Demonhunter.AllFelBreaksLoose,
+				Warlock.BloodreaverGuldan, 
+				Warlock.KanrethadEbonlocke)
             {
 				Name = "Guldan",
 				Enabled = "GuldanEnabled",
