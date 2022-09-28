@@ -16,6 +16,7 @@ namespace HDT.Plugins.Graveyard
         internal static ViewConfig PlayerConfig
         {
             get => _PlayerConfig ?? (_PlayerConfig = new ViewConfig(
+                Hunter.DefenseAttorneyNathanos,
                 Priest.XyrellaTheDevout, 
                 Warlock.TamsinsPhylactery,
                 Priest.AmuletOfUndying,
