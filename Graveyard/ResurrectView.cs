@@ -9,6 +9,7 @@ namespace HDT.Plugins.Graveyard
 		internal static ViewConfig Config
 		{
 			get => _Config ?? (_Config = new ViewConfig(
+				Warlock.HabeasCorpses,
 				Priest.RaiseDead, 
 				Priest.Psychopomp, 
 				Neutral.BodyWrapper, 
