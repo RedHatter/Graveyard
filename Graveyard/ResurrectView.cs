@@ -17,8 +17,8 @@ namespace HDT.Plugins.Graveyard
 				Priest.CatrinaMuerte,
 				Priest.Resurrect,
 				Priest.OnyxBishop,
-				Priest.EternalServitude,
-				Priest.LesserDiamondSpellstone,
+                Priest.EternalServitudeCore,
+                Priest.LesserDiamondSpellstone,
 				Neutral.Kazakus)
             {
 				Name = "Resurrect",
