@@ -71,7 +71,7 @@ namespace HDT.Plugins.Graveyard
                 Enabled = "LastPlayedEnabled",
                 CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnOpponentPlay,
-                Condition = card => (card.Type == "Spell" || card.Type == "Minion"),
+                Condition = card => true,
             });
         }
         private static ViewConfig _VanessaVanCleefConfig;
