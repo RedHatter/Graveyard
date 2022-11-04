@@ -1,4 +1,5 @@
-﻿using Hearthstone_Deck_Tracker.API;
+﻿using HearthDb.Enums;
+using Hearthstone_Deck_Tracker.API;
 using System.Linq;
 using static HearthDb.CardIds.Collectible;
 
@@ -74,5 +75,17 @@ namespace HDT.Plugins.Graveyard
             });
         }
         private static ViewConfig _VanessaVanCleefConfig;
+
+        internal static ViewConfig LadyDarkveinConfig
+        {
+            get => _LadyDarkveinConfig ?? (_LadyDarkveinConfig = new ViewConfig(Warlock.LadyDarkvein)
+            {
+                Name = "LadyDarkvein",
+                CreateView = () => new LastCardView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => (card.SpellSchool == SpellSchool.SHADOW),
+            });
+        }
+        private static ViewConfig _LadyDarkveinConfig;
     }
 }

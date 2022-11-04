@@ -46,6 +46,7 @@ namespace HDT.Plugins.Graveyard
 			LastPlayedView.MonstrousParrotConfig,
 			LastPlayedView.SunwingSquawkerConfig,
 			LastPlayedView.VanessaVanCleefConfig,
+			LastPlayedView.LadyDarkveinConfig,
 			MulticasterView.Config,
 			ShirvallahView.Config,
 			JaceDarkweaverView.Config,
