@@ -8,7 +8,10 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Druid.WitchingHour, Hunter.RevivePet)
+            get => _Config ?? (_Config = new ViewConfig(
+                Druid.WitchingHour, 
+                Hunter.RevivePet, 
+                Hunter.AbominableBowmanCore)
             {
                 Name = "WitchingHour",
                 Enabled = "WitchingHourEnabled",
