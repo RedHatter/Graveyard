@@ -35,8 +35,8 @@ namespace HDT.Plugins.Graveyard
             Paladin.SandBreath,
             Paladin.ShieldOfHonor,
             // 2
-            Paladin.DarkConvictionCore,
-            Paladin.DesperateStandCore,
+            Paladin.DarkConvictionICECROWN,
+            Paladin.DesperateStandICECROWN,
             Paladin.FlashOfLightCore,
             Paladin.HandOfAdal,
             Paladin.LibramOfWisdom,

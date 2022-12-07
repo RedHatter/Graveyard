@@ -10,7 +10,7 @@ namespace HDT.Plugins.Graveyard
 		{
 			get => _Config ?? (_Config = new ViewConfig(
 				Demonhunter.AllFelBreaksLoose,
-				Warlock.BloodreaverGuldanCore,
+				Warlock.BloodreaverGuldanICECROWN,
 				Warlock.KanrethadEbonlocke)
             {
 				Name = "Guldan",
