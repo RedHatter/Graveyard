@@ -159,6 +159,9 @@
   <data name="OpponentDescription" xml:space="preserve">
     <value>所有死亡的敌方随从</value>
   </data>
+  <data name="Reanimate" xml:space="preserve">
+    <value>亡灵</value>
+  </data>
   <data name="Resurrect" xml:space="preserve">
     <value>复活池</value>
   </data>

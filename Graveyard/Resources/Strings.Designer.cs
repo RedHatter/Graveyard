@@ -283,6 +283,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Undead.
+        /// </summary>
+        public static string Reanimate {
+            get {
+                return ResourceManager.GetString("Reanimate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resurrect.
         /// </summary>
         public static string Resurrect {
