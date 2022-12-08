@@ -55,6 +55,7 @@ namespace HDT.Plugins.Graveyard
 			ImpKingView.Config,
 			KelthuzadTheInevitableView.Config,
 			ReanimateView.Config,
+			HighCultistBasalephView.Config,
 		};
 
 		private readonly StackPanel FriendlyPanel;

@@ -71,6 +71,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HighCultistBasalephView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
     <Compile Include="EventManager.cs" />
