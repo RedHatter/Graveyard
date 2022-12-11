@@ -54,11 +54,11 @@ namespace HDT.Plugins.Graveyard
 			HedraView.Config,
 			ImpKingView.Config,
 			KelthuzadTheInevitableView.Config,
-			ReanimateView.Config,
-			HighCultistBasalephView.Config,
+			ReanimateView.Config,			
 			AnimateDeadView.Config,
 			UnendingSwarmView.Config,
-		};
+            HighCultistBasalephView.Config,
+        };
 
 		private readonly StackPanel FriendlyPanel;
 		private readonly StackPanel EnemyPanel;

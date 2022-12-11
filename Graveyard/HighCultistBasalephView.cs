@@ -35,11 +35,12 @@ namespace HDT.Plugins.Graveyard
             }
         }
 
-        private Task PlayerTurnEnded()
+        private async Task PlayerTurnEnded()
         {
             Cards.Clear();
             View.Items.Clear();
-            return Task.CompletedTask;
+            await Task.CompletedTask;
+            return;
         }
     }
 }
