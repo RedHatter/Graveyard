@@ -57,6 +57,7 @@ namespace HDT.Plugins.Graveyard
 			ReanimateView.Config,
 			HighCultistBasalephView.Config,
 			AnimateDeadView.Config,
+			UnendingSwarmView.Config,
 		};
 
 		private readonly StackPanel FriendlyPanel;
