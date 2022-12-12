@@ -38,9 +38,7 @@ namespace HDT.Plugins.Graveyard
         private async Task PlayerTurnEnded()
         {
             Cards.Clear();
-            View.Items.Clear();
-            await Task.CompletedTask;
-            return;
+            await View.UpdateAsync(Cards, true);
         }
     }
 }
