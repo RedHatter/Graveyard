@@ -50,6 +50,10 @@ namespace HDT.Plugins.Graveyard
 
             GameEvents.OnPlayerCreateInPlay.Add(Events.OnPlayerCreateInPlay.Poll);
             GameEvents.OnOpponentCreateInPlay.Add(Events.OnOpponentCreateInPlay.Poll);
+           
+            GameEvents.OnPlayerDraw.Add(Events.OnPlayerDraw.Poll);
+
+            GameEvents.OnPlayerMulligan.Add(Events.OnPlayerMulligan.Poll);
 
             GameEvents.OnTurnStart.Add(Events.OnOpponentTurnStart.Poll);
 

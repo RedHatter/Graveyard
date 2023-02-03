@@ -11,7 +11,9 @@ namespace HDT.Plugins.Graveyard
 {
     internal class EventManager
     {
-		public TurnUpdatePoller OnOpponentTurnStart { get; } = new TurnUpdatePoller(ActivePlayer.Opponent);
+        // Remember to add a GameEvents.[GameEvent].Add(EventManager.[GameEvent])
+        // call to GraveyardPlugin.OnLoad for new pollers
+        public TurnUpdatePoller OnOpponentTurnStart { get; } = new TurnUpdatePoller(ActivePlayer.Opponent);
 		public CardUpdatePoller OnPlayerPlayToGraveyard { get; } = new CardUpdatePoller();
 		public CardUpdatePoller OnOpponentPlayToGraveyard { get; } = new CardUpdatePoller();
 		public CardUpdatePoller OnPlayerPlay { get; } = new CardUpdatePoller();
@@ -19,8 +21,10 @@ namespace HDT.Plugins.Graveyard
         public CardUpdatePoller OnPlayerCreateInPlay { get; } = new CardUpdatePoller();
         public CardUpdatePoller OnOpponentCreateInPlay { get; } = new CardUpdatePoller();
         public CardUpdatePoller OnPlayerHandDiscard { get; } = new CardUpdatePoller();
+        public CardUpdatePoller OnPlayerDraw { get; } = new CardUpdatePoller();
+        public CardUpdatePoller OnPlayerMulligan { get; } = new CardUpdatePoller();
 
-		public void Clear()
+        public void Clear()
         {
 			OnPlayerPlayToGraveyard.Clear();
 			OnOpponentPlayToGraveyard.Clear();
@@ -33,12 +37,16 @@ namespace HDT.Plugins.Graveyard
 
             OnPlayerHandDiscard.Clear();
 
-			OnOpponentTurnStart.Clear();
+            OnPlayerDraw.Clear();
+
+            OnPlayerMulligan.Clear();
+
+            OnOpponentTurnStart.Clear();
 		}
 
 		public CardUpdatePoller MapCardEvent(ActionList<Card> actionList)
         {
-            CardUpdatePoller cardUpdatePoller = null;
+            CardUpdatePoller cardUpdatePoller;
             if (actionList == GameEvents.OnPlayerPlayToGraveyard)
             {
                 cardUpdatePoller = OnPlayerPlayToGraveyard;
@@ -66,6 +74,18 @@ namespace HDT.Plugins.Graveyard
             else if (actionList == GameEvents.OnPlayerHandDiscard)
             {
                 cardUpdatePoller = OnPlayerHandDiscard;
+            }
+            else if (actionList == GameEvents.OnPlayerDraw)
+            {
+                cardUpdatePoller = OnPlayerDraw;
+            }
+            else if (actionList == GameEvents.OnPlayerMulligan)
+            {
+                cardUpdatePoller = OnPlayerMulligan;
+            }
+            else
+            {
+                throw new ArgumentException($"Requested game event mapping not supported by Graveyard");
             }
             return cardUpdatePoller;
         }
