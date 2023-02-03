@@ -9,12 +9,9 @@ namespace HDT.Plugins.Graveyard
     {
         internal static ViewConfig GreySageParrotConfig
         {
-            get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new ViewConfig(Mage.GreySageParrot)
+            get => _GreySageParrotConfig ?? (_GreySageParrotConfig = new LastCardView.ViewConfig(Mage.GreySageParrot)
             {
                 Name = "GreySageParrot",
-                Enabled = "LastPlayedEnabled",
-                ShowFirst = () => true,
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && card.Cost >= 5,
             });
@@ -23,12 +20,9 @@ namespace HDT.Plugins.Graveyard
 
         internal static ViewConfig SunwingSquawkerConfig
         {
-            get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new ViewConfig(Paladin.SunwingSquawker)
+            get => _SunwingSquawkerConfig ?? (_SunwingSquawkerConfig = new LastCardView.ViewConfig(Paladin.SunwingSquawker)
             {
                 Name = "SunwingSquawker",
-                Enabled = "LastPlayedEnabled",
-                ShowFirst = () => true,
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Type == "Spell" && LadyLiadrinView.SpellList.Contains(card.Id),
             });
@@ -37,12 +31,9 @@ namespace HDT.Plugins.Graveyard
 
         internal static ViewConfig BrilliantMacawConfig
         {
-            get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new ViewConfig(Shaman.BrilliantMacaw)
+            get => _BrilliantMacawConfig ?? (_BrilliantMacawConfig= new LastCardView.ViewConfig(Shaman.BrilliantMacaw)
             {
                 Name = "BrilliantMacaw",
-                Enabled = "LastPlayedEnabled",
-                ShowFirst = () => true,
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlay,
                 Condition = card => card.Mechanics.Contains("Battlecry") && card.Id != Shaman.BrilliantMacaw,
             });
@@ -51,12 +42,9 @@ namespace HDT.Plugins.Graveyard
 
         internal static ViewConfig MonstrousParrotConfig
         {
-            get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new ViewConfig(Hunter.MonstrousParrot)
+            get => _MonstrousParrotConfig ?? (_MonstrousParrotConfig = new LastCardView.ViewConfig(Hunter.MonstrousParrot)
             {
                 Name = "MonstrousParrot",
-                Enabled = "LastPlayedEnabled",
-                ShowFirst = () => true,
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
             });
@@ -68,8 +56,6 @@ namespace HDT.Plugins.Graveyard
             get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new ViewConfig(Rogue.VanessaVancleefCore)
             {
                 Name = "VanessaVanCleef",
-                Enabled = "LastPlayedEnabled",
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnOpponentPlay,
                 Condition = card => true,
             });
@@ -78,10 +64,9 @@ namespace HDT.Plugins.Graveyard
 
         internal static ViewConfig LadyDarkveinConfig
         {
-            get => _LadyDarkveinConfig ?? (_LadyDarkveinConfig = new ViewConfig(Warlock.LadyDarkvein)
+            get => _LadyDarkveinConfig ?? (_LadyDarkveinConfig = new LastCardView.ViewConfig(Warlock.LadyDarkvein)
             {
                 Name = "LadyDarkvein",
-                CreateView = () => new LastCardView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => (card.SpellSchool == SpellSchool.SHADOW),
             });

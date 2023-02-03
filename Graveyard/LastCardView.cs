@@ -9,6 +9,16 @@ namespace HDT.Plugins.Graveyard
 {
     public class LastCardView : ViewBase
     {
+        internal class ViewConfig : Plugins.Graveyard.ViewConfig
+        {
+            public ViewConfig(params string[] showOn) : base(showOn)
+            {
+                Enabled = "LastPlayedEnabled";
+                ShowFirst = () => true;
+                CreateView = () => new LastCardView();
+            }
+        }
+
         public readonly HearthstoneTextBlock Label;
         public readonly AnimatedCardList Cards;
 
