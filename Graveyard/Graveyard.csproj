@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="AnimateDeadView.cs" />
     <Compile Include="HighCultistBasalephView.cs" />
+    <Compile Include="HoldingEffectView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
     <Compile Include="EventManager.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="SettingsCard.cs" />
     <Compile Include="SettingsUpgrades\ISettingsUpgrade.cs" />
     <Compile Include="SettingsUpgrades\SettingsUpgradev0110.cs" />
+    <Compile Include="SivaraView.cs" />
     <Compile Include="UnendingSwarmView.cs" />
     <Compile Include="ViewBuilder.cs" />
     <Compile Include="ViewConfigCards.cs" />
