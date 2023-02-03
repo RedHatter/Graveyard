@@ -3,7 +3,7 @@ using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    internal class SivaraView : NormalView
+    internal class SivaraView
     {
         private static ViewConfig _Config;
         internal static ViewConfig Config
