@@ -59,6 +59,7 @@ namespace HDT.Plugins.Graveyard
 			UnendingSwarmView.Config,
             HighCultistBasalephView.Config,
 			SivaraView.Config,
+			FourHorsemenView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
