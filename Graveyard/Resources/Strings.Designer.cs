@@ -79,6 +79,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Four Horsemen.
+        /// </summary>
+        public static string FourHorsemen {
+            get {
+                return ResourceManager.GetString("FourHorsemen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string Friendly {

@@ -123,6 +123,9 @@
   <data name="DeathrattleDescription" xml:space="preserve">
     <value>Show player deathrattle minions that have died</value>
   </data>
+  <data name="FourHorsemen" xml:space="preserve">
+    <value>Four Horsemen</value>
+  </data>
   <data name="Friendly" xml:space="preserve">
     <value>Player</value>
   </data>

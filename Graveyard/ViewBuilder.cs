@@ -40,7 +40,7 @@ namespace HDT.Plugins.Graveyard
             if (Config.ShowOn == null || ActiveCards.Count() > 0)
             {
                 var view = Config.CreateView();
-                view.Title = ActiveCards.Count == 1 ? ActiveCards.First().LocalizedName : Strings.GetLocalized(Config.Name);
+                view.Title = Config.UseSoloCardNameAsTitle && ActiveCards.Count == 1 ? ActiveCards.First().LocalizedName : Strings.GetLocalized(Config.Name);
                 view.Condition = Config.Condition;
                 return view;
             }

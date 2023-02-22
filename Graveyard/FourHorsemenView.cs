@@ -15,6 +15,7 @@ namespace HDT.Plugins.Graveyard
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => Horsemen.Contains(card.Id),
+                UseSoloCardNameAsTitle = false,
             });
         }
         private static ViewConfig _Config;

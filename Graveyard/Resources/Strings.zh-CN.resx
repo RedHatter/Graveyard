@@ -123,6 +123,9 @@
   <data name="DeathrattleDescription" xml:space="preserve">
     <value>如果卡组中包含暮光召唤，显示所有死亡的亡语随从</value>
   </data>
+  <data name="FourHorsemen" xml:space="preserve">
+    <value>四骑士</value>
+  </data>
   <data name="Friendly" xml:space="preserve">
     <value>友方墓地显示设置</value>
   </data>

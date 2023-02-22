@@ -15,6 +15,7 @@ namespace HDT.Plugins.Graveyard
         public IEnumerable<string> ShowOn => _ShowOnCards?.Where(c => c.IsEnabled).Select(c => c.CardId);
         public Predicate<Card> Condition { get; set; }        
         public Func<ViewBase> CreateView { get; set; }
+        public bool UseSoloCardNameAsTitle { get; set; } = true;
 
         public IEnumerable<ViewConfigCard> ShowOnCards => _ShowOnCards;
         private readonly List<ViewConfigCard> _ShowOnCards;
