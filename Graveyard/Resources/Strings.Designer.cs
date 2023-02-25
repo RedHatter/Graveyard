@@ -301,6 +301,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relics Cast.
+        /// </summary>
+        public static string Relic {
+            get {
+                return ResourceManager.GetString("Relic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resurrect.
         /// </summary>
         public static string Resurrect {

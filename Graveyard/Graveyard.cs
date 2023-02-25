@@ -60,6 +60,7 @@ namespace HDT.Plugins.Graveyard
             HighCultistBasalephView.Config,
 			SivaraView.Config,
 			FourHorsemenView.Config,
+			RelicView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;

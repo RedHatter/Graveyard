@@ -84,6 +84,7 @@
     <Compile Include="KelthuzadTheInevitableView.cs" />
     <Compile Include="JaceDarkweaverView.cs" />
     <Compile Include="KeyToLocalizedConverter.cs" />
+    <Compile Include="RelicView.cs" />
     <Compile Include="Settings.Upgrade.cs" />
     <Compile Include="SettingsCard.cs" />
     <Compile Include="SettingsUpgrades\ISettingsUpgrade.cs" />
