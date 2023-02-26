@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Relics.ToArray())
+            get => _Config ?? (_Config = new ViewConfig(ShowOn.ToArray())
             {
                 Name = "Relic",
                 CreateView = () => new RelicView(),
@@ -43,12 +43,28 @@ namespace HDT.Plugins.Graveyard
             return false;
         }
 
+        private bool RelicsCheck(Card card)
+        {
+            if (RelicsofOldCheck(card)) return true;
+            if (Config.Condition(card))
+            {
+                UpdateList(card);
+                return true;
+            }
+            return false;
+        }
+
         public override bool Update(Card card)
         {
             if (!Condition(card)) return false;
 
-            var countToAdd = RelicsofOldWaiting ? 2 : 1;
+            UpdateList(card, RelicsofOldWaiting ? 2 : 1);
 
+            return true;
+        }
+
+        private void UpdateList(Card card, int countToAdd = 1)
+        {
             var match = Cards.FirstOrDefault(c => c.Name == card.Name);
             if (match != null)
             {
@@ -63,8 +79,6 @@ namespace HDT.Plugins.Graveyard
             View.Update(Cards, false);
 
             Visibility = Visibility.Visible;
-
-            return true;
         }
 
         internal static readonly List<string> Relics = new List<string>
@@ -72,8 +86,9 @@ namespace HDT.Plugins.Graveyard
             Demonhunter.RelicOfExtinction,
             Demonhunter.RelicOfPhantasms,
             Demonhunter.RelicOfDimensions,
-            Demonhunter.ArtificerXymox,
         };
+
+        internal static readonly List<string> ShowOn = Relics.Append(Demonhunter.ArtificerXymox).ToList();               
 
         internal class ViewConfig : Plugins.Graveyard.ViewConfig
         {
@@ -87,7 +102,7 @@ namespace HDT.Plugins.Graveyard
                 base.RegisterView(view, isDefault);
                 if (view is RelicView relicView)
                 {
-                    Plugin.Events.OnPlayerCreateInPlay.Register(relicView.RelicsofOldCheck);
+                    Plugin.Events.OnPlayerCreateInPlay.Register(relicView.RelicsCheck);
                     Plugin.Events.OnPlayerPlayToGraveyard.Register(relicView.RelicsofOldUncheck);
                 }
             }
