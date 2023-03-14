@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
                 Name = "GreySageParrot",
                 UpdateOn = GameEvents.OnPlayerPlay,
-                Condition = card => card.Type == "Spell" && card.Cost >= 5,
+                Condition = card => card.Type == "Spell" && card.Cost >= 6,
             });
         }
         private static ViewConfig _GreySageParrotConfig;
