@@ -23,7 +23,7 @@ namespace HDT.Plugins.Graveyard
         internal static readonly List<string> Horsemen = new List<string>
         {
             Collectible.RivendareWarrider,
-            NonCollectible.RivendareWarrider_BlaumeauxFamineriderToken,
+            NonCollectible.RivendareWarrider_BlaumeuxFamineriderToken,
             NonCollectible.RivendareWarrider_KorthazzDeathriderToken,
             NonCollectible.RivendareWarrider_ZeliekConquestriderToken,
         };
