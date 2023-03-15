@@ -61,6 +61,7 @@ namespace HDT.Plugins.Graveyard
 			SivaraView.Config,
 			FourHorsemenView.Config,
 			RelicView.Config,
+			LastPlayedView.AsvedonConfig,
         };
 
 		private readonly StackPanel FriendlyPanel;

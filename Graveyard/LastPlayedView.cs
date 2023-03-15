@@ -72,5 +72,16 @@ namespace HDT.Plugins.Graveyard
             });
         }
         private static ViewConfig _LadyDarkveinConfig;
+
+        internal static ViewConfig AsvedonConfig
+        {
+            get => _AsvedonConfig ?? (_AsvedonConfig = new LastCardView.ViewConfig(Warrior.AsvedonTheGrandshield)
+            {
+                Name = "Asvedon",
+                UpdateOn = GameEvents.OnOpponentPlay,
+                Condition = card => card.Type == "Spell",
+            });
+        }
+        private static ViewConfig _AsvedonConfig;
     }
 }
