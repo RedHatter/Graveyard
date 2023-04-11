@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             {
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnOpponentPlay,
-                Condition = card => card.Type == "Spell",
+                Condition = card => true,
             });
         }
         private static ViewConfig _Config;
