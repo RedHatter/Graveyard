@@ -25,7 +25,8 @@ namespace HDT.Plugins.Graveyard
                 Neutral.Vectus,
                 Hunter.NineLives,
                 Neutral.DaUndatakah,
-                Priest.TwilightsCall)
+                Priest.TwilightsCall,
+                Deathknight.Boneshredder)
             {
                 Name = SharedName,
                 Enabled = "DeathrattleEnabled",
