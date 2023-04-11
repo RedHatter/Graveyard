@@ -31,7 +31,7 @@ namespace HDT.Plugins.Graveyard
             NonCollectible.Neutral.RustswornCultist_RustedDevilToken,
 			NonCollectible.Warlock.NofinsImpossible_ImplocToken, 
 			Warlock.ImprisonedScrapImp,
-            Warlock.TinyKnightOfEvilCore,
+            Warlock.TinyKnightOfEvilTGT,
 			Warlock.VulgarHomunculus,
 			Neutral.StreetTrickster,
 			Warlock.UnlicensedApothecary,

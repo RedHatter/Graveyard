@@ -53,7 +53,7 @@ namespace HDT.Plugins.Graveyard
 
         internal static ViewConfig VanessaVanCleefConfig
         {
-            get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new LastCardView.ViewConfig(Rogue.VanessaVancleefCore)
+            get => _VanessaVanCleefConfig ?? (_VanessaVanCleefConfig = new LastCardView.ViewConfig(Rogue.VanessaVancleefLegacy)
             {
                 Name = "VanessaVanCleef",
                 UpdateOn = GameEvents.OnOpponentPlay,

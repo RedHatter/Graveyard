@@ -38,7 +38,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.DarkConvictionICECROWN,
             Paladin.DesperateStandICECROWN,
             Paladin.FlashOfLightCore,
-            Paladin.HandOfAdal,
+            Paladin.HandOfAdalBLACK_TEMPLE,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
             Paladin.NobleMount,
