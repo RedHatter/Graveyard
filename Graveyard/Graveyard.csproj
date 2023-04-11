@@ -90,6 +90,7 @@
     <Compile Include="SettingsUpgrades\ISettingsUpgrade.cs" />
     <Compile Include="SettingsUpgrades\SettingsUpgradev0110.cs" />
     <Compile Include="SivaraView.cs" />
+    <Compile Include="StranglethornHeartView.cs" />
     <Compile Include="UnendingSwarmView.cs" />
     <Compile Include="ViewBuilder.cs" />
     <Compile Include="ViewConfigCards.cs" />
