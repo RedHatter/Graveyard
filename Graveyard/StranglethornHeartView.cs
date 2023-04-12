@@ -13,7 +13,7 @@ namespace HDT.Plugins.Graveyard
             {
                 CreateView = () => new ChancesView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
-                Condition = card => card.Cost >= 5,
+                Condition = card => card.Cost >= 5 && (card.Race == "Beast" || card.Race == "All"),
             });
         }
     }
