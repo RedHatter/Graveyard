@@ -64,6 +64,7 @@ namespace HDT.Plugins.Graveyard
 			LastPlayedView.AsvedonConfig,
 			StranglethornHeartView.Config,
 			MixtapeView.Config,
+			LastPlayedView.LastRiffConfig,
         };
 
 		private readonly StackPanel FriendlyPanel;

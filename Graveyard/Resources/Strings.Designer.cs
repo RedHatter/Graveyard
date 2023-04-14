@@ -166,6 +166,15 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Riff Played.
+        /// </summary>
+        public static string LastRiff {
+            get {
+                return ResourceManager.GetString("LastRiff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lock Graveyards.
         /// </summary>
         public static string Lock {

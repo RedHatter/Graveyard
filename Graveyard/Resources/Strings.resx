@@ -156,6 +156,9 @@ Go to Settings for the full list of cards supported</value>
   <data name="Horizontal" xml:space="preserve">
     <value>Horizontal</value>
   </data>
+  <data name="LastRiff" xml:space="preserve">
+    <value>Last Riff Played</value>
+  </data>
   <data name="Lock" xml:space="preserve">
     <value>Lock Graveyards</value>
   </data>

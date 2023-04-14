@@ -1,5 +1,6 @@
 ﻿using HearthDb.Enums;
 using Hearthstone_Deck_Tracker.API;
+using System.Collections.Generic;
 using System.Linq;
 using static HearthDb.CardIds.Collectible;
 
@@ -83,5 +84,23 @@ namespace HDT.Plugins.Graveyard
             });
         }
         private static ViewConfig _AsvedonConfig;
+
+        internal static ViewConfig LastRiffConfig
+        {
+            get => _LastRiffConfig ?? (_LastRiffConfig = new LastCardView.ViewConfig(Riffs.ToArray())
+            {
+                Name = "LastRiff",
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => Riffs.Contains(card.Id),
+            });
+        }
+        private static ViewConfig _LastRiffConfig;
+
+        internal static readonly List<string> Riffs = new List<string>
+        {
+            Warrior.VerseRiff,
+            Warrior.BridgeRiff,
+            Warrior.ChorusRiff,
+        };
     }
 }
