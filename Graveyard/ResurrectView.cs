@@ -14,7 +14,6 @@ namespace HDT.Plugins.Graveyard
 				Priest.Psychopomp, 
 				Neutral.BodyWrapper, 
 				Priest.MassResurrection, 
-				Priest.CatrinaMuerteDALARAN,
 				Priest.Resurrect,
 				Priest.OnyxBishop,
                 Priest.EternalServitudeICECROWN,

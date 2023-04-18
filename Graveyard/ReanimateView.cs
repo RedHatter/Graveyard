@@ -8,7 +8,10 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Priest.Bonecaller, Warlock.InfantryReanimator)
+            get => _Config ?? (_Config = new ViewConfig(
+                Priest.Bonecaller,
+                Priest.CatrinaMuerteCore, 
+                Warlock.InfantryReanimator)
             {
                 Name = "Reanimate",
                 CreateView = () => new ChancesView(),
