@@ -8,7 +8,9 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Hunter.Zuljin)
+            get => _Config ?? (_Config = new ViewConfig(
+                Hunter.Zuljin, 
+                Mage.Rewind)
             {
                 Name = "Zuljin",
                 Enabled = "ZuljinEnabled",
