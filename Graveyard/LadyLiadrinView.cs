@@ -37,8 +37,9 @@ namespace HDT.Plugins.Graveyard
             // 2
             Paladin.DarkConvictionICECROWN,
             Paladin.DesperateStandICECROWN,
-            Paladin.FlashOfLightCore,
-            Paladin.HandOfAdalBLACK_TEMPLE,
+            Paladin.ForQuelthalas,
+            Paladin.FlashOfLight,
+            Paladin.HandOfAdalCore,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
             Paladin.NobleMount,
@@ -50,6 +51,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.GiftOfLuminance,
             Paladin.HoldTheBridge,
             //Paladin.RighteousDefense,
+            Paladin.SealOfBlood,
             Paladin.SealOfChampions,
             // 4
             Paladin.BlessingOfKingsCore,
