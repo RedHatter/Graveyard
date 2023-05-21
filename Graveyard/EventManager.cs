@@ -23,6 +23,7 @@ namespace HDT.Plugins.Graveyard
         public CardUpdatePoller OnPlayerHandDiscard { get; } = new CardUpdatePoller();
         public CardUpdatePoller OnPlayerDraw { get; } = new CardUpdatePoller();
         public CardUpdatePoller OnPlayerMulligan { get; } = new CardUpdatePoller();
+        public CardUpdatePoller OnPlayerGet { get; } = new CardUpdatePoller();
 
         public void Clear()
         {
@@ -40,6 +41,8 @@ namespace HDT.Plugins.Graveyard
             OnPlayerDraw.Clear();
 
             OnPlayerMulligan.Clear();
+
+            OnPlayerGet.Clear();
 
             OnOpponentTurnStart.Clear();
 		}
@@ -82,6 +85,10 @@ namespace HDT.Plugins.Graveyard
             else if (actionList == GameEvents.OnPlayerMulligan)
             {
                 cardUpdatePoller = OnPlayerMulligan;
+            }
+            else if (actionList == GameEvents.OnPlayerGet)
+            {
+                cardUpdatePoller = OnPlayerGet;
             }
             else
             {
