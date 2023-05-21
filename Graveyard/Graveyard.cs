@@ -65,6 +65,7 @@ namespace HDT.Plugins.Graveyard
 			StranglethornHeartView.Config,
 			MixtapeView.Config,
 			LastPlayedView.LastRiffConfig,
+			SpellsCreatedView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
