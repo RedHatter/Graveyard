@@ -75,6 +75,7 @@
     <Compile Include="FourHorsemenView.cs" />
     <Compile Include="HighCultistBasalephView.cs" />
     <Compile Include="HoldingEffectView.cs" />
+    <Compile Include="MenagerieView.cs" />
     <Compile Include="MixtapeView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
