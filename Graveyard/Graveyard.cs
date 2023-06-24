@@ -67,6 +67,7 @@ namespace HDT.Plugins.Graveyard
 			LastPlayedView.LastRiffConfig,
 			SpellsCreatedView.Config,
 			MenagerieView.Config,
+			FizzleView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
