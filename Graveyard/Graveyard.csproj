@@ -78,6 +78,7 @@
     <Compile Include="HoldingEffectView.cs" />
     <Compile Include="MenagerieView.cs" />
     <Compile Include="MixtapeView.cs" />
+    <Compile Include="TyrsTearsView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
     <Compile Include="EventManager.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="SivaraView.cs" />
     <Compile Include="SpellsCreatedView.cs" />
     <Compile Include="StranglethornHeartView.cs" />
+    <Compile Include="TyrView.cs" />
     <Compile Include="UnendingSwarmView.cs" />
     <Compile Include="ViewBuilder.cs" />
     <Compile Include="ViewConfigCards.cs" />

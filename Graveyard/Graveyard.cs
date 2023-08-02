@@ -68,6 +68,8 @@ namespace HDT.Plugins.Graveyard
 			SpellsCreatedView.Config,
 			MenagerieView.Config,
 			FizzleView.Config,
+			TyrView.Config,
+			TyrsTearsView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
