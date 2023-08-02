@@ -15,7 +15,12 @@ namespace HDT.Plugins.Graveyard
         private static ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new ViewConfig(Mage.MagisterDawngrasp, Neutral.Multicaster, Shaman.CoralKeeper)
+            get => _Config ?? (_Config = new ViewConfig(
+                Mage.MagisterDawngrasp, 
+                Neutral.Multicaster, 
+                Shaman.CoralKeeper,
+                Mage.InquisitiveCreation,
+                Mage.Sif)
             {
                 Name = "Multicaster",
                 Enabled = "MulticasterEnabled",
