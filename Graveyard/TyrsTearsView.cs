@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard
             get => _Config ?? (_Config = new ViewConfig(
                 Paladin.TyrsTears_TyrsTearsToken)
             {
-                CreateView = () => new ChancesView(),
+                CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.CardClass == CardClass.PALADIN 
                     && card.Type == "Minion",
