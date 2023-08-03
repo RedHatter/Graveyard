@@ -77,6 +77,7 @@
     <Compile Include="HighCultistBasalephView.cs" />
     <Compile Include="HoldingEffectView.cs" />
     <Compile Include="MenagerieView.cs" />
+    <Compile Include="MinionsCreatedView.cs" />
     <Compile Include="MixtapeView.cs" />
     <Compile Include="TyrsTearsView.cs" />
     <Compile Include="ReanimateView.cs" />

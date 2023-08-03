@@ -70,6 +70,7 @@ namespace HDT.Plugins.Graveyard
 			FizzleView.Config,
 			TyrView.Config,
 			TyrsTearsView.Config,
+			MinionsCreatedView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
