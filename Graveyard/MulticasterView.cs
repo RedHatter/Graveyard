@@ -20,7 +20,9 @@ namespace HDT.Plugins.Graveyard
                 Neutral.Multicaster, 
                 Shaman.CoralKeeper,
                 Mage.InquisitiveCreation,
-                Mage.Sif)
+                Mage.WisdomOfNorgannon,
+                Mage.Sif,
+                Mage.ElementalInspiration)
             {
                 Name = "Multicaster",
                 Enabled = "MulticasterEnabled",
