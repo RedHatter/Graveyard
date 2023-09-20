@@ -56,7 +56,7 @@ namespace HDT.Plugins.Graveyard
             // 4
             Paladin.BlessingOfKingsCore,
             //Paladin.HammerOfWrath,
-            Paladin.SilvermoonPortal,
+            Paladin.SilvermoonPortalKARA,
             // 5
             Paladin.BlessedChampion,
             Paladin.BlessingOfAuthority,
@@ -69,7 +69,7 @@ namespace HDT.Plugins.Graveyard
             Paladin.SpikeridgedSteed,
             // 8
             Paladin.Dinosize,
-            Paladin.LayOnHands,
+            Paladin.LayOnHandsExpert1,
             // 9
             Paladin.LibramOfHope,
             // 10

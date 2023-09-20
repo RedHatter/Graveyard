@@ -15,7 +15,7 @@ namespace HDT.Plugins.Graveyard
 				Neutral.BodyWrapper, 
 				Priest.MassResurrection, 
 				Priest.Resurrect,
-				Priest.OnyxBishop,
+				Priest.OnyxBishopKARA,
                 Priest.EternalServitudeICECROWN,
                 Priest.LesserDiamondSpellstone,
 				Neutral.Kazakus)

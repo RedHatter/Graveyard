@@ -33,7 +33,7 @@ namespace HDT.Plugins.Graveyard
 			Warlock.ImprisonedScrapImp,
             Warlock.TinyKnightOfEvilTGT,
 			Warlock.VulgarHomunculus,
-			Neutral.StreetTrickster,
+			Neutral.StreetTricksterGANGS,
 			Warlock.UnlicensedApothecary,
 			Neutral.SneakyDevil,
 			Warlock.EnvoyRustwix,
