@@ -79,6 +79,7 @@
     <Compile Include="MenagerieView.cs" />
     <Compile Include="MinionsCreatedView.cs" />
     <Compile Include="MixtapeView.cs" />
+    <Compile Include="Properties\LibraryInfo.cs" />
     <Compile Include="TyrsTearsView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
