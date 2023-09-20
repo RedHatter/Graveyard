@@ -1,12 +1,11 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using HDT.Plugins.Graveyard.Properties;
+using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -24,8 +23,15 @@ namespace HDT.Plugins.Graveyard
 
     public sealed partial class Settings
     {
-        private const string Filename = "Graveyard.xml";
-        internal static string DataDir => Config.Instance.DataDir;
+        private static class Old
+        {
+            internal static readonly string Filename = Path.ChangeExtension(LibraryInfo.Name, ".xml");
+            internal static string DataDir => Config.Instance.DataDir;
+            internal static string SettingsPath => Path.Combine(DataDir, Filename);
+        }
+
+        private static readonly string Filename = Path.ChangeExtension(nameof(Settings), ".xml");
+        internal static string DataDir => Path.Combine(Config.Instance.DataDir, $"Plugin.{LibraryInfo.Name}");
         private static string SettingsPath => Path.Combine(DataDir, Filename);
 
         public bool HasChanges { get; private set; } = false;
@@ -42,6 +48,18 @@ namespace HDT.Plugins.Graveyard
             try
             {
                 Log.Debug($"Loading {SettingsPath}");
+
+                if (!Directory.Exists(DataDir))
+                    Directory.CreateDirectory(DataDir);
+
+                try
+                {
+                    if (!File.Exists(SettingsPath) || File.Exists(Old.SettingsPath))
+                    {
+                        File.Move(Old.SettingsPath, SettingsPath);
+                    }
+                }
+                catch (Exception ex) { Log.Error(ex); }
 
                 if (File.Exists(SettingsPath))
                 {
