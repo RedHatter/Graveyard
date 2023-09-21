@@ -373,11 +373,65 @@ namespace HDT.Plugins.Graveyard.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal.
+        /// </summary>
+        public static string SettingsHorizontal {
+            get {
+                return ResourceManager.GetString("SettingsHorizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % Screen Position (Left &lt;-&gt; Right).
+        /// </summary>
+        public static string SettingsHorizontalTooltip {
+            get {
+                return ResourceManager.GetString("SettingsHorizontalTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string SettingsPositionTitle {
+            get {
+                return ResourceManager.GetString("SettingsPositionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset to Default.
+        /// </summary>
+        public static string SettingsResetButtonTooltip {
+            get {
+                return ResourceManager.GetString("SettingsResetButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Graveyard Settings.
         /// </summary>
         public static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical.
+        /// </summary>
+        public static string SettingsVertical {
+            get {
+                return ResourceManager.GetString("SettingsVertical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % Screen Position (Top &lt;-&gt; Bottom).
+        /// </summary>
+        public static string SettingsVerticalTooltip {
+            get {
+                return ResourceManager.GetString("SettingsVerticalTooltip", resourceCulture);
             }
         }
         

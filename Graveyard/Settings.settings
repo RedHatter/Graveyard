@@ -149,5 +149,11 @@
     <Setting Name="OpponentDeathrattleEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="MaxTop" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">95</Value>
+    </Setting>
+    <Setting Name="MaxLeft" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">95</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

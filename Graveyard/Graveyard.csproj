@@ -79,7 +79,9 @@
     <Compile Include="MenagerieView.cs" />
     <Compile Include="MinionsCreatedView.cs" />
     <Compile Include="MixtapeView.cs" />
+    <Compile Include="PositionHelpers.cs" />
     <Compile Include="Properties\LibraryInfo.cs" />
+    <Compile Include="SettingsUpgrades\SettingsUpgradev0111.cs" />
     <Compile Include="TyrsTearsView.cs" />
     <Compile Include="ReanimateView.cs" />
     <Compile Include="CardUpdatePoller.cs" />
@@ -168,6 +170,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <None Include="app.config" />
+    <Compile Include="Settings.Default.cs" />
     <None Include="Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

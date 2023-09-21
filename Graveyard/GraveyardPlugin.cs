@@ -15,9 +15,9 @@ namespace HDT.Plugins.Graveyard
         internal static EventManager Events { get; private set; }
         internal static Graveyard Graveyard { get; private set; }
         public string Author => "RedHatter";
-        public string ButtonText => Strings.GetLocalized("Settings");
+        public string ButtonText => Strings.GetLocalized(nameof(Resources.Strings.Settings));
 
-        public string Description => Strings.GetLocalized("GraveyardDescription");
+        public string Description => Strings.GetLocalized(nameof(Resources.Strings.GraveyardDescription));
 
         public MenuItem MenuItem { get; set; }
         public string Name => LibraryInfo.Name;
@@ -27,7 +27,7 @@ namespace HDT.Plugins.Graveyard
         {
             Settings = Settings.Default;
 
-            MenuItem = new MenuItem { Header = Strings.GetLocalized("Graveyard") };
+            MenuItem = new MenuItem { Header = Strings.GetLocalized(nameof(Resources.Strings.Graveyard)) };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
             Events = new EventManager();

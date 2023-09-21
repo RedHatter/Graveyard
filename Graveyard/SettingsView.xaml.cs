@@ -1,43 +1,34 @@
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.Utility;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Navigation;
-using WPFLocalizeExtension.Engine;
+using ResourceStrings = HDT.Plugins.Graveyard.Resources.Strings;
 
 namespace HDT.Plugins.Graveyard
 {
-	public partial class SettingsView : Grid
+    public partial class SettingsView : Grid
 	{
 		private static Flyout _flyout;
-
-		public static Flyout Flyout
-		{
-			get
-			{
-				if (_flyout == null)
-				{
-					_flyout = CreateSettingsFlyout();
-				}
-				return _flyout;
-			}
-		}
+		public static Flyout Flyout => _flyout ?? (_flyout = CreateSettingsFlyout());
 
 		private static Flyout CreateSettingsFlyout()
 		{
-			var settings = new Flyout();
-			settings.Position = Position.Left;
-			Panel.SetZIndex(settings, 100);
-			settings.Header = Strings.GetLocalized("SettingsTitle");
+            var settings = new Flyout
+            {
+                Position = Position.Left
+            };
+            SetZIndex(settings, 100);
+			settings.Header = Strings.GetLocalized(nameof(ResourceStrings.SettingsTitle));
 			settings.Content = new SettingsView();
 			Core.MainWindow.Flyouts.Items.Add(settings);
 			return settings;
@@ -63,10 +54,38 @@ namespace HDT.Plugins.Graveyard
 			view.CustomSort = new CardComparer();
 		}
 
-		public IEnumerable<Orientation> OrientationTypes => Enum.GetValues(typeof(Orientation)).Cast<Orientation>();
+        public class GroupHeader
+        {
+            public string Title { get; set; }
+            public ICommand Command { get; set; }
+        }
+        public GroupHeader PlayerPositionGroup { get; } = new GroupHeader
+        {
+            Title = Strings.GetLocalized(nameof(ResourceStrings.SettingsPositionTitle)).ToUpper(),
+            Command = new Command(Settings.Default.ResetPlayerPosition)
+        };
+        public GroupHeader OpponentPositionGroup { get; } = new GroupHeader
+        {
+            Title = Strings.GetLocalized(nameof(ResourceStrings.SettingsPositionTitle)).ToUpper(),
+            Command = new Command(Settings.Default.ResetOpponentPosition)
+        };
+        public GroupHeader PlayerDisplayGroup { get; } = new GroupHeader
+        {
+            Title = Strings.GetLocalized(nameof(ResourceStrings.SettingsDisplayTitle)).ToUpper(),
+            Command = new Command(Settings.Default.ResetPlayerDisplay)
+        };
+        public GroupHeader OpponentDisplayGroup { get; } = new GroupHeader
+        {
+            Title = Strings.GetLocalized(nameof(ResourceStrings.SettingsDisplayTitle)).ToUpper(),
+            Command = new Command(Settings.Default.ResetOpponentDisplay)
+        };
+
+        public IEnumerable<Orientation> OrientationTypes => Enum.GetValues(typeof(Orientation)).Cast<Orientation>();
 
 		private void BtnUnlock_Click (object sender, RoutedEventArgs e) {
-			BtnUnlock.Content = Graveyard.Input.Toggle() ? Strings.GetLocalized("Lock") : Strings.GetLocalized("Unlock");
+			BtnUnlock.Content = Graveyard.Input.Toggle() 
+				? Strings.GetLocalized(nameof(ResourceStrings.Lock)) 
+				: Strings.GetLocalized(nameof(ResourceStrings.Unlock));
 		}
 
 		internal class CardComparer : IComparer

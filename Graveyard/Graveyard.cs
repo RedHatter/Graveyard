@@ -2,6 +2,7 @@ using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
@@ -83,19 +84,19 @@ namespace HDT.Plugins.Graveyard
 		public Graveyard()
 		{
 
-			// Create container
-			EnemyPanel = new StackPanel();
-			EnemyPanel.Orientation = Orientation.Vertical;
-			Core.OverlayCanvas.Children.Add(EnemyPanel);
-			Canvas.SetTop(EnemyPanel, Settings.Default.EnemyTop);
-			Canvas.SetLeft(EnemyPanel, Settings.Default.EnemyLeft);
+            // Create container
+            EnemyPanel = new StackPanel
+            {
+                Orientation = Orientation.Vertical
+            };
+            Core.OverlayCanvas.Children.Add(EnemyPanel);
 
-			// Create container
-			FriendlyPanel = new StackPanel();
-			FriendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
-			Core.OverlayCanvas.Children.Add(FriendlyPanel);
-			Canvas.SetTop(FriendlyPanel, Settings.Default.PlayerTop);
-			Canvas.SetLeft(FriendlyPanel, Settings.Default.PlayerLeft);
+            // Create container
+            FriendlyPanel = new StackPanel
+            {
+                Orientation = Settings.Default.FriendlyOrientation
+            };
+            Core.OverlayCanvas.Children.Add(FriendlyPanel);
 
 			Input = new InputManager(FriendlyPanel, EnemyPanel);
 
@@ -132,11 +133,22 @@ namespace HDT.Plugins.Graveyard
         {
 			var visibility = (Core.Game.IsInMenu && Hearthstone_Deck_Tracker.Config.Instance.HideInMenu)
 				|| Core.Game.IsBattlegroundsMatch
-				|| Core.Game.IsMercenariesMatch ? System.Windows.Visibility.Collapsed : System.Windows.Visibility.Visible;
+                || Core.Game.IsMercenariesMatch ? Visibility.Collapsed : Visibility.Visible;
 
 			FriendlyPanel.Visibility = visibility;
-			EnemyPanel.Visibility = visibility;
-		}
+			if (FriendlyPanel.Visibility == Visibility.Visible)
+			{
+                Canvas.SetTop(FriendlyPanel, Settings.Default.PlayerTop.PercentageToPixels(Core.OverlayWindow.Height));
+                Canvas.SetLeft(FriendlyPanel, Settings.Default.PlayerLeft.PercentageToPixels(Core.OverlayWindow.Width));
+            }
+
+            EnemyPanel.Visibility = visibility;
+			if (EnemyPanel.Visibility == Visibility.Visible)
+			{
+                Canvas.SetTop(EnemyPanel, Settings.Default.EnemyTop.PercentageToPixels(Core.OverlayWindow.Height));
+                Canvas.SetLeft(EnemyPanel, Settings.Default.EnemyLeft.PercentageToPixels(Core.OverlayWindow.Width));
+            }
+        }
 
 		/**
 		* Clear then recreate all Views.

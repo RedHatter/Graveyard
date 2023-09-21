@@ -225,8 +225,26 @@ Go to Settings for the full list of cards supported</value>
   <data name="SettingsDisplayTitle" xml:space="preserve">
     <value>Display</value>
   </data>
+  <data name="SettingsHorizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="SettingsHorizontalTooltip" xml:space="preserve">
+    <value>% Screen Position (Left &lt;-&gt; Right)</value>
+  </data>
+  <data name="SettingsPositionTitle" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="SettingsResetButtonTooltip" xml:space="preserve">
+    <value>Reset to Default</value>
+  </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Graveyard Settings</value>
+  </data>
+  <data name="SettingsVertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="SettingsVerticalTooltip" xml:space="preserve">
+    <value>% Screen Position (Top &lt;-&gt; Bottom)</value>
   </data>
   <data name="SI7" xml:space="preserve">
     <value>SI:7</value>

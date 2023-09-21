@@ -1,17 +1,16 @@
+using Hearthstone_Deck_Tracker;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using Hearthstone_Deck_Tracker;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class InputManager
+    public class InputManager
 	{
 		private User32.MouseInput _mouseInput;
-		private StackPanel _player;
-		private StackPanel _enemy;
+        private readonly StackPanel _player;
+        private readonly StackPanel _enemy;
 
 		private String _selected;
 
@@ -58,12 +57,12 @@ namespace HDT.Plugins.Graveyard
 			var p = Core.OverlayCanvas.PointFromScreen(new Point(pos.X, pos.Y));
 			if (_selected == "player")
 			{
-				Settings.Default.PlayerTop = p.Y;
-				Settings.Default.PlayerLeft = p.X;
+				Settings.Default.PlayerTop = p.Y.PixelsToPercentage(Core.OverlayWindow.Height);
+				Settings.Default.PlayerLeft = p.X.PixelsToPercentage(Core.OverlayWindow.Width);
 			} else if (_selected == "enemy")
 			{
-				Settings.Default.EnemyTop = p.Y;
-				Settings.Default.EnemyLeft = p.X;
+				Settings.Default.EnemyTop = p.Y.PixelsToPercentage(Core.OverlayWindow.Height);
+				Settings.Default.EnemyLeft = p.X.PixelsToPercentage(Core.OverlayWindow.Width);
 			}
 
 			_selected = null;

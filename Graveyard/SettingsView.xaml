@@ -35,7 +35,10 @@
                 <Setter Property="TextWrapping" Value="Wrap" />
                 <Setter Property="Margin" Value="10,0" />
             </Style>
-            <Style x:Key="ToggleStyle" TargetType="mah:ToggleSwitch">
+            <Style
+                x:Key="ToggleStyle"
+                BasedOn="{StaticResource MetroToggleSwitch}"
+                TargetType="mah:ToggleSwitch">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="OnLabel" Value="Enabled" />
                 <Setter Property="OffLabel" Value="Disabled" />
@@ -57,7 +60,31 @@
             <Style x:Key="SliderPanelStyle" TargetType="DockPanel">
                 <Setter Property="Margin" Value="10,0" />
             </Style>
-            <Style x:Key="SliderStyle" TargetType="Slider">
+            <Style
+                x:Key="PositionGroupStyle"
+                BasedOn="{StaticResource MetroGroupBox}"
+                TargetType="GroupBox">
+                <Setter Property="Margin" Value="0,5" />
+                <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
+                                <Button
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding Command}"
+                                    Content="&#xE777;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    ToolTip="{lex:Loc SettingsResetButtonTooltip}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style
+                x:Key="SliderStyle"
+                BasedOn="{StaticResource MetroSlider}"
+                TargetType="Slider">
                 <Setter Property="IsSnapToTickEnabled" Value="True" />
                 <Setter Property="TickFrequency" Value="1" />
                 <Setter Property="VerticalAlignment" Value="Center" />
@@ -171,7 +198,49 @@
                 IsChecked="{Binding DeathrattleEnabled, Source={x:Static local:Settings.Default}}"
                 Style="{StaticResource ToggleStyle}"
                 ToolTip="{lex:Loc DeathrattleDescription}" />
-            <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
+            <GroupBox Header="{Binding PlayerPositionGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
+                <StackPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderPlayerLeft"
+                            Width="150"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Maximum="{Binding MaxLeft, Source={x:Static local:Settings.Default}}"
+                            ToolTip="{lex:Loc SettingsHorizontalTooltip}"
+                            Value="{Binding PlayerLeft, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc SettingsHorizontal}"
+                            DockPanel.Dock="Left"
+                            ToolTip="{lex:Loc SettingsHorizontalTooltip}" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding PlayerLeft, Source={x:Static local:Settings.Default}, StringFormat={}{0:F0}%}" />
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderPlayerTop"
+                            Width="150"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Maximum="{Binding MaxTop, Source={x:Static local:Settings.Default}}"
+                            ToolTip="{lex:Loc SettingsVerticalTooltip}"
+                            Value="{Binding PlayerTop, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc SettingsVertical}"
+                            DockPanel.Dock="Left"
+                            ToolTip="{lex:Loc SettingsVerticalTooltip}" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding PlayerTop, Source={x:Static local:Settings.Default}, StringFormat={}{0:F0}%}" />
+                    </DockPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{Binding PlayerDisplayGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
                 <StackPanel>
                     <DockPanel Style="{StaticResource SliderPanelStyle}">
                         <Slider
@@ -248,7 +317,49 @@
                 IsChecked="{Binding OpponentDeathrattleEnabled, Source={x:Static local:Settings.Default}}"
                 Style="{StaticResource ToggleStyle}"
                 ToolTip="{lex:Loc OpponentDeathrattleDescription}" />
-            <GroupBox Header="{lex:Loc SettingsDisplayTitle}">
+            <GroupBox Header="{Binding PlayerPositionGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
+                <StackPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderOpponentLeft"
+                            Width="150"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Maximum="{Binding MaxLeft, Source={x:Static local:Settings.Default}}"
+                            ToolTip="{lex:Loc SettingsHorizontalTooltip}"
+                            Value="{Binding EnemyLeft, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc SettingsHorizontal}"
+                            DockPanel.Dock="Left"
+                            ToolTip="{lex:Loc SettingsHorizontalTooltip}" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding EnemyLeft, Source={x:Static local:Settings.Default}, StringFormat={}{0:F0}%}" />
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource SliderPanelStyle}">
+                        <Slider
+                            x:Name="SliderOpponentTop"
+                            Width="150"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Maximum="{Binding MaxTop, Source={x:Static local:Settings.Default}}"
+                            ToolTip="{lex:Loc SettingsVerticalTooltip}"
+                            Value="{Binding EnemyTop, Source={x:Static local:Settings.Default}}" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="{lex:Loc SettingsVertical}"
+                            DockPanel.Dock="Left"
+                            ToolTip="{lex:Loc SettingsVerticalTooltip}" />
+                        <TextBlock
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource SliderTextStyle}"
+                            Text="{Binding EnemyTop, Source={x:Static local:Settings.Default}, StringFormat={}{0:F0}%}" />
+                    </DockPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{Binding OpponentDisplayGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
                 <StackPanel>
                     <DockPanel Style="{StaticResource SliderPanelStyle}">
                         <Slider
