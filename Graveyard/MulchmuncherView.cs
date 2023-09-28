@@ -15,7 +15,7 @@ namespace HDT.Plugins.Graveyard
                 ShowFirst = () => true,
                 CreateView = () => new NormalView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
-                Condition = card => card.Name == "Treant",
+                Condition = card => card.Name.Contains("Treant"),
             });
         }       
     }

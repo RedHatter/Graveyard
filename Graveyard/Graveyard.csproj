@@ -79,6 +79,7 @@
     <Compile Include="MenagerieView.cs" />
     <Compile Include="MinionsCreatedView.cs" />
     <Compile Include="MixtapeView.cs" />
+    <Compile Include="CultivationView.cs" />
     <Compile Include="PositionHelpers.cs" />
     <Compile Include="Properties\LibraryInfo.cs" />
     <Compile Include="SettingsUpgrades\SettingsUpgradev0111.cs" />
