@@ -12,6 +12,10 @@ jobs:
     runs-on: windows-latest
     steps:   
       - uses: actions/checkout@v3.5.2 # https://github.com/marketplace/actions/checkout
+      - id: get_head_commit
+        run: |
+          echo "title=$(powershell "git log --format=%B -n 1 HEAD | Select -First 1")" >> $GITHUB_OUTPUT
+          echo "body=$(powershell "git log --format=%B -n 1 HEAD | Select -Skip 1")" >> $GITHUB_OUTPUT
       - uses: microsoft/setup-msbuild@v1.3.1 # https://github.com/marketplace/actions/setup-msbuild
       - uses: NuGet/setup-nuget@v1.2.0 # https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions
       - run: .\scripts\update-libraries.ps1
@@ -34,6 +38,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          name: "${{ steps.set_version.outputs.buildVersion }}: ${{ steps.get_head_commit.outputs.title }}" 
+          body: ${{ steps.get_head_commit.outputs.body }}
           tag: v${{ steps.set_version.outputs.buildVersion }}
           draft: false
           prerelease: true
