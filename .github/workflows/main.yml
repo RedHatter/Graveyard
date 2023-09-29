@@ -12,10 +12,13 @@ jobs:
     runs-on: windows-latest
     steps:   
       - uses: actions/checkout@v3.5.2 # https://github.com/marketplace/actions/checkout
-      - id: get_head_commit
+      - name: Get Head Commit Message
+        id: get_head_commit
+        shell: pwsh
         run: |
-          echo "title=$(powershell "git log --format=%B -n 1 HEAD | Select -First 1")" >> $GITHUB_OUTPUT
-          echo "body=$(powershell "git log --format=%B -n 1 HEAD | Select -Skip 1")" >> $GITHUB_OUTPUT
+          $Message = git log --format=%B -n 1 HEAD
+          Write-Output "title=$($Message | Select -First 1)" >> $Env:GITHUB_OUTPUT
+          Write-Output "body=$($Message | Select -Skip 1)" >> $Env:GITHUB_OUTPUT
       - uses: microsoft/setup-msbuild@v1.3.1 # https://github.com/marketplace/actions/setup-msbuild
       - uses: NuGet/setup-nuget@v1.2.0 # https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions
       - run: .\scripts\update-libraries.ps1
