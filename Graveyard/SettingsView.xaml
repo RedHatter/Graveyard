@@ -130,6 +130,13 @@
                 TargetType="ListView">
                 <Setter Property="Margin" Value="5" />
             </Style>
+            <Style
+                x:Key="HyperlinkStyle"
+                BasedOn="{StaticResource {x:Type Hyperlink}}"
+                TargetType="Hyperlink">
+                <EventSetter Event="RequestNavigate" Handler="Hyperlink_RequestNavigate" />
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=NavigateUri}" />
+            </Style>
         </ResourceDictionary>
     </Grid.Resources>
     <Grid.RowDefinitions>
@@ -157,17 +164,17 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" TextAlignment="Center">
-                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReadmeUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReadmeUrl}}" Style="{StaticResource HyperlinkStyle}">
                     <Run Text="{lex:Loc PluginReadme}" />
                 </Hyperlink>
             </TextBlock>
             <TextBlock Grid.Column="1" TextAlignment="Center">
-                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReleasesUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginReleasesUrl}}" Style="{StaticResource HyperlinkStyle}">
                     <Run Text="{lex:Loc PluginReleases}" />
                 </Hyperlink>
             </TextBlock>
             <TextBlock Grid.Column="2" TextAlignment="Center">
-                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginIssuesUrl}}" RequestNavigate="Hyperlink_RequestNavigate">
+                <Hyperlink NavigateUri="{Binding Source={x:Static local:SettingsView.PluginIssuesUrl}}" Style="{StaticResource HyperlinkStyle}">
                     <Run Text="{lex:Loc PluginIssues}" />
                 </Hyperlink>
             </TextBlock>
