@@ -43,7 +43,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: "${{ steps.set_version.outputs.buildVersion }}: ${{ steps.get_head_commit.outputs.title }}" 
+          name: "v${{ steps.set_version.outputs.buildVersion }}: ${{ steps.get_head_commit.outputs.title }}" 
           bodyFile: Release.md
           tag: v${{ steps.set_version.outputs.buildVersion }}
           draft: false
