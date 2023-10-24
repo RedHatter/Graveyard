@@ -8,7 +8,9 @@ namespace HDT.Plugins.Graveyard
         private static MultiTurnView.ViewConfig _Config;
         internal static ViewConfig Config
         {
-            get => _Config ?? (_Config = new MultiTurnView.ViewConfig(Mage.GrandFinale)
+            get => _Config ?? (_Config = new MultiTurnView.ViewConfig(
+                Mage.GrandFinale,
+                Mage.UnchainedGladiator)
             {
                 Name = "GrandFinale",
                 Enabled = "GrandFinaleEnabled",

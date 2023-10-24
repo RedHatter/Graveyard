@@ -24,8 +24,7 @@ namespace HDT.Plugins.Graveyard
             public override void RegisterView(ViewBase view, bool isDefault = false)
             {
                 base.RegisterView(view, isDefault);
-                var multiTurn = view as MultiTurnView;
-                if (multiTurn != null)
+                if (view is MultiTurnView multiTurn)
                 {
                     Plugin.Events.OnOpponentTurnStart.Register(multiTurn.TurnEnded);
                 }
