@@ -74,6 +74,7 @@ namespace HDT.Plugins.Graveyard
 			MinionsCreatedView.Config,
 			CultivationView.Config,
 			OgreGangView.Config,
+			AzeriteRatView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
