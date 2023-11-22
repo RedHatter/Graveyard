@@ -73,6 +73,7 @@ namespace HDT.Plugins.Graveyard
 			TyrsTearsView.Config,
 			MinionsCreatedView.Config,
 			CultivationView.Config,
+			OgreGangView.Config,
         };
 
 		private readonly StackPanel FriendlyPanel;
