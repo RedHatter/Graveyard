@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 
 namespace HDT.Plugins.Graveyard
 {
@@ -12,7 +13,7 @@ namespace HDT.Plugins.Graveyard
         public double DefaultEnemyTop => GetDefaultDblValue(nameof(EnemyTop));
         public double DefaultFriendlyOpacity => GetDefaultDblValue(nameof(FriendlyOpacity));
         public double DefaultFriendlyScale => GetDefaultDblValue(nameof(FriendlyScale));
-        public Orientation DefaultFriendlyOrientation => (Orientation)Properties[nameof(FriendlyOrientation)].DefaultValue;
+        public Orientation DefaultFriendlyOrientation => (Orientation)Enum.Parse(typeof(Orientation), Properties[nameof(FriendlyOrientation)].DefaultValue.ToString());
         public double DefaultEnemyOpacity => GetDefaultDblValue(nameof(EnemyOpacity));
         public double DefaultEnemyScale => GetDefaultDblValue(nameof(EnemyScale));
 
