@@ -324,7 +324,7 @@
                 IsChecked="{Binding OpponentDeathrattleEnabled, Source={x:Static local:Settings.Default}}"
                 Style="{StaticResource ToggleStyle}"
                 ToolTip="{lex:Loc OpponentDeathrattleDescription}" />
-            <GroupBox Header="{Binding PlayerPositionGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
+            <GroupBox Header="{Binding OpponentPositionGroup, RelativeSource={RelativeSource AncestorType=Grid}}" Style="{StaticResource PositionGroupStyle}">
                 <StackPanel>
                     <DockPanel Style="{StaticResource SliderPanelStyle}">
                         <Slider
