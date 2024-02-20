@@ -1,33 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using System.Linq;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class NZothGotDView : NormalView
+    public class NZothGotDView
 	{
-		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothGodOfTheDeep) > -1;
-		}
-
-		public NZothGotDView()
-		{
-			// Section Label
-			Label.Text = Strings.GetLocalized("NZothGotD");
-		}
-
-		public bool Update(Card card)
-		{
-			if ((card.Race != null || card.Type == "Minion" && WitchingHourView.ChooseOne.Contains(card.Id)) && base.Update(card))
-			{
-				_chances.Update(card, Cards, View);
-
-				return true;
-			}
-			return false;
-		}
+			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothGodOfTheDeep)
+            {
+				Name = "NZothGotD",
+				Enabled = "NZothGotDEnabled",
+				CreateView = () => new ChancesView(),
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = card => card.Race != null,
+			});
+		}	
 	}
 }

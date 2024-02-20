@@ -71,24 +71,73 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimateDeadView.cs" />
+    <Compile Include="AzeriteRatView.cs" />
+    <Compile Include="FizzleView.cs" />
+    <Compile Include="FourHorsemenView.cs" />
+    <Compile Include="HighCultistBasalephView.cs" />
+    <Compile Include="HoldingEffectView.cs" />
+    <Compile Include="MenagerieView.cs" />
+    <Compile Include="MinionsCreatedView.cs" />
+    <Compile Include="MixtapeView.cs" />
+    <Compile Include="CultivationView.cs" />
+    <Compile Include="OgreGangView.cs" />
+    <Compile Include="PositionHelpers.cs" />
+    <Compile Include="Properties\LibraryInfo.cs" />
+    <Compile Include="SettingsUpgrades\SettingsUpgradev0111.cs" />
+    <Compile Include="TyrsTearsView.cs" />
+    <Compile Include="ReanimateView.cs" />
+    <Compile Include="CardUpdatePoller.cs" />
+    <Compile Include="EventManager.cs" />
+    <Compile Include="GraveyardView.cs" />
+    <Compile Include="HedraView.cs" />
+    <Compile Include="ImpKingView.cs" />
+    <Compile Include="KelthuzadTheInevitableView.cs" />
+    <Compile Include="JaceDarkweaverView.cs" />
+    <Compile Include="KeyToLocalizedConverter.cs" />
+    <Compile Include="RelicView.cs" />
+    <Compile Include="Settings.Upgrade.cs" />
+    <Compile Include="SettingsCard.cs" />
+    <Compile Include="SettingsUpgrades\ISettingsUpgrade.cs" />
+    <Compile Include="SettingsUpgrades\SettingsUpgradev0110.cs" />
+    <Compile Include="SivaraView.cs" />
+    <Compile Include="SpellsCreatedView.cs" />
+    <Compile Include="StranglethornHeartView.cs" />
+    <Compile Include="TyrView.cs" />
+    <Compile Include="UnendingSwarmView.cs" />
+    <Compile Include="ViewBuilder.cs" />
+    <Compile Include="ViewConfigCards.cs" />
+    <Compile Include="ViewConfigCard.cs" />
+    <Compile Include="SI7View.cs" />
+    <Compile Include="TurnUpdatePoller.cs" />
+    <Compile Include="CardExtensions.cs" />
     <Compile Include="CavernsView.cs" />
     <Compile Include="ChancesTracker.cs" />
+    <Compile Include="ChancesView.cs" />
     <Compile Include="DeathrattleView.cs" />
     <Compile Include="DragoncallerAlannaView.cs" />
+    <Compile Include="ElwynnBoarView.cs" />
     <Compile Include="EnumToBoolConverter.cs" />
+    <Compile Include="AntonidasView.cs" />
+    <Compile Include="GrandFinaleView.cs" />
     <Compile Include="HadronoxView.cs" />
     <Compile Include="GuldanView.cs" />
     <Compile Include="HoardPillagerView.cs" />
     <Compile Include="KangorView.cs" />
+    <Compile Include="KargalView.cs" />
     <Compile Include="LadyLiadrinView.cs" />
+    <Compile Include="LastCardView.cs" />
     <Compile Include="MulchmuncherView.cs" />
+    <Compile Include="MulticasterView.cs" />
+    <Compile Include="MultiTurnView.cs" />
     <Compile Include="NZothGotDView.cs" />
+    <Compile Include="LastPlayedView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DiscardView.cs" />
     <Compile Include="GraveyardPlugin.cs" />
-    <Compile Include="AnyfinCalculator.cs" />
     <Compile Include="AnyfinView.cs" />
     <Compile Include="NormalView.cs" />
+    <Compile Include="QuestlineView.cs" />
     <Compile Include="RallyView.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,6 +145,7 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="SaurfangView.cs" />
+    <Compile Include="ShirvallahView.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="ResurrectView.cs" />
     <Compile Include="NZothView.cs" />
@@ -108,7 +158,10 @@
     </Compile>
     <Compile Include="SoulwardenView.cs" />
     <Compile Include="TessGreymaneView.cs" />
+    <Compile Include="ViewBase.cs" />
+    <Compile Include="ViewConfig.cs" />
     <Compile Include="WitchingHourView.cs" />
+    <Compile Include="YShaarjView.cs" />
     <Compile Include="ZuljinView.cs" />
     <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>
@@ -120,6 +173,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <None Include="app.config" />
+    <Compile Include="Settings.Default.cs" />
     <None Include="Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

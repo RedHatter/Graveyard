@@ -1,0 +1,52 @@
+name: Build+Release on PR
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+env: 
+  PROJECT: ${{ 'Graveyard' }}
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:   
+      - uses: actions/checkout@v3.5.2 # https://github.com/marketplace/actions/checkout
+      - name: Get Head Commit Message
+        id: get_head_commit
+        shell: pwsh
+        run: |
+          $Message = git log --format=%B -n 1 HEAD
+          Write-Output "title=$($Message | Select -First 1)" >> $Env:GITHUB_OUTPUT
+          $Body = $Message | Select -Skip 1
+          Write-Output "body=$Body" >> $Env:GITHUB_OUTPUT
+          $Body | Out-File Release.md
+      - uses: microsoft/setup-msbuild@v1.3.1 # https://github.com/marketplace/actions/setup-msbuild
+      - uses: NuGet/setup-nuget@v1.2.0 # https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions
+      - run: .\scripts\update-libraries.ps1
+      - run: nuget restore "${{ env.PROJECT }}.sln"
+      - id: set_version
+        run: |
+          $build = 4000 + $env:GITHUB_RUN_NUMBER
+          $buildVersion = .\scripts\assembly-version.ps1 -project "${{ env.PROJECT }}" -build $build -overrideVersion ${{ github.ref }}
+          echo "buildVersion=$buildVersion" >> $env:GITHUB_OUTPUT
+        # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+        # https://stackoverflow.com/a/74377542/146360
+      - run: msbuild.exe "${{ env.PROJECT }}.sln" /p:platform="x86" /p:configuration="Release"
+      - id: create_zip
+        run: |
+          $zipName = "${{ env.PROJECT }}-v${{ steps.set_version.outputs.buildVersion }}.zip"
+          7z a $zipName .\${{ env.PROJECT }}\bin\x86\Release\${{ env.PROJECT }}.dll .\${{ env.PROJECT }}\bin\x86\Release\*-*
+          echo "zipName=$zipName" >> $env:GITHUB_OUTPUT
+      - uses: ncipollo/release-action@v1.12.0 # https://github.com/marketplace/actions/create-release
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: "v${{ steps.set_version.outputs.buildVersion }}: ${{ steps.get_head_commit.outputs.title }}" 
+          bodyFile: Release.md
+          tag: v${{ steps.set_version.outputs.buildVersion }}
+          draft: false
+          prerelease: true
+          artifacts: "${{ steps.create_zip.outputs.zipName }}"
+          artifactContentType: "application/zip"

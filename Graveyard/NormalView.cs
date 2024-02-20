@@ -1,5 +1,6 @@
 using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -8,7 +9,7 @@ using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class NormalView : StackPanel
+	public class NormalView : ViewBase
 	{
 		public List<Card> Cards;
 		public HearthstoneTextBlock Label;
@@ -16,18 +17,8 @@ namespace HDT.Plugins.Graveyard
 
 		public NormalView()
 		{
+			Visibility = Visibility.Collapsed;
 			Orientation = Orientation.Vertical;
-
-			// Section Label
-			Label = new HearthstoneTextBlock();
-			Label.FontSize = 16;
-			Label.TextAlignment = TextAlignment.Center;
-			Label.Text = Strings.GetLocalized("Graveyard");
-			var margin = Label.Margin;
-			margin.Top = 20;
-			Label.Margin = margin;
-			Children.Add(Label);
-			Label.Visibility = Visibility.Hidden;
 
 			// Card View
 			View = new AnimatedCardList();
@@ -35,14 +26,10 @@ namespace HDT.Plugins.Graveyard
 			Cards = new List<Card>();
 		}
 
-		public bool Update(Card card, bool isSpell = false)
-		{
-			if (card.Type != "Minion" && !isSpell)
-			{
-				return false;
-			}
+		public override bool Update(Card card)
+        {
+			if (!Condition(card)) return false;
 
-			// Increment
 			var match = Cards.FirstOrDefault(c => c.Name == card.Name);
 			if (match != null)
 			{
@@ -54,9 +41,15 @@ namespace HDT.Plugins.Graveyard
 			}
 			View.Update(Cards, false);
 
-			Label.Visibility = Visibility.Visible;
+			Visibility = Visibility.Visible;
 
 			return true;
+		}
+
+		[Obsolete("Use update without isSpell parameter, Condition predicate should be updated instead")]
+		public bool Update(Card card, bool isSpell)
+		{		
+			return Update(card);
 		}
 	}
 }

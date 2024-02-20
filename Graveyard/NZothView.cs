@@ -1,25 +1,23 @@
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.API;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class NZothView : NormalView
+    public class NZothView
 	{
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.NzothTheCorruptor) > -1;
+			get => _Config ?? (_Config = new ViewConfig(Neutral.NzothTheCorruptor)
+            {
+				Name = "NZoth",
+				Enabled = "NZothEnabled",
+				CreateView = () => new NormalView(),
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor,
+			});
 		}
-
-		public NZothView()
-		{
-			// Section Label
-			Label.Text = Strings.GetLocalized("NZoth");
-		}
-
-		public bool Update(Card card)
-		{
-			return card.Mechanics.Contains("Deathrattle") && card.Id != HearthDb.CardIds.Collectible.Rogue.UnearthedRaptor && base.Update(card);
-		}
+	
 	}
 }

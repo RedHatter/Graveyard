@@ -1,31 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class HoardPillagerView : NormalView
+    public class HoardPillagerView 
     {
-        private ChancesTracker _chances = new ChancesTracker();
-
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Neutral.HoardPillager
-            || card.Id == HearthDb.CardIds.Collectible.Neutral.RummagingKobold) > -1;
-        }
-
-        public HoardPillagerView()
-        {
-            Label.Text = Strings.GetLocalized("HoardPillager");
-        }
-
-        public bool Update(Card card)
-        {
-            var update = card.Type == "Weapon"  && base.Update(card, true);
-
-            if (update)
-                _chances.Update(card, Cards, View);
-
-            return update;
-        }
+            get => _Config ?? (_Config = new ViewConfig(Neutral.HoardPillager, Neutral.RummagingKobold)
+            {
+                Name = "HoardPillager",
+                Enabled = "HoardPillagerEnabled",
+                CreateView = () => new ChancesView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Type == "Weapon"
+            });
+        } 
     }
 }

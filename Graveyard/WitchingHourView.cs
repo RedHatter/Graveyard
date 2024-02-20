@@ -1,44 +1,24 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
-using System.Collections.Generic;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class WitchingHourView : NormalView
+    public class WitchingHourView
     {
-        private ChancesTracker _chances = new ChancesTracker();
-
-        internal static readonly List<string> ChooseOne = new List<string>
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheSaber,
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheSwarm,
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheFlame,
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheScythe,
-            HearthDb.CardIds.Collectible.Druid.WardruidLoti,
-            HearthDb.CardIds.Collectible.Druid.Shellshifter,
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheClaw,
-            HearthDb.CardIds.Collectible.Druid.DruidOfTheFang, // Honorary "choose one" for beast purposes
-        };
-
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Druid.WitchingHour) > -1;
-        }
-
-        public WitchingHourView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("WitchingHour");
-        }
-
-        public bool Update(Card card)
-        {
-            var update = (card.Race == "Beast" || card.Type == "Minion" && card.Race == null && ChooseOne.Contains(card.Id)) && base.Update(card);
-
-            if (update)
-                _chances.Update(card, Cards, View);
-
-            return update;
-        }
+            get => _Config ?? (_Config = new ViewConfig(
+                Druid.WitchingHour, 
+                Hunter.RevivePet, 
+                Hunter.AbominableBowmanICECROWN)
+            {
+                Name = "WitchingHour",
+                Enabled = "WitchingHourEnabled",
+                CreateView = () => new ChancesView(),
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Race == "Beast" || card.Race == "All",
+            });
+        }       
     }
 }

@@ -1,31 +1,52 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
+using System;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class DeathrattleView : NormalView
+    public class DeathrattleView
     {
-        public static bool isValid()
+        private static readonly string SharedName = "Deathrattle";
+        private static readonly Func<ViewBase> SharedCreateView = () => new NormalView();
+        private static readonly Predicate<Card> SharedCondition = card => card.Mechanics.Contains("Deathrattle") && card.Id != Rogue.UnearthedRaptor;
+
+        private static ViewConfig _PlayerConfig;
+        internal static ViewConfig PlayerConfig
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card =>
-                card.Id == HearthDb.CardIds.Collectible.Hunter.JewelOfNzoth ||
-                card.Id == HearthDb.CardIds.Collectible.Neutral.Vectus ||
-                card.Id == HearthDb.CardIds.Collectible.Hunter.NineLives ||
-                card.Id == HearthDb.CardIds.Collectible.Neutral.DaUndatakah ||
-                card.Id == HearthDb.CardIds.Collectible.Priest.TwilightsCall                
-                ) > -1;
+            get => _PlayerConfig ?? (_PlayerConfig = new ViewConfig(
+                Hunter.DefenseAttorneyNathanos,
+                Priest.XyrellaTheDevout, 
+                Warlock.TamsinsPhylactery,
+                Priest.AmuletOfUndying,
+                Rogue.CounterfeitBlade,
+                Hunter.JewelOfNzoth,
+                Neutral.Vectus,
+                Hunter.NineLives,
+                Neutral.DaUndatakah,
+                Priest.TwilightsCall,
+                Deathknight.Boneshredder)
+            {
+                Name = SharedName,
+                Enabled = "DeathrattleEnabled",
+                Condition = SharedCondition,
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                CreateView = SharedCreateView,
+            });
         }
 
-        public DeathrattleView()
+        private static ViewConfig _OpponentConfig;
+        internal static ViewConfig OpponentConfig
         {
-            // Section Label
-            Label.Text = Strings.GetLocalized("Deathrattle");
-        }
-
-        public bool Update(Card card)
-        {
-            return card.Mechanics.Contains("Deathrattle") && card.Id != HearthDb.CardIds.Collectible.Rogue.UnearthedRaptor && base.Update(card);
+            get => _OpponentConfig ?? (_OpponentConfig = new ViewConfig()
+            {
+                Name = "Deathrattle",
+                Enabled = "OpponentDeathrattleEnabled",
+                Condition = SharedCondition,
+                UpdateOn = GameEvents.OnOpponentPlayToGraveyard,
+                CreateView = SharedCreateView,
+            });
         }
     }
 }

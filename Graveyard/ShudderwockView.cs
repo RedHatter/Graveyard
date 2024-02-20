@@ -1,24 +1,22 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
 using System.Linq;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class ShudderwockView : NormalView
+    public class ShudderwockView
 	{
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Shaman.Shudderwock) > -1;
-		}
-
-		public ShudderwockView()
-		{
-			Label.Text = Strings.GetLocalized("Shudderwock");
-		}
-
-		public bool Update(Card card)
-		{
-			return card.Mechanics.Contains("Battlecry") && base.Update(card, true);
-		}
+			get => _Config ?? (_Config = new ViewConfig(Shaman.Shudderwock)
+            {
+				Name = "Shudderwock",
+				Enabled = "ShudderwockEnabled",
+				CreateView = () => new NormalView(),
+				UpdateOn = GameEvents.OnPlayerPlay,
+				Condition = card => card.Mechanics.Contains("Battlecry"),
+			});
+		}	
 	}
 }

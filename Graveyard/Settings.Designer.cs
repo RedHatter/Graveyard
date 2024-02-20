@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -428,6 +428,210 @@ namespace HDT.Plugins.Graveyard {
             }
             set {
                 this["SaurfangEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool YShaarjEnabled {
+            get {
+                return ((bool)(this["YShaarjEnabled"]));
+            }
+            set {
+                this["YShaarjEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ElwynnBoarEnabled {
+            get {
+                return ((bool)(this["ElwynnBoarEnabled"]));
+            }
+            set {
+                this["ElwynnBoarEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AlwaysBoarSeparately {
+            get {
+                return ((bool)(this["AlwaysBoarSeparately"]));
+            }
+            set {
+                this["AlwaysBoarSeparately"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool KargalEnabled {
+            get {
+                return ((bool)(this["KargalEnabled"]));
+            }
+            set {
+                this["KargalEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AntonidasEnabled {
+            get {
+                return ((bool)(this["AntonidasEnabled"]));
+            }
+            set {
+                this["AntonidasEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GrandFinaleEnabled {
+            get {
+                return ((bool)(this["GrandFinaleEnabled"]));
+            }
+            set {
+                this["GrandFinaleEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LastPlayedEnabled {
+            get {
+                return ((bool)(this["LastPlayedEnabled"]));
+            }
+            set {
+                this["LastPlayedEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FriendlyQuestlineEnabled {
+            get {
+                return ((bool)(this["FriendlyQuestlineEnabled"]));
+            }
+            set {
+                this["FriendlyQuestlineEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnemyQuestlineEnabled {
+            get {
+                return ((bool)(this["EnemyQuestlineEnabled"]));
+            }
+            set {
+                this["EnemyQuestlineEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MulticasterEnabled {
+            get {
+                return ((bool)(this["MulticasterEnabled"]));
+            }
+            set {
+                this["MulticasterEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShirvallahEnabled {
+            get {
+                return ((bool)(this["ShirvallahEnabled"]));
+            }
+            set {
+                this["ShirvallahEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExcludedCards {
+            get {
+                return ((string)(this["ExcludedCards"]));
+            }
+            set {
+                this["ExcludedCards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.9.5")]
+        public string Version {
+            get {
+                return ((string)(this["Version"]));
+            }
+            set {
+                this["Version"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/RedHatter/Graveyard")]
+        public string GitHubProjectUrl {
+            get {
+                return ((string)(this["GitHubProjectUrl"]));
+            }
+            set {
+                this["GitHubProjectUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpponentDeathrattleEnabled {
+            get {
+                return ((bool)(this["OpponentDeathrattleEnabled"]));
+            }
+            set {
+                this["OpponentDeathrattleEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("95")]
+        public double MaxTop {
+            get {
+                return ((double)(this["MaxTop"]));
+            }
+            set {
+                this["MaxTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("95")]
+        public double MaxLeft {
+            get {
+                return ((double)(this["MaxLeft"]));
+            }
+            set {
+                this["MaxLeft"] = value;
             }
         }
     }

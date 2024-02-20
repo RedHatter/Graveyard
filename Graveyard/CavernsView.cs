@@ -1,24 +1,21 @@
-﻿using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+﻿using Hearthstone_Deck_Tracker.API;
+using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class CavernsView : NormalView
+    public class CavernsView
     {
-        public static bool isValid()
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
         {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Rogue.TheCavernsBelow) > -1;
-        }
-
-        public CavernsView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("Caverns");
-        }
-
-        public bool Update(Card card)
-        {
-            return base.Update(card);
+            get => _Config ?? (_Config = new ViewConfig(Rogue.TheCavernsBelow)
+            {
+                Name = "Caverns",
+                Enabled = "CavernsEnabled",
+                CreateView = () => new NormalView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Minion",                
+            });
         }
     }
 }

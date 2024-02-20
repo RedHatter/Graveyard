@@ -1,12 +1,25 @@
-﻿using Hearthstone_Deck_Tracker;
+﻿using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using System.Collections.Generic;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-    public class LadyLiadrinView : NormalView
+    public class LadyLiadrinView
     {
+        private static ViewConfig _Config;
+        internal static ViewConfig Config
+        {
+            get => _Config ?? (_Config = new ViewConfig(Paladin.LadyLiadrin)
+            {
+                Name = "LadyLiadrin",
+                Enabled = "LadyLiadrinEnabled",
+                CreateView = () => new NormalView(),
+                UpdateOn = GameEvents.OnPlayerPlay,
+                Condition = card => card.Type == "Spell" && SpellList.Contains(card.Id),
+            });
+        }
+        
         public static readonly List<string> SpellList = new List<string>
         {
             // 0
@@ -17,27 +30,33 @@ namespace HDT.Plugins.Graveyard
             Paladin.BlessingOfWisdom,
             Paladin.DivineStrength,
             Paladin.HandOfProtectionLegacy,
+            Paladin.HolyMakiRoll,
             //Paladin.Humility
             Paladin.SandBreath,
             Paladin.ShieldOfHonor,
             // 2
-            Paladin.DarkConviction,
+            Paladin.DarkConvictionICECROWN,
+            Paladin.DesperateStandICECROWN,
+            Paladin.ForQuelthalas,
             Paladin.FlashOfLight,
-            Paladin.HandOfAdal,
-            Paladin.HolyLightLegacy,
+            Paladin.HandOfAdalCore,
             Paladin.LibramOfWisdom,
             Paladin.LightforgedBlessing,
+            Paladin.NobleMount,
             Paladin.PotionOfHeroism,
-            Paladin.SealOfLight,
+            Paladin.RingOfCourage,
             Paladin.SoundTheBells,
             //Paladin.Subdue
             // 3
             Paladin.GiftOfLuminance,
+            Paladin.HoldTheBridge,
+            //Paladin.RighteousDefense,
+            Paladin.SealOfBlood,
             Paladin.SealOfChampions,
             // 4
-            Paladin.BlessingOfKingsLegacy,
+            Paladin.BlessingOfKingsCore,
             //Paladin.HammerOfWrath,
-            Paladin.SilvermoonPortal,
+            Paladin.SilvermoonPortalKARA,
             // 5
             Paladin.BlessedChampion,
             Paladin.BlessingOfAuthority,
@@ -50,25 +69,11 @@ namespace HDT.Plugins.Graveyard
             Paladin.SpikeridgedSteed,
             // 8
             Paladin.Dinosize,
-            Paladin.LayOnHands,
+            Paladin.LayOnHandsExpert1,
             // 9
             Paladin.LibramOfHope,
+            // 10
+            Paladin.TheGardensGrace,
         };
-
-        public static bool isValid()
-        {
-            return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == HearthDb.CardIds.Collectible.Paladin.LadyLiadrin) > -1;
-        }
-
-        public LadyLiadrinView()
-        {
-            // Section Label
-            Label.Text = Strings.GetLocalized("LadyLiadrin");
-        }
-
-        public bool Update(Card card)
-        {
-            return card.Type == "Spell" && SpellList.Contains(card.Id) && base.Update(card, true);
-        }
     }
 }

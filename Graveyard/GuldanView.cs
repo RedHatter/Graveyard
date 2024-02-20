@@ -1,32 +1,24 @@
-using Hearthstone_Deck_Tracker;
-using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.API;
 using static HearthDb.CardIds.Collectible;
 
 namespace HDT.Plugins.Graveyard
 {
-	public class GuldanView : NormalView
+    public class GuldanView
 	{
-		private ChancesTracker _chances = new ChancesTracker();
-
-		public static bool isValid()
+		private static ViewConfig _Config;
+		internal static ViewConfig Config
 		{
-			return Core.Game.Player.PlayerCardList.FindIndex(card => card.Id == Warlock.BloodreaverGuldan || card.Id == Warlock.KanrethadEbonlocke) > -1;
-		}
-
-		public GuldanView()
-		{
-			// Section Label
-			Label.Text = Strings.GetLocalized("Guldan");
-		}
-
-		public bool Update(Card card)
-		{
-			var update = card.Race == "Demon" && base.Update(card);
-
-			if (update)
-				_chances.Update(card, Cards, View);
-
-			return update;
+			get => _Config ?? (_Config = new ViewConfig(
+				Demonhunter.AllFelBreaksLoose,
+				Warlock.BloodreaverGuldanICECROWN,
+				Warlock.KanrethadEbonlocke)
+            {
+				Name = "Guldan",
+				Enabled = "GuldanEnabled",
+				CreateView = () => new ChancesView(),
+				UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+				Condition = card => card.Race == "Demon",
+			});
 		}
 	}
 }
