@@ -21,8 +21,8 @@ namespace HDT.Plugins.Graveyard
                 CreateView = () => new TyrView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
                 Condition = card => card.Type == "Minion"
-                    && card.Attack >= 2 
-                    && card.Attack <= 4,
+                                    && card.Attack >= 2 
+                                    && card.Attack <= 4,
             });
         }
 
@@ -74,6 +74,7 @@ namespace HDT.Plugins.Graveyard
                     VerticalAlignment = VerticalAlignment.Top,
                     MinHeight = 30,
                     MinWidth = 30,
+                    Margin = new Thickness(-15,0,0,0),
                     Text = name,
                 };
                 Children.Add(Title);
