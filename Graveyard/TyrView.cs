@@ -20,9 +20,10 @@ namespace HDT.Plugins.Graveyard
             {
                 CreateView = () => new TyrView(),
                 UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
-                Condition = card => card.Type == "Minion"
-                                    && card.Attack >= 2 
-                                    && card.Attack <= 4,
+                Condition = card => card.CardClass == CardClass.PALADIN 
+                    && card.Type == "Minion"
+                    && card.Attack >= 2 
+                    && card.Attack <= 4,
             });
         }
 
