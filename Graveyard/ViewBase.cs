@@ -23,7 +23,17 @@ namespace HDT.Plugins.Graveyard
                 Text = text,
                 Margin = new Thickness(0, 20, 0, 0),
             };
+#if DEBUGXAML
+            var titleBorder = new Border
+            {
+                BorderBrush = System.Windows.Media.Brushes.Red,
+                BorderThickness = new Thickness(1),
+                Child = title,
+            };
+            Children.Insert(0, titleBorder);
+#else
             Children.Insert(0, title);
+#endif            
             return title;
         }
         public string Title 

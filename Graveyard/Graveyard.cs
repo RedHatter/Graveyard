@@ -77,7 +77,10 @@ namespace HDT.Plugins.Graveyard
 			AzeriteRatView.Config,
         };
 
-		private readonly StackPanel FriendlyPanel;
+		private readonly FrameworkElement FriendlyView;
+        private readonly FrameworkElement EnemyView;
+
+        private readonly StackPanel FriendlyPanel;
 		private readonly StackPanel EnemyPanel;
 
 		private StackPanel FirstPanel;
@@ -92,16 +95,36 @@ namespace HDT.Plugins.Graveyard
             {
                 Orientation = Orientation.Vertical
             };
-            Core.OverlayCanvas.Children.Add(EnemyPanel);
+#if DEBUGXAML
+			EnemyView = new Border
+			{
+				BorderBrush = Brushes.Green,
+				BorderThickness = new Thickness(1),
+				Child = EnemyPanel,
+			};
+#else
+			EnemyView = EnemyPanel;            
+#endif
+            Core.OverlayCanvas.Children.Add(EnemyView);
 
             // Create container
             FriendlyPanel = new StackPanel
             {
                 Orientation = Settings.Default.FriendlyOrientation
             };
-            Core.OverlayCanvas.Children.Add(FriendlyPanel);
+#if DEBUGXAML
+            FriendlyView = new Border
+            {
+                BorderBrush = Brushes.Green,
+                BorderThickness = new Thickness(1),
+                Child = FriendlyPanel,
+            };
+#else
+			FriendlyView = FriendlyPanel;           
+#endif
+            Core.OverlayCanvas.Children.Add(FriendlyView);
 
-			Input = new InputManager(FriendlyPanel, EnemyPanel);
+            Input = new InputManager(FriendlyPanel, EnemyPanel);
 
 			Settings.Default.PropertyChanged += SettingsChanged;
 			SettingsChanged(null, null);
@@ -111,7 +134,7 @@ namespace HDT.Plugins.Graveyard
         private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			FriendlyPanel.Orientation = Settings.Default.FriendlyOrientation;
-			FriendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
+            FriendlyPanel.RenderTransform = new ScaleTransform(Settings.Default.FriendlyScale / 100, Settings.Default.FriendlyScale / 100);
 			FriendlyPanel.Opacity = Settings.Default.FriendlyOpacity / 100;
 			EnemyPanel.RenderTransform = new ScaleTransform(Settings.Default.EnemyScale / 100, Settings.Default.EnemyScale / 100);
 			EnemyPanel.Opacity = Settings.Default.EnemyOpacity / 100;
@@ -138,18 +161,18 @@ namespace HDT.Plugins.Graveyard
 				|| Core.Game.IsBattlegroundsMatch
                 || Core.Game.IsMercenariesMatch ? Visibility.Collapsed : Visibility.Visible;
 
-			FriendlyPanel.Visibility = visibility;
-			if (FriendlyPanel.Visibility == Visibility.Visible)
+            FriendlyView.Visibility = visibility;
+			if (FriendlyView.Visibility == Visibility.Visible)
 			{
-                Canvas.SetTop(FriendlyPanel, Settings.Default.PlayerTop.PercentageToPixels(Core.OverlayWindow.Height));
-                Canvas.SetLeft(FriendlyPanel, Settings.Default.PlayerLeft.PercentageToPixels(Core.OverlayWindow.Width));
+                Canvas.SetTop(FriendlyView, Settings.Default.PlayerTop.PercentageToPixels(Core.OverlayWindow.Height));
+                Canvas.SetLeft(FriendlyView, Settings.Default.PlayerLeft.PercentageToPixels(Core.OverlayWindow.Width));
             }
 
-            EnemyPanel.Visibility = visibility;
-			if (EnemyPanel.Visibility == Visibility.Visible)
+            EnemyView.Visibility = visibility;
+			if (EnemyView.Visibility == Visibility.Visible)
 			{
-                Canvas.SetTop(EnemyPanel, Settings.Default.EnemyTop.PercentageToPixels(Core.OverlayWindow.Height));
-                Canvas.SetLeft(EnemyPanel, Settings.Default.EnemyLeft.PercentageToPixels(Core.OverlayWindow.Width));
+                Canvas.SetTop(EnemyView, Settings.Default.EnemyTop.PercentageToPixels(Core.OverlayWindow.Height));
+                Canvas.SetLeft(EnemyView, Settings.Default.EnemyLeft.PercentageToPixels(Core.OverlayWindow.Width));
             }
         }
 
