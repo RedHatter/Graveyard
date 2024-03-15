@@ -75,7 +75,7 @@ namespace HDT.Plugins.Graveyard
                     VerticalAlignment = VerticalAlignment.Top,
                     MinHeight = 30,
                     MinWidth = 30,
-                    Margin = new Thickness(-14,0,0,0),
+                    Margin = new Thickness(Settings.Default.TyrViewLeft, 0, 0, 0),
                     Text = name,
                 };
                 Children.Add(Title);
