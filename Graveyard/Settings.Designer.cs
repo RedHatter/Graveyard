@@ -12,7 +12,7 @@ namespace HDT.Plugins.Graveyard {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -632,6 +632,30 @@ namespace HDT.Plugins.Graveyard {
             }
             set {
                 this["MaxLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-14")]
+        public double TyrViewLeft {
+            get {
+                return ((double)(this["TyrViewLeft"]));
+            }
+            set {
+                this["TyrViewLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-42")]
+        public double ChancesViewLeft {
+            get {
+                return ((double)(this["ChancesViewLeft"]));
+            }
+            set {
+                this["ChancesViewLeft"] = value;
             }
         }
     }

@@ -155,5 +155,11 @@
     <Setting Name="MaxLeft" Type="System.Double" Scope="User">
       <Value Profile="(Default)">95</Value>
     </Setting>
+    <Setting Name="TyrViewLeft" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">-14</Value>
+    </Setting>
+    <Setting Name="ChancesViewLeft" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">-42</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
