@@ -14,7 +14,7 @@ namespace HDT.Plugins.Graveyard
             Orientation = Orientation.Vertical;
         }
         
-        public HearthstoneTextBlock AddTitle(string text = "")
+        public virtual HearthstoneTextBlock AddTitle(string text = "")
         {
             var title = new HearthstoneTextBlock
             {
