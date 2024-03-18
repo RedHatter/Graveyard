@@ -102,5 +102,16 @@ namespace HDT.Plugins.Graveyard
             Warrior.BridgeRiff,
             Warrior.ChorusRiff,
         };
+
+        internal static ViewConfig EndgameConfig
+        {
+            get => _EndgameConfig ?? (_EndgameConfig = new LastCardView.ViewConfig(Warlock.Endgame) 
+            {
+                Name = "Endgame",
+                UpdateOn = GameEvents.OnPlayerPlayToGraveyard,
+                Condition = card => card.Race == "Demon",
+            });
+        }
+        private static ViewConfig _EndgameConfig;
     }
 }
